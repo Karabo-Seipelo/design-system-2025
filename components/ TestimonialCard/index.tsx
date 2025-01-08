@@ -32,11 +32,9 @@ const TestimonialCard = ( {
     return (
         <div className="md:w-[340px] flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md">
             <header className="flex items-center gap-4 self-stretch">
-                <div className="w-12 h-12">
-                    <Avatar imageUrl={avatar.imageUrl} alt={`${firstName && lastName ? firstName + ' ' + lastName : 'unknown user' }`} classes="w-12 h-12 object-cover rounded-full" />
-                </div>
+                <Avatar imageUrl={avatar.imageUrl} alt={`${firstName && lastName ? firstName + ' ' + lastName : 'unknown user' }`} classes="w-12 h-12 object-cover rounded-full" />
                 <div className="flex flex-col gap-px grow">
-                <span className="font-semibold text-lg text-justify text-neutral-900">{`${firstName && lastName ? firstName + ' ' + lastName : 'unknown user' }`}</span>
+                    <span className="font-semibold text-lg text-justify text-neutral-900">{`${firstName && lastName ? firstName + ' ' + lastName : 'unknown user' }`}</span>
                     {handle && <span className="font-normal text-sm text-neutral-600">{handle}</span>}
                 </div>
             </header>

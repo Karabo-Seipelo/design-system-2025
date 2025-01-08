@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Card from '.';
 
 const meta = {
-  title: 'Components/Testimonial/Card',
+  title: 'Components/Card',
   component: Card,
   tags: ['autdocs'],
   parameters: {
@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Basic: Story = {
+export const TestimonialCard: Story = {
   args: {
     firstName: 'John',
     lastName: 'Doe',
