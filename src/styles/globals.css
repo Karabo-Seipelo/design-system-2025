@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #ffffff;
+  --background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  --foreground: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ededed;
-    --foreground: #ededed;
+    --background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+    --foreground: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
   }
 }
 
