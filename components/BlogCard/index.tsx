@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { ArrowRightIcon } from '@heroicons/react/24/solid'
 
 export interface BlogCardProps  {
     imageUrl: string;
@@ -11,6 +12,7 @@ export interface BlogCardProps  {
         label: string;
     };
 }
+
 
 const BlogCard = ({
     title,
@@ -33,12 +35,11 @@ const BlogCard = ({
                 {post && <article className="flex flex-col gap-6 self-stretch font-medium text-base text-neutral-600">
                 {post}
                 </article>}
-                {link &&  <button className="flex justify-left items-center gap-1.5 rounded font-medium text-base text-indigo-700">{link.label}</button>}
-               
+                
+                {link &&  <button className="flex justify-left items-center gap-1.5 rounded font-medium text-base text-indigo-700">{link.label}<ArrowRightIcon className="size-4 text-indigo-500" /></button>}
             </div>
         </div>
     );
 };
 
 export default BlogCard;
-
