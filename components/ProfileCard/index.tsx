@@ -31,7 +31,6 @@ const ProfileCard = ({
     socials,
     button,
 } : ProfileCardProps) => {
-    console.log({socials});
     return (
         <div className="w-[340px] flex flex-col bg-white rounded-lg item-center gap-10 px-4 py-6">
             <div className="flex flex-col items-center gap-6 self-stretch">
