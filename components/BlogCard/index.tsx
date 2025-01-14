@@ -5,7 +5,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/solid'
 export interface BlogCardProps  {
     imageUrl: string;
     title: string;
-    category?: string;
+    categories: string[];
     post: string;
     link: {
         href: string;
@@ -19,6 +19,7 @@ const BlogCard = ({
     imageUrl,
     post,
     link,
+    categories,
 } : BlogCardProps) => {
     return (
         <div className='w-[340px] flex flex-col bg-white rounded-lg'>
@@ -26,9 +27,9 @@ const BlogCard = ({
             <div className="flex flex-col gap-3 self-stretch px-4 py-6">
                 <header className="flex flex-col gap-2">
                     <ul>
-                        <li className="inline-flex bg-green-50 px-2 py-0.5 rounded-full border border-solid border-green-200 font-normal text-sm text-center text-green-70">
-                            <span className="font-normal text-sm text-center text-green-700">Interior</span>
-                        </li>
+                        {categories.map((category, index) => (<li key={`${category}-${index}`} className="inline-flex bg-green-50 px-2 py-0.5 rounded-full border border-solid border-green-200 font-normal text-sm text-center text-green-70 mr-1">
+                            <span className="font-normal text-sm text-center text-green-700">{category}</span>
+                        </li>))}
                     </ul>
                    {title && <h5 className="font-semibold text-lg text-neutral-900">{title}</h5>}
                 </header>

@@ -1,9 +1,15 @@
 import Image from 'next/image';
 
-export interface Social {
+export enum SocialIcons {
+    GitHub = "github",
+    LinkedIn = "linkedin",
+    Instagram = "instagram",
+    X = "x",
+}
+export interface Socials {
     name: string;
     url: string;
-    icon: string;
+    icon: SocialIcons;
 }
 
 export interface ProfileCardProps {
@@ -11,7 +17,10 @@ export interface ProfileCardProps {
     imageUrl: string;
     description: string;
     role: string;
-    socials?: [Social];
+    socials: Socials[];
+    button: {
+        label: string;
+    }
 }
 
 const ProfileCard = ({
@@ -20,7 +29,9 @@ const ProfileCard = ({
     description,
     role,
     socials,
+    button,
 } : ProfileCardProps) => {
+    console.log({socials});
     return (
         <div className="w-[340px] flex flex-col bg-white rounded-lg item-center gap-10 px-4 py-6">
             <div className="flex flex-col items-center gap-6 self-stretch">
@@ -36,10 +47,10 @@ const ProfileCard = ({
                     {description}
                 </div>}
             </div>
-            <button className="flex justify-center items-center gap-1.5 self-stretch bg-indigo-700 px-4 py-2.5 rounded text-white font-medium text-base">Contact me</button>
-            {socials && <ul className="flex justify-center gap-4 self-stretch">
+            <button className="flex justify-center items-center gap-1.5 self-stretch bg-indigo-700 px-4 py-2.5 rounded text-white font-medium text-base">{button.label}</button>
+            {<ul className="flex justify-center gap-4 self-stretch">
                 {socials.map(({name, url, icon}, indx) => <li key={`${name}-${indx}`}className="w-5 h-5">
-                    <a href={url}>{icon}</a>
+                    <a href={url} className={`icon-${icon} text-base`} aria-label={`Link to ${name}'s ${icon} profile`}></a>
                 </li>)}
             </ul>}
         </div>

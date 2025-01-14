@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import Card from '.';
+import { SocialIcons } from '.';
 
 const meta = {
     title: 'components/Card',
@@ -18,6 +19,31 @@ export const ProfileCard: Story = {
         imageUrl: "profile.png",
         description: "I turn coffee into bugs which are fixed by someone else. Certified Stack Overflow and ChatGPT developer.",
         role: "Front End Engineer @ Microsoft",
-        name: "Sarah Dole"
+        name: "Sarah Dole",
+        socials: [
+            {
+                name: "GitHub",
+                url: "22",
+                icon: SocialIcons.GitHub,
+            },
+            {
+                name: "LinkedIn",
+                url: "22",
+                icon: SocialIcons.LinkedIn,
+            },
+            {
+                name: "Instagram",
+                url: "22",
+                icon: SocialIcons.Instagram,
+            },
+            {
+                name: "X",
+                url: "22",
+                icon: SocialIcons.X,
+            },
+        ],
+        button: {
+            label: "Contact me"
+        }
     }
 };
