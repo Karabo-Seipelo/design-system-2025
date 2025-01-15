@@ -8,20 +8,20 @@ const meta = {
     parameters: {
       layout: 'centered',
     },
-  } satisfies Meta<typeof Card>;
+} satisfies Meta<typeof Card>;
   
-  export default meta;
-  type Story = StoryObj<typeof meta>;
+export default meta;
+type Story = StoryObj<typeof meta>;
   
-  export const BlogCard: Story = {
-    args: {
-      imageUrl: "spacejoy-YqFz7UMm8qE-unsplash.jpg",
-      title: 'How to create a cozy living room',
-      post: 'Curated vibrants colors for your living, make it pop & calm in the same time.',
-      categories: ['Interior', 'Living Room'],
-      link: {
-        href: 'https://www.spacejoy.com',
-        label: 'Read more',
-      },
-    }
-  };
+export const BlogCard: Story = {
+  args: {
+    imageUrl: "spacejoy-YqFz7UMm8qE-unsplash.jpg",
+    title: 'How to create a cozy living room',
+    post: 'Curated vibrants colors for your living, make it pop & calm in the same time.',
+    categories: ['Interior', 'Living Room'],
+    link: {
+      href: 'https://www.spacejoy.com',
+      label: 'Read more',
+    },
+  }
+};
