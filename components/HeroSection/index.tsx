@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface HeroSectionProps {
     imageUrl: string;
 }
@@ -16,7 +18,11 @@ const HeroSection = ({
                         <button className="gap-1.5 grow bg-white px-5 py-3 rounded border-[0.5px] border-solid border-neutral-200">Learn more</button>
                         <button className="gap-1.5 grow bg-indigo-700 px-5 py-3 rounded text-white">See pricing</button>
                     </div>
-                    <img src={imageUrl} className="flex justify-center items-center self-stretch object-cover py-[32.12166976928711px] rounded-lg w-full md:py-16 md:rounded-2xl" />
+                    <br/>
+                    <div className="flex flex-col relative w-[100%] h-[30vh] md:h-[35vh]">
+                        <Image src={imageUrl} alt="testing" fill={true} sizes="(max-width: 768px) 10vw, (max-width: 1200px) 10vw, 100%" />
+                    </div>
+                   
                 </div>
             </section>
         </div>
