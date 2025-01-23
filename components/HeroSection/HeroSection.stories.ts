@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Simple: Story = {
     args: {
-        imageUrl: "Heroimage.png",
+        imageUrl: "prism.png",
     }
 };

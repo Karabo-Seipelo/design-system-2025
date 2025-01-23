@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 interface HeroSectionProps {
     imageUrl: string;
 }
@@ -5,21 +7,23 @@ const HeroSection = ({
     imageUrl,
 } : HeroSectionProps) => {
     return (
-        <div className="flex flex-col justify-center self-stretch grow bg-gradient-to-b from-gray-50 to-[#edf0f3] rounded md:rounded-md">
-            <section className="flex flex-col self-strech rounded-lg px-3 py-12">
-                <div>
-                    <div className="flex flex-col justify-center gap-4 self-stretch">
-                        <h2 className="font-semibold text-4xl text-neutral-900 w-full">Well crafted abstract images</h2>
-                        <div className="font-normal text-lg text-neutral-600 w-full">High quality abstract images for your projects, wallpaper and presentations.</div>
-                    </div>
-                    <div className="flex gap-4 self-stretch md:w-[458px] md:gap-8">
-                        <button className="gap-1.5 grow bg-white px-5 py-3 rounded border-[0.5px] border-solid border-neutral-200">Learn more</button>
-                        <button className="gap-1.5 grow bg-indigo-700 px-5 py-3 rounded text-white">See pricing</button>
-                    </div>
-                    <img src={imageUrl} className="flex justify-center items-center self-stretch object-cover py-[32.12166976928711px] rounded-lg w-full md:py-16 md:rounded-2xl" />
+        <section className="container mx-auto px-4 sm:px-6 lg:p-8 lg:py-10 max-w-screen-xl self-strech bg-gradient-to-b from-gray-50 to-[#edf0f3] shadow-md rounded p-4">
+                <div className="flex flex-col lg:flex-row">
+                    <header className="mb-5">
+                            <div className="">
+                                <h2 className="font-semibold text-4xl text-neutral-900 w-full md:text-5xl lg:text-6xl">Well crafted abstract images</h2>
+                                <div className="font-normal text-lg text-neutral-600 w-full py-2.5 md:text-xl">High quality abstract images for your projects, wallpaper and presentations.</div>
+                            </div>
+                            <div className="flex gap-4 self-stretch mt-5">
+                                <button className="basis-1/2 bg-white py-3 rounded border-[0.5px] border-solid border-neutral-200">Learn more</button>
+                                <button className="basis-1/2 bg-indigo-700 py-3 rounded text-white">See pricing</button>
+                            </div>
+                    </header>
+                    <footer className="relative w-full max-w-xs mx-auto pb-[100%] md:max-w-2xl md:pb-[50%]">
+                        <Image src={imageUrl} alt="testing" fill className="object-contain" />
+                    </footer>
                 </div>
-            </section>
-        </div>
+        </section>
     )
 }
 
