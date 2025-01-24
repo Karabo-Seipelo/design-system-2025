@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-
 interface Button {
     label: string;
     primary: boolean;
@@ -29,7 +28,7 @@ const HeroSection = ({
                             </div>
                             <div className="flex gap-4 self-stretch mt-5">
                                 {buttons.map((button, index) => (
-                                    <button key={index} className={buttonStyling(button.primary)} aria-label="Learn more">{button.label}</button>
+                                    <button key={`${button.label + " " + index}`} className={buttonStyling(button.primary)} aria-label="Learn more">{button.label}</button>
                                 ))}
                             </div>
                     </header>
