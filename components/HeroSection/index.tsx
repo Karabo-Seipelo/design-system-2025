@@ -21,7 +21,8 @@ const HeroSection = ({
     return (
         <section className="container mx-auto px-4 sm:px-6 lg:p-8 lg:py-10 max-w-screen-xl self-stretch bg-gradient-to-b from-gray-50 to-[#edf0f3] shadow-md rounded p-4">
                 <div className="flex flex-col lg:flex-row">
-                    <header className="mb-5">
+                    <header className="flex items-center mb-5">
+                        <div className="align-items justify-content">
                             <div className="">
                                 {title && <h2 className="font-semibold text-4xl text-neutral-900 w-full md:text-5xl lg:text-6xl">{title}</h2>}
                                 {description && <div className="font-normal text-lg text-neutral-600 w-full py-2.5 md:text-xl">{description}</div>}
@@ -31,6 +32,7 @@ const HeroSection = ({
                                     <button key={`${button.label + " " + index}`} className={buttonStyling(button.primary)} aria-label="Learn more">{button.label}</button>
                                 ))}
                             </div>
+                        </div>
                     </header>
                     <footer className="relative w-full max-w-xs mx-auto pb-[100%] md:max-w-2xl md:pb-[50%]">
                         <Image src={imageUrl} alt="testing" fill className="object-contain" />
