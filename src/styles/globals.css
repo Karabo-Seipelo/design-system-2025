@@ -42,7 +42,7 @@ body {
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon', 'sans-serif' !important;
+  font-family: 'icomoon', 'arial', 'sans-serif' !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -72,3 +72,13 @@ body {
   color: #4338ca;
 }
 
+#storybook-root {
+  height: 100vh;
+  padding: 16px;
+}
+
+body {
+  background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  width: 100%;
+  height: 100vh;
+}
