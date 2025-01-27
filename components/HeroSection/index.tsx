@@ -28,9 +28,9 @@ const HeroSection = ({
                         <div className="">
                             {title && <h2 className="font-semibold text-4xl text-neutral-900 w-full md:text-5xl lg:text-6xl">{title}</h2>}
                             {description && <div className="font-normal text-lg text-neutral-600 w-full py-2.5 md:text-xl">{description}</div>}
-                            {features && <ul>
+                            {features && <ul className="my-5">
                                 {features.map((feature, index) => (
-                                    <li key={feature + " " + index}>{feature}</li>
+                                    <li key={feature + " " + index} className="flex justify-start"><Image src="check-fill.svg" width={24} height={24} alt="check" className='mr-2' />{feature}</li>
                                 ))}
                             </ul>}
                         </div>
