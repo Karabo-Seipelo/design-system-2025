@@ -13,4 +13,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FeatureSectionRight: Story = {};
+export const FeatureSectionRight: Story = {
+    args: {
+        imageUrl: "hero-img.png",
+    }
+};
