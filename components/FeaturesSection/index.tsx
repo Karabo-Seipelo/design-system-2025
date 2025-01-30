@@ -36,8 +36,8 @@ const FeatureSection = ({
                         <ul className="flex flex-col gap-10 lg:flex-1">
                             {features && features.map((feature, index) => (
                                 <li key={feature.title + " " + index} className="flex flex-row gap-4 md:gap-5">
-                                    <div className="h-fit rounded-full bg-white p-3 shadow-sm">
-                                        <Image src={feature.icon} alt={feature.title} width={0} height={0} className="w-full min-h-[24px] lg:h-[24px]" />
+                                    <div className="h-fit rounded-full bg-white p-3 shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+                                        <Image src={feature.icon} alt={feature.title} width={0} height={0} className="min-w-[24px] md:w-full min-h-[24px] lg:h-[24px]" />
                                     </div>
                                     <div className="flex flex-col items-start justify-center gap-2 py-2.5">
                                         <h4 className="font-semibold text-lg">{feature.title}</h4>
