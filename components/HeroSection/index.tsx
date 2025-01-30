@@ -12,6 +12,7 @@ interface HeroSectionProps {
     buttons: Button[];
     features?: string[];
 }
+
 const HeroSection = ({
     title,
     description,
