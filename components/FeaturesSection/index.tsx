@@ -1,60 +1,59 @@
 import Image from 'next/image';
 
+interface Feature {
+    title: string;
+    description: string;
+    icon: string;
+}
 interface FeatureSectionProps {
     imageUrl: string;
+    title: string;
+    subTitle: string;
+    description: string;
+    features?: Feature[];
+    orientation?: "left" | "right";
 }
 
-const FeatureSection = ({imageUrl} : FeatureSectionProps) => {
-    return (<section className="container mx-auto bg-white shadow-md rounded p-4 flex flex-col gap-10">
-        <header className="flex flex-col gap-5 text-center">
-            <p className="font-semibold text-base text-indigo-700">High quality images</p>
-            <h1 className="font-semibold text-3xl text-neutral-900">For designers, by designers</h1>
-            <p className="font-normal text-lg text-neutral-600">Unleash boundless creativity with a large repository of images optimized for designers</p>
-        </header>
-        <div className="flex flex-col gap-10">
-            <article>
-                <ul className="flex flex-col gap-10">
-                    <li className='flex flex-row gap-5'>
-                        <div className="basis-1/6">
-                            <div className="w-12 h-12 bg-white rounded-full shadow-md flex items-center">
-                                <Image src="hd-line.svg" width={12} height={12} className="w-6 h-6 mx-auto" alt="hd" />
-                            </div>
+const FeatureSection = ({
+    imageUrl,
+    subTitle,
+    title,
+    description,
+    features,
+    orientation = "right"
+} : FeatureSectionProps) => {
+
+    return (
+        <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
+            <div className="flex h-full flex-col imtes-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
+                <section className="flex flex-col gap-12 md:gap-16">
+                    <header className="flex flex-col items-center justify-center text-center">
+                        {subTitle && <small className="text-base font-semibold text-indigo-700 pb-4">{subTitle}</small>}
+                        {title && <h1 className="text-3xl md:text-5xl font-semibold text-neutral-900 pb-4">{title}</h1>}
+                        {description && <p className="font-normal text-lg text-neutral-600 md:text-wrap md:text-center md:text-xl">{description}</p>}
+                    </header>
+                    <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
+                        <ul className="flex flex-col gap-10 lg:flex-1">
+                            {features && features.map((feature, index) => (
+                                <li key={feature.title + " " + index} className="flex flex-row gap-4 md:gap-5">
+                                    <div className="h-fit rounded-full bg-white p-3 shadow-sm">
+                                        <Image src={feature.icon} alt={feature.title} width={0} height={0} className="w-full min-h-[24px] lg:h-[24px]" />
+                                    </div>
+                                    <div className="flex flex-col items-start justify-center gap-2 py-2.5">
+                                        <h4 className="font-semibold text-lg">{feature.title}</h4>
+                                        <p className="text-base font-normal">{feature.description}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        <div className={`flex w-full lg:flex-1 ${orientation === "left" ? 'order-first' : 'order-last'}`}>
+                            <Image src={imageUrl} alt="testing" height={0} width={0} className="object-cover flex min-h-[180px] w-full justify-center rounded-lg object-cover shadow-lg md:h-[394px] lg:h-auto
+									lg:self-stretch 2xl:h-[450px]" />
                         </div>
-                        <div className="basis-2/2">
-                            <h3 className="font-semibold text-lg text-neutral-900">5k resolution support</h3>
-                            <p className="font-normal text-base text-neutral-600">All images boast a minimum resolution of 5K, ensuring crisp, crystal-clear quality.</p>
-                        </div>
-                        
-                    </li>
-                    <li className='flex flex-row gap-5'>
-                    <div className="basis-1/6">
-                            <div className="w-12 h-12 bg-white rounded-full shadow-md flex items-center">
-                                <Image src="water-percent-line.svg" width={12} height={12} className="w-6 h-6 mx-auto" alt="hd" />
-                            </div>
-                        </div>
-                        <div className="basis-2/2">
-                            <h3 className="font-semibold text-lg text-neutral-900">From water to glass</h3>
-                            <p className="font-normal text-base text-neutral-600">We offer a wide array of abstractions, raning from water to glass, and encompassing various styles including 3D and vector.</p>
-                        </div>
-                    </li>
-                    <li className='flex flex-row gap-5'>
-                        <div className="basis-1/6">
-                            <div className="w-12 h-12 bg-white rounded-full  shadow-md flex items-center">
-                                <Image src="rainbow-line.svg" width={12} height={12} className="w-6 h-6 mx-auto" alt="hd" />
-                            </div>
-                        </div>
-                        <div className="basis-2/2">
-                            <h3 className="font-semibold text-lg text-neutral-900">Portrait or landscape</h3>
-                            <p className="font-normal text-base text-neutral-600">Effortlessly adapt your images for any platform - whether it&apos;s a stunning wallpaper or captivating Instagram reels and stories.</p>
-                        </div>
-                    </li>
-                </ul>
-            </article>
-            <div className="relative flex justify-center w-full max-w-xs mx-auto pb-[100%] md:max-w-2xl md:pb-[50%]">
-                <Image src={imageUrl} alt="testing" fill  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-contain" />
+                    </main>
+                </section>
             </div>
         </div>
-    </section>)
+    );
 };
-
 export default FeatureSection;
