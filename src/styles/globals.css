@@ -42,7 +42,7 @@ body {
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon', 'arial', 'sans-serif' !important;
+  font-family: 'icomoon', Helvetica, Arial, Verdana, Tahoma, sans-serif !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
