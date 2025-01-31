@@ -21,7 +21,7 @@ const HeroSection = ({
     features
 } : HeroSectionProps) => {
     const buttonStyling = (primary: boolean) => (primary ? "w-full md:w-[213px] bg-indigo-700 py-3 rounded text-white " : "w-full  md:w-[213px] bg-white py-3 rounded border-[0.5px] border-solid border-neutral-200");
-
+            
     return (<div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
         <div className="flex h-full flex-col imtes-start px-3 py-12 md:px-4 md:py-16 lg:px-24 lg:py-24">
             <section className="flex flex-col gap-12 md:gap-16 lg:flex-row">
