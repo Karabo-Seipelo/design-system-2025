@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import FeaturesSection from '.';
 
 const meta = {
-    title: 'Components/FeaturesSection',
+    title: 'Components/Features',
     component: FeaturesSection,
     tags: ['autodocs'],
     parameters: {
@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FeatureSectionRight: Story = {
+export const SectionRight: Story = {
     args: {
         imageUrl: "hero-img.png",
         title: "For designers, by designers",
@@ -39,7 +39,7 @@ export const FeatureSectionRight: Story = {
     }
 };
 
-export const FeatureSectionLeft: Story = {
+export const SectionLeft: Story = {
     args: {
         imageUrl: "heroimage2.png",
         title: "Convenience and licensing that empowers",
@@ -66,7 +66,7 @@ export const FeatureSectionLeft: Story = {
     }
 };
 
-export const FeatureSectionGrid: Story = {
+export const SectionGrid: Story = {
     args: {
         title: "Easy access to top quality images",
         subTitle: "Premium abstract images",

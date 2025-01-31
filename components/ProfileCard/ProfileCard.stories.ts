@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ProfileCard: Story = {
+export const Profile: Story = {
     args: {
         imageUrl: "profile.png",
         description: "I turn coffee into bugs which are fixed by someone else. Certified Stack Overflow and ChatGPT developer.",

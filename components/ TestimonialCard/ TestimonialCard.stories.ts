@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const TestimonialCard: Story = {
+export const Testimonial: Story = {
   args: {
     firstName: 'John',
     lastName: 'Doe',

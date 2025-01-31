@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
   
-export const BlogCard: Story = {
+export const Blog: Story = {
   args: {
     imageUrl: "spacejoy-YqFz7UMm8qE-unsplash.jpg",
     title: 'How to create a cozy living room',
