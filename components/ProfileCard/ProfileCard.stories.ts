@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Card from '.';
-import { SocialIcons } from '.';
+import Card, { SocialIcons } from './index';
 
 const meta = {
     title: 'components/Card',
