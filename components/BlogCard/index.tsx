@@ -23,7 +23,7 @@ const BlogCard = ({
 } : BlogCardProps) => {
     return (
         <div className='w-[340px] flex flex-col bg-white rounded-lg'>
-            {imageUrl && <Image src={imageUrl} className="rounded-t-lg h-112 object-cover" alt="Blog card" width={340} height={200} />}
+            {imageUrl && <Image src={imageUrl} className="rounded-t-lg w-full h-[288px] object-cover" alt="Blog card" width={0} height={0} />}
             <div className="flex flex-col gap-3 self-stretch px-4 py-6">
                 <header className="flex flex-col gap-2">
                     <ul>
