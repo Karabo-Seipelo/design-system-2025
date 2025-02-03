@@ -5,6 +5,7 @@ interface Feature {
     description: string;
     icon: string;
 }
+
 interface FeatureSectionProps {
     imageUrl?: string;
     title: string;
