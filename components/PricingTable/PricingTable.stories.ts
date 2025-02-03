@@ -25,11 +25,18 @@ export const Single: Story = {
             "24 hour response time",
             "Advanced analytics"
         ],
-        tag: "Popular",
-        buttons: [
+        prices: [
             {
-                label: "Buy now",
-                primary: true
+                tag: "Popular",
+                price: "$699",
+                description: "Prices in USD",
+                priceType: "Pay once, use it forever. No strings attached.",
+                buttons: [
+                    {
+                        label: "Buy now",
+                        primary: true
+                    }
+                ],
             }
         ]
     }
