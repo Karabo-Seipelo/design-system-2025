@@ -35,7 +35,7 @@ interface PricingProps {
 const Price = ({ tag, price, description, features, buttons, classes, plan} : Price) => {
     const buttonStyling = (primary: boolean) => (primary ? "w-full bg-indigo-700 py-3 rounded text-white " : "w-full bg-white py-3 rounded border-[0.5px] border-solid border-neutral-200");
     return (
-        <div className={`w-full rounded bg-white md:rounded-md md:shadow-md lg:shadow-lg outline-t-1 outline-l-1 outline-r-1 outline-b-1 outline outline-neutral-200 ${classes}`}>
+        <div className={`flex flex-col gap-y-8 w-full bg-white border rounded-lg ${classes}`}>
             <div className="flex h-full flex-col gap-10 px-3 py-12  md:px-4 md:py-16 lg:justify-center">
                 <div className="flex flex-col text-center gap-2">
                     {tag && <div className="bg-green-50 px-2 py-0.5 rounded-full border border-solid border-green-200 font-normal text-sm text-center text-green-70 mr-1">
@@ -91,7 +91,7 @@ const Pricing = ({
                             </TabList>
                             <TabPanels className="flex flex-row gap-5">
                                 {tiers && tiers.map((tier, index) => {
-                                    return <TabPanel key={`tier-${index}`} className="flex flex-row gap-5">
+                                    return <TabPanel key={`tier-${index}`} className="flex flex-col lg:flex-row gap-y-8 lg:gap-x-8 mt-12">
                                         {tier.prices.map((price, index) => {
                                                 return <Price key={`price-${index}`} {...price} />
                                         })}
