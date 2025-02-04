@@ -5,15 +5,48 @@ interface Button {
     primary: boolean;
 }
 
+interface Price {
+    tag?: string;
+    price: string,
+    description: string,
+    priceType: string,
+    buttons: Button[],
+}
+
 interface PricingProps {
     title: string;
     subTitle: string;
     description?: string;
     featureTitle: string;
     features?: string[];
-    tag?: string;
-    buttons: Button[];
+    prices: Price[];
 }
+
+const Price = ({ tag, price, description, priceType, buttons } : Price) => {
+    const buttonStyling = (primary: boolean) => (primary ? "w-full bg-indigo-700 py-3 rounded text-white " : "w-full bg-white py-3 rounded border-[0.5px] border-solid border-neutral-200");
+    return (
+        <div className="w-full rounded bg-white md:rounded-md md:shadow-md lg:shadow-lg outline-t-1 outline-l-1 outline-r-1 outline-b-1 outline outline-neutral-200">
+            <div className="flex h-full flex-col gap-10 px-3 py-12 items-center md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
+                <div className="flex flex-col text-center gap-2">
+                    <div className="bg-green-50 px-2 py-0.5 rounded-full border border-solid border-green-200 font-normal text-sm text-center text-green-70 mr-1">
+                        <span className="font-normal text-sm text-center text-green-700">{tag}</span>
+                    </div>
+                    <h2 className="font-semibold text-5xl text-center text-neutral-900">{price}</h2>
+                    <p className="font-normal text-sm text-center text-neutral-600">{description}</p>
+                </div>
+                <div className="flex flex-col text-center self-stretch px-8">{priceType}</div>
+                <div className="flex flex-col w-full">
+                    {buttons.map((button, index) => (
+                        <button key={`${button.label + " " + index}`} className={buttonStyling(button.primary)} aria-label="Learn more">{button.label}</button>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
+    
+
+
 
 const Pricing = ({
     title,
@@ -21,11 +54,9 @@ const Pricing = ({
     description,
     featureTitle,
     features,
-    tag,
-    buttons
+    prices,
 } : PricingProps) => {
-    const buttonStyling = (primary: boolean) => (primary ? "w-full bg-indigo-700 py-3 rounded text-white " : "w-full bg-white py-3 rounded border-[0.5px] border-solid border-neutral-200");
-
+    
     return (
         <div className="w-full rounded bg-white shadow-sm container-karabo">
             <div className="flex h-full gap-15 lg:gap-20 flex-col px-3 py-12 md:px-4 md:py-16 lg:p-24">
@@ -49,23 +80,7 @@ const Pricing = ({
                         </ul>}
                     </div>
                     <div className="flex flex-col gap-2 w-full lg:w-5/12">
-                            <div className="w-full rounded bg-white md:rounded-md md:shadow-md lg:shadow-lg outline-t-1 outline-l-1 outline-r-1 outline-b-1 outline outline-neutral-200">
-                                <div className="flex h-full flex-col gap-10 px-3 py-12 items-center md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
-                                    <div className="flex flex-col text-center gap-2">
-                                        <div className="bg-green-50 px-2 py-0.5 rounded-full border border-solid border-green-200 font-normal text-sm text-center text-green-70 mr-1">
-                                            <span className="font-normal text-sm text-center text-green-700">{tag}</span>
-                                        </div>
-                                        <h2 className="font-semibold text-5xl text-center text-neutral-900">$699</h2>
-                                        <p className="font-normal text-sm text-center text-neutral-600">Prices in USD</p>
-                                    </div>
-                                    <div className="flex flex-col text-center self-stretch px-8">Pay once, use it forever. No strings attached.</div>
-                                    <div className="flex flex-col w-full">
-                                        {buttons.map((button, index) => (
-                                            <button key={`${button.label + " " + index}`} className={buttonStyling(button.primary)} aria-label="Learn more">{button.label}</button>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
+                        {prices.map((price, index) => (<Price key={`price-${index}`} {...price} />))}
                     </div>
                 </main>
             </div>

@@ -2,7 +2,34 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+# Design System
+
+This project is a design system for the year 2025. It includes a collection of reusable components, styles, and guidelines to ensure consistency and efficiency in design and development.
+
+## Features
+
+- Reusable UI components
+- Consistent styling and theming
+- Design guidelines and best practices
+- Accessibility support
+- Responsive design
+
 ## Getting Started
+
+To get started with the design system, follow these steps:
+
+1. Clone the repository:
+    ```bash
+    git clone /Users/karabo.seipelo/Work/Personal/2025/desgin-system
+    ```
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+3. Run the development server:
+    ```bash
+    npm start
+    ```
 
 First, run the development server:
 
@@ -25,6 +52,18 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Contributing
+
+We welcome contributions to improve the design system. Please follow the guidelines below:
+
+- Fork the repository
+- Create a new branch for your feature or bugfix
+- Submit a pull request with a detailed description of your changes
+
+## License
+
+This project is licensed under the MIT License.
 
 ## Learn More
 
