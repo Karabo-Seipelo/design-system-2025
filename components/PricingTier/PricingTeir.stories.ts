@@ -13,6 +13,72 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const basicPlanFeatures = [
+    "Standard quality images",
+    "Limited to personal use",
+    "Email support"
+]
+
+const standardPlanFeatures = [
+    "Expanded library with more diverse abstract images",
+    "High-resolution images available",
+    "Suitable for commercial use",
+    "Priority email support",
+    "Advanced analytics"
+]
+
+const premiumPlanFeatures = [
+    "Full access to the entire image library, including exclusive content",
+    "Highest quality images, including premium collections",
+    "Commercial and resale rights",
+    "Dedicated customer support line",
+    "24/7 support response time",
+    "Advanced analytics and insights"
+]
+
+const basicPlan = (price: string, billedAt: string) => ({
+    plan: "Basic Plan",
+    description: "Access to a curated selection of abstract images",
+    price,
+    billedAt,
+    features: basicPlanFeatures,
+    buttons: [
+        {
+            label: "Buy now",
+            primary: false
+        }
+    ],
+});
+
+const standardPlan = (price: string, billedAt: string) => ({
+    highlight: true,
+    tag: "Most popular",
+    plan: "Standard Plan",
+    price,
+    description: "Next-level Integrations, priced economically",
+    billedAt,
+    features: standardPlanFeatures,
+    buttons: [
+        {
+            label: "Buy now",
+            primary: true
+        }
+    ],
+})
+
+const premiumPlan = (price: string, billedAt: string) => ({
+    plan: "Premium Plan",
+    price,
+    description: "Experience limitless living for power users",
+    billedAt,
+    features: premiumPlanFeatures,
+    buttons: [
+        {
+            label: "Buy now",
+            primary: false
+        }
+    ],
+});
 
 export const Tiers: Story = {
     args: {
@@ -30,127 +96,17 @@ export const Tiers: Story = {
             {
                 subscription: "Annually",
                 prices: [
-                    {
-                        plan: "Basic Plan",
-                        description: "Access to a curated selection of abstract images",
-                        price: "$6.99",
-                        billedAt: "Billed annually ($84)",
-                        features: [
-                            "Standard quality images",
-                            "Limited to personal use",
-                            "Email support"
-                        ],
-                        buttons: [
-                            {
-                                label: "Buy now",
-                                primary: false
-                            }
-                        ],
-                    },
-                    {
-                        highlight: true,
-                        tag: "Most popular",
-                        plan: "Standard Plan",
-                        price: "$15.99",
-                        description: "Next-level Integrations, priced economically",
-                        billedAt: "Billed annually ($192)",
-                        features: [
-                            "Expanded library with more diverse abstract images",
-                            "High-resolution images available",
-                            "Suitable for commercial use",
-                            "Priority email support",
-                            "Advanced analytics"
-                        ],
-                        buttons: [
-                            {
-                                label: "Buy now",
-                                primary: true
-                            }
-                        ],
-                    },
-                    {
-                        plan: "Premium Plan",
-                        price: "$25.99",
-                        description: "Experience limitless living for power users",
-                        billedAt: "Billed annually ($312)",
-                        features: [
-                            "Full access to the entire image library, including exclusive content",
-                            "Highest quality images, including premium collections",
-                            "Commercial and resale rights",
-                            "Dedicated customer support line",
-                            "24/7 support response time",
-                            "Advanced analytics and insights"
-                        ],
-                        buttons: [
-                            {
-                                label: "Buy now",
-                                primary: false
-                            }
-                        ],
-                    }
+                    basicPlan("$6.99", "Billed annually ($84)"),
+                    standardPlan("$15.99", "Billed annually ($192)"),
+                    premiumPlan("$25.99", "Billed annually ($312)")
                 ]
             },
             {
                 subscription: "Monthly",
                 prices: [
-                    {
-                        plan: "Basic Plan",
-                        description: "Access to a curated selection of abstract images",
-                        price: "$9.99",
-                        billedAt: "Billed monthly",
-                        features: [
-                            "Standard quality images",
-                            "Limited to personal use",
-                            "Email support"
-                        ],
-                        buttons: [
-                            {
-                                label: "Buy now",
-                                primary: false
-                            }
-                        ],
-                    },
-                    {
-                        highlight: true,
-                        tag: "Most popular",
-                        plan: "Standard Plan",
-                        price: "$19.99",
-                        description: "Next-level Integrations, priced economically",
-                        billedAt: "Billed monthly",
-                        features: [
-                            "Expanded library with more diverse abstract images",
-                            "High-resolution images available",
-                            "Suitable for commercial use",
-                            "Priority email support",
-                            "Advanced analytics"
-                        ],
-                        buttons: [
-                            {
-                                label: "Buy now",
-                                primary: true
-                            }
-                        ],
-                    },
-                    {
-                        plan: "Premium Plan",
-                        price: "$29.99",
-                        description: "Experience limitless living for power users",
-                        billedAt: "Billed monthly",
-                        features: [
-                            "Full access to the entire image library, including exclusive content",
-                            "Highest quality images, including premium collections",
-                            "Commercial and resale rights",
-                            "Dedicated customer support line",
-                            "24/7 support response time",
-                            "Advanced analytics and insights"
-                        ],
-                        buttons: [
-                            {
-                                label: "Buy now",
-                                primary: false
-                            }
-                        ],
-                    }
+                    basicPlan("$9.99", "Billed monthly"),
+                    standardPlan("$19.99", "Billed monthly"),
+                    premiumPlan("$29.99", "Billed monthly")
                 ]
             }
         ]
