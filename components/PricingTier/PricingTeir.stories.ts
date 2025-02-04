@@ -94,6 +94,14 @@ export const Tiers: Story = {
         ],
         tiers: [
             {
+                subscription: "Monthly",
+                prices: [
+                    basicPlan("$9.99", "Billed monthly"),
+                    standardPlan("$19.99", "Billed monthly"),
+                    premiumPlan("$29.99", "Billed monthly")
+                ]
+            },
+            {
                 subscription: "Annually",
                 prices: [
                     basicPlan("$6.99", "Billed annually ($84)"),
@@ -101,14 +109,6 @@ export const Tiers: Story = {
                     premiumPlan("$25.99", "Billed annually ($312)")
                 ]
             },
-            {
-                subscription: "Monthly",
-                prices: [
-                    basicPlan("$9.99", "Billed monthly"),
-                    standardPlan("$19.99", "Billed monthly"),
-                    premiumPlan("$29.99", "Billed monthly")
-                ]
-            }
         ]
     }
 };
