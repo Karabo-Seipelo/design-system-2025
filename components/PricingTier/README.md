@@ -30,53 +30,6 @@ The Pricing Tier component is a versatile and customizable pricing table desgine
   ]}
   tiers={[
     {
-      subscription: "Annually",
-      prices: [
-        {
-          plan: "Basic Plan",
-          description: "Access to a curated selection of abstract images",
-          price: "$6.99",
-          billedAt: "Billed annually ($84)",
-          features: [
-            "Standard quality images",
-            "Limited to personal use",
-            "Email support",
-          ],
-          buttons: [{ label: "Buy now", primary: false }],
-        },
-        {
-          tag: "Most popular",
-          plan: "Standard Plan",
-          price: "$15.99",
-          description: "Next-level Integrations, priced economically",
-          billedAt: "Billed annually ($192)",
-          features: [
-            "Expanded library with more diverse abstract images",
-            "High-resolution images available",
-            "Suitable for commercial use",
-            "Priority email support",
-            "Advanced analytics",
-          ],
-          buttons: [{ label: "Buy now", primary: true }],
-        },
-        {
-          plan: "Premium Plan",
-          price: "$25.99",
-          description: "Experience limitless living for power users",
-          billedAt: "Billed annually ($312)",
-          features: [
-            "Full access to the entire image library, including exclusive content",
-            "Highest quality images, including premium collections",
-            "Commercial and resale rights",
-            "Dedicated customer support line",
-            "24/7 support response time",
-            "Advanced analytics and insights",
-          ],
-          buttons: [{ label: "Buy now", primary: false }],
-        },
-      ],
-    },
-    {
       subscription: "Monthly",
       prices: [
         {
@@ -123,6 +76,54 @@ The Pricing Tier component is a versatile and customizable pricing table desgine
         },
       ],
     },
+    {
+      subscription: "Annually",
+      prices: [
+        {
+          plan: "Basic Plan",
+          description: "Access to a curated selection of abstract images",
+          price: "$6.99",
+          billedAt: "Billed annually ($84)",
+          features: [
+            "Standard quality images",
+            "Limited to personal use",
+            "Email support",
+          ],
+          buttons: [{ label: "Buy now", primary: false }],
+        },
+        {
+          tag: "Most popular",
+          plan: "Standard Plan",
+          price: "$15.99",
+          description: "Next-level Integrations, priced economically",
+          billedAt: "Billed annually ($192)",
+          features: [
+            "Expanded library with more diverse abstract images",
+            "High-resolution images available",
+            "Suitable for commercial use",
+            "Priority email support",
+            "Advanced analytics",
+          ],
+          buttons: [{ label: "Buy now", primary: true }],
+        },
+        {
+          plan: "Premium Plan",
+          price: "$25.99",
+          description: "Experience limitless living for power users",
+          billedAt: "Billed annually ($312)",
+          features: [
+            "Full access to the entire image library, including exclusive content",
+            "Highest quality images, including premium collections",
+            "Commercial and resale rights",
+            "Dedicated customer support line",
+            "24/7 support response time",
+            "Advanced analytics and insights",
+          ],
+          buttons: [{ label: "Buy now", primary: false }],
+        },
+      ],
+    },
+    
   ]}
 />
 ```
