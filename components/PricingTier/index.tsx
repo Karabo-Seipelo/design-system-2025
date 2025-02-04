@@ -91,12 +91,12 @@ const Pricing = ({
                 <TabGroup className="flex flex-col gap-5 lg:gap-10">
                     <TabList className="flex flex-row items-center gap-4 self-stretch outline-none w-full md:w-[280px] md:m-auto">
                         {tiers && tiers.map((tier, index) => {
-                            return <Tab key={`tier-${index}`} className="justify-center items-center gap-1.5 grow px-4 py-2.5 rounded border-solid border-neutral-200 bg-white data-[selected]:border-[0.5px]">{tier.subscription}</Tab>
+                            return <Tab key={`${tier.subscription}-${index}`} className="justify-center items-center gap-1.5 grow px-4 py-2.5 rounded border-solid border-neutral-200 bg-white data-[selected]:border-[0.5px]">{tier.subscription}</Tab>
                         })}
                     </TabList>
                     <TabPanels className="flex flex-row gap-5 md:w-full">
                         {tiers && tiers.map((tier, index) => {
-                            return <TabPanel key={`tier-${index}`} className="flex flex-col w-full lg:flex-row gap-y-8 lg:gap-x-8 mt-12">
+                            return <TabPanel key={`${tier.subscription}-${index++}`} className="flex flex-col w-full lg:flex-row gap-y-8 lg:gap-x-8 mt-12">
                                 {tier.prices.map((price, index) => {
                                         return <Price key={`price-${index}`} {...price} />
                                 })}
