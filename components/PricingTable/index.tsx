@@ -58,7 +58,7 @@ const Pricing = ({
 } : PricingProps) => {
     
     return (
-        <div className="w-full rounded bg-white shadow-sm container-karabo">
+        <div className="w-full rounded bg-white shadow-sm">
             <div className="flex h-full gap-15 lg:gap-20 flex-col px-3 py-12 md:px-4 md:py-16 lg:p-24">
                 <section className="flex flex-col gap-12 md:gap-16">
                     <header className="flex flex-col items-center justify-center text-center">

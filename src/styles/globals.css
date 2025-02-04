@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
-  --foreground: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+  --background: linear-gradient(to bottom, #f9fafb, #d2d6db);
+  --foreground:linear-gradient(to bottom, #f9fafb, #d2d6db);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
-    --foreground: linear-gradient(147.52deg, #f9fafb 8.89%, #d2d6db 100.48%);
+    --background: linear-gradient(to bottom, #f9fafb, #d2d6db);
+    --foreground: linear-gradient(to bottom, #f9fafb, #d2d6db);
   }
 }
 
@@ -73,6 +73,6 @@ body {
 }
 
 #storybook-root {
-  height: 100vh;
+  height: 100%;
   padding: 16px;
 }

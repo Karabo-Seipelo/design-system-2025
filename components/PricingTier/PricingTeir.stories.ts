@@ -48,6 +48,7 @@ export const Tiers: Story = {
                         ],
                     },
                     {
+                        highlight: true,
                         tag: "Most popular",
                         plan: "Standard Plan",
                         price: "$15.99",
@@ -110,6 +111,7 @@ export const Tiers: Story = {
                         ],
                     },
                     {
+                        highlight: true,
                         tag: "Most popular",
                         plan: "Standard Plan",
                         price: "$19.99",
