@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react';
-import { Fragment } from 'react'
 
 interface Button {
     label: string;
@@ -31,6 +30,7 @@ interface PricingProps {
     features?: string[];
     tiers?: Tiers[];
 }
+
 
 const Price = ({ tag, price, description, features, buttons, classes, plan} : Price) => {
     const buttonStyling = (primary: boolean) => (primary ? "w-full bg-indigo-700 py-3 rounded text-white " : "w-full bg-white py-3 rounded border-[0.5px] border-solid border-neutral-200");
@@ -64,6 +64,14 @@ const Price = ({ tag, price, description, features, buttons, classes, plan} : Pr
     )
 }
 
+/**
+ * 
+ * @param title - Required
+ * @param subTitle - Optional
+ * @param description - Optional
+ * @param tiers - Array of Tiers
+ * @returns 
+ */
 const Pricing = ({
     title,
     subTitle,
