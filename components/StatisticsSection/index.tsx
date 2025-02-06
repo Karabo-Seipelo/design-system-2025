@@ -19,7 +19,7 @@ const ListCard = ({ statistics }: { statistics: ListCardProps[]}) => {
         <div className="flex flex-col gap-10 lg:flex-1">
             {statistics.map(({statistic, label}, index) => (
                 <div key={statistic + " " + index}  className="flex flex-col justify-center items-center self-stretch bg-white py-6 rounded-lg border border-solid border-neutral-200">
-                    <h3 className="font-bold text-5xl text-center text-indigo-700">{statistic}</h3>
+                    <h3 className="font-bold text-4xl md:text-5xl text-center text-indigo-700">{statistic}</h3>
                     <p className="font-normal text-xl text-center text-neutral-600">{label}</p>
                 </div>
             ))}
@@ -37,12 +37,11 @@ const StatisticsSection = ({title, subTitle, description, imageUrl, statisticsTi
                         {title && <h1 className="text-3xl md:text-5xl font-semibold text-neutral-900 pb-4">{title}</h1>}
                         {description && <p className="font-normal text-lg text-neutral-600 md:text-wrap md:text-center md:text-xl">{description}</p>}
                     </header>
-                    <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8"> 
-                        {imageUrl && <div className={`flex w-full lg:flex-1`}>
-                            <Image src={imageUrl} alt="testing" height={0} width={0} className="flex min-h-[180px] w-full justify-center rounded-lg object-cover shadow-lg md:h-[394px] lg:h-auto
-                                    lg:self-stretch 2xl:h-[450px]" />
+                    <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8 lg:h-full"> 
+                        {imageUrl && <div className={`flex w-full lg:flex-1 lg:h-max`}>
+                            <Image src={imageUrl} alt="testing" height={0} width={0} className="flex w-full min-h-[180px] object-cover md:h-[394px] lg:self-stretch lg:h-[500px]" />
                         </div>}
-                        <div className="flex flex-col gap-5 lg:flex-1">
+                        <div className="flex flex-col gap-5 lg:flex-1 lg:h-auto">
                             <p>{statisticsTitle}</p>
                             <ListCard statistics={statistics} />
                         </div>
@@ -53,4 +52,15 @@ const StatisticsSection = ({title, subTitle, description, imageUrl, statisticsTi
     )
 };
  
+/*
+flex 
+min-h-[180px] 
+w-full 
+justify-center 
+object-cover 
+md:h-[394px] 
+lg:h-auto
+lg:self-stretch 
+2xl:h-fit
+*/
 export default StatisticsSection;
