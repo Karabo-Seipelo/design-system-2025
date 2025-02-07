@@ -7,7 +7,7 @@ interface Feature {
 }
 
 const List = ({ features }: { features: Feature[] }) => {
-    return (<ul className="flex flex-col gap-10 w-full">
+    return (<ul className="flex flex-col gap-10 w-full md:gap-5">
         {features.map((feature, index) => {
             const {title, description, icon } = feature;
             return (<li className="flex flex-row gap-4 md:gap-5" key={feature.title + " " + index}>

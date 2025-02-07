@@ -29,6 +29,7 @@ export const Default: Story = {
                 description: "Regular doses of artistic inspiration",
                 icon: "check-fill.svg"
             }
-        ]
+        ],
+        imageUrl: "abstract.jpg"
     }
 };
