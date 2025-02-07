@@ -7,11 +7,11 @@ interface Feature {
 }
 
 const List = ({ features }: { features: Feature[] }) => {
-    return (<ul className="flex flex-col gap-10 lg:flex-1">
+    return (<ul className="flex flex-col gap-10 w-full">
         {features.map((feature, index) => {
             const {title, description, icon } = feature;
             return (<li className="flex flex-row gap-4 md:gap-5" key={feature.title + " " + index}>
-                    <div className="h-fit rounded-full bg-white p-3 shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+                    <div className="h-fit rounded-full p-3">
                         <Image src={icon} alt="icon" width={0} height={0} className="min-w-[24px] md:w-full min-h-[24px] lg:h-[24px]" />
                     </div>
                     <div className="flex flex-col items-start justify-center gap-2 py-2.5">
