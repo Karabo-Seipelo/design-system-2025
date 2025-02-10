@@ -1,8 +1,45 @@
 import React from 'react';
+import { Noto_Sans } from 'next/font/google'
 import type { Preview } from "@storybook/react";
 import '../src/styles/globals.css';
 
+const DS_VIEWPORTS = {
+  mobile: {
+    name: 'Mobile',
+    styles: {
+      width: '375px',
+      height: '667px',
+    },
+  },
+  tablet: {
+    name: 'Tablet',
+    styles: {
+      width: '768px',
+      height: '1024px',
+    },
+  },
+  desktop: {
+    name: 'Desktop',
+    styles: {
+      width: '1440px',
+      height: '900px',
+    },
+  },
+}
+
+const notoSans = Noto_Sans({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+})
+
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <main className={notoSans.className}>
+        <Story />
+      </main>
+    ),
+  ],
   parameters: {
     controls: {
       matchers: {
@@ -30,6 +67,10 @@ const preview: Preview = {
       // Optional flag to prevent the automatic check
       manual: true,
     },
+    viewport: {
+      //👇 Set available viewports for every story in the file
+      viewports: DS_VIEWPORTS,
+    }
   },
 };
 
