@@ -77,7 +77,7 @@ const NewsletterSection = ({ title, features, imageUrl, newsLetterURL = "/search
                         </div>
                         <div className={`flex w-full lg:basis-1/2`}>
                             {imageUrl && <div className="flex w-full lg:flex-1">
-                                <Image src={imageUrl} alt="testing" height={0} width={0} className="flex min-h-[180px] w-full justify-center rounded-lg object-cover shadow-lg md:h-[394px] lg:h-auto
+                                <Image src={imageUrl} alt="testing" height={0} width={0} className="flex min-h-[180px] w-full justify-center rounded-lg object-cover md:h-[394px] lg:h-auto
                                         lg:self-stretch 2xl:h-[450px]" />
                             </div>}
                         </div>
