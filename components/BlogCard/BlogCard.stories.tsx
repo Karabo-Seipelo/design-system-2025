@@ -8,6 +8,13 @@ const meta = {
     parameters: {
       layout: 'centered',
     },
+    decorators: [
+      (Story) => (
+        <div style={{ marginTop: "120px" }}>
+          <Story />
+        </div>
+      ),
+    ]
 } satisfies Meta<typeof Card>;
   
 export default meta;
@@ -16,9 +23,9 @@ type Story = StoryObj<typeof meta>;
 export const Blog: Story = {
   args: {
     imageUrl: "spacejoy-YqFz7UMm8qE-unsplash.jpg",
-    title: 'How to create a cozy living room',
+    title: 'Top 5 Living Room Inspirations',
     post: 'Curated vibrants colors for your living, make it pop & calm in the same time.',
-    categories: ['Interior', 'Living Room'],
+    categories: ['Interior'],
     link: {
       href: 'https://www.spacejoy.com',
       label: 'Read more',
