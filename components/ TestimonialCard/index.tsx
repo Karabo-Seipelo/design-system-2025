@@ -15,8 +15,8 @@ export interface TestimonialCardProps {
 
 export interface AvatarProps {
   imageUrl: string;
-  alt: string;
   classes?: string;
+  alt?: string;
 }
 
 const Avatar = ({ imageUrl, alt, classes }: AvatarProps) => <Image src={imageUrl} className={classes} alt={alt} width={12} height={12} />;

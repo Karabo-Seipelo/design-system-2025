@@ -8,20 +8,26 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ marginTop: "200px"}}>
+        <Story />
+      </div>
+    ),
+  ]
 } satisfies Meta<typeof Card>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type TestimonialStory = StoryObj<typeof meta>;
 
-export const Testimonial: Story = {
+export const Testimonial: TestimonialStory = {
   args: {
-    firstName: 'John',
-    lastName: 'Doe',
-    handle: '@johndoe',
+    firstName: 'Sarah',
+    lastName: 'Dole',
+    handle: '@sarahdole',
     testimonial: "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
     avatar: {
-      imageUrl: 'https://avatar.iran.liara.run/public/14',
-      alt: 'John Doe',
+      imageUrl: 'profile.png',
       classes: 'w-12 h-12 object-cover',
     }
   }
