@@ -30,6 +30,19 @@ export const Default: Story = {
                 icon: "check-fill.svg"
             }
         ],
-        imageUrl: "abstract.jpg"
+        imageUrl: "abstract.jpg",
+        newsLetterURL: "https://www.greatfrontend.com/api/projects/challenges/newsletter",
+        toast: {
+            success: {
+                badge: "Success",
+                message: "Subscription successful! Please check your email to confirm.",
+                status: "SUCCESS"
+            },
+            error: {
+                badge: "Error",
+                message: "Subscription failed. Please try again.",
+                status: "ERROR"
+            }
+        }
     }
 };

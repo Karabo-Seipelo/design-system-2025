@@ -1,4 +1,7 @@
+import { useState } from "react";
 import Image from "next/image";
+import Form from "next/form";
+import axios from "axios";
 import List from "../List";
 
 type Feature = {
@@ -7,28 +10,70 @@ type Feature = {
     icon: string;
 }
 
+type Notification = {
+    badge: string;
+    message: string;
+    status: string;
+}
+
 type NewsletterSectionProps = {
     title: string, 
     features: Feature[], 
-    imageUrl: string
+    imageUrl: string,
+    newsLetterURL?: string,
+    toast: {
+        success: Notification,
+        error: Notification
+    }
 }
 
-const NewsletterSection = ({ title, features, imageUrl } : NewsletterSectionProps) => {
+const Toast = ({status, message, badge}: {status: string, message: string,badge: string}) => {
+     
+    return (<div className={`absolute flex w-full md:w-max items-center gap-3 pl-1 pr-2.5 pt-1 pb-1 rounded-[2000px] top-5 left-1/2 -translate-x-1/2 ${status === "SUCCESS" ? "bg-green-50" : "bg-red-50"}`}>
+        <div className={`bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center ${status === "SUCCESS" ? "text-green-700" : "text-red-800"}`}>
+            {badge}
+        </div>
+        <div className={`font-medium text-sm gap-1 ${status === "SUCCESS" ? "text-green-700" : "text-red-600"}`}>
+            <p>{message}</p>
+        </div>
+    </div>)
+}
+
+const NewsletterSection = ({ title, features, imageUrl, newsLetterURL = "/search", toast} : NewsletterSectionProps) => {
+    const [notification, setNotification] = useState<Notification | null>(null);
+    const submitHander = async (formData: FormData) => {
+        setNotification({message: "", status: "", badge: ""});
+        try {
+            const email = formData.get("email");
+            const response = await axios.post(newsLetterURL, {email});
+            if (response.status === 200) {
+                const {message, status, badge} = toast.success;
+                setNotification({message, status, badge});
+            } else {
+                const {message, status, badge} = toast.error;
+                setNotification({message, status, badge});
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     return (
-        <div className="w-full rounded bg-white">
+        <div className="w-full rounded bg-white relative">
+            {notification && <Toast {...notification} />}
             <div className="flex h-full flex-col imtes-start px-3 py-12 md:px-4 md:py-16 lg:px-24 lg:py-24">
                 <section className="flex flex-col gap-12">
                     <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
                         <div className="flex flex-col items-center gap-8 lg:gap-20 lg:basis-1/2">
                             {title && <h2 className="font-semibold text-3xl text-neutral-900">{title}</h2>}
                             {features && <List features={features} />}
-                            <form className="flex flex-col gap-4 w-full">
+                            <Form className="flex flex-col gap-4 w-full" action={submitHander}>
                                 <div className="flex flex-col md:flex-row gap-4 md:flex-wrap">
-                                    <input type="email" placeholder="Enter your email" className="basis-full md:basis-1/2 bg-neutral-50 px-3.5 py-2.5 rounded border border-solid border-neutral-200 lg:order-1" />
+                                    <input name="email" type="email" placeholder="Enter your email" className="basis-full md:basis-1/2 bg-neutral-50 px-3.5 py-2.5 rounded border border-solid border-neutral-200 lg:order-1" required />
                                     <span className="font-normal text-base text-neutral-600 md:order-3 md:basis-full">We only send you the best! No spam.</span>
                                     <button type="submit" className="bg-indigo-700 px-3.5 py-2.5 rounded basis-full text-white md:basis-1/6 md:order-2">Subscribe</button>
                                 </div>
-                            </form>
+                            </Form>
                         </div>
                         <div className={`flex w-full lg:basis-1/2`}>
                             {imageUrl && <div className="flex w-full lg:flex-1">
