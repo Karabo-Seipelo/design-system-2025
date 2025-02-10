@@ -65,7 +65,7 @@ const NewsletterSection = ({ title, features, imageUrl, newsLetterURL = "/search
                 <section className="flex flex-col gap-12">
                     <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
                         <div className="flex flex-col items-center gap-8 lg:gap-20 lg:basis-1/2">
-                            {title && <h2 className="font-semibold text-3xl text-neutral-900">{title}</h2>}
+                            {title && <h2 className="font-semibold text-3xl text-neutral-900 md:text-5xl">{title}</h2>}
                             {features && <List features={features} />}
                             <Form className="flex flex-col gap-4 w-full" action={submitHander}>
                                 <div className="flex flex-col md:flex-row gap-4 md:flex-wrap">

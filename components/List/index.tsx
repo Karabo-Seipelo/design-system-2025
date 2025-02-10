@@ -16,7 +16,7 @@ const List = ({ features }: { features: Feature[] }) => {
                     </div>
                     <div className="flex flex-col items-start justify-center gap-2 py-2.5">
                         {title && <h4 className="font-semibold text-lg">{title}</h4>}
-                        {description && <p className="text-base font-normal">{description}</p>}
+                        {description && <p className="text-base md:text-lg font-normal">{description}</p>}
                     </div>
             </li>)
         })}
