@@ -43,6 +43,11 @@ export const Default: Story = {
                 message: "Subscription failed. Please try again.",
                 status: "ERROR"
             }
+        },
+        form: {
+            instrunction: "Subscribe to our newsletter",
+            label: "Subscribe",
+            placeholder: "Enter your email address",
         }
     }
 };
