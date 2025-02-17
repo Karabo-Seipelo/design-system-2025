@@ -2,8 +2,6 @@ import React from 'react';
 import { Noto_Sans } from 'next/font/google'
 import type { Preview } from "@storybook/react";
 import '../src/styles/globals.css';
-import results from "../.jest-test-results.json";
-import { withTests } from "@storybook/addon-jest";
 
 const DS_VIEWPORTS = {
   mobile: {
@@ -73,7 +71,6 @@ const preview: Preview = {
       //👇 Set available viewports for every story in the file
       viewports: DS_VIEWPORTS,
     },
-    decorators: [ withTests({ results })]
   },
 };
 

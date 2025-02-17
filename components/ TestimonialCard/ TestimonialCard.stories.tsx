@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import results from "./../../.jest-test-results.json";
+import { withTests } from "@storybook/addon-jest";
 import Card from '.';
 
 const meta = {
@@ -14,7 +16,8 @@ const meta = {
       <div style={{ marginTop: "200px"}}>
         <Story />
       </div>
-    )
+    ),
+    withTests({ results })
   ],
 } satisfies Meta<typeof Card>;
 
