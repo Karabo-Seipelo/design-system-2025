@@ -25,10 +25,6 @@ jobs:
       - name: Test and coverage
         run: npm run test:coverage
 
-      - name: Set up SonarQube properties
-        run: |
-          echo "sonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}" >> /sonar-project.properties
-          echo "sonar.javascript.lcov.reportPaths=./coverage/lcov.info" >> /sonar-project.properties
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
