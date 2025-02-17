@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run test:coverage && npm run test:generate-output && npm run build-storybook",
+  "buildCommand": "npm run test:generate-output && npm run build-storybook",
   "devCommand": "npm run storybook",
   "installCommand": "npm install",
   "framework": null,
