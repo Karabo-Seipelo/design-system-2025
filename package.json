@@ -12,6 +12,7 @@
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook",
     "test:generate-output": "jest --json --outputFile=.jest-test-results.json || true",
+    "test:coverage": "jest --coverage",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "dependencies": {
