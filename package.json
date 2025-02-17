@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "prebuild:storybook": "npm run test:generate-output",
-    "prebuild:build-storybook": "npm run test:generate-output",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test-storybook": "test-storybook",
