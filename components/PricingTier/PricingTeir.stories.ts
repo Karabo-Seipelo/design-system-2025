@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import PricingTier from '.';
 
 const meta = {
-    title: 'Components/PricingTier',
+    title: 'Marketing/PricingTier',
     component: PricingTier,
     tags: ['autodocs'],
     parameters: {

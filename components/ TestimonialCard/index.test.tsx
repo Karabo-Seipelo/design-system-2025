@@ -57,11 +57,4 @@ describe('TestimonialCard', () => {
         expect(getByAltText('unknown user')).toBeInTheDocument();
         expect(getByText('This is a great product!')).toBeInTheDocument();
     });
-
-    it.skip('renders the testimonial card with custom avatar classes', () => {
-        const customAvatarProps = { ...defaultProps, avatar: { ...defaultProps.avatar, classes: 'custom-class' } };
-        const { container } = render(<TestimonialCard {...customAvatarProps} />);
-        
-        expect(container.querySelector('.custom-class')).toBeInTheDocument();
-    });
 });

@@ -4,7 +4,7 @@ import { withTests } from "@storybook/addon-jest";
 import Card from '.';
 
 const meta = {
-  title: 'Components/Card',
+  title: 'Marketing/Card/Testimonial',
   component: Card,
   tags: ['autdocs'],
   parameters: {
@@ -24,7 +24,7 @@ const meta = {
 export default meta;
 type TestimonialStory = StoryObj<typeof meta>;
 
-export const Testimonial: TestimonialStory = {
+export const Default: TestimonialStory = {
   args: {
     firstName: 'Sarah',
     lastName: 'Dole',
@@ -37,7 +37,7 @@ export const Testimonial: TestimonialStory = {
   }
 };
 
-export const TestimonialWithoutHandle: TestimonialStory = {
+export const WithoutHandle: TestimonialStory = {
   args: {
     firstName: 'Sarah',
     lastName: 'Dole',
@@ -49,7 +49,7 @@ export const TestimonialWithoutHandle: TestimonialStory = {
   }
 };
 
-export const TestimonialWithoutLastname: TestimonialStory = {
+export const WithoutLastname: TestimonialStory = {
   args: {
     firstName: 'Sarah',
     lastName: undefined,

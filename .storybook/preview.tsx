@@ -1,6 +1,7 @@
 import React from 'react';
 import { Noto_Sans } from 'next/font/google'
 import type { Preview } from "@storybook/react";
+import { initialize, mswLoader } from 'msw-storybook-addon';
 import '../src/styles/globals.css';
 
 const DS_VIEWPORTS = {
@@ -31,6 +32,8 @@ const notoSans = Noto_Sans({
   weight: ["400", "500", "600"],
   subsets: ["latin"],
 })
+
+initialize();
 
 const preview: Preview = {
   decorators: [
@@ -72,6 +75,7 @@ const preview: Preview = {
       viewports: DS_VIEWPORTS,
     },
   },
+  loaders: [mswLoader]
 };
 
 export default preview;
