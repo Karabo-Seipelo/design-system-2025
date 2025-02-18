@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Card from '.';
 
 const meta = {
-    title: 'Components/Card',
+    title: 'Marketing/Card/Blog',
     component: Card,
     tags: ['autdocs'],
     parameters: {
@@ -20,7 +20,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
   
-export const Blog: Story = {
+export const Default: Story = {
   args: {
     imageUrl: "spacejoy-YqFz7UMm8qE-unsplash.jpg",
     title: 'Top 5 Living Room Inspirations',

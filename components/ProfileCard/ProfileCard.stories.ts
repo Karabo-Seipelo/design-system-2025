@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Card, { SocialIcons } from './index';
 
 const meta = {
-    title: 'components/Card',
+    title: 'Marketing/Card/Profile',
     component: Card,
     tags: ['autdocs'],
     parameters: {
@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Profile: Story = {
+export const Default: Story = {
     args: {
         imageUrl: "profile.png",
         description: "I turn coffee into bugs which are fixed by someone else. Certified Stack Overflow and ChatGPT developer.",
