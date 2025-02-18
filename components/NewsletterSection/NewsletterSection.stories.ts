@@ -69,6 +69,26 @@ const baseArgs = {
         },
 };
 
+const createStoryArgs = (formUrl: string) => ({
+    ...baseArgs,
+    form: {
+        ...baseArgs.form,
+        formUrl,
+    }
+})
+
+const fillAndSubmitForm = async (canvas: ReturnType<typeof within>, email: string, step: any) => {
+    await step("Fill in the form with an email address", async () => {
+        await userEvent.type(canvas.getByTestId("email-input"), email);
+    });
+
+    await step("Submit the form", async () => {
+        await userEvent.click(canvas.getByTestId("email-submit"));
+    });
+
+    await waitFor(() => expect(canvas.getByTestId("toast")).toBeVisible());
+};
+
 export const Default: Story = {
     args: {
         ...baseArgs,
@@ -79,51 +99,23 @@ export const Default: Story = {
     }
 };
 
-export const Success: Story = {
-    args: {
-        ...baseArgs,
-        form: {
-            ...baseArgs.form,
-            formUrl: "/newsletter/success",
-        }
-    },
+export const SuccessNotification: Story = {
+    args: createStoryArgs("/newsletter/success"),
     play: async ({args, canvasElement, step}) => {
         const canvas = within(canvasElement);
 
-        await step("Fill in the form with an invalid email address", async () => {
-            await userEvent.type(canvas.getByTestId("email-input"), "karabo@gmail.com");
-        });
-
-        await step("Submit the form", async () => {
-            await userEvent.click(canvas.getByTestId("email-submit"));
-        });
-
-        await waitFor(() => expect(canvas.getByTestId("toast")).toBeVisible());
+        await fillAndSubmitForm(canvas, "karabo@gmail.com", step)
 
         await waitFor(() => expect(canvas.getByTestId("toast")).toHaveTextContent(args.form.toast.success.message));  
     }
 }
 
-export const Error: Story = {
-    args: {
-        ...baseArgs,
-        form: {
-            ...baseArgs.form,
-            formUrl: "/newsletter/error",
-        }
-    },
+export const ErrorNotification: Story = {
+    args: createStoryArgs("/newsletter/error"),
     play: async ({args, canvasElement, step}) => {
         const canvas = within(canvasElement);
 
-        await step("Fill in the form with an invalid email address", async () => {
-            await userEvent.type(canvas.getByTestId("email-input"), "karabo@gmail.com");
-        });
-
-        await step("Submit the form", async () => {
-            await userEvent.click(canvas.getByTestId("email-submit"));
-        });
-
-        await waitFor(() => expect(canvas.getByTestId("toast")).toBeVisible());
+        await fillAndSubmitForm(canvas, "karabo@gmail.com", step)
 
         await waitFor(() => expect(canvas.getByTestId("toast")).toHaveTextContent(args.form.toast.error.message));  
     }
