@@ -90,13 +90,7 @@ const fillAndSubmitForm = async (canvas: ReturnType<typeof within>, email: strin
 };
 
 export const Default: Story = {
-    args: {
-        ...baseArgs,
-        form: {
-            ...baseArgs.form,
-            formUrl: "https://www.greatfrontend.com/api/projects/challenges/newsletter",
-        }
-    }
+    args: createStoryArgs("https://www.greatfrontend.com/api/projects/challenges/newsletter")
 };
 
 export const SuccessNotification: Story = {
