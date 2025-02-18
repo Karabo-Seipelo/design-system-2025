@@ -8,6 +8,13 @@ const meta = {
     parameters: {
       layout: 'centered',
     },
+    decorators: [
+        (Story) => (
+            <div style={{ marginTop: "200px" }}>
+            <Story />
+            </div>
+        ),
+    ]
 } satisfies Meta<typeof Card>;
 
 export default meta;
