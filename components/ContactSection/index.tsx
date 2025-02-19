@@ -18,8 +18,8 @@ const ContactSection = ({ title, description, contactDetails, dropShadow = true}
                 <section className="flex flex-col gap-12 md:gap-16 lg:w-full">
                     <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8 lg:w-full">
                         <div className="flex flex-col gap-10 lg:w-1/2">
-                            {title && <h2 className="font-semibold text-neutral-900 lg:text-6xl">{title}</h2>}
-                            {description && <div>{description}</div>}
+                            {title && <h2 className="font-semibold text-neutral-900 text-4xl md:text-5xl lg:text-6xl">{title}</h2>}
+                            {description && <div className="font-normal text-neutral-600 text-lg md:text-xl">{description}</div>}
                             {contactDetails && <List features={contactDetails} dropShadow={dropShadow} />}
                         </div>
                         <div className="flex flex-col gap-10 lg:w-1/2">
@@ -38,6 +38,7 @@ const ContactSection = ({ title, description, contactDetails, dropShadow = true}
                                     <div className="flex flex-col gap-2 lg:w-full">
                                         <label htmlFor="message" className="font-medium text-sm text-neutral-700">Message</label>
                                         <textarea name="message" id="message" placeholder="Write your message..." className="bg-neutral-50 px-3.5 py-2.5 rounded-lg border border-solid border-neutral-200" />
+                                        <span className="font-normal text-sm text-right text-neutral-500">0/500</span>
                                     </div>
                                     <div className="flex flex-col gap-10 lg:w-full">
                                         <button type="submit" className="justify-center items-center gap-1.5 bg-indigo-700 px-4 py-2.5 rounded text-white">Send</button>
