@@ -1,14 +1,15 @@
 import { List } from "../List";
-
 import TextareaField from "./TextareaField";
 import InputField from "./InputField";
 import ButtonField from "./ButtonField";
+import { Field } from "./interfaces";
 
 type ContactDetails = {
     description: string;
     icon: string;
 }
 
+/*
 type Validation = {
     regex: string;
     message: string;
@@ -27,10 +28,6 @@ interface Field {
     groupWithNext?: boolean;
 }
 
-interface TextareaFieldProps extends Field {
-    characterLimit?: number;
-}
-
 interface ButtonFieldProps extends Field {
     type: "submit" | "reset" | "button";
 }
@@ -38,6 +35,7 @@ interface ButtonFieldProps extends Field {
 interface InputFieldProps extends Field {
     type: "text" | "email" | "password" | "number" | "tel" | "url";
 }
+*/
 
 type Notification = {
     badge: string;
@@ -68,7 +66,7 @@ type FormFieldsProps = {
     fields: Field[];
 };
 
-const FormFields: React.FC<FormFieldsProps> = ({ fields }) => {
+const FormFields = ({ fields } : FormFieldsProps) => {
     return (
         <>
             {fields.map((field, index) => {

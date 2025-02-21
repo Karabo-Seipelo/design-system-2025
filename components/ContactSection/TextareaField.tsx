@@ -1,5 +1,9 @@
 import React, { useState } from "react";
-import type { TextareaFieldProps } from "./types";
+import type { Field } from "./interfaces";
+
+interface TextareaFieldProps extends Field {
+    characterLimit?: number;
+}
 
 const TextareaField = ({ label, name, id, placeholder, required = false, disabled = false, characterLimit, classes = "" }: TextareaFieldProps) => {
     const [characterCount, setCharacterCount] = useState(0);

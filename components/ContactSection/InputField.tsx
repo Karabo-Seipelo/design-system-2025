@@ -1,5 +1,8 @@
-import React from 'react';
-import type { InputFieldProps } from "./types";
+import type { Field } from "./interfaces";
+
+interface InputFieldProps extends Field {
+    type: "text" | "email" | "password" | "number" | "tel" | "url";
+}
 
 const InputField = ({ label, type, name, id, placeholder, required = false, disabled = false, classes = "" }: InputFieldProps) => {
     return (

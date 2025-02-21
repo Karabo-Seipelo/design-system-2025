@@ -1,11 +1,9 @@
+import type { Field } from "./interfaces";
 
-type ButtonFieldProps = {
+
+interface ButtonFieldProps extends Field {
     type: "submit" | "reset" | "button";
-    label: string;
-    id: string;
-    classes?: string;
 }
-
 const ButtonField = ({ type, label, id, classes } : ButtonFieldProps) => {
     return (
         <div className={`flex flex-col ${classes}`}>
