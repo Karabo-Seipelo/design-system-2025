@@ -1,17 +1,106 @@
 import { List } from "../List";
+
+import TextareaField from "./TextareaField";
+import InputField from "./InputField";
+import ButtonField from "./ButtonField";
+
 type ContactDetails = {
     description: string;
     icon: string;
+}
+
+type Validation = {
+    regex: string;
+    message: string;
+}
+
+interface Field {
+    id: string;
+    name: string;
+    label: string;
+    type: string;
+    placeholder?: string;
+    validation?: Validation[];
+    classes?: string;
+    required?: boolean;
+    disabled?: boolean;
+    groupWithNext?: boolean;
+}
+
+interface TextareaFieldProps extends Field {
+    characterLimit?: number;
+}
+
+interface ButtonFieldProps extends Field {
+    type: "submit" | "reset" | "button";
+}
+
+interface InputFieldProps extends Field {
+    type: "text" | "email" | "password" | "number" | "tel" | "url";
+}
+
+type Notification = {
+    badge: string;
+    message: string;
+    status: string;
+}
+
+type FormProps = {
+    formUrl: string,
+    fields: {
+        fields: (Field | TextareaFieldProps | ButtonFieldProps | InputFieldProps)[];
+    }
+    notification?: {
+        success?: Notification,
+        error?: Notification
+    }
 }
 
 type ContactSectionProps = {
     title?: string;
     description?: string;
     contactDetails: ContactDetails[]
+    form: FormProps;
     dropShadow?: boolean;
 }
 
-const ContactSection = ({ title, description, contactDetails, dropShadow = true} : ContactSectionProps) => {
+type FormFieldsProps = {
+    fields: Field[];
+};
+
+const FormFields: React.FC<FormFieldsProps> = ({ fields }) => {
+    return (
+        <>
+            {fields.map((field, index) => {
+                const FieldComponent = field.type === "textarea" ? TextareaField : field.type === "submit" ? ButtonField : InputField;
+                const nextField = fields[index + 1];
+                const isGrouped = field.groupWithNext && nextField;
+
+                if (isGrouped) {
+                    return (<div key={index} className={`flex flex-col gap-10 ${isGrouped ? 'lg:flex-row' : ''}`}>
+                        <FieldComponent {...field} classes={`${field.classes} lg:w-1/2`} />
+                        {isGrouped && <FieldComponent {...nextField} classes={`${field.classes} lg:w-1/2`} />}
+                    </div>)
+                }
+
+                if (index > 0 && fields[index -1].groupWithNext) {
+                    return null
+                }
+
+                return (
+                    <div key={index} className="flex flex-col gap-10">
+                        <FieldComponent {...field} />
+                    </div>
+                );
+
+            })}
+        </>
+    );
+};
+
+const ContactSection = ({ title, description, contactDetails, form, dropShadow = true} : ContactSectionProps) => {
+    const { fields } = form;
+
     return (
         <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
             <div className="flex h-full flex-col imtes-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
@@ -25,24 +114,7 @@ const ContactSection = ({ title, description, contactDetails, dropShadow = true}
                         <div className="flex flex-col gap-10 lg:w-1/2">
                             <div className="flex flex-col gap-10 grow bg-white p-8 rounded-lg border border-solid border-neutral-200 drop-shadow-md">
                                <form className="flex flex-col gap-4">
-                                    <div className="flex flex-col gap-10 lg:flex-row">
-                                        <div className="flex flex-col gap-2 lg:w-1/2">
-                                            <label htmlFor="name" className="font-medium text-sm text-neutral-700">Name</label>
-                                            <input type="text" name="name" id="name" placeholder="Your name" className="bg-neutral-50 px-3.5 py-2.5 rounded border border-solid border-neutral-200" />
-                                        </div>
-                                        <div className="flex flex-col gap-2 lg:w-1/2">
-                                            <label htmlFor="email" className="font-medium text-sm text-neutral-700">Email</label>
-                                            <input type="email" name="email" id="email" placeholder="example@example.com" className="bg-neutral-50 px-3.5 py-2.5 rounded border border-solid border-neutral-200" />
-                                        </div>
-                                    </div>
-                                    <div className="flex flex-col gap-2 lg:w-full">
-                                        <label htmlFor="message" className="font-medium text-sm text-neutral-700">Message</label>
-                                        <textarea name="message" id="message" placeholder="Write your message..." className="bg-neutral-50 px-3.5 py-2.5 rounded-lg border border-solid border-neutral-200" />
-                                        <span className="font-normal text-sm text-right text-neutral-500">0/500</span>
-                                    </div>
-                                    <div className="flex flex-col gap-10 lg:w-full">
-                                        <button type="submit" className="justify-center items-center gap-1.5 bg-indigo-700 px-4 py-2.5 rounded text-white">Send</button>
-                                    </div>
+                                    <FormFields fields={fields} />
                                </form>
                             </div>
                         </div>

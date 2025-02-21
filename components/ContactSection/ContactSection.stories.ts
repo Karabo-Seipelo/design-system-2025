@@ -30,6 +30,59 @@ export const Default: Story = {
                 description: "hello@abstractly",
                 icon: "mail-line.svg",
             }
-        ]
+        ],
+        form: {
+            formUrl: "https://www.greatfrontend.com/api/projects/challenges/contact",
+            notification: {
+                error: {
+                    badge: "Error",
+                    message: "Failed to submit. Please ensure your details are correct or try again later.",
+                    status: "error",
+                }
+            },
+            fields: [
+                {
+                    id: "name",
+                    name: "name",
+                    label: "Name",
+                    type: "text",
+                    placeholder: "Enter your name",
+                    required: true,
+                    disabled: false,
+                    groupWithNext: true,
+                    classes: "gap-2"
+                },
+                {
+                    id: "email",
+                    name: "email",
+                    label: "Email",
+                    type: "email",
+                    placeholder: "Enter your email",
+                    required: true,
+                    disabled: false,
+                    classes: "gap-2"
+                },
+                {
+                    id: "message",
+                    name: "message",
+                    label: "Message",
+                    type: "textarea",
+                    placeholder: "Write your message...",
+                    characterLimit: 500,
+                    required: true,
+                    disabled: false,
+                    classes: "gap-2 lg:w-full"
+                },
+                {
+                    id: "submit",
+                    name: "submit",
+                    label: "Submit",
+                    type: "submit",
+                    disabled: false,
+                    classes: "gap-10 lg:w-full"
+                }
+            ],
+
+        }
     }
 };

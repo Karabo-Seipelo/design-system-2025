@@ -1,0 +1,19 @@
+
+type ButtonFieldProps = {
+    type: "submit" | "reset" | "button";
+    label: string;
+    id: string;
+    classes?: string;
+}
+
+const ButtonField = ({ type, label, id, classes } : ButtonFieldProps) => {
+    return (
+        <div className={`flex flex-col ${classes}`}>
+            <button type={type} id={id} className="justify-center items-center gap-1.5 bg-indigo-700 px-4 py-2.5 rounded text-white">{label}</button>
+        </div>
+    )
+}
+
+export type { ButtonFieldProps };
+
+export default ButtonField;
