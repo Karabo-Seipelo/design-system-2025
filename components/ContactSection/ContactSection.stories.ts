@@ -62,6 +62,7 @@ export const Default: Story = {
                     badge: "Success",
                     message: "Submission successful! We will get back to you in 3-5 days via email.",
                     status: "success",
+                    icon: "check-fill-success.svg"
                 }
             },
             fields: [
@@ -106,6 +107,9 @@ export const Default: Story = {
                     classes: "gap-10 lg:w-full"
                 }
             ],
+        },
+        resendForm: {
+            label: "Send another message"
         }
     }
 };

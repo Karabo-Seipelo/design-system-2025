@@ -1,59 +1,19 @@
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import { List } from "../List";
 import Form from "next/form";
 import FormFields from "./FormFields";
 import { ContactSectionProps } from "./interfaces";
-import axios from "axios";
+import useFormSubmit from "./useFormSubmit";
+import Toast from "./Toast";
 
-type ToastProps = {
-    status: string,
-    message: string,
-    badge: string
-}
+const ContactSection: React.FC<ContactSectionProps> = ({ title, description, contactDetails, form: { fields, url, notification : { success , error } }, dropShadow = true, resendForm: { label }}) => {
+    const { submitHandler, formStatus, formSuccess, setFormStatus, setFormSuccess } = useFormSubmit({ url, success, error });
 
-const Toast = ({status, message, badge}: ToastProps) => {
-     
-    return (<div data-testid="toast" className={`absolute flex w-full md:w-max items-center gap-3 pl-1 pr-2.5 pt-1 pb-1 rounded-[2000px] top-5 left-1/2 -translate-x-1/2 ${status === "SUCCESS" ? "bg-green-50" : "bg-red-50"}`}>
-        <div className={`bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center ${status === "SUCCESS" ? "text-green-700" : "text-red-800"}`}>
-            {badge}
-        </div>
-        <div className={`font-medium text-sm gap-1 ${status === "SUCCESS" ? "text-green-700" : "text-red-600"}`}>
-            <p>{message}</p>
-        </div>
-    </div>)
-}
-
-const ContactSection: React.FC<ContactSectionProps> = ({ title, description, contactDetails, form: { fields, url, notification : { success , error } }, dropShadow = true}) => {
-    const [formStatus, setFormStatus] = useState<ToastProps | null>(null);
-    const [formSuccess, setFormSuccess] = useState<boolean>(false);
-    
-    const submitHandler = async (formData: FormData) => {
-        try {
-            const email = formData.get("email");
-            const name = formData.get("name");
-            const message = formData.get("message");
-            const response = await axios.post(url, {
-                email,
-                name,
-                message
-            });
-
-            const status = response.status === 200 ? success : error;  
-
-            if (response.status === 200) {
-                setFormSuccess(true);
-            } else {
-                setFormSuccess(false);
-            }
-            
-            setFormStatus(status);
-
-        } catch (error) {
-            console.error(error);
-        }
-        console.log(formData);
+    const resetHandler = () => {
+        setFormSuccess((prev) => !prev)
+        setFormStatus(null);
     }
 
     useEffect(() => {
@@ -65,7 +25,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ title, description, con
             }, 4000);
             return () => clearTimeout(timer);
         }
-    }, [formStatus])
+    }, [formStatus, setFormStatus, setFormSuccess])
 
     return (
         <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
@@ -80,22 +40,20 @@ const ContactSection: React.FC<ContactSectionProps> = ({ title, description, con
                         </div>
                         <div className="flex flex-col gap-10 lg:w-1/2">
                         <div className="flex flex-col gap-10 grow bg-white p-8 rounded-lg border border-solid border-neutral-200 drop-shadow-md ">
-                            {formSuccess ? (
+                            {formSuccess && formStatus ? (
                                 <div className="flex flex-col items-center gap-6">
-                                    <div className="w-16 h-16 p-4 bg-white rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
-                                        <Image src="check-fill-success.svg" alt="test" width={0} height={0} className="w-8 h-8" />
-                                    </div>
+                                    {formStatus?.icon && <div className="w-16 h-16 p-4 bg-white rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
+                                        <Image src={formStatus.icon} alt={formStatus.status} width={0} height={0} className="w-8 h-8" />
+                                    </div>}
                                     <div className="font-normal text-xl text-center text-neutral-900">
-                                    Submission successful! We will get back to you in 3-5 days via email.
+                                        {formStatus.message}
                                     </div>
-                                    <button type="button" id="test2" className="flex justify-center items-center gap-1.5 bg-white px-4 py-2.5 rounded border-[0.5px] border-solid border-neutral-200 text-neutral-900">Send another message</button>
+                                    {label && <button onClick={resetHandler} type="button" id="test2" className="flex justify-center items-center gap-1.5 bg-white px-4 py-2.5 rounded border-[0.5px] border-solid border-neutral-200 text-neutral-900">{label}</button>}
                                 </div>
                             ) : (
-                                
                                     <Form className="flex flex-col gap-4" action={submitHandler}>
                                             <FormFields fields={fields} />
                                     </Form>
-                                
                             )}
                             </div>
                         </div>

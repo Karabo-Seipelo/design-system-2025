@@ -32,13 +32,18 @@ export interface ContactSectionProps {
                 badge: string;
                 message: string;
                 status: string;
+                icon?: string;
             },
             success: {
                 badge: string;
                 message: string;
                 status: string;
+                icon?: string;
             }
         }
     };
     dropShadow?: boolean;
+    resendForm: {
+        label: string;
+    }
 }
