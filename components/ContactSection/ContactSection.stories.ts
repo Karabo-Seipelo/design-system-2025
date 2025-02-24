@@ -188,6 +188,9 @@ export const SuccessContact: Story = {
                     classes: "gap-10 lg:w-full"
                 }
             ],
+        },
+        resendForm: {
+            label: "Send another message"
         }
     }
 }
@@ -266,6 +269,9 @@ export const ErrorContact: Story = {
                     classes: "gap-10 lg:w-full"
                 }
             ],
+        },
+        resendForm: {
+            label: "Send another message"
         }
     }
 }
