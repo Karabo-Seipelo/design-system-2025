@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import type { Field } from "./interfaces";
+import type { FieldProps } from "./interfaces";
 
-interface TextareaFieldProps extends Field {
+interface TextareaFieldProps extends FieldProps {
+    type: string;
     characterLimit?: number;
 }
 

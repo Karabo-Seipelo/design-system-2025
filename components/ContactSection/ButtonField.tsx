@@ -1,7 +1,7 @@
-import type { Field } from "./interfaces";
+import type { FieldProps } from "./interfaces";
 
 
-interface ButtonFieldProps extends Field {
+interface ButtonFieldProps extends FieldProps {
     type: "submit" | "reset" | "button";
 }
 const ButtonField = ({ type, label, id, classes } : ButtonFieldProps) => {

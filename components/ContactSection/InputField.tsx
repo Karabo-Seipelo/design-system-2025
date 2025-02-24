@@ -1,6 +1,6 @@
-import type { Field } from "./interfaces";
+import type { FieldProps } from "./interfaces";
 
-interface InputFieldProps extends Field {
+interface InputFieldProps extends FieldProps {
     type: "text" | "email" | "password" | "number" | "tel" | "url";
 }
 
