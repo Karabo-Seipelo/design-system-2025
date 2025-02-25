@@ -10,7 +10,7 @@ const meta = {
     },
     decorators: [
       (Story) => (
-        <div style={{ marginTop: "120px" }}>
+        <div style={{ marginTop: "184px" }}>
           <Story />
         </div>
       ),
