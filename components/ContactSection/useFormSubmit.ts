@@ -8,8 +8,12 @@ interface UseFormSubmitProps {
     error: ToastProps;
 }
 
+interface Status extends ToastProps {
+    icon?: string;
+}
+
 const useFormSubmit = ({ url, success, error: errorMsg }: UseFormSubmitProps) => {
-    const [formStatus, setFormStatus] = useState<ToastProps | null>(null);
+    const [formStatus, setFormStatus] = useState<Status | null>(null);
     const [formSuccess, setFormSuccess] = useState<boolean>(false);
     const submitHandler = async (formData: FormData) => {
         try {

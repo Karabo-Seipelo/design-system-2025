@@ -43,10 +43,12 @@ const baseArgs = {
         {
             description: "+1 (650) 555-0198",
             icon: "phone-line.svg",
+            tel: "+16505550198"
         },
         {
             description: "hello@abstractly",
             icon: "mail-line.svg",
+            mailto: "hello@abstractly"
         }
     ],
     resendForm: {
