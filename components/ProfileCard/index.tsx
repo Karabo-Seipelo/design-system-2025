@@ -32,7 +32,7 @@ const ProfileCard = ({
     button,
 } : ProfileCardProps) => {
     return (
-        <div className="w-[340px] flex flex-col bg-white rounded-lg item-center gap-6 px-4 py-6">
+        <div className="w-[340px] flex flex-col bg-white rounded-lg item-center gap-9 px-4 py-6">
             <div className="flex flex-col items-center gap-6 self-stretch">
                 {imageUrl && <div className="w-16 h-16">
                     <Image src={imageUrl} className="object-cover" width={64} height={64} alt="" />          
