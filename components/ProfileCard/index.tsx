@@ -47,8 +47,8 @@ const ProfileCard = ({
                 </div>}
             </div>
             <button className="flex justify-center items-center gap-1.5 self-stretch bg-indigo-700 px-4 py-2.5 rounded text-white font-medium text-base">{button.label}</button>
-            {<ul className="flex justify-center gap-4 self-stretch">
-                {socials.map(({name, url, icon}, indx) => <li key={`${name}-${indx}`}className="w-5 h-5">
+            {<ul className="flex justify-center gap-6 self-stretch">
+                {socials.map(({name, url, icon}, indx) => <li key={`${name}-${indx}`} className="w-5 h-5">
                     <a href={url} className={`icon-${icon} text-base`} aria-label={`Link to ${name}'s ${icon} profile`}></a>
                 </li>)}
             </ul>}
