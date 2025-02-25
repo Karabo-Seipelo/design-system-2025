@@ -2,13 +2,14 @@ export interface FieldProps {
     id: string;
     name: string;
     label: string;
-    renderType: "text" | "email" | "textarea" | "submit";
+    renderType: string;
     placeholder?: string;
     required?: boolean;
     disabled?: boolean;
     groupWithNext?: boolean;
     classes?: string;
     characterLimit?: number;
+    testId?: string;
 }
 
 export interface FormFieldsProps {

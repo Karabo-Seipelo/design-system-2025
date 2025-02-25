@@ -11,8 +11,8 @@ const FormFields: React.FC<FormFieldsProps> = ({ fields }) => {
 
                 if (isGrouped) {
                     return (<div key={index} className={`flex flex-col gap-10 ${isGrouped ? 'lg:flex-row' : ''}`}>
-                        <FieldComponent {...field} classes={`${field.classes} lg:w-1/2`} />
-                        {isGrouped && <FieldComponent {...nextField} classes={`${field.classes} lg:w-1/2`} />}
+                        <FieldComponent {...field} classes={`${field.classes} lg:w-1/2`} data-testid={field.testId} />
+                        {isGrouped && <FieldComponent {...nextField} classes={`${field.classes} lg:w-1/2`} data-testid={field.testId} />}
                     </div>)
                 }
 
@@ -22,7 +22,7 @@ const FormFields: React.FC<FormFieldsProps> = ({ fields }) => {
 
                 return (
                     <div key={index} className="flex flex-col gap-10">
-                        <FieldComponent {...field} />
+                        <FieldComponent {...field} data-testid={field.testId} />
                     </div>
                 );
 

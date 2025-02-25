@@ -8,7 +8,7 @@ interface UseFormSubmitProps {
     error: ToastProps;
 }
 
-const useFormSubmit = ({ url, success, error }: UseFormSubmitProps) => {
+const useFormSubmit = ({ url, success, error: errorMsg }: UseFormSubmitProps) => {
     const [formStatus, setFormStatus] = useState<ToastProps | null>(null);
     const [formSuccess, setFormSuccess] = useState<boolean>(false);
     const submitHandler = async (formData: FormData) => {
@@ -22,17 +22,20 @@ const useFormSubmit = ({ url, success, error }: UseFormSubmitProps) => {
                 message
             });
 
-            const status = response.status === 200 ? success : error;  
+            const status = response.status === 200 ? success : errorMsg;  
 
             if (response.status === 200) {
                 setFormSuccess(true);
             } else {
                 setFormSuccess(false);
             }
+
+            console.log({status});
             
             setFormStatus(status);
 
         } catch (error) {
+            setFormStatus(errorMsg);
             console.error(error);
         }
     }

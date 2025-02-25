@@ -6,7 +6,7 @@ interface TextareaFieldProps extends FieldProps {
     characterLimit?: number;
 }
 
-const TextareaField = ({ label, name, id, placeholder, required = false, disabled = false, characterLimit, classes = "" }: TextareaFieldProps) => {
+const TextareaField = ({ label, name, id, placeholder, required = false, disabled = false, characterLimit, classes = "", testId }: TextareaFieldProps) => {
     const [characterCount, setCharacterCount] = useState(0);
     const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         setCharacterCount(event.target.value.length);
@@ -16,6 +16,7 @@ const TextareaField = ({ label, name, id, placeholder, required = false, disable
         <div className={`flex flex-col ${classes}`}>
             <label htmlFor={id} className="font-medium text-sm">{label}</label>
             <textarea 
+                data-testid={testId}
                 name={name} 
                 id={id} 
                 placeholder={placeholder} 

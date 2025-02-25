@@ -17,6 +17,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ title, description, con
     }
 
     useEffect(() => {
+        console.log({formStatus});
         if (formStatus) {
             const timer = setTimeout(() => {
                 setFormStatus(null)
@@ -41,7 +42,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ title, description, con
                         <div className="flex flex-col gap-10 lg:w-1/2">
                         <div className="flex flex-col gap-10 grow bg-white p-8 rounded-lg border border-solid border-neutral-200 drop-shadow-md ">
                             {formSuccess && formStatus ? (
-                                <div className="flex flex-col items-center gap-6">
+                                <div data-testid="success" className="flex flex-col items-center gap-6">
                                     {formStatus?.icon && <div className="w-16 h-16 p-4 bg-white rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
                                         <Image src={formStatus.icon} alt={formStatus.status} width={0} height={0} className="w-8 h-8" />
                                     </div>}
@@ -52,7 +53,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ title, description, con
                                 </div>
                             ) : (
                                     <Form className="flex flex-col gap-4" action={submitHandler}>
-                                            <FormFields fields={fields} />
+                                        <FormFields fields={fields} />
                                     </Form>
                             )}
                             </div>
