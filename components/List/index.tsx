@@ -9,18 +9,20 @@ interface Feature {
     mailto?: string;
 }
 
-const List = ({ features, dropShadow = false}: { features: Feature[], dropShadow?: boolean }) => {
-    const RenderList = (feature: Feature) => {
-        if (feature.tel) {
-            return <a href={`tel:${feature.tel}`} className="text-base md:text-lg font-normal">{feature.description}</a>
-        }
-
-        if (feature.mailto) {
-            return <a href={`mailto:${feature.mailto}`} className="text-base md:text-lg font-normal">{feature.description}</a>
-        }
-
-        return <p className="text-base md:text-lg font-normal">{feature.description}</p>
+const RenderList = (feature: Feature) => {
+    if (feature.tel) {
+        return <a href={`tel:${feature.tel}`} className="text-base md:text-lg font-normal">{feature.description}</a>
     }
+
+    if (feature.mailto) {
+        return <a href={`mailto:${feature.mailto}`} className="text-base md:text-lg font-normal">{feature.description}</a>
+    }
+
+    return <p className="text-base md:text-lg font-normal">{feature.description}</p>
+}
+
+const List = ({ features, dropShadow = false}: { features: Feature[], dropShadow?: boolean }) => {
+    
     return (<ul className="flex flex-col gap-10 w-full md:gap-5">
         {features.map((feature, index) => {
             const {title, icon } = feature;
