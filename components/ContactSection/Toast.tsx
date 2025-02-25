@@ -3,8 +3,7 @@ import React from 'react';
 export type ToastProps = {
     status: string,
     message: string,
-    badge: string,
-    icon?: string
+    badge: string
 }
 
 const Toast = ({status, message, badge}: ToastProps) => {

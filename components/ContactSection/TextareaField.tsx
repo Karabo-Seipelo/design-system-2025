@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import type { FieldProps } from "./interfaces";
 
 interface TextareaFieldProps extends FieldProps {
-    type: string;
     characterLimit?: number;
 }
 
