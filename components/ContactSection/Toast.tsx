@@ -4,6 +4,7 @@ export type ToastProps = {
     status: string,
     message: string,
     badge: string
+    icons?: string
 }
 
 const Toast = ({status, message, badge}: ToastProps) => {
