@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     title: "Frequently asked questions",
-    subTitle: "Get all your questions answered",
+    subTitle: "Choose any questions you need",
     articles: [
       {
         title: "What types of images are available on your platform?",
