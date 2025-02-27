@@ -1,37 +1,37 @@
-import React from 'react';
-import { Noto_Sans } from 'next/font/google'
+import React from "react";
+import { Noto_Sans } from "next/font/google";
 import type { Preview } from "@storybook/react";
-import { initialize, mswLoader } from 'msw-storybook-addon';
-import '../src/styles/globals.css';
+import { initialize, mswLoader } from "msw-storybook-addon";
+import "../src/styles/globals.css";
 
 const DS_VIEWPORTS = {
   mobile: {
-    name: 'Mobile',
+    name: "Mobile",
     styles: {
-      width: '375px',
-      height: '667px',
+      width: "375px",
+      height: "667px",
     },
   },
   tablet: {
-    name: 'Tablet',
+    name: "Tablet",
     styles: {
-      width: '768px',
-      height: '1024px',
+      width: "768px",
+      height: "1024px",
     },
   },
   desktop: {
-    name: 'Desktop',
+    name: "Desktop",
     styles: {
-      width: '1440px',
-      height: '900px',
+      width: "1440px",
+      height: "900px",
     },
   },
-}
+};
 
 const notoSans = Noto_Sans({
   weight: ["400", "500", "600"],
   subsets: ["latin"],
-})
+});
 
 initialize();
 
@@ -51,20 +51,20 @@ const preview: Preview = {
       },
     },
     a11y: {
-      element: '#storybook-root',
+      element: "#storybook-root",
       config: {
         rules: [
           {
             // The autocomplete rule will not run based on the CSS selector provided
-            id: 'autocomplete-valid',
+            id: "autocomplete-valid",
             selector: '*:not([autocomplete="nope"])',
           },
           {
             // Setting the enabled option to false will disable checks for this particular rule on all stories.
-            id: 'image-alt',
+            id: "image-alt",
             enabled: false,
           },
-        ]
+        ],
       },
       options: {},
       // Optional flag to prevent the automatic check
@@ -75,7 +75,7 @@ const preview: Preview = {
       viewports: DS_VIEWPORTS,
     },
   },
-  loaders: [mswLoader]
+  loaders: [mswLoader],
 };
 
 export default preview;

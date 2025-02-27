@@ -1,4 +1,5 @@
 ## Introduction
+
 The Pricing Tier component is a versatile and customizable pricing table desgined for displaying various pricing subscription plans and their details.
 
 ## Features
@@ -9,6 +10,7 @@ The Pricing Tier component is a versatile and customizable pricing table desgine
 - Responsive design for mobile and desktop
 
 ## Props
+
 - title (string): The title of the pricing tier
 - subTitle (string): The subtitle of the pricing tier
 - description (string): The description of the pricing tier
@@ -123,15 +125,17 @@ The Pricing Tier component is a versatile and customizable pricing table desgine
         },
       ],
     },
-    
+
   ]}
 />
 ```
 
 ## Customization
+
 The Pricing Tier component can be customized by passing in different props to the component. The component can be customized by changing the title, subtitle, description, features, and pricing tiers.
 
 ## Dependencies
+
 - [React](https://reactjs.org/)
 - [Next.js](https://nextjs.org/)
 - [@headlessui/react](https://headlessui.dev/react/)

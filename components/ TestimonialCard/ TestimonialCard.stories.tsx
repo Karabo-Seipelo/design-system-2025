@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import results from "./../../.jest-test-results.json";
 import { withTests } from "@storybook/addon-jest";
-import Card from '.';
+import Card from ".";
 
 const meta = {
-  title: 'Marketing/Card/Testimonial',
+  title: "Marketing/Card/Testimonial",
   component: Card,
-  tags: ['autdocs'],
+  tags: ["autdocs"],
   parameters: {
-    layout: 'centered',
-    jest: ['index.test.tsx']
+    layout: "centered",
+    jest: ["index.test.tsx"],
   },
   decorators: [
     (Story) => (
-      <div style={{ marginTop: "184px"}}>
+      <div style={{ marginTop: "184px" }}>
         <Story />
       </div>
     ),
-    withTests({ results })
+    withTests({ results }),
   ],
 } satisfies Meta<typeof Card>;
 
@@ -26,38 +26,41 @@ type TestimonialStory = StoryObj<typeof meta>;
 
 export const Default: TestimonialStory = {
   args: {
-    firstName: 'Sarah',
-    lastName: 'Dole',
-    handle: '@sarahdole',
-    testimonial: "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
+    firstName: "Sarah",
+    lastName: "Dole",
+    handle: "@sarahdole",
+    testimonial:
+      "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
     avatar: {
-      imageUrl: 'profile.png',
-      alt: "Sarah Dole"
-    }
-  }
+      imageUrl: "profile.png",
+      alt: "Sarah Dole",
+    },
+  },
 };
 
 export const WithoutHandle: TestimonialStory = {
   args: {
-    firstName: 'Sarah',
-    lastName: 'Dole',
-    testimonial: "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
+    firstName: "Sarah",
+    lastName: "Dole",
+    testimonial:
+      "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
     avatar: {
-      imageUrl: 'profile.png',
-      alt: "Sarah Dole"
-    }
-  }
+      imageUrl: "profile.png",
+      alt: "Sarah Dole",
+    },
+  },
 };
 
 export const WithoutLastname: TestimonialStory = {
   args: {
-    firstName: 'Sarah',
+    firstName: "Sarah",
     lastName: undefined,
-    handle: '@sarahdole',
-    testimonial: "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
+    handle: "@sarahdole",
+    testimonial:
+      "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
     avatar: {
-      imageUrl: 'profile.png',
-      alt: "Sarah Dole"
-    }
-  }
+      imageUrl: "profile.png",
+      alt: "Sarah Dole",
+    },
+  },
 };
