@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
-import { List } from "../List";
+import { List } from "../../List";
 import Form from "next/form";
 import FormFields from "./FormFields";
 import { ContactSectionProps } from "./interfaces";

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import results from "./../../.jest-test-results.json";
+import results from "../../../.jest-test-results.json";
 import { withTests } from "@storybook/addon-jest";
 import Card from ".";
 

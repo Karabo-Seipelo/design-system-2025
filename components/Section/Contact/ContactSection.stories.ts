@@ -3,7 +3,7 @@ import ContactSection from ".";
 import { http, HttpResponse } from "msw";
 
 const meta = {
-  title: "Marketing/Contact",
+  title: "Marketing/Section/Contact",
   component: ContactSection,
   tags: ["autodocs"],
   parameters: {

@@ -4,7 +4,7 @@ import { http, HttpResponse } from "msw";
 import NewsletterSection from ".";
 
 const meta = {
-  title: "Marketing/Newsletter",
+  title: "Marketing/Section/Newsletter",
   component: NewsletterSection,
   tags: ["autodocs"],
   parameters: {

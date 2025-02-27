@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import TeamSection from ".";
 
 const meta = {
-  title: "Marketing/TeamSection",
+  title: "Marketing/Section/Team",
   component: TeamSection,
   tags: ["autodocs"],
   parameters: {
