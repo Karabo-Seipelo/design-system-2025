@@ -59,9 +59,9 @@ const FAQ = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
                         {title}
                       </span>
                       {open ? (
-                        <MinusCircleIcon className="size-11 text-neutral-400" />
+                        <MinusCircleIcon className="size-5 text-neutral-400" />
                       ) : (
-                        <PlusCircleIcon className="size-11 text-neutral-400" />
+                        <PlusCircleIcon className="size-5 text-neutral-400" />
                       )}
                     </DisclosureButton>
                     <DisclosurePanel className="font-normal text-base text-neutral-600 text-left">
