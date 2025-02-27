@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Testimonials from ".";
 import testimonialData from "./testimonials.json";
+import { v4 as uuidv4 } from "uuid";
 
 const meta = {
   title: "Marketing/Section/Testimonials",
@@ -14,7 +15,6 @@ const meta = {
 export default meta;
 type TestimonialStory = StoryObj<typeof meta>;
 
-
 const createTestimonial = (
   firstName: string,
   lastName: string,
@@ -23,6 +23,7 @@ const createTestimonial = (
   imageUrl: string,
   alt: string,
 ) => ({
+  id: uuidv4(),
   firstName,
   lastName,
   handle,
