@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Form from "next/form";
 import axios from "axios";
-import List from "../List";
+import { List } from "../../List";
 
 type Feature = {
   title?: string;

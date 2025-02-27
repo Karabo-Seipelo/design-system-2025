@@ -35,7 +35,7 @@ const NotFound = ({ title, subTitle, description, button }: NotFoundProps) => {
           </header>
           <button
             onClick={button.onClick}
-            className=" gap-1.5 grow bg-indigo-700 px-5 py-3 rounded text-white md:w-[173px]"
+            className="gap-1.5 bg-indigo-700 px-5 py-3 rounded text-white md:w-[173px] md:gap-2.5 lg:px-6 lg:py-4"
             aria-label="Learn more"
           >
             {button.label}

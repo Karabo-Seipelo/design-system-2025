@@ -25,7 +25,8 @@
     "axios": "^1.7.9",
     "next": "15.1.6",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",

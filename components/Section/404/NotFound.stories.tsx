@@ -3,7 +3,7 @@ import { fn } from "@storybook/test";
 import NotFound from ".";
 
 const meta = {
-  title: "Marketing/404",
+  title: "Marketing/Section/404",
   component: NotFound,
   tags: ["autodocs"],
   parameters: {
