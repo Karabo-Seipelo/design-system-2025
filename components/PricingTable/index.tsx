@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { randomUUID } from "crypto";
 
 interface Button {
   label: string;
@@ -117,8 +118,8 @@ const Pricing = ({
             )}
           </div>
           <div className="flex flex-col gap-2 w-full lg:w-5/12">
-            {prices.map((price, index) => (
-              <Price key={`price-${index}`} {...price} />
+            {prices.map((price) => (
+              <Price key={randomUUID()} {...price} />
             ))}
           </div>
         </main>

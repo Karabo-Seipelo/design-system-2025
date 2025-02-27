@@ -42,15 +42,11 @@ const TeamSection = ({
           </header>
         </section>
         <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
-          <ul
-            className="flex flex-col gap-12 self-stretch w-full md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4"
-            role="list"
-          >
+          <ul className="flex flex-col gap-12 self-stretch w-full md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-4">
             {team?.map(({ name, role, imageUrl, description }, index) => (
               <li
                 key={name + " " + index}
                 className="flex flex-col gap-6 self-stretch md:w-[336px] lg:w-[280px]"
-                role="listitem"
               >
                 <Image
                   src={imageUrl}

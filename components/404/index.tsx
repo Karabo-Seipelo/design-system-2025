@@ -7,7 +7,6 @@ type NotFoundProps = {
     primary: boolean;
     onClick: () => void;
   };
-  imageUrl?: string;
 };
 
 const NotFound = ({ title, subTitle, description, button }: NotFoundProps) => {
