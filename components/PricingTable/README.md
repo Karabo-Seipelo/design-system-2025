@@ -57,3 +57,4 @@ The `Pricing` component is a versatile and customizable pricing table designed f
     },
   ]}
 />
+```

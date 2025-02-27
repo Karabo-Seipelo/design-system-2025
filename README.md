@@ -19,17 +19,17 @@ This project is a design system for the year 2025. It includes a collection of r
 To get started with the design system, follow these steps:
 
 1. Clone the repository:
-    ```bash
-    git clone /Users/karabo.seipelo/Work/Personal/2025/desgin-system
-    ```
+   ```bash
+   git clone /Users/karabo.seipelo/Work/Personal/2025/desgin-system
+   ```
 2. Install dependencies:
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 3. Run the development server:
-    ```bash
-    npm start
-    ```
+   ```bash
+   npm start
+   ```
 
 First, run the development server:
 

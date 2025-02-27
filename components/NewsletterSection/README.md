@@ -1,6 +1,7 @@
 The code provided is a React component written in TypeScript, using the Next.js framework. Here's a breakdown of the tech stack and approach:
 
 Tech Stack:
+
 - React: A JavaScript library for building user interfaces, particularly single-page applications.
 - TypeScript: A superset of JavaScript that adds static typing, which helps catch errors at compile time.
 - Next.js: A React framework that enables server-side rendering and static site generation, providing better performance and SEO.
@@ -11,6 +12,7 @@ Tech Stack:
 - Storybook: A tool for developing UI components in isolation, allowing for faster development and testing.
 
 Approach:
+
 - Component Structure:
   - The NewsletterSection component is the main component that renders the newsletter subscription section.
   - It accepts props such as title, features, imageUrl, newsLetterURL, and toast notifications.
@@ -27,5 +29,5 @@ Approach:
   - The Image component from Next.js is used to display an image, ensuring it is optimized for performance.
 - Styling:
   - Tailwind CSS classes are used extensively for styling the components, providing a responsive and modern design.
-  
+
 Overall, the approach is to create a reusable and well-structured component that handles user input, communicates with a backend service, and provides feedback to the user in a visually appealing manner.

@@ -2,9 +2,9 @@ import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
   stories: [
-    "../src/**/*.mdx", 
-    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",  
-    "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    "../src/**/*.mdx",
+    "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    "../components/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
     "@storybook/addon-onboarding",
@@ -12,7 +12,7 @@ const config: StorybookConfig = {
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
-    "@storybook/addon-jest"
+    "@storybook/addon-jest",
   ],
   framework: {
     name: "@storybook/nextjs",
