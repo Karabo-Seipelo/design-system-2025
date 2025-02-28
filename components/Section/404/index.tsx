@@ -14,7 +14,7 @@ const NotFound = ({ title, subTitle, description, button }: NotFoundProps) => {
     <div
       className={`w-full rounded abstract_bg shadow-sm md:rounded-md md:shadow-md lg:shadow-lg py-[166px] lg:p-[96px]`}
     >
-      <div className="flex h-full flex-col imtes-start px-3 py-12 md:px-4 md:py-16 lg:items-left lg:px-0 lg:py-[127px]">
+      <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-left lg:px-0 lg:py-[127px]">
         <section className="flex flex-col gap-12 md:gap-16">
           <header className="flex flex-col text-left gap-2">
             {subTitle && (
