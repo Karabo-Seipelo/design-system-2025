@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import LogoMarquee from ".";
 
 const meta = {
-  title: "Marketing/Section/LogoMarquee",
+  title: "Marketing/LogoMarquee",
   component: LogoMarquee,
   tags: ["autodocs"],
   parameters: {
