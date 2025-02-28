@@ -13,7 +13,7 @@ type LogoMarqueeProps = {
 
 const LogoMarquee = ({ logos, title }: LogoMarqueeProps) => {
   return (
-    <div className="flex flex-1 flex-col items-center gap-8 overflow-hidden">
+    <div className="flex flex-1 flex-col items-center gap-8 overflow-hidden w-full">
       {title && (
         <h3 className="font-medium text-base text-center text-neutral-600">
           {title}
