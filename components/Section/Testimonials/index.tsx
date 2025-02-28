@@ -46,8 +46,8 @@ const Testimonials = ({
               </p>
             )}
           </header>
-          <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
-            <div className="md:columns-2 lg:columns-3 gap-8">
+          <main className="">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-9 space-y-9">
               {testimonials?.map(
                 ({ id, firstName, lastName, handle, testimonial, avatar }) => (
                   <Testimonial
@@ -57,6 +57,7 @@ const Testimonials = ({
                     handle={handle}
                     testimonial={testimonial}
                     avatar={avatar}
+                    classes="break-inside-avoid"
                   />
                 ),
               )}

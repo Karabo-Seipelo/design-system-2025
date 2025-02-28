@@ -13,6 +13,7 @@ export interface TestimonialCardProps {
     imageUrl: string;
     alt: string;
   };
+  classes?: string;
 }
 
 export interface AvatarProps {
@@ -31,9 +32,12 @@ const TestimonialCard = ({
   lastName,
   testimonial,
   avatar,
+  classes = "",
 }: TestimonialCardProps) => {
   return (
-    <div className="md:w-[340px] flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md">
+    <div
+      className={`md:w-[340px] flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md ${classes}`}
+    >
       <header className="flex items-center gap-4 self-stretch">
         {avatar?.imageUrl && avatar?.alt && (
           <Avatar
