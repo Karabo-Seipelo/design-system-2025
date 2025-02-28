@@ -1,7 +1,7 @@
 import Testimonial from "../../Card/Testimonial/index";
-import { v4 as uuidv4 } from "uuid";
 
 type TestimonialProps = {
+  id: string;
   firstName?: string;
   lastName?: string;
   handle?: string;
@@ -46,17 +46,18 @@ const Testimonials = ({
               </p>
             )}
           </header>
-          <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
-            <div className="flex flex-col gap-12 self-stretch w-full md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-16 lg:grid-cols-3">
+          <main className="">
+            <div className="columns-1 md:columns-2 lg:columns-3 gap-9 space-y-9">
               {testimonials?.map(
-                ({ firstName, lastName, handle, testimonial, avatar }) => (
+                ({ id, firstName, lastName, handle, testimonial, avatar }) => (
                   <Testimonial
-                    key={uuidv4()}
+                    key={id}
                     firstName={firstName}
                     lastName={lastName}
                     handle={handle}
                     testimonial={testimonial}
                     avatar={avatar}
+                    classes="break-inside-avoid"
                   />
                 ),
               )}
