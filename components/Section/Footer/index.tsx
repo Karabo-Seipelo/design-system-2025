@@ -45,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({ links, socails, copyright }) => {
         <div className="flex flex-col justify-center items-center gap-4">
           <ul className="flex justify-center items-center gap-6">
             {socails.map((social, index) => (
-              <li key={`social-${index}`}>
+              <li key={`social-${index}-${social.icon}`}>
                 <Link href={social.href} aria-label={`${social.label} profile`}>
                   <i
                     className={`${socialsIcons[social.icon]} text-neutral-400 size-6`}
