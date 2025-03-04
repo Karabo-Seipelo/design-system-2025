@@ -30,14 +30,14 @@ const Footer: React.FC<FooterProps> = ({ links, socails, copyright }) => {
   return (
     <div className="rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg w-screen h-screen">
       <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
-        <section className="flex flex-col gap-12 md:gap-16">
+        <section className="flex flex-col gap-12 md:gap-16 py-[286px]">
           <div className="flex justify-center">
             <footer className="flex flex-col justify-center items-center gap-8 lg:w-[768px]">
               <ul className="flex justify-center items-center gap-4 md:gap-6">
                 {links.map((link, index) => (
                   <li key={`link-${index}`}>
                     <Link
-                      className="font-medium text-sm text-neutral-600"
+                      className="font-medium text-sm text-gray-400 hover:text-gray-900"
                       href={link.href}
                     >
                       {link.label}
