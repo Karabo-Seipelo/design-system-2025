@@ -190,7 +190,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
   );
 
   return (
-    <>
       <Overlay>
         <Dialog
           open={isOpen}
@@ -227,7 +226,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
           </div>
         </div>
       </Overlay>
-    </>
   );
 };
 
