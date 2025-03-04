@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 export type Cookies = {
   name: string;
   description: string;
 };
 
-const useCookies = (cookies: Cookies[]) => {
-  const mappedCookies = cookies.map((cookie) => {
-    return {
+const useCookies = (cookies: Cookies[], consentCookies?: string[]) => {
+  const mappedCookies = useMemo(() => {
+    return cookies.map((cookie) => ({
       ...cookie,
-      enabled: false,
-    };
-  });
+      enabled: (consentCookies ?? []).includes(cookie.name),
+    }));
+  }, [consentCookies, cookies]);
   const [enabledCookies, setEnabledCookies] = useState(mappedCookies);
 
   return { enabledCookies, setEnabledCookies };

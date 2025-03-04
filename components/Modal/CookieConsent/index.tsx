@@ -37,7 +37,7 @@ interface OverLayProps {
 
 const Overlay: React.FC<OverLayProps> = ({ children }) => {
   return (
-    <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+    <div className="fixed inset-0 z-10 w-screen overflow-y-auto backdrop-blur-sm">
       {children}
     </div>
   );
@@ -49,9 +49,14 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
   modal,
   buttons,
 }) => {
+  const consentCookies = localStorage.getItem("consentCookies");
+  const parsedConsentCookies = consentCookies ? JSON.parse(consentCookies) : [];
   const { cookies } = modal;
   const { isOpen, openModal, closeModal } = useModal(false);
-  const { enabledCookies, setEnabledCookies } = useCookies(cookies);
+  const { enabledCookies, setEnabledCookies } = useCookies(
+    cookies,
+    parsedConsentCookies,
+  );
 
   const handleSwitchChange = useCallback(
     (cookieName: string, checked: boolean) => {
@@ -63,6 +68,14 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     },
     [setEnabledCookies],
   );
+
+  const save = useCallback(() => {
+    const mappedCookies = enabledCookies
+      .filter((cookie) => cookie.enabled)
+      .map((cookie) => cookie.name);
+    localStorage.setItem("consentCookies", JSON.stringify(mappedCookies));
+    closeModal();
+  }, [enabledCookies, closeModal]);
 
   const declineAll = useCallback(() => {
     setEnabledCookies((prev) =>
@@ -130,7 +143,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
         decline: declineAll,
         manage: openModal,
         acceptModal: acceptAll,
-        saveModal: () => console.log("Save"),
+        saveModal: save,
         declineModal: declineAll,
       };
       const nextButton = buttons[index + 1];
@@ -141,7 +154,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
         return (
           <div
             key={index}
-            className={`flex gap-2 ${button.type === "acceptModal" ? "flex-row" : "flex-col md:flex-row"}`}
+            className={`flex gap-2 ${button.type === "acceptModal" ? "flex-row w-full" : "flex-col md:flex-row"}`}
           >
             <Button
               className={`${classes[button.type]} px-4 py-2.5`}
@@ -173,46 +186,48 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
         </Button>
       );
     },
-    [acceptAll, declineAll, openModal],
+    [acceptAll, declineAll, openModal, save],
   );
 
   return (
-    <Overlay>
-      <Dialog
-        open={isOpen}
-        onClose={closeModal}
-        className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-neutral-950/70 flex justify-center items-center"
-      >
-        <DialogPanel className="flex flex-col gap-6 p-6  bg-white">
-          <Description as="div">
-            <ul className="flex flex-col gap-4">
-              {modal.cookies.map(renderCookieItem)}
-            </ul>
-          </Description>
-          <footer className="mt-4 flex flex-col md:flex-row gap-2 justify-start">
-            {modal.buttons.map((button, index) =>
-              renderButtons(button, modal.buttons, index),
-            )}
-          </footer>
-        </DialogPanel>
-      </Dialog>
+    <>
+      <Overlay>
+        <Dialog
+          open={isOpen}
+          onClose={closeModal}
+          className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-neutral-950/70 flex justify-center items-center"
+        >
+          <DialogPanel className="flex flex-col gap-6 p-6 bg-white md:w-[458px]">
+            <Description as="div">
+              <ul className="flex flex-col gap-4">
+                {modal.cookies.map(renderCookieItem)}
+              </ul>
+            </Description>
+            <footer className="mt-4 flex flex-col gap-2 justify-start">
+              {modal.buttons.map((button, index) =>
+                renderButtons(button, modal.buttons, index),
+              )}
+            </footer>
+          </DialogPanel>
+        </Dialog>
 
-      <div className="flex absolute bottom-0 left-0 right-0">
-        <div className="w-full bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0">
-          {title && (
-            <h3 className="font-semibold text-base text-neutral-900">
-              {title}
-            </h3>
-          )}
-          {description && <p className="mt-2 text-sm">{description}</p>}
-          <footer className="mt-4 flex flex-col md:flex-row gap-2 justify-between">
-            {buttons.map((button, index) =>
-              renderButtons(button, buttons, index),
+        <div className="flex absolute bottom-0 left-0 right-0">
+          <div className="w-full bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0">
+            {title && (
+              <h3 className="font-semibold text-base text-neutral-900">
+                {title}
+              </h3>
             )}
-          </footer>
+            {description && <p className="mt-2 text-sm">{description}</p>}
+            <footer className="mt-4 flex flex-col md:flex-row gap-2 justify-between">
+              {buttons.map((button, index) =>
+                renderButtons(button, buttons, index),
+              )}
+            </footer>
+          </div>
         </div>
-      </div>
-    </Overlay>
+      </Overlay>
+    </>
   );
 };
 
