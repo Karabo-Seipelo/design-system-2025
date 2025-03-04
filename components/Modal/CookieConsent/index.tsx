@@ -149,7 +149,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
         return (
           <div
             key={index}
-            className={`flex gap-2 ${button.type === "acceptModal" ? "flex-row w-full" : "flex-col md:flex-row"}`}
+            className={`flex gap-2 ${button.type === "acceptModal" ? "flex-row w-full" : "flex-col md:flex-row"} order-1 md:order-2`}
           >
             <Button
               className={`${classes[button.type]} px-4 py-2.5`}
@@ -174,7 +174,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       return (
         <Button
           key={button.label}
-          className={`${classes[button.type]} px-4 py-2.5`}
+          className={`${classes[button.type]} px-4 py-2.5 gap-1.5 order-2 md:order-1`}
           onClick={handleClick[button.type]}
         >
           {button.label}
@@ -206,7 +206,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       </Dialog>
 
       <div className="flex absolute bottom-0 left-0 right-0">
-        <div className="w-full bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0">
+        <div className="w-full bg-white backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0 p-4 md:px-8 md:py-6 lg:px-26 gap-6">
           {title && (
             <h3 className="font-semibold text-base text-neutral-900">
               {title}
