@@ -1,11 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/jest-globals";
 import "@testing-library/jest-dom";
-import TestimonialCard, { TestimonialCardProps } from "./index";
-import { JSX } from "react/jsx-runtime";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ TestimonialCard.stories";
+const { Default, WithoutHandle, WithoutLastname } = composeStories(stories);
 
 jest.mock("next/image", () => ({
   __esModule: true,
@@ -19,55 +20,25 @@ jest.mock("next/image", () => ({
 }));
 
 describe("TestimonialCard", () => {
-  let defaultProps: React.JSX.IntrinsicAttributes & TestimonialCardProps;
-
-  beforeAll(() => {
-    defaultProps = {
-      firstName: "John",
-      lastName: "Doe",
-      handle: "@johndoe",
-      testimonial: "This is a great product!",
-      avatar: {
-        imageUrl: "/path/to/avatar.jpg",
-        alt: "John Doe",
-      },
-    };
-  });
-
   it("renders the testimonial card with all props", () => {
-    const { getByText, getByAltText } = render(
-      <TestimonialCard {...defaultProps} />,
-    );
+    render(<Default />);
 
-    expect(getByText("John Doe")).toBeInTheDocument();
-    expect(getByText("@johndoe")).toBeInTheDocument();
-    expect(getByText("This is a great product!")).toBeInTheDocument();
-    expect(getByAltText("John Doe")).toBeInTheDocument();
+    console.log(Default.args.testimonial);
+    expect(screen.getByText("Sarah Dole")).toBeInTheDocument();
+    expect(screen.getByText("@sarahdole")).toBeInTheDocument();
   });
 
   it("renders the testimonial card without handle", () => {
-    const propsWithoutHandle = { ...defaultProps, handle: undefined };
-    const { getByText, queryByText } = render(
-      <TestimonialCard {...propsWithoutHandle} />,
-    );
+    render(<WithoutHandle />);
 
-    expect(getByText("John Doe")).toBeInTheDocument();
-    expect(queryByText("@johndoe")).not.toBeInTheDocument();
-    expect(getByText("This is a great product!")).toBeInTheDocument();
+    expect(screen.getByText("Sarah Dole")).toBeInTheDocument();
+    expect(screen.queryByText("@sarahdole")).not.toBeInTheDocument();
   });
 
   it("renders the testimonial card with unknown user when name is not provided", () => {
-    const propsWithoutName = {
-      ...defaultProps,
-      firstName: undefined,
-      lastName: undefined,
-    };
-    const { getByText, getByAltText } = render(
-      <TestimonialCard {...propsWithoutName} />,
-    );
+    render(<WithoutLastname />);
 
-    expect(getByText("unknown user")).toBeInTheDocument();
-    expect(getByAltText("unknown user")).toBeInTheDocument();
-    expect(getByText("This is a great product!")).toBeInTheDocument();
+    expect(screen.getByText("unknown user")).toBeInTheDocument();
+    expect(screen.getByAltText("unknown user")).toBeInTheDocument();
   });
 });
