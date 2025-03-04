@@ -17,7 +17,7 @@ export const Default: Story = {
   args: {
     title: "We use cookies",
     description:
-      "We use cookies to enhance your browsing experience and improve our website's performance. By continuing to use this site, you consent to the use of cookies. To learn more about how we use cookies and your options, please read our cookie policy.",
+      'We use cookies to enhance your browsing experience and improve our website\'s performance. By continuing to use this site, you consent to the use of cookies. To learn more about how we use cookies and your options, please read our <a class="text-indigo-700" href="#">cookie policy</a>.',
     modal: {
       cookies: [
         {

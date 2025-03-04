@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import {
   Button,
   Dialog,
@@ -8,6 +8,7 @@ import {
 } from "@headlessui/react";
 import useModal from "./useModal";
 import useCookies, { Cookies } from "./useCookies";
+import Overlay from "./Overlay";
 
 type CookieButton = {
   label: string;
@@ -31,18 +32,6 @@ type CookieConsentProps = {
   buttons: CookieButton[];
 };
 
-interface OverLayProps {
-  children: React.ReactNode;
-}
-
-const Overlay: React.FC<OverLayProps> = ({ children }) => {
-  return (
-    <div className="fixed inset-0 z-10 w-screen overflow-y-auto backdrop-blur-sm">
-      {children}
-    </div>
-  );
-};
-
 const CookieConsent: React.FC<CookieConsentProps> = ({
   title,
   description,
@@ -50,7 +39,14 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
   buttons,
 }) => {
   const consentCookies = localStorage.getItem("consentCookies");
-  const parsedConsentCookies = consentCookies ? JSON.parse(consentCookies) : [];
+  const parsedConsentCookies = useMemo(() => {
+    try {
+      return consentCookies ? JSON.parse(consentCookies) : [];
+    } catch (error) {
+      console.error("Failed to parse consent cookies", error);
+      return [];
+    }
+  }, [consentCookies]);
   const { cookies } = modal;
   const { isOpen, openModal, closeModal } = useModal(false);
   const { enabledCookies, setEnabledCookies } = useCookies(
@@ -129,10 +125,10 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
   const renderButtons = useCallback(
     (button: CookieButton, buttons: CookieButton[], index: number) => {
       const classes = {
-        accept:
+        accept: "bg-indigo-700 px-4 py-2.5 rounded text-white",
+        decline: "bg-red-600 px-3.5 py-2.5 rounded text-white",
+        manage:
           "bg-white  px-4 py-2.5 rounded border-[0.5px] border-solid border-neutral-200",
-        decline: "bg-indigo-700 px-4 py-2.5 rounded text-white",
-        manage: "bg-red-600 px-3.5 py-2.5 rounded text-white",
         acceptModal: "bg-indigo-700 px-4 py-2.5 rounded text-white basis-1/2",
         saveModal:
           "bg-white  px-4 py-2.5 rounded border-[0.5px] border-solid border-neutral-200 basis-1/2",
@@ -150,7 +146,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       const isGrouped = button.groupWithNext && nextButton;
 
       if (isGrouped) {
-        console.log(nextButton.type);
         return (
           <div
             key={index}
@@ -190,42 +185,48 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
   );
 
   return (
-      <Overlay>
-        <Dialog
-          open={isOpen}
-          onClose={closeModal}
-          className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-neutral-950/70 flex justify-center items-center"
-        >
-          <DialogPanel className="flex flex-col gap-6 p-6 bg-white md:w-[458px] lg:w-[384px]">
-            <Description as="div">
-              <ul className="flex flex-col gap-4">
-                {modal.cookies.map(renderCookieItem)}
-              </ul>
-            </Description>
-            <footer className="mt-4 flex flex-col gap-2 justify-start">
-              {modal.buttons.map((button, index) =>
-                renderButtons(button, modal.buttons, index),
-              )}
-            </footer>
-          </DialogPanel>
-        </Dialog>
-
-        <div className="flex absolute bottom-0 left-0 right-0">
-          <div className="w-full bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0">
-            {title && (
-              <h3 className="font-semibold text-base text-neutral-900">
-                {title}
-              </h3>
+    <Overlay>
+      <Dialog
+        open={isOpen}
+        onClose={closeModal}
+        className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-neutral-950/70 flex justify-center items-center"
+      >
+        <DialogPanel className="flex flex-col gap-6 p-6 bg-white md:w-[458px] lg:w-[384px]">
+          <Description as="div">
+            <ul className="flex flex-col gap-4">
+              {modal.cookies.map(renderCookieItem)}
+            </ul>
+          </Description>
+          <footer className="mt-4 flex flex-col gap-2 justify-start">
+            {modal.buttons.map((button, index) =>
+              renderButtons(button, modal.buttons, index),
             )}
-            {description && <p className="mt-2 text-sm">{description}</p>}
-            <footer className="mt-4 flex flex-col md:flex-row gap-2 justify-between">
-              {buttons.map((button, index) =>
-                renderButtons(button, buttons, index),
-              )}
-            </footer>
-          </div>
+          </footer>
+        </DialogPanel>
+      </Dialog>
+
+      <div className="flex absolute bottom-0 left-0 right-0">
+        <div className="w-full bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0">
+          {title && (
+            <h3 className="font-semibold text-base text-neutral-900">
+              {title}
+            </h3>
+          )}
+          {description && (
+            <div
+              className="mt-2 text-sm text-neutral-600"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
+          )}
+
+          <footer className="mt-4 flex flex-col md:flex-row gap-2 justify-between">
+            {buttons.map((button, index) =>
+              renderButtons(button, buttons, index),
+            )}
+          </footer>
         </div>
-      </Overlay>
+      </div>
+    </Overlay>
   );
 };
 
