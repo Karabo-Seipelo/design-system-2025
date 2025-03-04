@@ -8,13 +8,6 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-  decorators: [
-    (Story) => (
-      <div style={{ marginTop: "96px" }}>
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof Footer>;
 
 export default meta;
