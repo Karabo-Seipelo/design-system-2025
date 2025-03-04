@@ -197,7 +197,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
           onClose={closeModal}
           className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-neutral-950/70 flex justify-center items-center"
         >
-          <DialogPanel className="flex flex-col gap-6 p-6 bg-white md:w-[458px]">
+          <DialogPanel className="flex flex-col gap-6 p-6 bg-white md:w-[458px] lg:w-[384px]">
             <Description as="div">
               <ul className="flex flex-col gap-4">
                 {modal.cookies.map(renderCookieItem)}
