@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import results from "../../../.jest-test-results.json";
+import { withTests } from "@storybook/addon-jest";
 import Card, { SocialIcons } from "./index";
 
 const meta = {
@@ -7,6 +9,7 @@ const meta = {
   tags: ["autdocs"],
   parameters: {
     layout: "centered",
+    jest: ["index.test.tsx"],
   },
   decorators: [
     (Story) => (
@@ -14,6 +17,7 @@ const meta = {
         <Story />
       </div>
     ),
+    withTests({ results }),
   ],
 } satisfies Meta<typeof Card>;
 
