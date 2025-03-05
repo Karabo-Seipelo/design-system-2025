@@ -22,8 +22,6 @@ jest.mock("next/image", () => ({
 describe("TestimonialCard", () => {
   it("renders the testimonial card with all props", () => {
     render(<Default />);
-
-    console.log(Default.args.testimonial);
     expect(screen.getByText("Sarah Dole")).toBeInTheDocument();
     expect(screen.getByText("@sarahdole")).toBeInTheDocument();
   });

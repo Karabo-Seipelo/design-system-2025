@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import Artboard from "../../atoms/Artboard";
 import Footer from ".";
 
 const meta = {
@@ -8,6 +9,13 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    (Story) => (
+      <Artboard classes="py-[286px] px-0 gap-10">
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof Footer>;
 
 export default meta;
