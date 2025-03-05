@@ -1,4 +1,7 @@
 import Image from "next/image";
+import Container from "../../atoms/Container";
+import Section from "../../atoms/Section";
+import { Button } from "@headlessui/react";
 
 interface Button {
   label: string;
@@ -22,67 +25,48 @@ const HeroSection = ({
 }: HeroSectionProps) => {
   const buttonStyling = (primary: boolean) =>
     primary
-      ? "w-full md:w-[213px] bg-indigo-700 py-3 rounded text-white "
-      : "w-full  md:w-[213px] bg-white py-3 rounded border-[0.5px] border-solid border-neutral-200";
+      ? "px-[12px] py-[20px] bg-indigo-600 text-white shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] focus:bg-indigo-700 hover:bg-indigo-700 md:px-[16px] md:py-[24px]"
+      : "px-[12px] py-[20px] bg-white border-[0.5px] border-[#e6e6e6] shadow-[0px_1px_3px_rgba(0,0,0,0.1),0px_1px_2px_rgba(0,0,0,0.06)] md:px-[11px] md:py-[19px]";
 
   return (
-    <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
-      <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:px-24 lg:py-24">
-        <section className="flex flex-col gap-12 md:gap-16 lg:flex-row">
-          <header className="flex flex-col items-left text-left lg:basis-1/3">
+    <Container classes="p-[16px]">
+      <Section classes="bg-[linear-gradient(176.17deg,#f9fafb_0.94%,#edf0f3_316.54%)] shdaow-xl rounded-sm py-[104px] px-[12px] grid grid-cols-4 gap-8 md:grid-cols-6 lg:px-[105px] lg:py-[96px] lg:grid-cols-12">
+        <div className="col-span-4 flex flex-col justify-center gap-4 md:gap-16 md:col-span-6 lg:col-span-5">
+          <header className="flex flex-col gap-4 md:gap-6">
             {title && (
-              <h1 className="text-3xl md:text-5xl font-semibold text-neutral-900 pb-4">
+              <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl leading-[40px] md:leading-[48px] text-gray-600">
                 {title}
               </h1>
             )}
             {description && (
-              <p className="font-normal text-lg text-neutral-600 md:text-wrap md:text-xl">
+              <p className="font-normal text-lg leading-[28px] md:text-xl text-gray-600">
                 {description}
               </p>
             )}
-            {features && (
-              <ul className="my-5 flex flex-col gap-5 w-full">
-                {features.map((feature, index) => (
-                  <li key={feature + " " + index} className="flex">
-                    <Image
-                      src="check-fill.svg"
-                      width={24}
-                      height={24}
-                      alt="check"
-                      className="mr-2"
-                    />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            )}
-            <div className="flex gap-4 self-stretch mt-5">
-              {buttons.map((button, index) => (
-                <button
-                  key={`${button.label + " " + index}`}
-                  className={buttonStyling(button.primary)}
-                  aria-label="Learn more"
-                >
-                  {button.label}
-                </button>
-              ))}
-            </div>
           </header>
-          <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8 lg:basis-2/3">
-            <div className="flex w-full lg:flex-1">
-              <Image
-                src={imageUrl}
-                alt="testing"
-                height={0}
-                width={0}
-                className="object-cover flex min-h-[180px] w-full justify-center rounded-lg object-cover shadow-lg md:h-[394px] lg:h-auto
-                                lg:self-stretch 2xl:h-[450px]"
-              />
-            </div>
-          </main>
-        </section>
-      </div>
-    </div>
+          <div className="flex justify-between gap-4 md:justify-start md:flex-none">
+            {buttons.map((button, index) => (
+              <Button
+                key={`${button.label + " " + index}`}
+                className={`${buttonStyling(button.primary)} inline-flex items-center justify-center rounded font-semibold w-full foucus:shadow-[0px_0px_0px_4px_rgba(68,76,231,0.12)] h-[48px] text-base md:h-[60px] md:w-[213px] lg:w-[175.5px]`}
+                aria-label="Learn more"
+              >
+                {button.label}
+              </Button>
+            ))}
+          </div>
+        </div>
+        <div className="col-span-4 md:col-span-6 lg:col-span-7">
+          <Image
+            src={imageUrl}
+            alt="testing"
+            height={0}
+            width={0}
+            className="min-h-[180px] w-full"
+          />
+        </div>
+      </Section>
+    </Container>
   );
 };
 
