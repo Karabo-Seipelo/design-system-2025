@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Container from "../../atoms/Container";
+import Main from "../../atoms/Main";
 
 interface Feature {
   title: string;
@@ -44,10 +46,10 @@ const List = ({ features }: { features: Feature[] }) => {
 };
 
 const Grid = ({ features }: { features: Feature[] }) => (
-  <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+  <div className="grid grid-cols-4 gap-8 list-none p-0 md:grid-cols-6 lg:grid-cols-12">
     {features.map((feature, index) => (
       <div
-        className="flex flex-col items-center gap-2"
+        className="col-span-4 flex flex-col items-center gap-5 md:col-span-3 lg:col-span-4"
         key={feature.title + " " + index}
       >
         <div className="h-fit rounded-full bg-white p-3 shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
@@ -78,51 +80,52 @@ const FeatureSection = ({
   feautureLayout = "list",
 }: FeatureSectionProps) => {
   return (
-    <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
-      <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
-        <section className="flex flex-col gap-12 md:gap-16">
-          <header className="flex flex-col items-center justify-center text-center">
-            {subTitle && (
-              <small className="text-base font-semibold text-indigo-700 pb-4">
-                {subTitle}
-              </small>
-            )}
+    <Container classes="p-[16px]">
+      <Main classes="bg-white shdaow-xl rounded-sm py-[48px] px-[12px] flex flex-col gap-12">
+        <header className="w-full flex flex-col gap-3">
+          {subTitle && (
+            <small className="font-semibold text-indigo-700 text-base text-center leading-[24px] md:text-xl">
+              {subTitle}
+            </small>
+          )}
+          <div className="w-full flex flex-col gap-5">
             {title && (
-              <h1 className="text-3xl md:text-5xl font-semibold text-neutral-900 pb-4">
+              <h1 className="font-semibold text-center text-neutral-900 text-3xl md:text-5xl md:leading-[48px]">
                 {title}
               </h1>
             )}
             {description && (
-              <p className="font-normal text-lg text-neutral-600 md:text-wrap md:text-center md:text-xl">
+              <p className="text-lg text-center leading-[28px] text-gray-500">
                 {description}
               </p>
             )}
-          </header>
-          <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
-            {features &&
-              (feautureLayout === "grid" ? (
-                <Grid features={features} />
-              ) : (
-                <List features={features} />
-              ))}
-            {imageUrl && (
-              <div
-                className={`flex w-full lg:flex-1 ${orientation === "left" ? "order-first" : "order-last"}`}
-              >
-                <Image
-                  src={imageUrl}
-                  alt="testing"
-                  height={0}
-                  width={0}
-                  className="flex min-h-[180px] w-full justify-center rounded-lg object-cover shadow-lg md:h-[394px] lg:h-auto
+          </div>
+        </header>
+        <section className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
+          {features &&
+            (feautureLayout === "grid" ? (
+              <Grid features={features} />
+            ) : (
+              <List features={features} />
+            ))}
+          {imageUrl && (
+            <div
+              className={`flex w-full lg:flex-1 ${orientation === "left" ? "order-first" : "order-last"}`}
+            >
+              <Image
+                src={imageUrl}
+                alt="testing"
+                height={0}
+                width={0}
+                className="flex min-h-[180px] w-full justify-center rounded-lg object-cover shadow-lg md:h-[394px] lg:h-auto
 									lg:self-stretch 2xl:h-[450px]"
-                />
-              </div>
-            )}
-          </main>
+              />
+            </div>
+          )}
         </section>
-      </div>
-    </div>
+      </Main>
+    </Container>
   );
 };
+
 export default FeatureSection;

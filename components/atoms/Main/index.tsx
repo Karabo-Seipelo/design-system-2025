@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
 
-interface SectionProps {
+interface MainProps {
   children: ReactNode;
   classes?: string;
 }
 
-const Section: React.FC<SectionProps> = ({ children, classes }) => {
+const Main: React.FC<MainProps> = ({ children, classes }) => {
   return <section className={classes}>{children}</section>;
 };
 
-export default Section;
+export default Main;
