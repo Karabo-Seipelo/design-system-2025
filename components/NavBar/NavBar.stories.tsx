@@ -1,12 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import NavBar from ".";
-import {
-  ArrowPathIcon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-} from "@heroicons/react/24/outline";
 
 const meta = {
   title: "Component/NavBar",
