@@ -1,4 +1,3 @@
-import React from "react";
 import NavLogo from "./NavLogo";
 import useMobileMenu from "./useMobileMenu";
 import MobileMenuButton from "./MobileMenuButton";
@@ -31,7 +30,7 @@ export interface NavBarProps {
   brand: Brand;
 }
 
-const NavBar: React.FC<NavBarProps> = React.memo({ navItems, brand, callToAction }) => {
+const NavBar: React.FC<NavBarProps> = ({ navItems, brand, callToAction }) => {
   const { mobileMenuOpen, openMobileMenu, closeMobileMenu } = useMobileMenu();
 
   return (
