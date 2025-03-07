@@ -22,7 +22,7 @@ const CallToActionButtons: React.FC<CallToActionButtonsProps> = ({
         const { name, mobileName, primary } = button;
         const buttonClasses = primary
           ? "bg-indigo-700 text-white"
-          : "border-[0.5px] border-solid border-neutral-200";
+          : "border-[0.5px] border-solid border-neutral-200 bg-white";
         return (
           <Button
             key={name}
