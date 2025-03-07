@@ -41,7 +41,7 @@ export const Default: Story = {
         href: "/",
       },
     ],
-    socails: [
+    socials: [
       {
         label: "Youtube",
         href: "/",

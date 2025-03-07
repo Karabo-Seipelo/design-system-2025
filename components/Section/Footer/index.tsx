@@ -13,7 +13,7 @@ type Links = {
   href: string;
 };
 
-type Socails = {
+type socials = {
   label: string;
   href: string;
   icon: "youtube" | "instagram" | "facebook" | "github" | "twitter";
@@ -21,7 +21,7 @@ type Socails = {
 
 export type FooterProps = {
   links: Links[];
-  socails: Socails[];
+  socials: socials[];
   copyright: string;
 };
 
@@ -33,7 +33,7 @@ const socialsIcons = {
   twitter: Twitter,
 };
 
-const Footer: React.FC<FooterProps> = ({ links, socails, copyright }) => {
+const Footer: React.FC<FooterProps> = ({ links, socials, copyright }) => {
   return (
     <footer className="flex flex-col items-center justify-center gap-4  text-sm">
       <div className="flex flex-col gap-10 justify-center">
@@ -51,7 +51,7 @@ const Footer: React.FC<FooterProps> = ({ links, socails, copyright }) => {
         </ul>
         <div className="flex flex-col justify-center items-center gap-4">
           <ul className="flex justify-center items-center gap-6">
-            {socails.map((social, index) => (
+            {socials.map((social, index) => (
               <li key={`social-${index}-${social.icon}`}>
                 <Link href={social.href} aria-label={`${social.label} profile`}>
                   <Image

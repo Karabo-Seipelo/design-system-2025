@@ -11,7 +11,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Container classes="bg-[linear-gradient(176.17deg,#f9fafb_0.94%,#edf0f3_316.54%)] shdaow-xl rounded-sm">
+      <Container classes="bg-[linear-gradient(176.17deg,#f9fafb_0.94%,#edf0f3_316.54%)] shadow-xl rounded-sm">
         <Story />
       </Container>
     ),

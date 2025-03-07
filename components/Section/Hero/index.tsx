@@ -66,7 +66,7 @@ const HeroSection = ({
           {buttons.map((button, index) => (
             <Button
               key={`${button.label + " " + index}`}
-              className={`${buttonStyling(button.primary)} inline-flex items-center justify-center rounded font-semibold w-full foucus:shadow-[0px_0px_0px_4px_rgba(68,76,231,0.12)] h-[48px] text-base md:h-[60px] md:w-[213px] lg:w-[175.5px]`}
+              className={`${buttonStyling(button.primary)} inline-flex items-center justify-center rounded font-semibold w-full socialsfocus:shadow-[0px_0px_0px_4px_rgba(68,76,231,0.12)] h-[48px] text-base md:h-[60px] md:w-[213px] lg:w-[175.5px]`}
               aria-label="Learn more"
             >
               {button.label}
