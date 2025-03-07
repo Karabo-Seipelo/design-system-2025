@@ -6,12 +6,12 @@ import {
 import { v4 as uuidv4 } from "uuid";
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
 
-type Article = {
+export type Article = {
   title: string;
   description: string;
 };
 
-type ContactDetails = {
+export type ContactDetails = {
   title: string;
   content: string;
   button: {
@@ -19,7 +19,7 @@ type ContactDetails = {
   };
 };
 
-type FAQProps = {
+export type FAQProps = {
   title: string;
   subTitle: string;
   articles: Article[];

@@ -6,7 +6,7 @@ interface Feature {
   icon: string;
 }
 
-interface FeatureSectionProps {
+export interface FeatureSectionProps {
   imageUrl?: string;
   title: string;
   subTitle: string;

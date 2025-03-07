@@ -19,7 +19,7 @@ type Socails = {
   icon: "youtube" | "instagram" | "facebook" | "github" | "twitter";
 };
 
-type FooterProps = {
+export type FooterProps = {
   links: Links[];
   socails: Socails[];
   copyright: string;

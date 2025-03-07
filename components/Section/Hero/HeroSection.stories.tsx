@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import Container from "../../atoms/Container";
 import HeroSection from ".";
 
 const meta = {
@@ -8,6 +9,13 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    (Story) => (
+      <Container classes="bg-[linear-gradient(176.17deg,#f9fafb_0.94%,#edf0f3_316.54%)] shdaow-xl rounded-sm">
+        <Story />
+      </Container>
+    ),
+  ],
 } satisfies Meta<typeof HeroSection>;
 
 export default meta;
