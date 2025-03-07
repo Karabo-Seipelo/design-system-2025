@@ -28,13 +28,19 @@ export interface NavBarProps {
   navItems: NavItem[];
   callToAction?: CallToAction[];
   brand: Brand;
+  classes?: string;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ navItems, brand, callToAction }) => {
+const NavBar: React.FC<NavBarProps> = ({
+  navItems,
+  brand,
+  callToAction,
+  classes = "",
+}) => {
   const { mobileMenuOpen, openMobileMenu, closeMobileMenu } = useMobileMenu();
 
   return (
-    <header>
+    <header className={classes}>
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"

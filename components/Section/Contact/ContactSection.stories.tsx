@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ContactSection from ".";
 import { http, HttpResponse } from "msw";
+import Container from "../../atoms/Container";
 
 const meta = {
   title: "Marketing/Section/Contact",
@@ -34,6 +35,13 @@ const meta = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <Container classes="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
+        <Story />
+      </Container>
+    ),
+  ],
 } satisfies Meta<typeof ContactSection>;
 
 export default meta;

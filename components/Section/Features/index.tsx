@@ -6,13 +6,13 @@ interface Feature {
   icon: string;
 }
 
-interface FeatureSectionProps {
+export interface FeatureSectionProps {
   imageUrl?: string;
   title: string;
   subTitle: string;
   description: string;
   features?: Feature[];
-  feautureLayout?: "list" | "grid";
+  featureLayout?: "list" | "grid";
   orientation?: "left" | "right";
 }
 
@@ -75,7 +75,7 @@ const FeatureSection = ({
   description,
   features,
   orientation = "right",
-  feautureLayout = "list",
+  featureLayout = "list",
 }: FeatureSectionProps) => {
   return (
     <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
@@ -100,7 +100,7 @@ const FeatureSection = ({
           </header>
           <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
             {features &&
-              (feautureLayout === "grid" ? (
+              (featureLayout === "grid" ? (
                 <Grid features={features} />
               ) : (
                 <List features={features} />

@@ -2,12 +2,12 @@ import Image from "next/image";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { v4 as uuidv4 } from "uuid";
 
-type Button = {
+export type Button = {
   label: string;
   primary: boolean;
 };
 
-type Price = {
+export type Price = {
   highlight?: boolean;
   tag?: string;
   classes?: string;
@@ -19,12 +19,12 @@ type Price = {
   features?: string[];
 };
 
-type Tiers = {
+export type Tiers = {
   subscription: string;
   prices: Price[];
 };
 
-type PricingProps = {
+export type PricingProps = {
   title: string;
   subTitle: string;
   description?: string;
@@ -33,7 +33,7 @@ type PricingProps = {
   tiers?: Tiers[];
 };
 
-const Price = ({
+const PriceTable = ({
   tag,
   price,
   description,
@@ -156,7 +156,7 @@ const Pricing = ({ title, subTitle, description, tiers }: PricingProps) => {
                   className="flex flex-col w-full lg:flex-row gap-y-8 lg:gap-x-8 mt-12"
                 >
                   {tier.prices.map((price) => {
-                    return <Price key={uuidv4()} {...price} />;
+                    return <PriceTable key={uuidv4()} {...price} />;
                   })}
                 </TabPanel>
               );

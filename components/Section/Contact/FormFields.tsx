@@ -12,16 +12,16 @@ const FormFields: React.FC<FormFieldsProps> = ({ fields }) => {
           return (
             <div
               key={`${index}-${field.id}`}
-              className={`flex flex-col gap-10 ${isGrouped ? "lg:flex-row" : ""}`}
+              className={`flex flex-col gap-3 ${isGrouped ? "lg:flex-row" : ""}`}
             >
               <FieldComponent
                 {...field}
-                classes={`${field.classes} lg:w-1/2`}
+                classes={`${field.classes} lg:w-full`}
                 data-testid={field.testId}
               />
               <FieldComponent
                 {...nextField}
-                classes={`${field.classes} lg:w-1/2`}
+                classes={`${field.classes} lg:w-full`}
                 data-testid={field.testId}
               />
             </div>

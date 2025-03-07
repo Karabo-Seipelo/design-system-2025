@@ -80,7 +80,7 @@ export const SectionGrid: Story = {
     subTitle: "Premium abstract images",
     description:
       "In a world where storytelling constantly evolves, we lead with groundbreaking images designed for your presentation excellence.",
-    feautureLayout: "grid",
+    featureLayout: "grid",
     features: [
       {
         title: "Infinite Downloads",

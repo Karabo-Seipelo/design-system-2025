@@ -4,19 +4,19 @@ import Form from "next/form";
 import axios from "axios";
 import { List } from "../../List";
 
-type Feature = {
+export type Feature = {
   title?: string;
   description: string;
   icon: string;
 };
 
-type Notification = {
+export type Notification = {
   badge: string;
   message: string;
   status: string;
 };
 
-type FormProps = {
+export type FormProps = {
   formUrl: string;
   instruction: string;
   label: string;
@@ -27,21 +27,21 @@ type FormProps = {
   };
 };
 
-type NewsletterSectionProps = {
+export type NewsletterSectionProps = {
   title: string;
   features: Feature[];
   imageUrl: string;
   form: FormProps;
 };
 
-type NewsLetterFormProps = {
+export type NewsLetterFormProps = {
   submitHander: (formData: FormData) => Promise<void>;
   instruction: string;
   label: string;
   placeholder: string;
 };
 
-type ToastProps = {
+export type ToastProps = {
   status: string;
   message: string;
   badge: string;

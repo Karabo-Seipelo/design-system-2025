@@ -44,7 +44,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   }, [formStatus, setFormStatus, setFormSuccess]);
 
   return (
-    <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
+    <section>
       {formStatus && !formSuccess && <Toast {...formStatus} />}
       <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
         <section className="flex flex-col gap-12 md:gap-16 lg:w-full">
@@ -106,7 +106,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
           </main>
         </section>
       </div>
-    </div>
+    </section>
   );
 };
 
