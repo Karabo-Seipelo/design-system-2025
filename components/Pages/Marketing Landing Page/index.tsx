@@ -12,6 +12,8 @@ import NewsletterSection, {
   NewsletterSectionProps,
 } from "../../Section/Newsletter";
 import Footer, { FooterProps } from "../../Section/Footer";
+import { ContactSectionProps } from "../../Section/Contact/interfaces";
+import ContactSection from "../../Section/Contact/index";
 
 export interface Navigation {
   navItems: NavItem[];
@@ -29,6 +31,7 @@ export interface MarketingLandingPageProps {
   faq: FAQProps;
   newsLetter: NewsletterSectionProps;
   footer: FooterProps;
+  contact: ContactSectionProps;
 }
 
 const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
@@ -40,6 +43,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   pricing,
   faq,
   newsLetter,
+  contact,
   footer,
 }) => {
   return (
@@ -53,6 +57,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
         <Price {...pricing} />
         <FAQ {...faq} />
         <NewsletterSection {...newsLetter} />
+        <ContactSection {...contact} />
         <Footer {...footer} />
       </Section>
     </div>

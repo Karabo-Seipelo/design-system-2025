@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useMemo,
+} from "react";
 
 interface MobileMenuContextProps {
   mobileMenuOpen: boolean;
@@ -17,11 +23,13 @@ export const MobileMenuProvider: React.FC<{ children: ReactNode }> = ({
 
   const openMobileMenu = () => setMobileMenuOpen(true);
   const closeMobileMenu = () => setMobileMenuOpen(false);
+  const value = useMemo(
+    () => ({ mobileMenuOpen, openMobileMenu, closeMobileMenu }),
+    [mobileMenuOpen],
+  );
 
   return (
-    <MobileMenuContext.Provider
-      value={{ mobileMenuOpen, openMobileMenu, closeMobileMenu }}
-    >
+    <MobileMenuContext.Provider value={value}>
       {children}
     </MobileMenuContext.Provider>
   );
