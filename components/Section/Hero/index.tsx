@@ -45,20 +45,20 @@ const HeroSection = ({
             )}
           </header>
           {features && (
-              <ul className="my-5 flex flex-col gap-5 w-full">
-                {features.map((feature, index) => (
-                  <li key={feature + " " + index} className="flex">
-                    <Image
-                      src="check-fill.svg"
-                      width={24}
-                      height={24}
-                      alt="check"
-                      className="mr-2"
-                    />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+            <ul className="my-5 flex flex-col gap-5 w-full">
+              {features.map((feature, index) => (
+                <li key={feature + " " + index} className="flex">
+                  <Image
+                    src="check-fill.svg"
+                    width={24}
+                    height={24}
+                    alt="check"
+                    className="mr-2"
+                  />
+                  {feature}
+                </li>
+              ))}
+            </ul>
           )}
           <div className="flex justify-between gap-4 md:justify-start md:flex-none">
             {buttons.map((button, index) => (
