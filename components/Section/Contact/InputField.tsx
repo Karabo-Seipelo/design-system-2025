@@ -28,7 +28,7 @@ const InputField = ({
         placeholder={placeholder}
         required={required}
         disabled={disabled}
-        className="bg-neutral-50 px-3.5 py-2.5 rounded border border-solid border-neutral-200"
+        className="bg-neutral-50 rounded border border-solid border-neutral-200 px-3.5 py-2.5"
       />
     </div>
   );
