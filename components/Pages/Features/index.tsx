@@ -1,24 +1,22 @@
+import React from "react";
+import { FeaturesPageProps } from "../index";
 import Section from "../../atoms/Section";
 import NavBar from "../../NavBar/index";
 import HeroSection from "../../Section/Hero";
-import LogoMarquee from "../../LogoMarquee/index";
 import FeatureSection from "../../Section/Features/index";
-import Price from "../../Section/Pricing/Tier";
+import Testimonials from "../../Section/Testimonials";
 import FAQ from "../../Section/FAQ";
-import NewsletterSection from "../../Section/Newsletter";
 import Footer from "../../Section/Footer";
 import ContactSection from "../../Section/Contact/index";
-import { MarketingLandingPageProps } from "../index";
 
-const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
+const FeaturesPage: React.FC<FeaturesPageProps> = ({
   nav,
   hero,
-  logoMarquee,
   featureGrid,
   featureRight,
-  pricing,
+  featureLeft,
+  testimonials,
   faq,
-  newsLetter,
   contact,
   footer,
 }) => {
@@ -27,12 +25,11 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
       <NavBar {...nav} />
       <Section classes="flex flex-col bg-white">
         <HeroSection {...hero} />
-        <LogoMarquee {...logoMarquee} />
         <FeatureSection {...featureGrid} />
         <FeatureSection {...featureRight} />
-        <Price {...pricing} />
+        <FeatureSection {...featureLeft} />
+        <Testimonials {...testimonials} />
         <FAQ {...faq} />
-        <NewsletterSection {...newsLetter} />
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>
@@ -40,4 +37,4 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   );
 };
 
-export default MarketingLandingPage;
+export default FeaturesPage;

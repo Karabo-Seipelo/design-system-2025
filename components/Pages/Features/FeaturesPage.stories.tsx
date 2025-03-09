@@ -1,10 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import Toast from "../../Toast";
-import MarketingLandingPage from ".";
+import { Meta, StoryObj } from "@storybook/react";
+import FeaturesPage from ".";
 import * as NavBarStories from "../../NavBar/NavBar.stories";
 import * as HeroSectionStories from "../../Section/Hero/HeroSection.stories";
-import * as LogoMarqueeStories from "../../LogoMarquee/LogoMarquee.stories";
 import * as FeatureSectionStories from "../../Section/Features/FeaturesSection.stories";
+import * as TestimonialStories from "../../Section/Testimonials/Testimonials.stories";
 import * as PriceStories from "../../Section/Pricing/Tier/PricingTeir.stories";
 import * as FAQStories from "../../Section/FAQ/FAQ.stories";
 import * as NewsletterSectionStories from "../../Section/Newsletter/NewsletterSection.stories";
@@ -12,24 +11,16 @@ import * as FooterStories from "../../Section/Footer/Footer.stories";
 import * as ContactStories from "../../Section/Contact/ContactSection.stories";
 
 const meta = {
-  title: "Marketing/Pages/MarketingLandingPage",
-  component: MarketingLandingPage,
+  title: "Marketing/Pages/Features",
   tags: ["autodocs"],
+  component: FeaturesPage,
   parameters: {
     layout: "centered",
   },
-  decorators: [
-    (Story) => (
-      <>
-        <Toast />
-        <Story />
-      </>
-    ),
-  ],
-} satisfies Meta<typeof MarketingLandingPage>;
+} satisfies Meta<typeof FeaturesPage>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof FeaturesPage>;
 
 export const Default: Story = {
   args: {
@@ -43,16 +34,14 @@ export const Default: Story = {
       callToAction: NavBarStories.Default.args.callToAction,
     },
     hero: {
-      title: HeroSectionStories.Simple.args.title ?? "Default title",
+      title: HeroSectionStories.FeatureBullets.args.title ?? "Default title",
       description:
-        HeroSectionStories.Simple.args.description ?? "Default description",
-      imageUrl: HeroSectionStories.Simple.args.imageUrl ?? "abstract.jpg",
-      buttons: HeroSectionStories.Simple.args.buttons ?? [],
-      features: HeroSectionStories.Simple.args.features ?? [],
-    },
-    logoMarquee: {
-      title: LogoMarqueeStories.Default.args.title ?? "Default title",
-      logos: LogoMarqueeStories.Default.args.logos ?? [],
+        HeroSectionStories.FeatureBullets.args.description ??
+        "Default description",
+      imageUrl:
+        HeroSectionStories.FeatureBullets.args.imageUrl ?? "abstract.jpg",
+      buttons: HeroSectionStories.FeatureBullets.args.buttons ?? [],
+      features: HeroSectionStories.FeatureBullets.args.features ?? [],
     },
     featureGrid: {
       title: FeatureSectionStories.SectionGrid.args.title ?? "Default title",
@@ -76,14 +65,27 @@ export const Default: Story = {
         "Default description",
       features: FeatureSectionStories.SectionRight.args.features ?? [],
     },
-    pricing: {
-      title: PriceStories.Tiers.args.title ?? "Default title",
-      description: PriceStories.Tiers.args.description ?? "Default description",
-      subTitle: PriceStories.Tiers.args.subTitle ?? "Default subtitle",
-      featureTitle:
-        PriceStories.Tiers.args.featureTitle ?? "Default feature title",
-      features: PriceStories.Tiers.args.features ?? [],
-      tiers: PriceStories.Tiers.args.tiers ?? [],
+    featureLeft: {
+      imageUrl:
+        FeatureSectionStories.SectionLeft.args.imageUrl ?? "abstract.jpg",
+      title: FeatureSectionStories.SectionLeft.args.title ?? "Default title",
+      subTitle:
+        FeatureSectionStories.SectionLeft.args.subTitle ?? "Default subtitle",
+      description:
+        FeatureSectionStories.SectionLeft.args.description ??
+        "Default description",
+      features: FeatureSectionStories.SectionLeft.args.features ?? [],
+      orientation: FeatureSectionStories.SectionLeft.args.orientation ?? "left",
+    },
+    testimonials: {
+      subTitle: TestimonialStories.Default.args.subTitle ?? "Testimonials",
+      title:
+        TestimonialStories.Default.args.title ??
+        "Countless users, countless smiles",
+      description:
+        TestimonialStories.Default.args.description ??
+        "Explore our community's journey and discover why satisfaction defines us.",
+      testimonials: TestimonialStories.Default.args.testimonials ?? [],
     },
     faq: {
       title: FAQStories.Default.args.title ?? "Default title",
@@ -97,13 +99,6 @@ export const Default: Story = {
           label: "Contact us",
         },
       },
-    },
-    newsLetter: {
-      title: NewsletterSectionStories.Default.args.title ?? "Default title",
-      features: NewsletterSectionStories.Default.args.features ?? [],
-      imageUrl:
-        NewsletterSectionStories.Default.args.imageUrl ?? "abstract.jpg",
-      form: NewsletterSectionStories.Default.args.form ?? {},
     },
     contact: {
       title: ContactStories.Default.args.title ?? "Default title",

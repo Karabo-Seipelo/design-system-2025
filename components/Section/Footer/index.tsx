@@ -23,6 +23,7 @@ export type FooterProps = {
   links: Links[];
   socials: socials[];
   copyright: string;
+  classes?: string;
 };
 
 const socialsIcons = {
@@ -33,41 +34,46 @@ const socialsIcons = {
   twitter: Twitter,
 };
 
-const Footer: React.FC<FooterProps> = ({ links, socials, copyright }) => {
+const Footer: React.FC<FooterProps> = ({
+  links,
+  socials,
+  copyright,
+  classes,
+}) => {
   return (
-    <footer className="flex flex-col items-center justify-center gap-4  text-sm">
-      <div className="flex flex-col gap-10 justify-center">
-        <ul className="flex justify-center items-center gap-4 md:gap-6">
-          {links.map((link, index) => (
-            <li key={uuidv4()}>
-              <Link
-                className="font-medium text-sm text-gray-400 hover:text-gray-900"
-                href={link.href}
-              >
-                {link.label}
+    <footer
+      className={`flex flex-col items-center justify-center gap-4  text-sm ${classes}`}
+    >
+      <ul className="flex justify-center items-center gap-4 md:gap-6">
+        {links.map((link) => (
+          <li key={uuidv4()}>
+            <Link
+              className="font-medium text-sm text-gray-400 hover:text-gray-900"
+              href={link.href}
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div className="flex flex-col justify-center items-center gap-4">
+        <ul className="flex justify-center items-center gap-6">
+          {socials.map((social, index) => (
+            <li key={`social-${index}-${social.icon}`}>
+              <Link href={social.href} aria-label={`${social.label} profile`}>
+                <Image
+                  src={socialsIcons[social.icon]}
+                  alt={social.label}
+                  className="size-6 fill-red-400"
+                />
               </Link>
             </li>
           ))}
         </ul>
-        <div className="flex flex-col justify-center items-center gap-4">
-          <ul className="flex justify-center items-center gap-6">
-            {socials.map((social, index) => (
-              <li key={`social-${index}-${social.icon}`}>
-                <Link href={social.href} aria-label={`${social.label} profile`}>
-                  <Image
-                    src={socialsIcons[social.icon]}
-                    alt={social.label}
-                    className="size-6 fill-red-400"
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div
-            className="font-normal text-sm text-center text-normal-900"
-            dangerouslySetInnerHTML={{ __html: copyright }}
-          />
-        </div>
+        <div
+          className="font-normal text-sm text-center text-normal-900"
+          dangerouslySetInnerHTML={{ __html: copyright }}
+        />
       </div>
     </footer>
   );
