@@ -35,20 +35,20 @@ export type NewsletterSectionProps = {
 };
 
 export type NewsLetterFormProps = {
-  submitHander: (formData: FormData) => Promise<void>;
+  submitHandler: (formData: FormData) => Promise<void>;
   instruction: string;
   label: string;
   placeholder: string;
 };
 
 const NewsLetterForm = ({
-  submitHander,
+  submitHandler,
   instruction,
   label,
   placeholder,
 }: NewsLetterFormProps) => {
   return (
-    <Form className="flex flex-col gap-4 w-full" action={submitHander}>
+    <Form className="flex flex-col gap-4 w-full" action={submitHandler}>
       <div className="flex flex-col md:flex-row gap-4 md:flex-wrap">
         <input
           data-testid="email-input"
@@ -84,7 +84,7 @@ const NewsletterSection = ({
   const { formUrl, toast } = form;
   const { showToast } = useToast();
 
-  const submitHander = async (formData: FormData) => {
+  const submitHandler = async (formData: FormData) => {
     try {
       const email = formData.get("email");
       const response = await axios.post(formUrl, { email });
@@ -109,7 +109,7 @@ const NewsletterSection = ({
               </h2>
             )}
             {features && <List features={features} />}
-            <NewsLetterForm submitHander={submitHander} {...form} />
+            <NewsLetterForm submitHandler={submitHandler} {...form} />
           </div>
           <div className="flex w-full lg:basis-1/2 lg:h-full">
             {imageUrl && (

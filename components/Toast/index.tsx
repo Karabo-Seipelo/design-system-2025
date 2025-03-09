@@ -7,18 +7,7 @@ export type ToastProps = {
 };
 
 const Toast = () => {
-  const { status, message, badge, hideToast } = useToast();
-
-  useEffect(() => {
-    if (status && message && badge) {
-      const timer = setTimeout(() => {
-        hideToast();
-        console.log("Toast hidden");
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [status, message, badge, hideToast]);
+  const { status, message, badge } = useToast();
 
   return (
     <>
