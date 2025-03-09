@@ -5,8 +5,6 @@ import * as HeroSectionStories from "../../Section/Hero/HeroSection.stories";
 import * as FeatureSectionStories from "../../Section/Features/FeaturesSection.stories";
 import * as TestimonialStories from "../../Section/Testimonials/Testimonials.stories";
 import * as FAQStories from "../../Section/FAQ/FAQ.stories";
-import * as FooterStories from "../../Section/Footer/Footer.stories";
-import * as ContactStories from "../../Section/Contact/ContactSection.stories";
 import * as MarketingLandingPageStories from "../Marketing Landing Page/MarketingLandingPage.stories";
 
 const meta = {

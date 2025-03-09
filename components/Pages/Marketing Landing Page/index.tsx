@@ -4,7 +4,7 @@ import HeroSection from "../../Section/Hero";
 import LogoMarquee from "../../LogoMarquee/index";
 import FeatureSection from "../../Section/Features/index";
 import Price from "../../Section/Pricing/Tier";
-import FAQ from "../../Section/FAQ";
+import Faq from "../../Section/FAQ";
 import NewsletterSection from "../../Section/Newsletter";
 import Footer from "../../Section/Footer";
 import ContactSection from "../../Section/Contact/index";
@@ -31,7 +31,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
         <FeatureSection {...featureGrid} />
         <FeatureSection {...featureRight} />
         <Price {...pricing} />
-        <FAQ {...faq} />
+        <Faq {...faq} />
         <NewsletterSection {...newsLetter} />
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
