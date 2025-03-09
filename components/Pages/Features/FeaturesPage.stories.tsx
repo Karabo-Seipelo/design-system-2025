@@ -4,11 +4,10 @@ import * as NavBarStories from "../../NavBar/NavBar.stories";
 import * as HeroSectionStories from "../../Section/Hero/HeroSection.stories";
 import * as FeatureSectionStories from "../../Section/Features/FeaturesSection.stories";
 import * as TestimonialStories from "../../Section/Testimonials/Testimonials.stories";
-import * as PriceStories from "../../Section/Pricing/Tier/PricingTeir.stories";
 import * as FAQStories from "../../Section/FAQ/FAQ.stories";
-import * as NewsletterSectionStories from "../../Section/Newsletter/NewsletterSection.stories";
 import * as FooterStories from "../../Section/Footer/Footer.stories";
 import * as ContactStories from "../../Section/Contact/ContactSection.stories";
+import * as MarketingLandingPageStories from "../Marketing Landing Page/MarketingLandingPage.stories";
 
 const meta = {
   title: "Marketing/Pages/Features",
@@ -44,26 +43,10 @@ export const Default: Story = {
       features: HeroSectionStories.FeatureBullets.args.features ?? [],
     },
     featureGrid: {
-      title: FeatureSectionStories.SectionGrid.args.title ?? "Default title",
-      subTitle:
-        FeatureSectionStories.SectionGrid.args.subTitle ?? "Default subtitle",
-      description:
-        FeatureSectionStories.SectionGrid.args.description ??
-        "Default description",
-      featureLayout:
-        FeatureSectionStories.SectionGrid.args.featureLayout ?? "grid",
-      features: FeatureSectionStories.SectionGrid.args.features ?? [],
+      ...MarketingLandingPageStories.Default.args.featureGrid,
     },
     featureRight: {
-      imageUrl:
-        FeatureSectionStories.SectionRight.args.imageUrl ?? "abstract.jpg",
-      title: FeatureSectionStories.SectionRight.args.title ?? "Default title",
-      subTitle:
-        FeatureSectionStories.SectionRight.args.subTitle ?? "Default subtitle",
-      description:
-        FeatureSectionStories.SectionRight.args.description ??
-        "Default description",
-      features: FeatureSectionStories.SectionRight.args.features ?? [],
+      ...MarketingLandingPageStories.Default.args.featureRight,
     },
     featureLeft: {
       imageUrl:
@@ -101,28 +84,8 @@ export const Default: Story = {
       },
     },
     contact: {
-      title: ContactStories.Default.args.title ?? "Default title",
-      description:
-        ContactStories.Default.args.description ?? "Default description",
-      contactDetails: ContactStories.Default.args.contactDetails ?? {
-        title: "Default contact title",
-        content: "Default contact content",
-        button: {
-          label: "Default button label",
-        },
-      },
-      resendForm: ContactStories.Default.args.resendForm ?? {},
-      form: {
-        notification: ContactStories.Default.args.form?.notification ?? {},
-        fields: ContactStories.Default.args.form?.fields ?? [],
-        url: ContactStories.Default.args.form?.url ?? "",
-      },
-      dropShadow: false,
+      ...MarketingLandingPageStories.Default.args.contact,
     },
-    footer: {
-      links: FooterStories.Default.args.links ?? [],
-      socials: FooterStories.Default.args.socials ?? [],
-      copyright: FooterStories.Default.args.copyright,
-    },
+    footer: { ...MarketingLandingPageStories.Default.args.footer },
   },
 };
