@@ -43,7 +43,7 @@ const NavBar: React.FC<NavBarProps> = ({
     <header className={classes}>
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className={`mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 ${classes}`}
       >
         <div className="flex lg:flex-3">
           <NavLogo {...brand} />
