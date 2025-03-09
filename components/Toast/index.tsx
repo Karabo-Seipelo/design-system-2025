@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useToast from "./useToast";
 export type ToastProps = {
   status: string;

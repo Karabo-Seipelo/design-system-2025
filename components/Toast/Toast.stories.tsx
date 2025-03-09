@@ -13,7 +13,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Success: Story = {
+export const SuccessToast: Story = {
   args: {
     badge: "Success",
     message: "Subscription successful! Please check your email to confirm.",
@@ -21,7 +21,7 @@ export const Success: Story = {
   },
 };
 
-export const Error: Story = {
+export const ErrorToast: Story = {
   args: {
     badge: "Error",
     message: "Subscription failed. Please try again.",
