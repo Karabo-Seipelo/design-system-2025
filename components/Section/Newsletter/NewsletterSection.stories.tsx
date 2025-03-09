@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { userEvent, waitFor, within, expect } from "@storybook/test";
-import { http, HttpResponse } from "msw";
+import { http } from "msw";
+import {
+  submitFormNewsletterSuccess,
+  submitFormNewsletterError,
+} from "../../../__mocks__/msw/httpHandlers";
 import NewsletterSection from ".";
 import Artboard from "../../atoms/Artboard";
 import Toast from "../../Toast";
@@ -13,27 +17,14 @@ const meta = {
     layout: "fullscreen",
     msw: {
       handlers: {
-        submitForm: http.post("/newsletter/success", () => {
-          return HttpResponse.json(
-            {
-              message:
-                "Subscription successful! Please check your email to confirm.",
-            },
-            {
-              status: 200,
-            },
-          );
-        }),
-        submitFormError: http.post("/newsletter/error", () => {
-          return HttpResponse.json(
-            {
-              error: "Email format is invalid.",
-            },
-            {
-              status: 500,
-            },
-          );
-        }),
+        submitForm: http.post(
+          "/newsletter/success",
+          submitFormNewsletterSuccess,
+        ),
+        submitFormError: http.post(
+          "/newsletter/error",
+          submitFormNewsletterError,
+        ),
       },
     },
   },
