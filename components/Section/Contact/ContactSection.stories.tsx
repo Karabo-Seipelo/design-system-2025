@@ -15,7 +15,7 @@ const meta = {
           return HttpResponse.json(
             {
               message:
-                "Subscription successful! Please check your email to confirm.",
+                "Submission successful! We will get back to you in 3-5 days via email.",
             },
             {
               status: 200,

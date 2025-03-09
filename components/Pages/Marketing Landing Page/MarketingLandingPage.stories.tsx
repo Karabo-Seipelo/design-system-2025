@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import Artboard from "../../atoms/Artboard";
+import Toast from "../../Toast";
 import MarketingLandingPage from ".";
 import * as NavBarStories from "../../NavBar/NavBar.stories";
 import * as HeroSectionStories from "../../Section/Hero/HeroSection.stories";
@@ -17,6 +19,14 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Toast />
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof MarketingLandingPage>;
 
 export default meta;

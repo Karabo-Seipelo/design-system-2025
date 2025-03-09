@@ -20,7 +20,7 @@ Approach:
 - State Management:
   - The component uses the useState hook to manage the notification state, which holds the current notification message to be displayed.
 - Form Handling:
-  - The form submission is handled by the submitHander function, which is an asynchronous function that sends a POST request to the newsLetterURL using Axios.
+  - The form submission is handled by the submitHandler function, which is an asynchronous function that sends a POST request to the newsLetterURL using Axios.
   - Depending on the response status, it sets the appropriate notification (success or error) using the setNotification function.
 - Rendering:
   - The component renders a form with an email input and a submit button.
