@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { userEvent, waitFor, within, expect } from "@storybook/test";
 import { http, HttpResponse } from "msw";
 import NewsletterSection from ".";
+import Artboard from "../../atoms/Artboard";
+import Toast from "../../Toast";
 
 const meta = {
   title: "Marketing/Section/Newsletter",
@@ -35,6 +37,14 @@ const meta = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Toast />
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof NewsletterSection>;
 
 export default meta;

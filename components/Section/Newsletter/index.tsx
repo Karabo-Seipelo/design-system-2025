@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import useToast from "../../Toast/useToast";
 import Image from "next/image";
 import Form from "next/form";
 import axios from "axios";
@@ -39,32 +39,6 @@ export type NewsLetterFormProps = {
   instruction: string;
   label: string;
   placeholder: string;
-};
-
-export type ToastProps = {
-  status: string;
-  message: string;
-  badge: string;
-};
-
-const Toast = ({ status, message, badge }: ToastProps) => {
-  return (
-    <div
-      data-testid="toast"
-      className={`absolute flex w-full md:w-max items-center gap-3 pl-1 pr-2.5 pt-1 pb-1 rounded-[2000px] top-5 left-1/2 -translate-x-1/2 ${status === "SUCCESS" ? "bg-green-50" : "bg-red-50"}`}
-    >
-      <div
-        className={`bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center ${status === "SUCCESS" ? "text-green-700" : "text-red-800"}`}
-      >
-        {badge}
-      </div>
-      <div
-        className={`font-medium text-sm gap-1 ${status === "SUCCESS" ? "text-green-700" : "text-red-600"}`}
-      >
-        <p>{message}</p>
-      </div>
-    </div>
-  );
 };
 
 const NewsLetterForm = ({
@@ -108,34 +82,24 @@ const NewsletterSection = ({
   form,
 }: NewsletterSectionProps) => {
   const { formUrl, toast } = form;
-  const [notification, setNotification] = useState<Notification | null>(null);
+  const { showToast } = useToast();
 
   const submitHander = async (formData: FormData) => {
-    setNotification({ message: "", status: "", badge: "" });
     try {
       const email = formData.get("email");
       const response = await axios.post(formUrl, { email });
       const { message, status, badge } =
         response.status === 200 ? toast.success : toast.error;
-      setNotification({ message, status, badge });
+      showToast(message, status, badge);
     } catch (error) {
       console.error(error);
-      setNotification(toast.error);
+      const { message, status, badge } = toast.error;
+      showToast(message, status, badge);
     }
   };
 
-  useEffect(() => {
-    if (notification) {
-      const timer = setTimeout(() => {
-        setNotification(null);
-      }, 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [notification]);
-
   return (
     <div className="w-full rounded bg-white relative">
-      {notification && <Toast {...notification} />}
       <div className="flex h-full px-3 py-12 md:px-4 md:py-16 lg:px-24 lg:py-24 lg:h-full">
         <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8 lg:h-full">
           <div className="flex flex-col items-center gap-8 lg:gap-2 lg:items-end lg:basis-1/2">
