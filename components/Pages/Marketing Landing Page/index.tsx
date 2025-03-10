@@ -7,7 +7,7 @@ import Price from "../../Section/PricingTable/Tier";
 import NewsletterSection from "../../Section/Newsletter";
 import Footer from "../../Section/Footer";
 import ContactSection from "../../Section/Contact/index";
-import Faq from "$/Section/Faq";
+//import Faq from "$/Section/Faq";
 import { MarketingLandingPageProps } from "../index";
 
 const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
@@ -17,7 +17,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   featureGrid,
   featureRight,
   pricing,
-  faq,
+  //faq,
   newsLetter,
   contact,
   footer,
@@ -31,7 +31,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
         <FeatureSection {...featureGrid} />
         <FeatureSection {...featureRight} />
         <Price {...pricing} />
-        <Faq {...faq} />
+        {/*<Faq {...faq} />*/}
         <NewsletterSection {...newsLetter} />
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />

@@ -5,7 +5,7 @@ import NavBar from "../../NavBar/index";
 import HeroSection from "../../Section/Hero";
 import FeatureSection from "../../Section/Features/index";
 import Testimonials from "../../Section/Testimonials";
-import Faq from "$/Section/Faq";
+// import Faq from "$/Section/Faq";
 import Footer from "../../Section/Footer";
 import ContactSection from "../../Section/Contact/index";
 
@@ -16,7 +16,7 @@ const FeaturesPage: React.FC<FeaturesPageProps> = ({
   featureRight,
   featureLeft,
   testimonials,
-  faq,
+  // faq,
   contact,
   footer,
 }) => {
@@ -29,7 +29,7 @@ const FeaturesPage: React.FC<FeaturesPageProps> = ({
         <FeatureSection {...featureRight} />
         <FeatureSection {...featureLeft} />
         <Testimonials {...testimonials} />
-        <Faq {...faq} />
+        {/*<Faq {...faq} />*/}
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>

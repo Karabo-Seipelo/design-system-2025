@@ -8,7 +8,7 @@ import { ContactSectionProps } from "../Section/Contact/interfaces";
 import { TestimonialsProps } from "../Section/Testimonials";
 import { NewsletterSectionProps } from "../Section/Newsletter";
 import { LogoMarqueeProps } from "../LogoMarquee/index";
-import { PricingProps } from "../Section/PricingTable/Tier";
+import { PricingProps } from "../Section/Pricing/Tier";
 
 export interface Navigation {
   navItems: NavItem[];
@@ -21,7 +21,7 @@ export interface Page {
   hero: HeroSectionProps;
   featureGrid: FeatureSectionProps;
   featureRight: FeatureSectionProps;
-  faq: FAQProps;
+  faq?: FAQProps;
   contact: ContactSectionProps;
   footer: FooterProps;
 }
