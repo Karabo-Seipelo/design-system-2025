@@ -14,7 +14,7 @@ interface Price {
   buttons: Button[];
 }
 
-interface PricingProps {
+export interface PricingProps {
   title: string;
   subTitle: string;
   description?: string;

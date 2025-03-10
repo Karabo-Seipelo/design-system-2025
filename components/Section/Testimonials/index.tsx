@@ -1,6 +1,6 @@
 import Testimonial from "../../Card/Testimonial/index";
 
-type TestimonialProps = {
+export type TestimonialProps = {
   id: string;
   firstName?: string;
   lastName?: string;
@@ -12,7 +12,7 @@ type TestimonialProps = {
   };
 };
 
-type TestimonialsProps = {
+export type TestimonialsProps = {
   title: string;
   subTitle: string;
   description: string;
