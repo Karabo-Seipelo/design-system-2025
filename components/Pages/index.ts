@@ -21,7 +21,7 @@ export interface Page {
   hero: HeroSectionProps;
   featureGrid: FeatureSectionProps;
   featureRight: FeatureSectionProps;
-  //faq: FAQProps;
+  faq: FAQProps;
   contact: ContactSectionProps;
   footer: FooterProps;
 }
@@ -29,7 +29,6 @@ export interface Page {
 export interface FeaturesPageProps extends Page {
   featureLeft: FeatureSectionProps;
   testimonials: TestimonialsProps;
-  faq: FAQProps;
 }
 
 export interface MarketingLandingPageProps extends Page {
