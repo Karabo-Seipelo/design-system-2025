@@ -4,7 +4,7 @@ import HeroSection from "../../Section/Hero";
 import LogoMarquee from "../../LogoMarquee/index";
 import FeatureSection from "../../Section/Features/index";
 import Price from "../../Section/PricingTable/Tier";
-import Faq from "../../Section/Faq";
+import Faq from "$/Section/Faq";
 import NewsletterSection from "../../Section/Newsletter";
 import Footer from "../../Section/Footer";
 import ContactSection from "../../Section/Contact/index";
