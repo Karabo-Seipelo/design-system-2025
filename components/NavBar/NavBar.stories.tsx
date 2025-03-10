@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { NavigationArgs } from "../../__mocks__/data/Navigation/index";
+import { NavigationArgs } from "../../lib/mocks/data/Navigation/index";
 import NavBar from ".";
 
 const meta = {

@@ -1,4 +1,4 @@
-import { FeatureSectionProps } from "../../../../components/Section/Features";
+import { FeatureSectionProps } from "../../../../../components/Section/Features";
 
 export const FeatureSectionRightArgs: FeatureSectionProps = {
   imageUrl: "hero-img.png",

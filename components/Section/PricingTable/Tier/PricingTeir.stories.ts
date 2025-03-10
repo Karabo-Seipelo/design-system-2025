@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import PricingTier from ".";
-import { TierPricingArgs } from "../../../../__mocks__/data/Section/PricingTable";
+import { TierPricingArgs } from "../../../../lib/mocks/data/Section/PricingTable";
 
 const meta = {
   title: "Marketing/Section/Pricing/Tier",

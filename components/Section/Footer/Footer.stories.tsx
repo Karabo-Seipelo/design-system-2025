@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Artboard from "../../atoms/Artboard";
 import Footer from ".";
-import { FooterArgs } from "../../../__mocks__/data/Section/Footer/index";
+import { FooterArgs } from "../../../lib/mocks/data/Section/Footer/index";
 
 const meta = {
   title: "Marketing/Section/Footer",

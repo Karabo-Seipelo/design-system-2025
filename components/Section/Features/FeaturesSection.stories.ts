@@ -3,7 +3,7 @@ import {
   FeatureSectionRightArgs,
   FeatureSectionLeftArgs,
   FeatureSectionGridArgs,
-} from "../../../__mocks__/data/Section/Feature/index";
+} from "../../../lib/mocks/data/Section/Feature/index";
 import FeaturesSection from ".";
 
 const meta = {

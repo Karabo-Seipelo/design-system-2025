@@ -3,7 +3,7 @@ import Container from "../../atoms/Container";
 import {
   HeroBulletsArgs,
   HeroSimpleArgs,
-} from "../../../__mocks__/data/Section/Hero/index";
+} from "../../../lib/mocks/data/Section/Hero/index";
 import HeroSection from ".";
 
 const meta = {

@@ -1,4 +1,4 @@
-import { NavBarProps } from "../../../components/NavBar/index";
+import { NavBarProps } from "../../../../components/NavBar/index";
 
 const Nav = [
   { name: "Home", href: "#" },

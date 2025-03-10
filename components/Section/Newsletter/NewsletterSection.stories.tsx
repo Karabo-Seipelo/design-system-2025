@@ -12,7 +12,7 @@ import {
   NewsletterDefault,
   NewsletterSuccess,
   NewsletterError,
-} from "../../../__mocks__/data/Section/Newsletter/index";
+} from "../../../lib/mocks/data/Section/Newsletter/index";
 
 const meta = {
   title: "Marketing/Section/Newsletter",

@@ -1,4 +1,4 @@
-import { FAQProps } from "../../../../components/Section/Faq/index";
+import { FAQProps } from "../../../../../components/Section/Faq/index";
 
 export const FaqArgs: FAQProps = {
   title: "Frequently asked questions",

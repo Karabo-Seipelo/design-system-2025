@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Toast from "../../Toast";
-import { MarketingLandingPageArgs } from "../../../__mocks__/data/index";
+import { MarketingLandingPageArgs } from "../../../lib/mocks/data/index";
 import MarketingLandingPage from ".";
 
 const meta = {
