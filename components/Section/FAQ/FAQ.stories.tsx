@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import FAQ from "./index";
+import Faq from "./index";
 import { FaqArgs } from "../../../lib/mocks/data/index";
 
 const meta = {
   title: "Marketing/Section/FAQ",
-  component: FAQ,
+  component: Faq,
   tags: ["autdocs"],
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof FAQ>;
+} satisfies Meta<typeof Faq>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
