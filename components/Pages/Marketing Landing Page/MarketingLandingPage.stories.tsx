@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Toast from "../../Toast";
+import Toast from "$/Toast"
 import { MarketingLandingPageArgs } from "../../../lib/mocks/data/index";
 import MarketingLandingPage from ".";
 
