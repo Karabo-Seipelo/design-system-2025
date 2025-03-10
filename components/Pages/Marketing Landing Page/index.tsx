@@ -1,12 +1,12 @@
-import Section from "../../atoms/Section";
-import NavBar from "../../NavBar/index";
-import HeroSection from "../../Section/Hero";
-import LogoMarquee from "../../LogoMarquee/index";
-import FeatureSection from "../../Section/Features/index";
-import Price from "../../Section/PricingTable/Tier";
-import NewsletterSection from "../../Section/Newsletter";
-import Footer from "../../Section/Footer";
-import ContactSection from "../../Section/Contact/index";
+import Section from "$/atoms/Section";
+import NavBar from "$/NavBar/index";
+import HeroSection from "$/Section/Hero";
+import LogoMarquee from "$/LogoMarquee/index";
+import FeatureSection from "$/Section/Features/index";
+import Price from "$/Section/PricingTable/Tier";
+import NewsletterSection from "$/Section/Newsletter";
+import Footer from "$/Section/Footer";
+import ContactSection from "$/Section/Contact/index";
 import Faq from "$/Section/Faq";
 import { MarketingLandingPageProps } from "../index";
 
