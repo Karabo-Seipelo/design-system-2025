@@ -5,7 +5,7 @@ import NavBar from "../../NavBar/index";
 import HeroSection from "../../Section/Hero";
 import FeatureSection from "../../Section/Features/index";
 import Testimonials from "../../Section/Testimonials";
-import Faq from "../../Section/FAQ";
+import Faq from "../../Section/Faq";
 import Footer from "../../Section/Footer";
 import ContactSection from "../../Section/Contact/index";
 

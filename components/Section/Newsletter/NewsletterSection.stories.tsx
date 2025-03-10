@@ -8,6 +8,11 @@ import {
 import NewsletterSection from ".";
 import Artboard from "../../atoms/Artboard";
 import Toast from "../../Toast";
+import {
+  NewsletterDefault,
+  NewsletterSuccess,
+  NewsletterError,
+} from "../../../__mocks__/data/Section/Newsletter/index";
 
 const meta = {
   title: "Marketing/Section/Newsletter",
@@ -41,50 +46,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const baseArgs = {
-  title: "Get the finest curated abstracts delivered weekly to your inbox",
-  features: [
-    {
-      description: "Exclusive access to new abstract images and collections",
-      icon: "check-fill.svg",
-    },
-    {
-      description: "Unlock special promotions only for subscribers",
-      icon: "check-fill.svg",
-    },
-    {
-      description: "Regular doses of artistic inspiration",
-      icon: "check-fill.svg",
-    },
-  ],
-  imageUrl: "abstract.jpg",
-  form: {
-    instruction: "Subscribe to our newsletter",
-    label: "Subscribe",
-    placeholder: "Enter your email address",
-    toast: {
-      success: {
-        badge: "Success",
-        message: "Subscription successful! Please check your email to confirm.",
-        status: "SUCCESS",
-      },
-      error: {
-        badge: "Error",
-        message: "Subscription failed. Please try again.",
-        status: "ERROR",
-      },
-    },
-  },
-};
-
-const createStoryArgs = (formUrl: string) => ({
-  ...baseArgs,
-  form: {
-    ...baseArgs.form,
-    formUrl,
-  },
-});
-
 const fillAndSubmitForm = async (
   canvas: ReturnType<typeof within>,
   email: string,
@@ -102,13 +63,13 @@ const fillAndSubmitForm = async (
 };
 
 export const Default: Story = {
-  args: createStoryArgs(
-    "https://www.greatfrontend.com/api/projects/challenges/newsletter",
-  ),
+  args: {
+    ...NewsletterDefault,
+  },
 };
 
 export const SuccessNotification: Story = {
-  args: createStoryArgs("/newsletter/success"),
+  args: { ...NewsletterSuccess },
   play: async ({ args, canvasElement, step }) => {
     const canvas = within(canvasElement);
 
@@ -123,7 +84,7 @@ export const SuccessNotification: Story = {
 };
 
 export const ErrorNotification: Story = {
-  args: createStoryArgs("/newsletter/error"),
+  args: { ...NewsletterError },
   play: async ({ args, canvasElement, step }) => {
     const canvas = within(canvasElement);
 

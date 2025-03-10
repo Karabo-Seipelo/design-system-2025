@@ -96,4 +96,4 @@ const Faq = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
   );
 };
 
-export default FAQ;
+export default Faq;
