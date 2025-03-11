@@ -35,7 +35,7 @@ const ProfileCard = ({
 }: ProfileCardProps) => {
   return (
     <div
-      className={`w-[340px] flex flex-col bg-white rounded-lg item-center gap-9 px-4 py-6 ${classes}`}
+      className={`w-[340px] flex flex-col bg-white rounded-lg items-center gap-9 px-4 py-6 ${classes}`}
     >
       <div className="flex flex-col items-center gap-6 self-stretch">
         {imageUrl && (
