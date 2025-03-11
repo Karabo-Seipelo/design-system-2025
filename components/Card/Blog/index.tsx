@@ -11,6 +11,7 @@ export interface BlogCardProps {
     href: string;
     label: string;
   };
+  classes?: string;
 }
 
 const BlogCard = ({
@@ -19,9 +20,10 @@ const BlogCard = ({
   post,
   link,
   categories,
+  classes = "",
 }: BlogCardProps) => {
   return (
-    <div className="w-[340px] flex flex-col bg-white rounded-lg">
+    <div className={`w-[340px] flex flex-col bg-white rounded-lg ${classes}`}>
       {imageUrl && (
         <Image
           src={imageUrl}
