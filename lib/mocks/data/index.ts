@@ -17,6 +17,7 @@ import {
   NewsletterSuccess,
   NewsletterError,
   StatisticsArgs,
+  TeamArgs,
 } from "./Section/index";
 
 import { NavigationArgs } from "./Navigation/index";
@@ -25,6 +26,8 @@ import {
   MarketingLandingPageArgs,
   FeaturesPageArgs,
   PricingPageArgs,
+  AboutUsPageArgs,
+  ContactUsPageArgs,
 } from "./Pages/index";
 
 export {
@@ -50,4 +53,7 @@ export {
   FeaturesPageArgs,
   PricingPageArgs,
   StatisticsArgs,
+  TeamArgs,
+  AboutUsPageArgs,
+  ContactUsPageArgs,
 };

@@ -41,6 +41,8 @@ export interface MarketingLandingPageProps extends BasePageProps {
   logoMarquee: LogoMarqueeProps;
   pricing: PricingProps;
   newsLetter: NewsletterSectionProps;
+  faq: FAQProps;
+  contact: ContactSectionProps;
 }
 
 export interface PricingPageProps extends BasePageProps {
@@ -53,8 +55,10 @@ export interface AboutUsPageProps extends BasePageProps {
   hero: HeroSectionProps;
   statistics: StatisticsSectionProps;
   team: TeamSectionProps;
+  contact: ContactSectionProps;
 }
 
-export interface ContactPageProps extends BasePageProps {
+export interface ContactUsPageProps extends BasePageProps {
   contact: ContactSectionProps;
+  faq: FAQProps;
 }

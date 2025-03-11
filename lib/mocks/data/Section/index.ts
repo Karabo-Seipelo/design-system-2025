@@ -16,6 +16,7 @@ import {
 import { SinglePricingArgs, TierPricingArgs } from "./PricingTable/index";
 import { TestimonialArgs } from "./Testimonials/index";
 import { StatisticsArgs } from "./Statistics/index";
+import { TeamArgs } from "./Team/index";
 
 export {
   ContactArgs,
@@ -36,4 +37,5 @@ export {
   TierPricingArgs,
   TestimonialArgs,
   StatisticsArgs,
+  TeamArgs,
 };
