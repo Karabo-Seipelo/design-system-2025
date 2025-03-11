@@ -7,6 +7,7 @@ import Footer from "$/Section/Footer";
 import ContactSection from "$/Section/Contact";
 import Faq from "$/Section/Faq";
 import { PricingPageProps } from "../index";
+import Page from "$/Page";
 
 const PricingPage: React.FC<PricingPageProps> = ({
   nav,
@@ -18,7 +19,7 @@ const PricingPage: React.FC<PricingPageProps> = ({
   footer,
 }) => {
   return (
-    <div>
+    <Page>
       <NavBar {...nav} />
       <Section classes="flex flex-col bg-white">
         <Price {...pricing} />
@@ -28,7 +29,7 @@ const PricingPage: React.FC<PricingPageProps> = ({
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>
-    </div>
+    </Page>
   );
 };
 
