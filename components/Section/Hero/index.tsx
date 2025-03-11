@@ -36,7 +36,7 @@ const HeroSection = ({
       <div className="col-span-4 flex flex-col justify-center gap-4 md:gap-16 md:col-span-6 lg:col-span-5">
         <header className="flex flex-col gap-4 md:gap-6">
           {title && (
-            <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl leading-[40px] md:leading-[48px] text-gray-600">
+            <h1 className="font-semibold text-4xl md:text-5xl lg:text-6xl leading-[40px] md:leading-[48px] text-neutral-900">
               {title}
             </h1>
           )}

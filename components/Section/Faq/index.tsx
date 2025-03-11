@@ -26,7 +26,7 @@ export type FAQProps = {
   contactDetails: ContactDetails;
 };
 
-const FAQ = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
+const Faq = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
   return (
     <div className="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
       <section className="flex flex-col gap-12 md:gap-16 py-[48px] px-[16px] lg:p-[96px]">
@@ -96,4 +96,4 @@ const FAQ = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
   );
 };
 
-export default FAQ;
+export default Faq;

@@ -1,38 +1,14 @@
-import Section from "../../atoms/Section";
-import NavBar, { NavItem, Brand } from "../../NavBar/index";
-import { CallToAction } from "../../NavBar/CallToAction";
-import HeroSection, { HeroSectionProps } from "../../Section/Hero";
-import LogoMarquee, { LogoMarqueeProps } from "../../LogoMarquee/index";
-import FeatureSection, {
-  FeatureSectionProps,
-} from "../../Section/Features/index";
-import Price, { PricingProps } from "../../Section/Pricing/Tier";
-import FAQ, { FAQProps } from "../../Section/FAQ";
-import NewsletterSection, {
-  NewsletterSectionProps,
-} from "../../Section/Newsletter";
-import Footer, { FooterProps } from "../../Section/Footer";
-import { ContactSectionProps } from "../../Section/Contact/interfaces";
-import ContactSection from "../../Section/Contact/index";
-
-export interface Navigation {
-  navItems: NavItem[];
-  brand: Brand;
-  callToAction?: CallToAction[];
-}
-
-export interface MarketingLandingPageProps {
-  nav: Navigation;
-  hero: HeroSectionProps;
-  logoMarquee: LogoMarqueeProps;
-  featureGrid: FeatureSectionProps;
-  featureRight: FeatureSectionProps;
-  pricing: PricingProps;
-  faq: FAQProps;
-  newsLetter: NewsletterSectionProps;
-  footer: FooterProps;
-  contact: ContactSectionProps;
-}
+import Section from "$/atoms/Section";
+import NavBar from "$/NavBar/index";
+import HeroSection from "$/Section/Hero";
+import LogoMarquee from "$/LogoMarquee/index";
+import FeatureSection from "$/Section/Features/index";
+import Price from "$/Section/PricingTable/Tier";
+import NewsletterSection from "$/Section/Newsletter";
+import Footer from "$/Section/Footer";
+import ContactSection from "$/Section/Contact/index";
+import Faq from "$/Section/Faq";
+import { MarketingLandingPageProps } from "../index";
 
 const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   nav,
@@ -55,10 +31,10 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
         <FeatureSection {...featureGrid} />
         <FeatureSection {...featureRight} />
         <Price {...pricing} />
-        <FAQ {...faq} />
+        <Faq {...faq} />
         <NewsletterSection {...newsLetter} />
         <ContactSection {...contact} />
-        <Footer {...footer} />
+        <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>
     </div>
   );

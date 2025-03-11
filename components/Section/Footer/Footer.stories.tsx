@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Artboard from "../../atoms/Artboard";
 import Footer from ".";
+import { FooterArgs } from "../../../lib/mocks/data/Section/Footer/index";
 
 const meta = {
   title: "Marketing/Section/Footer",
@@ -23,51 +24,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    links: [
-      {
-        label: "Features",
-        href: "/",
-      },
-      {
-        label: "Pricing",
-        href: "/",
-      },
-      {
-        label: "About us",
-        href: "/",
-      },
-      {
-        label: "Contact",
-        href: "/",
-      },
-    ],
-    socials: [
-      {
-        label: "Youtube",
-        href: "/",
-        icon: "youtube",
-      },
-      {
-        label: "Instagram",
-        href: "/",
-        icon: "instagram",
-      },
-      {
-        label: "Facebook",
-        href: "/",
-        icon: "facebook",
-      },
-      {
-        label: "Github",
-        href: "/",
-        icon: "github",
-      },
-      {
-        label: "Twitter",
-        href: "/",
-        icon: "twitter",
-      },
-    ],
-    copyright: "&copy; 2024 Abstractly, Inc. All rights reserved.",
+    ...FooterArgs,
   },
 };
