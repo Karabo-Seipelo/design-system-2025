@@ -16,6 +16,7 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
+      "#/*": ["./lib/*"],
       "$/*": ["./components/*"],
       "@/*": ["./src/*"],
       "*": ["types/*"]

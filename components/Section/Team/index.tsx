@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-type Team = {
+export type Team = {
   name: string;
   role: string;
   imageUrl: string;
   description: string;
 };
 
-type TeamSectionProps = {
+export type TeamSectionProps = {
   title: string;
   subTitle: string;
   description: string;

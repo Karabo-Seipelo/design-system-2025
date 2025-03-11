@@ -16,11 +16,19 @@ import {
   NewsletterDefault,
   NewsletterSuccess,
   NewsletterError,
+  StatisticsArgs,
+  TeamArgs,
 } from "./Section/index";
 
 import { NavigationArgs } from "./Navigation/index";
 
-import { MarketingLandingPageArgs, FeaturesPageArgs } from "./Pages/index";
+import {
+  MarketingLandingPageArgs,
+  FeaturesPageArgs,
+  PricingPageArgs,
+  AboutUsPageArgs,
+  ContactUsPageArgs,
+} from "./Pages/index";
 
 export {
   FaqArgs,
@@ -43,4 +51,9 @@ export {
   NewsletterError,
   MarketingLandingPageArgs,
   FeaturesPageArgs,
+  PricingPageArgs,
+  StatisticsArgs,
+  TeamArgs,
+  AboutUsPageArgs,
+  ContactUsPageArgs,
 };

@@ -1,4 +1,4 @@
-import { FeaturesPageProps } from "../../../../components/Pages";
+import { FeaturesPageProps } from "$/Pages";
 import {
   NavigationArgs,
   HeroBulletsArgs,
