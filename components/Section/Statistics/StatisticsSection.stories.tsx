@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import StatisticsSection from ".";
 import { StatisticsArgs } from "#/mocks/data";
+import Artboard from "$/atoms/Artboard";
 
 const meta = {
   title: "Marketing/Section/Statistics",
@@ -9,6 +10,13 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof StatisticsSection>;
 
 export default meta;

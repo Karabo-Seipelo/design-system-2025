@@ -6,6 +6,7 @@ import StatisticsSection from "$/Section/Statistics";
 import TeamSection from "$/Section/Team";
 import Section from "$/atoms/Section";
 import ContactSection from "$/Section/Contact";
+import Page from "$/Page";
 
 const AboutUs: React.FC<AboutUsPageProps> = ({
   nav,
@@ -16,7 +17,7 @@ const AboutUs: React.FC<AboutUsPageProps> = ({
   contact,
 }) => {
   return (
-    <div>
+    <Page>
       <NavBar {...nav} />
       <Section classes="flex flex-col bg-white">
         <HeroSection {...hero} />
@@ -25,7 +26,7 @@ const AboutUs: React.FC<AboutUsPageProps> = ({
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>
-    </div>
+    </Page>
   );
 };
 

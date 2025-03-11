@@ -12,7 +12,9 @@ const meta = {
   decorators: [
     (Story) => (
       <div style={{ marginTop: "104px" }}>
-        <Story />
+        <div className="mx-auto">
+          <Story />
+        </div>
       </div>
     ),
   ],
@@ -31,5 +33,6 @@ export const Default: Story = {
       href: "https://www.spacejoy.com",
       label: "Read more",
     },
+    classes: "mx-auto",
   },
 };

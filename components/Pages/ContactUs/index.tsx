@@ -4,6 +4,7 @@ import Footer from "$/Section/Footer";
 import ContactSection from "$/Section/Contact";
 import Section from "$/atoms/Section";
 import Faq from "$/Section/Faq";
+import Page from "$/Page";
 
 const ContactUs: React.FC<ContactUsPageProps> = ({
   nav,
@@ -12,14 +13,14 @@ const ContactUs: React.FC<ContactUsPageProps> = ({
   faq,
 }) => {
   return (
-    <div>
+    <Page>
       <NavBar {...nav} />
       <Section classes="flex flex-col bg-white">
         <ContactSection {...contact} />
         <Faq {...faq} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>
-    </div>
+    </Page>
   );
 };
 

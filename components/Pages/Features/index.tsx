@@ -8,6 +8,7 @@ import Testimonials from "$/Section/Testimonials";
 import Faq from "$/Section/Faq";
 import Footer from "$/Section/Footer";
 import ContactSection from "$/Section/Contact";
+import Page from "$/Page";
 
 const FeaturesPage: React.FC<FeaturesPageProps> = ({
   nav,
@@ -21,7 +22,7 @@ const FeaturesPage: React.FC<FeaturesPageProps> = ({
   footer,
 }) => {
   return (
-    <div>
+    <Page>
       <NavBar {...nav} />
       <Section classes="flex flex-col bg-white">
         <HeroSection {...hero} />
@@ -33,7 +34,7 @@ const FeaturesPage: React.FC<FeaturesPageProps> = ({
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>
-    </div>
+    </Page>
   );
 };
 

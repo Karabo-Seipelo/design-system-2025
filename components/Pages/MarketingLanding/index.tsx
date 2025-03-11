@@ -9,6 +9,7 @@ import Footer from "$/Section/Footer";
 import ContactSection from "$/Section/Contact";
 import Faq from "$/Section/Faq";
 import { MarketingLandingPageProps } from "../index";
+import Page from "$/Page";
 
 const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   nav,
@@ -24,7 +25,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   footer,
 }) => {
   return (
-    <div>
+    <Page>
       <NavBar {...nav} />
       <Section classes="flex flex-col bg-white">
         <HeroSection {...hero} />
@@ -38,7 +39,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
         <ContactSection {...contact} />
         <Footer {...footer} classes="py-[16px] px-[16px]" />
       </Section>
-    </div>
+    </Page>
   );
 };
 

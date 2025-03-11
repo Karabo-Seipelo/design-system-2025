@@ -53,5 +53,6 @@ export const Default: Story = {
     button: {
       label: "Contact me",
     },
+    classes: "mx-auto",
   },
 };

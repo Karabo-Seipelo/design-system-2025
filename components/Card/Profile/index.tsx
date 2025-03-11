@@ -21,6 +21,7 @@ export interface ProfileCardProps {
   button: {
     label: string;
   };
+  classes?: string;
 }
 
 const ProfileCard = ({
@@ -30,9 +31,12 @@ const ProfileCard = ({
   role,
   socials,
   button,
+  classes = "",
 }: ProfileCardProps) => {
   return (
-    <div className="w-[340px] flex flex-col bg-white rounded-lg item-center gap-9 px-4 py-6">
+    <div
+      className={`w-[340px] flex flex-col bg-white rounded-lg items-center gap-9 px-4 py-6 ${classes}`}
+    >
       <div className="flex flex-col items-center gap-6 self-stretch">
         {imageUrl && (
           <div className="w-16 h-16">
