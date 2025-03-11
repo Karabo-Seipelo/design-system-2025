@@ -36,3 +36,13 @@ export interface MarketingLandingPageProps extends Page {
   pricing: PricingProps;
   newsLetter: NewsletterSectionProps;
 }
+
+export interface PricingPageProps  {
+  nav: Navigation;
+  pricing: PricingProps;
+  faq: FAQProps;
+  featureGrid: FeatureSectionProps;
+  testimonials: TestimonialsProps;
+  contact: ContactSectionProps;
+  footer: FooterProps;
+}

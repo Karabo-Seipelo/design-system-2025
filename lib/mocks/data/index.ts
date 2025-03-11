@@ -20,7 +20,7 @@ import {
 
 import { NavigationArgs } from "./Navigation/index";
 
-import { MarketingLandingPageArgs, FeaturesPageArgs } from "./Pages/index";
+import { MarketingLandingPageArgs, FeaturesPageArgs, PricingPageArgs } from "./Pages/index";
 
 export {
   FaqArgs,
@@ -43,4 +43,5 @@ export {
   NewsletterError,
   MarketingLandingPageArgs,
   FeaturesPageArgs,
+  PricingPageArgs,
 };
