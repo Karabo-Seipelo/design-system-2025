@@ -21,13 +21,13 @@ export interface Page {
   hero: HeroSectionProps;
   featureGrid: FeatureSectionProps;
   featureRight: FeatureSectionProps;
+  featureLeft: FeatureSectionProps;
   faq: FAQProps;
   contact: ContactSectionProps;
   footer: FooterProps;
 }
 
 export interface FeaturesPageProps extends Page {
-  featureLeft: FeatureSectionProps;
   testimonials: TestimonialsProps;
 }
 

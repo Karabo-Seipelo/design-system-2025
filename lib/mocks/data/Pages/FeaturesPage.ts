@@ -1,7 +1,7 @@
 import { FeaturesPageProps } from "../../../../components/Pages";
 import {
   NavigationArgs,
-  HeroSimpleArgs,
+  HeroBulletsArgs,
   FeatureSectionRightArgs,
   FeatureSectionGridArgs,
   FeatureSectionLeftArgs,
@@ -13,12 +13,12 @@ import {
 
 export const FeaturesPageArgs: FeaturesPageProps = {
   nav: { ...NavigationArgs },
-  hero: { ...HeroSimpleArgs },
+  hero: { ...HeroBulletsArgs },
   featureGrid: { ...FeatureSectionGridArgs },
   featureRight: { ...FeatureSectionRightArgs },
-  faq: { ...FaqArgs },
   featureLeft: { ...FeatureSectionLeftArgs },
   testimonials: { ...TestimonialArgs },
+  faq: { ...FaqArgs },
   contact: { ...ContactArgs },
   footer: { ...FooterArgs },
 };
