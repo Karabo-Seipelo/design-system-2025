@@ -16,6 +16,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   logoMarquee,
   featureGrid,
   featureRight,
+  featureLeft,
   pricing,
   faq,
   newsLetter,
@@ -30,6 +31,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
         <LogoMarquee {...logoMarquee} />
         <FeatureSection {...featureGrid} />
         <FeatureSection {...featureRight} />
+        <FeatureSection {...featureLeft} />
         <Price {...pricing} />
         <Faq {...faq} />
         <NewsletterSection {...newsLetter} />

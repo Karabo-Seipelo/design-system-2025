@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ContactSection from ".";
 import { http, HttpResponse } from "msw";
-import Container from "../../atoms/Container";
+import Artboard from "../../atoms/Artboard";
 import {
   ContactArgs,
   ContactSuccessArgs,
@@ -42,9 +42,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Container classes="w-full rounded bg-white shadow-sm md:rounded-md md:shadow-md lg:shadow-lg">
+      <Artboard>
         <Story />
-      </Container>
+      </Artboard>
     ),
   ],
 } satisfies Meta<typeof ContactSection>;
