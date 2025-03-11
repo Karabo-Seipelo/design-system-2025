@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Faq from "./index";
+import Artboard from "../../atoms/Artboard";
 import { FaqArgs } from "../../../lib/mocks/data/index";
 
 const meta = {
@@ -9,6 +10,13 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof Faq>;
 
 export default meta;

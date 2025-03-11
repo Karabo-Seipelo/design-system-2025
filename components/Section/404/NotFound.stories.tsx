@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
+import Artboard from "../../atoms/Artboard";
 import NotFound from ".";
 
 const meta = {
@@ -9,6 +10,13 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof NotFound>;
 
 export default meta;

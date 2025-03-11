@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import PricingTable from ".";
 import { SinglePricingArgs } from "../../../../lib/mocks/data/Section/PricingTable";
+import Artboard from "../../../atoms/Artboard";
 
 const meta = {
   title: "Marketing/Section/Pricing/Single",
@@ -9,6 +10,13 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof PricingTable>;
 
 export default meta;

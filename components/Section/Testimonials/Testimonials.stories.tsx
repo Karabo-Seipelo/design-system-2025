@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Testimonials from ".";
+import Artboard from "../../atoms/Artboard";
 import { TestimonialArgs } from "../../../lib/mocks/data/Section/Testimonials/index";
 
 const meta = {
@@ -9,6 +10,13 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof Testimonials>;
 
 export default meta;

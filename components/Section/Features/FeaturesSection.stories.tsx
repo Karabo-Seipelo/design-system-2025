@@ -4,6 +4,7 @@ import {
   FeatureSectionLeftArgs,
   FeatureSectionGridArgs,
 } from "../../../lib/mocks/data/Section/Feature/index";
+import Artboard from "../../atoms/Artboard";
 import FeaturesSection from ".";
 
 const meta = {
@@ -13,6 +14,13 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  decorators: [
+    (Story) => (
+      <Artboard>
+        <Story />
+      </Artboard>
+    ),
+  ],
 } satisfies Meta<typeof FeaturesSection>;
 
 export default meta;

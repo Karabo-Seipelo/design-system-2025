@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Container from "../../atoms/Container";
+import Artboard from "../../atoms/Artboard";
 import {
   HeroBulletsArgs,
   HeroSimpleArgs,
@@ -15,9 +15,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Container classes="bg-[linear-gradient(176.17deg,#f9fafb_0.94%,#edf0f3_316.54%)] shadow-xl rounded-sm">
+      <Artboard>
         <Story />
-      </Container>
+      </Artboard>
     ),
   ],
 } satisfies Meta<typeof HeroSection>;
