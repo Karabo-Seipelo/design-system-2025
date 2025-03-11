@@ -12,7 +12,9 @@ const meta = {
   decorators: [
     (Story) => (
       <div style={{ marginTop: "184px" }}>
-        <Story />
+        <div className="md:w-[340px] mx-auto">
+          <Story />
+        </div>
       </div>
     ),
   ],

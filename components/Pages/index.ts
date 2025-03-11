@@ -51,6 +51,8 @@ export interface PricingPageProps extends BasePageProps {
   pricing: PricingProps;
   featureGrid: FeatureSectionProps;
   testimonials: TestimonialsProps;
+  contact: ContactSectionProps;
+  faq: FAQProps;
 }
 
 export interface AboutUsPageProps extends BasePageProps {
