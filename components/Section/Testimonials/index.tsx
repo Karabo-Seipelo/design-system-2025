@@ -27,7 +27,7 @@ const Testimonials = ({
 }: TestimonialsProps) => {
   return (
     <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
-      <section className="flex flex-col gap-12 md:gap-16">
+      <section className="flex flex-col gap-12 md:gap-16 w-full">
         <header className="flex flex-col items-center justify-center text-center">
           {subTitle && (
             <small className="text-xl font-semibold text-indigo-700 pb-4">

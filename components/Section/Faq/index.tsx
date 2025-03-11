@@ -73,7 +73,7 @@ const Faq = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
           );
         })}
 
-        <div className="flex flex-col md:flex-row gap-4 bg-white p-4 rounded-lg border border-solid border-neutral-200 shadow-md">
+        <div className="flex flex-col md:flex-row gap-4 bg-white p-4 md:p-8 rounded-lg border border-solid border-neutral-200 shadow-md">
           <div className="md:basis-[79%] lg:basis-5/6">
             <h3 className="font-semibold text-xl text-neutral-900">
               {contactDetails.title}
@@ -83,8 +83,8 @@ const Faq = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
               dangerouslySetInnerHTML={{ __html: contactDetails.content }}
             />
           </div>
-          <div className="md:basis-[20%] lg:basis-1/5 lg:justify-self-end justify-end">
-            <button className=" flex gap-1.5 bg-indigo-700 px-5 py-3 text-white rounded">
+          <div className="md:basis-[20%] lg:basis-1/5 justify-items-end">
+            <button className="flex gap-1.5 bg-indigo-700 px-5 py-3 text-white rounded">
               {contactDetails.button.label}
             </button>
           </div>

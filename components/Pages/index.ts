@@ -31,6 +31,8 @@ export interface FeaturesPageProps extends BasePageProps {
   featureRight: FeatureSectionProps;
   featureLeft: FeatureSectionProps;
   testimonials: TestimonialsProps;
+  contact: ContactSectionProps;
+  faq: FAQProps;
 }
 
 export interface MarketingLandingPageProps extends BasePageProps {
@@ -49,6 +51,8 @@ export interface PricingPageProps extends BasePageProps {
   pricing: PricingProps;
   featureGrid: FeatureSectionProps;
   testimonials: TestimonialsProps;
+  contact: ContactSectionProps;
+  faq: FAQProps;
 }
 
 export interface AboutUsPageProps extends BasePageProps {
