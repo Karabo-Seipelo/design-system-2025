@@ -9,27 +9,27 @@ import Faq from "$/Section/Faq";
 import { PricingPageProps } from "../index";
 
 const PricingPage: React.FC<PricingPageProps> = ({
-    nav,
-    pricing,
-    faq,
-    featureGrid,
-    testimonials,
-    contact,
-    footer,
+  nav,
+  pricing,
+  faq,
+  featureGrid,
+  testimonials,
+  contact,
+  footer,
 }) => {
-    return (
-        <div>
-            <NavBar {...nav} />
-            <Section classes="flex flex-col bg-white">
-                <Price {...pricing} />
-                <Faq {...faq} />
-                <FeatureSection {...featureGrid} />
-                <Testimonials {...testimonials} />
-                <ContactSection {...contact} />
-                <Footer {...footer} classes="py-[16px] px-[16px]" />
-            </Section>
-        </div>
-    )
-}
+  return (
+    <div>
+      <NavBar {...nav} />
+      <Section classes="flex flex-col bg-white">
+        <Price {...pricing} />
+        <Faq {...faq} />
+        <FeatureSection {...featureGrid} />
+        <Testimonials {...testimonials} />
+        <ContactSection {...contact} />
+        <Footer {...footer} classes="py-[16px] px-[16px]" />
+      </Section>
+    </div>
+  );
+};
 
 export default PricingPage;

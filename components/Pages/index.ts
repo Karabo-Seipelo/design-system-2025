@@ -10,6 +10,7 @@ import { NewsletterSectionProps } from "$/Section/Newsletter";
 import { LogoMarqueeProps } from "$/LogoMarquee/index";
 import { PricingProps } from "$/Section/PricingTable/Tier";
 import { StatisticsSectionProps } from "$/Section/Statistics";
+import { TeamSectionProps } from "$/Section/Team";
 
 export interface Navigation {
   navItems: NavItem[];
@@ -17,42 +18,43 @@ export interface Navigation {
   callToAction?: CallToAction[];
 }
 
-export interface Page {
+export interface BasePageProps {
   nav: Navigation;
+  footer: FooterProps;
+  contact?: ContactSectionProps;
+  faq?: FAQProps;
+}
+
+export interface FeaturesPageProps extends BasePageProps {
   hero: HeroSectionProps;
   featureGrid: FeatureSectionProps;
   featureRight: FeatureSectionProps;
   featureLeft: FeatureSectionProps;
-  faq: FAQProps;
-  contact: ContactSectionProps;
-  footer: FooterProps;
-}
-
-export interface FeaturesPageProps extends Page {
   testimonials: TestimonialsProps;
 }
 
-export interface MarketingLandingPageProps extends Page {
+export interface MarketingLandingPageProps extends BasePageProps {
+  hero: HeroSectionProps;
+  featureGrid: FeatureSectionProps;
+  featureRight: FeatureSectionProps;
+  featureLeft: FeatureSectionProps;
   logoMarquee: LogoMarqueeProps;
   pricing: PricingProps;
   newsLetter: NewsletterSectionProps;
 }
 
-export interface PricingPageProps  {
-  nav: Navigation;
+export interface PricingPageProps extends BasePageProps {
   pricing: PricingProps;
-  faq: FAQProps;
   featureGrid: FeatureSectionProps;
   testimonials: TestimonialsProps;
-  contact: ContactSectionProps;
-  footer: FooterProps;
 }
 
-export interface AboutUsPageProps extends Page {
-  nav: Navigation;
+export interface AboutUsPageProps extends BasePageProps {
   hero: HeroSectionProps;
   statistics: StatisticsSectionProps;
-  team: any;
+  team: TeamSectionProps;
+}
+
+export interface ContactPageProps extends BasePageProps {
   contact: ContactSectionProps;
-  footer: FooterProps;
 }
