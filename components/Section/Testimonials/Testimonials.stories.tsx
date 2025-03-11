@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Testimonials from ".";
 import Artboard from "../../atoms/Artboard";
-import { TestimonialArgs } from "../../../lib/mocks/data/Section/Testimonials/index";
+import { TestimonialArgs } from "#/mocks/data";
 
 const meta = {
   title: "Marketing/Section/Testimonials",

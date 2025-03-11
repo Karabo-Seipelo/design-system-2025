@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-type StatisticsSectionProps = {
+export type StatisticsSectionProps = {
   title: string;
   subTitle?: string;
   description?: string;
@@ -9,7 +9,7 @@ type StatisticsSectionProps = {
   statistics: ListCardProps[];
 };
 
-type ListCardProps = {
+export type ListCardProps = {
   statistic: string;
   label: string;
 };
