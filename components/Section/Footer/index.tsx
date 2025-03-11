@@ -16,7 +16,7 @@ type Links = {
 type socials = {
   label: string;
   href: string;
-  icon: "youtube" | "instagram" | "facebook" | "github" | "twitter";
+  icon: string;
 };
 
 export type FooterProps = {

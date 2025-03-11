@@ -1,6 +1,7 @@
 import React from "react";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 export interface SubMenu {
   name: string;
@@ -11,7 +12,7 @@ export interface SubMenu {
 
 export interface NavItem {
   name: string;
-  href?: string;
+  href: string;
   items?: SubMenu[];
 }
 
@@ -43,13 +44,13 @@ const DesktopNavItems: React.FC<{ item: NavItem }> = ({ item }) => {
                   />
                 </div>
                 <div className="flex-auto">
-                  <a
+                  <Link
                     href={item.href}
                     className="block font-semibold text-gray-900"
                   >
                     {item.name}
                     <span className="absolute inset-0" />
-                  </a>
+                  </Link>
                   <p className="mt-1 text-gray-600">{subItem.description}</p>
                 </div>
               </div>
@@ -61,9 +62,9 @@ const DesktopNavItems: React.FC<{ item: NavItem }> = ({ item }) => {
   }
 
   return (
-    <a href={item.href} className="text-sm/6 font-semibold text-gray-900">
+    <Link href={item.href} className="text-sm/6 font-semibold text-gray-900">
       {item.name}
-    </a>
+    </Link>
   );
 };
 

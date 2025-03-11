@@ -77,7 +77,7 @@ const PriceTable = ({
             {features.map((feature, index) => (
               <li key={feature + " " + index} className="flex md:text-lg">
                 <Image
-                  src="check-fill.svg"
+                  src="/check-fill.svg"
                   width={24}
                   height={24}
                   alt="check"

@@ -5,18 +5,18 @@ const baseArgs = {
   features: [
     {
       description: "Exclusive access to new abstract images and collections",
-      icon: "check-fill.svg",
+      icon: "/check-fill.svg",
     },
     {
       description: "Unlock special promotions only for subscribers",
-      icon: "check-fill.svg",
+      icon: "/check-fill.svg",
     },
     {
       description: "Regular doses of artistic inspiration",
-      icon: "check-fill.svg",
+      icon: "/check-fill.svg",
     },
   ],
-  imageUrl: "abstract.jpg",
+  imageUrl: "/abstract.jpg",
   form: {
     instruction: "Subscribe to our newsletter",
     label: "Subscribe",

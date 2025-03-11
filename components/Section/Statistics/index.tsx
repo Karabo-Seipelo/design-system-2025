@@ -18,7 +18,7 @@ export type ListCardProps = {
 const ListCard = ({ statistics }: { statistics: ListCardProps[] }) => {
   return (
     <div className="flex flex-col gap-10 lg:flex-1">
-      {statistics.map(({ statistic, label }, index) => (
+      {statistics?.map(({ statistic, label }, index) => (
         <div
           key={statistic + " " + index}
           className="flex flex-col justify-center items-center self-stretch bg-white py-6 rounded-lg border border-solid border-neutral-200"
