@@ -26,7 +26,7 @@ export type FooterProps = {
   classes?: string;
 };
 
-const socialsIcons = {
+const socialsIcons: { [key in socials["icon"]]: any } = {
   youtube: Youtube,
   instagram: Instagram,
   facebook: Facebook,
