@@ -1,3 +1,4 @@
+"use client"
 import { memo } from "react";
 import Page from "$/Page";
 import NavBar from "$/NavBar";
@@ -10,7 +11,7 @@ import Faq from "$/Section/Faq";
 import NewsletterSection from "$/Section/Newsletter";
 import ContactSection from "$/Section/Contact";
 import Footer from "$/Section/Footer";
-import useContent from "@/lib/useContent";
+import useContent from "#/hooks/useContent";
 
 const Home = () => {
   const { navigation, home } = useContent();

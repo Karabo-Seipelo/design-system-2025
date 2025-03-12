@@ -27,4 +27,11 @@ export const Default: Story = {
   args: {
     ...MarketingLandingPageArgs,
   },
+  parameters: {
+    nextjs: {
+      router: {
+        pathname: "/",
+      }
+    }
+  }
 };

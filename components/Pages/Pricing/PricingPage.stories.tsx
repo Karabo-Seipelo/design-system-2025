@@ -18,4 +18,11 @@ export const Default: Story = {
   args: {
     ...PricingPageArgs,
   },
+  parameters: {
+    nextjs: {
+      router: {
+        pathname: "/pricing",
+      }
+    }
+  }
 };

@@ -18,4 +18,11 @@ export const Default: Story = {
   args: {
     ...AboutUsPageArgs,
   },
+  parameters: {
+    nextjs: {
+      router: {
+        pathname: "/about",
+      }
+    }
+  }
 };
