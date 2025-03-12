@@ -74,12 +74,6 @@ const preview: Preview = {
       //👇 Set available viewports for every story in the file
       viewports: DS_VIEWPORTS,
     },
-    nextjs: {
-      appDirectory: true,
-      router: {
-        basePath: '/app/',
-      },
-    },
   },
   loaders: [mswLoader],
 };
