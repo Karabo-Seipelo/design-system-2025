@@ -7,7 +7,7 @@ import FeatureSection from "$/Section/Features";
 import Testimonials from "$/Section/Testimonials";
 import Faq from "$/Section/Faq";
 import Footer from "$/Section/Footer";
-import useContent from "#/hooks/useContent";
+import ContactSection from "$/Section/Contact";
 import Page from "$/Page";
 
 const FeaturesPage: React.FC<FeaturesPageProps> = ({

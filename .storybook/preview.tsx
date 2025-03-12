@@ -2,7 +2,7 @@ import React from "react";
 import { Noto_Sans } from "next/font/google";
 import type { Preview } from "@storybook/react";
 import { initialize, mswLoader } from "msw-storybook-addon";
-import "../src/styles/globals.css";
+import "../app/globals.css";
 
 const DS_VIEWPORTS = {
   mobile: {
@@ -76,6 +76,9 @@ const preview: Preview = {
     },
     nextjs: {
       appDirectory: true,
+      router: {
+        basePath: '/app/',
+      },
     },
   },
   loaders: [mswLoader],

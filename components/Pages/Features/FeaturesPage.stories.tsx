@@ -16,4 +16,11 @@ type Story = StoryObj<typeof FeaturesPage>;
 
 export const Default: Story = {
   args: { ...FeaturesPageArgs },
+  parameters: {
+    nextjs: {
+      router: {
+        pathname: "/features",
+      }
+    }
+  }
 };

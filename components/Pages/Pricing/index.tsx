@@ -4,7 +4,7 @@ import FeatureSection from "$/Section/Features";
 import Price from "$/Section/PricingTable/Tier";
 import Testimonials from "$/Section/Testimonials";
 import Footer from "$/Section/Footer";
-import useContent from "#/hooks/useContent";
+import ContactSection from "$/Section/Contact";
 import Faq from "$/Section/Faq";
 import { PricingPageProps } from "../index";
 import Page from "$/Page";
