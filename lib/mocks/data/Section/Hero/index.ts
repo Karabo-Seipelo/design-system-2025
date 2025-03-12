@@ -2,7 +2,7 @@ import { HeroSectionProps } from "../../../../../components/Section/Hero";
 
 export const HeroBulletsArgs: HeroSectionProps = {
   title: "Premium abstract images",
-  imageUrl: "prism2.png",
+  imageUrl: "/prism2.png",
   buttons: [
     {
       label: "Learn more",
@@ -24,7 +24,7 @@ export const HeroSimpleArgs: HeroSectionProps = {
   title: "Well craft abstract images",
   description:
     "High quality images for your projects, wallpaper and presentations",
-  imageUrl: "prism.png",
+  imageUrl: "/prism.png",
   buttons: [
     {
       label: "Learn more",

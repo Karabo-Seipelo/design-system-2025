@@ -5,7 +5,7 @@ export const StatisticsArgs: StatisticsSectionProps = {
   subTitle: "Statistics",
   description:
     "Our platform is more than just as a service to us - it is a catalyst for enriching lives through premium abstract imagery.",
-  imageUrl: "white-blocks.png",
+  imageUrl: "/white-blocks.png",
   statisticsTitle: "Our mission, in numbers",
   statistics: [
     {

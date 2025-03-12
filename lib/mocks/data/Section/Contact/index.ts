@@ -7,16 +7,16 @@ const baseArgs = {
   contactDetails: [
     {
       description: "123 Maple Street, Springfield IL, USA",
-      icon: "building-line.svg",
+      icon: "/building-line.svg",
     },
     {
       description: "+1 (650) 555-0198",
-      icon: "phone-line.svg",
+      icon: "/phone-line.svg",
       tel: "+16505550198",
     },
     {
       description: "hello@abstractly",
-      icon: "mail-line.svg",
+      icon: "/mail-line.svg",
       mailto: "hello@abstractly",
     },
   ],
@@ -36,7 +36,7 @@ const baseArgs = {
         message:
           "Submission successful! We will get back to you in 3-5 days via email.",
         status: "success",
-        icon: "check-fill-success.svg",
+        icon: "/check-fill-success.svg",
       },
     },
     fields: [

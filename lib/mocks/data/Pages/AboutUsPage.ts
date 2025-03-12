@@ -10,10 +10,11 @@ import {
 
 export const AboutUsPageArgs: AboutUsPageProps = {
   nav: { ...NavigationArgs },
-  hero: { 
+  hero: {
     ...HeroSimpleArgs,
     title: "From a tiny desk to the entire world",
-    description: "As a lean, passionate team, we've made something that most would think is impossible - premium abstract images for free and for all.",
+    description:
+      "As a lean, passionate team, we've made something that most would think is impossible - premium abstract images for free and for all.",
     buttons: [
       {
         label: "Features",
@@ -22,7 +23,7 @@ export const AboutUsPageArgs: AboutUsPageProps = {
       {
         label: "See pricing",
         primary: true,
-      }
+      },
     ],
   },
   statistics: { ...StatisticsArgs },

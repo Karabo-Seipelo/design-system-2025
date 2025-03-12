@@ -3,46 +3,41 @@ import Page from "$/Page";
 import NavBar from "$/NavBar";
 import Section from "$/atoms/Section";
 import HeroSection from "$/Section/Hero";
-import LogoMarquee from "$/LogoMarquee/index";
 import FeatureSection from "$/Section/Features";
-import Pricing from "$/Section/PricingTable/Tier";
+import Testimonials from "$/Section/Testimonials";
 import Faq from "$/Section/Faq";
-import NewsletterSection from "$/Section/Newsletter";
-import ContactSection from "$/Section/Contact";
 import Footer from "$/Section/Footer";
+import ContactSection from "$/Section/Contact";
 import useContent from "@/lib/useContent";
 
-const Home = () => {
-  const { navigation, home } = useContent();
+const Features = () => {
+  const { navigation, features } = useContent();
   const {
     hero,
-    logoMarquee,
     featureGrid,
     featureLeft,
     featureRight,
-    pricing,
+    testimonials,
     faq,
-    newsletter,
     contact,
     footer,
-  } = home || {};
+  } = features || {};
 
   return (
     <Page>
       {navigation && <NavBar {...navigation} />}
       <Section classes="flex flex-col bg-white">
         {hero && <HeroSection {...hero} />}
-        {logoMarquee && <LogoMarquee {...logoMarquee} />}
         {featureGrid && <FeatureSection {...featureGrid} />}
-        {featureRight && <FeatureSection {...featureRight} />}
+        {featureGrid && <FeatureSection {...featureRight} />}
         {featureLeft && <FeatureSection {...featureLeft} />}
-        {pricing && <Pricing {...pricing} />}
+        {testimonials && <Testimonials {...testimonials} />}
         {faq && <Faq {...faq} />}
-        {newsletter && <NewsletterSection {...newsletter} />}
         {contact && <ContactSection {...contact} />}
-        {footer && <Footer {...footer} />}
+        {footer && <Footer {...footer} classes="py-[16px] px-[16px]" />}
       </Section>
     </Page>
   );
 };
-export default memo(Home);
+
+export default memo(Features);

@@ -16,7 +16,7 @@ type Links = {
 type socials = {
   label: string;
   href: string;
-  icon: "youtube" | "instagram" | "facebook" | "github" | "twitter";
+  icon: string;
 };
 
 export type FooterProps = {
@@ -26,7 +26,7 @@ export type FooterProps = {
   classes?: string;
 };
 
-const socialsIcons = {
+const socialsIcons: { [key in socials["icon"]]: any } = {
   youtube: Youtube,
   instagram: Instagram,
   facebook: Facebook,

@@ -51,11 +51,12 @@ const HeroSection = ({
             {features.map((feature, index) => (
               <li key={feature + " " + index} className="flex">
                 <Image
-                  src="check-fill.svg"
+                  src="/check-fill.svg"
                   width={24}
                   height={24}
                   alt="check"
                   className="mr-2"
+                  quality={100}
                 />
                 {feature}
               </li>
@@ -81,6 +82,7 @@ const HeroSection = ({
           height={0}
           width={0}
           className="min-h-[180px] w-full"
+          quality={100}
         />
       </div>
     </Section>
