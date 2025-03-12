@@ -84,7 +84,7 @@ body {
 .abstract_bg {
   background:
     linear-gradient(360deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%),
-    url("../../public/abstract-background.jpg");
+    url("../public/abstract-background.jpg") 50% 40%;
   background-position: center;
   background-size: cover;
 }
@@ -93,6 +93,6 @@ body {
   .abstract_bg {
     background:
       linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 88.14%),
-      url("../../public/abstract-background.jpg") 50% 40%;
+      url("../public/abstract-background.jpg") 50% 40%;
   }
 }

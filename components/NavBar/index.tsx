@@ -1,3 +1,4 @@
+"use client"
 import NavLogo from "./NavLogo";
 import useMobileMenu from "./useMobileMenu";
 import MobileMenuButton from "./MobileMenuButton";

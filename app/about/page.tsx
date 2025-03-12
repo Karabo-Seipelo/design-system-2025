@@ -1,3 +1,4 @@
+"use client"
 import { memo } from "react";
 import Page from "$/Page";
 import NavBar from "$/NavBar";
@@ -7,7 +8,7 @@ import StatisticsSection from "$/Section/Statistics";
 import TeamSection from "$/Section/Team";
 import Section from "$/atoms/Section";
 import ContactSection from "$/Section/Contact";
-import useContent from "@/lib/useContent";
+import useContent from "#/hooks/useContent";
 
 const About = () => {
   const { navigation, about } = useContent();

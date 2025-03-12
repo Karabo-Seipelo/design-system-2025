@@ -6,7 +6,7 @@ import FeatureSection from "$/Section/Features";
 import Price from "$/Section/PricingTable/Tier";
 import NewsletterSection from "$/Section/Newsletter";
 import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
+import useContent from "#/hooks/useContent";
 import Faq from "$/Section/Faq";
 import { MarketingLandingPageProps } from "../index";
 import Page from "$/Page";

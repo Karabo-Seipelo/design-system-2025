@@ -5,7 +5,7 @@ import HeroSection from "$/Section/Hero";
 import StatisticsSection from "$/Section/Statistics";
 import TeamSection from "$/Section/Team";
 import Section from "$/atoms/Section";
-import ContactSection from "$/Section/Contact";
+import useContent from "#/hooks/useContent";
 import Page from "$/Page";
 
 const AboutUs: React.FC<AboutUsPageProps> = ({

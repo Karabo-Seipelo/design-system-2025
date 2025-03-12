@@ -1,7 +1,7 @@
 import { ContactUsPageProps } from "..";
 import NavBar from "$/NavBar";
 import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
+import useContent from "#/hooks/useContent";
 import Section from "$/atoms/Section";
 import Faq from "$/Section/Faq";
 import Page from "$/Page";
