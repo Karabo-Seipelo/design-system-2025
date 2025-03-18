@@ -1,4 +1,4 @@
-import Testimonial from "../card/Testimonial/index";
+import Testimonial from "$/organism/card/Testimonial";
 
 export type TestimonialProps = {
   id: string;

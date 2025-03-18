@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Artboard from "../../atoms/artboard";
-import {
-  HeroBulletsArgs,
-  HeroSimpleArgs,
-} from "../../../lib/mocks/data/Section/Hero/index";
+import Artboard from "$/atoms/artboard";
+import { HeroBulletsArgs, HeroSimpleArgs } from "#/mocks/data/Section/Hero";
 import HeroSection from ".";
 
 const meta = {
