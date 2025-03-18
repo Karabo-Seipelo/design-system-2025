@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Avatar from "$/atoms/avatar";
 
 export interface TestimonialCardProps {
   /** User's name */
@@ -22,10 +22,6 @@ export interface AvatarProps {
   alt: string;
 }
 
-const Avatar = ({ imageUrl, alt, classes }: AvatarProps) => (
-  <Image src={imageUrl} className={classes} alt={alt} width={12} height={12} />
-);
-
 const TestimonialCard = ({
   handle,
   firstName,
@@ -41,7 +37,7 @@ const TestimonialCard = ({
       <header className="flex items-center gap-4 self-stretch">
         {avatar?.imageUrl && avatar?.alt && (
           <Avatar
-            imageUrl={avatar.imageUrl}
+            src={avatar.imageUrl}
             alt={`${firstName && lastName ? firstName + " " + lastName : "unknown user"}`}
             classes="w-12 h-12 object-cover rounded-full"
           />

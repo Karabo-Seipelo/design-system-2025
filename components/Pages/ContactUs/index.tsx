@@ -2,7 +2,7 @@ import { ContactUsPageProps } from "..";
 import NavBar from "$/organism/navBar";
 import Footer from "$/organism/footer";
 import ContactSection from "$/organism/contact";
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import Faq from "$/organism/faq";
 import Page from "$/template/page";
 

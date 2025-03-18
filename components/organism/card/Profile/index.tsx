@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "$/atoms/image";
 
 export enum SocialIcons {
   GitHub = "github",
@@ -42,7 +42,7 @@ const ProfileCard = ({
           <div className="w-16 h-16">
             <Image
               src={imageUrl}
-              className="object-cover"
+              classes="object-cover"
               width={64}
               height={64}
               alt=""

@@ -1,4 +1,4 @@
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import NavBar from "$/organism/navBar";
 import HeroSection from "$/organism/hero";
 import LogoMarquee from "$/organism/logoMarquee/index";

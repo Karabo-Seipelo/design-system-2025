@@ -1,5 +1,6 @@
 import React from "react";
-import Image from "next/image";
+import Image from "$/atoms/image";
+// import Image from "next/image";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export interface BlogCardProps {
@@ -27,7 +28,7 @@ const BlogCard = ({
       {imageUrl && (
         <Image
           src={imageUrl}
-          className="rounded-t-lg w-full h-[288px] object-cover"
+          classes="rounded-t-lg w-full h-[288px] object-cover"
           alt="Blog card"
           width={0}
           height={0}

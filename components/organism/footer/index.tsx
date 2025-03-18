@@ -5,7 +5,7 @@ import Twitter from "../../../public/twitter-x-line.svg";
 import Instagram from "../../../public/instagram-line.svg";
 import Facebook from "../../../public/facebook-box-line.svg";
 import Youtube from "../../../public/youtube-line.svg";
-import Image from "next/image";
+import Image from "$/atoms/image";
 import { v4 as uuidv4 } from "uuid";
 
 type Links = {
@@ -64,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({
                 <Image
                   src={socialsIcons[social.icon]}
                   alt={social.label}
-                  className="size-6 fill-red-400"
+                  classes="size-6 fill-red-400"
                 />
               </Link>
             </li>

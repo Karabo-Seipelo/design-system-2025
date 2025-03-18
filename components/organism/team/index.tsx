@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "$/atoms/image";
 
 export type Team = {
   name: string;
@@ -52,7 +52,7 @@ const TeamSection = ({
                 alt={`${name}'s picture`}
                 width={0}
                 height={0}
-                className="w-full h-auto md:h-[296px] object-cover"
+                classes="w-full h-auto md:h-[296px] object-cover"
               />
               <div className="flex flex-col gap-1">
                 <h3 className="font-semibold text-xl text-neutral-900">

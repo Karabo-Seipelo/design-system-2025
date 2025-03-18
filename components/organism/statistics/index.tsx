@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "$/atoms/image";
 
 export type StatisticsSectionProps = {
   title: string;
@@ -74,7 +74,7 @@ const StatisticsSection = ({
                 alt="testing"
                 height={0}
                 width={0}
-                className="flex w-full min-h-[180px] object-cover md:h-[394px] lg:self-stretch lg:h-[500px]"
+                classes="flex w-full min-h-[180px] object-cover md:h-[394px] lg:self-stretch lg:h-[500px]"
               />
             </div>
           )}

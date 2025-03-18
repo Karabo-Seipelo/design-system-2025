@@ -2,7 +2,7 @@
 import { memo } from "react";
 import Page from "$/template/page";
 import NavBar from "$/organism/navBar";
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import HeroSection from "$/organism/hero";
 import FeatureSection from "$/organism/features";
 import Testimonials from "$/organism/testimonials";

@@ -4,7 +4,7 @@ import {
   FeatureSectionLeftArgs,
   FeatureSectionGridArgs,
 } from "../../../lib/mocks/data/Section/Feature/index";
-import Artboard from "../../atoms/Artboard";
+import Artboard from "../../atoms/artboard";
 import FeaturesSection from ".";
 
 const meta = {

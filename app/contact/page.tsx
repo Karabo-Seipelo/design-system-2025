@@ -4,7 +4,7 @@ import Page from "$/template/page";
 import Faq from "$/organism/faq";
 import Footer from "$/organism/footer";
 import Navbar from "$/organism/navBar";
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import ContactSection from "$/organism/contact";
 import useContent from "#/hooks/useContent";
 

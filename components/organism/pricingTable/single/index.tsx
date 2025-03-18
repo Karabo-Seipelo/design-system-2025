@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "$/atoms/image";
 import { v4 as uuidv4 } from "uuid";
 
 interface Button {
@@ -109,7 +109,7 @@ const Pricing = ({
                       width={24}
                       height={24}
                       alt="check"
-                      className="mr-2"
+                      classes="mr-2"
                     />
                     {feature}
                   </li>

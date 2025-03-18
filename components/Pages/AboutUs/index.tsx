@@ -4,7 +4,7 @@ import Footer from "$/organism/footer";
 import HeroSection from "$/organism/hero";
 import StatisticsSection from "$/organism/statistics";
 import TeamSection from "$/organism/team";
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import ContactSection from "$/organism/contact";
 import Page from "$/template/page";
 

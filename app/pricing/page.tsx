@@ -3,7 +3,7 @@ import { memo } from "react";
 import Page from "$/template/page";
 import Navbar from "$/organism/navBar";
 import Price from "$/organism/pricingTable/tier";
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import FeatureSection from "$/organism/features";
 import Testimonials from "$/organism/testimonials";
 import Faq from "$/organism/faq";

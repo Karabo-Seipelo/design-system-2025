@@ -1,6 +1,6 @@
 import React from "react";
 import { FeaturesPageProps } from "../";
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import NavBar from "$/organism/navBar";
 import HeroSection from "$/organism/hero";
 import FeatureSection from "$/organism/features";

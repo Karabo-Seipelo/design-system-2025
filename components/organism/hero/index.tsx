@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Section from "../../atoms/Section";
+import Image from "$/atoms/image";
+import Section from "$/atoms/section";
 import { Button } from "@headlessui/react";
 
 interface Button {
@@ -55,7 +55,7 @@ const HeroSection = ({
                   width={24}
                   height={24}
                   alt="check"
-                  className="mr-2"
+                  classes="mr-2"
                   quality={100}
                 />
                 {feature}
@@ -81,7 +81,7 @@ const HeroSection = ({
           alt="testing"
           height={0}
           width={0}
-          className="min-h-[180px] w-full"
+          classes="min-h-[180px] w-full"
           quality={100}
         />
       </div>

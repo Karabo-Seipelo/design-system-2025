@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "$/atoms/image";
 
 interface Feature {
   title?: string;
@@ -61,7 +61,7 @@ const List = ({
                 alt="icon"
                 width={0}
                 height={0}
-                className="min-w-[24px] md:w-full min-h-[24px] lg:h-[24px]"
+                classes="min-w-[24px] md:w-full min-h-[24px] lg:h-[24px]"
               />
             </div>
             <div className="flex flex-col items-start justify-center gap-2 py-2.5">

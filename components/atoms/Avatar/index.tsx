@@ -1,13 +1,21 @@
-import Image from "next/image";
+import Image from "$/atoms/image";
 
 export interface AvatarProps {
-  imageUrl: string;
+  src: string;
   alt: string;
   classes?: string;
+  ImageComponent?: React.ComponentType<
+    React.ImgHTMLAttributes<HTMLImageElement>
+  >;
 }
 
-const Avatar = ({ imageUrl, alt, classes }: AvatarProps) => (
-  <Image src={imageUrl} className={classes} alt={alt} />
+const Avatar = ({ src, alt, classes, ImageComponent }: AvatarProps) => (
+  <Image
+    src={src}
+    alt={alt}
+    classes={classes}
+    ImageComponent={ImageComponent}
+  />
 );
 
 export default Avatar;

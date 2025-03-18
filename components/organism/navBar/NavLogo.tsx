@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+import Image from "$/atoms/image";
 
 interface BrandProps {
   name: string;
@@ -16,7 +16,7 @@ const NavLogo: React.FC<BrandProps> = ({ name, href = "#", imageUrl }) => {
         width={0}
         height={0}
         src={imageUrl}
-        className="h-8 w-auto"
+        classes="h-8 w-auto"
       />
     </a>
   );

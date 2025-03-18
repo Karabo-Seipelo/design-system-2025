@@ -1,4 +1,4 @@
-import Section from "$/atoms/Section";
+import Section from "$/atoms/section";
 import NavBar from "$/organism/navBar";
 import FeatureSection from "$/organism/features";
 import Price from "$/organism/pricingTable/tier";

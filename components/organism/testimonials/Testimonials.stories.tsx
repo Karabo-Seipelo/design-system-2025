@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Testimonials from ".";
-import Artboard from "../../atoms/Artboard";
+import Artboard from "../../atoms/artboard";
 import { TestimonialArgs } from "#/mocks/data";
 
 const meta = {

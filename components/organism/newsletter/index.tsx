@@ -1,5 +1,5 @@
 import useToast from "../../molecules/toast/useToast";
-import Image from "next/image";
+import Image from "$/atoms/image";
 import Form from "next/form";
 import axios from "axios";
 import { List } from "../list";
@@ -119,7 +119,7 @@ const NewsletterSection = ({
                   alt="testing"
                   height={0}
                   width={0}
-                  className="flex min-h-[180px] w-full justify-center rounded-lg object-cover md:h-[394px] lg:h-auto
+                  classes="flex min-h-[180px] w-full justify-center rounded-lg object-cover md:h-[394px] lg:h-auto
                                     lg:self-stretch 2xl:h-[450px]"
                 />
               </div>

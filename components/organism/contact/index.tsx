@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Image from "next/image";
+import Image from "$/atoms/image";
 import { List } from "../list";
 import Form from "next/form";
 import FormFields from "./FormFields";
@@ -78,7 +78,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                           alt={formStatus.status}
                           width={0}
                           height={0}
-                          className="w-8 h-8"
+                          classes="w-8 h-8"
                         />
                       </div>
                     )}
