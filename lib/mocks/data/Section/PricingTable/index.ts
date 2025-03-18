@@ -1,5 +1,5 @@
-import { PricingProps as SinglePricing } from "../../../../../components/organism/pricingTable/single/index";
-import { PricingProps as TierPricing } from "../../../../../components/organism/pricingTable/tier/index";
+import { PricingProps as SinglePricing } from "$/organism/pricingTable/single/index";
+import { PricingProps as TierPricing } from "$/organism/pricingTable/tier/index";
 
 export const SinglePricingArgs: SinglePricing = {
   title: "Pay as you need",

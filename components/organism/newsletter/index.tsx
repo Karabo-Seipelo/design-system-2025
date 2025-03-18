@@ -1,4 +1,4 @@
-import useToast from "../../molecules/toast/useToast";
+import useToast from "$/molecules/toast/useToast";
 import Image from "$/atoms/image";
 import Form from "next/form";
 import axios from "axios";

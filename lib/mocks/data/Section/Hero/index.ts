@@ -1,4 +1,4 @@
-import { HeroSectionProps } from "../../../../../components/organism/hero";
+import { HeroSectionProps } from "$/organism/hero";
 
 export const HeroBulletsArgs: HeroSectionProps = {
   title: "Premium abstract images",

@@ -6,7 +6,7 @@ import {
   ContactArgs,
   ContactSuccessArgs,
   ContactErrorArgs,
-} from "../../../lib/mocks/data/Section/Contact/index";
+} from "#/mocks/data/Section/Contact/index";
 
 const meta = {
   title: "Marketing/Section/Contact",

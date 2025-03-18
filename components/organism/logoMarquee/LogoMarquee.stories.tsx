@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import LogoMarquee from ".";
-import { LogoMarqueeArgs } from "../../../lib/mocks/data/Section/LogoMarquee/index";
+import { LogoMarqueeArgs } from "#/mocks/data/Section/LogoMarquee/index";
 
 const meta = {
   title: "Marketing/LogoMarquee",

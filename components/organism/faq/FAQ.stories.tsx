@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Faq from "./index";
 import Artboard from "$/atoms/artboard";
-import { FaqArgs } from "../../../lib/mocks/data/index";
+import { FaqArgs } from "#/mocks/data/index";
 
 const meta = {
   title: "Marketing/Section/FAQ",

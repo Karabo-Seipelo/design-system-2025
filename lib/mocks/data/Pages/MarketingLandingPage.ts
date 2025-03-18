@@ -1,4 +1,4 @@
-import { MarketingLandingPageProps } from "../../../../components/pages";
+import { MarketingLandingPageProps } from "$/pages";
 import {
   NavigationArgs,
   HeroSimpleArgs,

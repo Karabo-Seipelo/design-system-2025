@@ -1,4 +1,4 @@
-import { LogoMarqueeProps } from "../../../../../components/organism/logoMarquee/index";
+import { LogoMarqueeProps } from "$/organism/logoMarquee/index";
 
 export const LogoMarqueeArgs: LogoMarqueeProps = {
   title: "Used by teams that love",

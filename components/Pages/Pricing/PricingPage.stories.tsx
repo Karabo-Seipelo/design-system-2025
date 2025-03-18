@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { PricingPageArgs } from "../../../lib/mocks/data/index";
+import { PricingPageArgs } from "#/mocks/data/index";
 import PricingPage from ".";
 
 const meta = {

@@ -1,4 +1,4 @@
-import { FAQProps } from "../../../../../components/organism/faq/index";
+import { FAQProps } from "$/organism/faq/index";
 
 export const FaqArgs: FAQProps = {
   title: "Frequently asked questions",

@@ -1,4 +1,4 @@
-import { ContactSectionProps } from "../../../../../components/organism/contact/interfaces";
+import { ContactSectionProps } from "$/organism/contact/interfaces";
 
 const baseArgs = {
   title: "Talk to our team",
