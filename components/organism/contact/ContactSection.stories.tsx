@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ContactSection from ".";
 import { http, HttpResponse } from "msw";
-import Artboard from "../../atoms/artboard";
+import Artboard from "$/atoms/artboard";
 import {
   ContactArgs,
   ContactSuccessArgs,

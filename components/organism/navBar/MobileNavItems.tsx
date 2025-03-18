@@ -10,7 +10,7 @@ export interface SubMenu {
   name: string;
   description: string;
   href: string;
-  icon: React.ComponentType<{ className: string }>;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
 export interface NavItem {

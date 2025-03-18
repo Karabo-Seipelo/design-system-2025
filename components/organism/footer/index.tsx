@@ -40,6 +40,7 @@ const Footer: React.FC<FooterProps> = ({
   copyright,
   classes,
 }) => {
+  console.log({ socials });
   return (
     <footer
       className={`flex flex-col items-center justify-center gap-4  text-sm ${classes}`}
