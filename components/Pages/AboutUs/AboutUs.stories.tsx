@@ -22,7 +22,7 @@ export const Default: Story = {
     nextjs: {
       router: {
         pathname: "/about",
-      }
-    }
-  }
+      },
+    },
+  },
 };

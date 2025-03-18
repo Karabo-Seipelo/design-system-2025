@@ -1,4 +1,4 @@
-import { TeamSectionProps } from "$/Section/Team";
+import { TeamSectionProps } from "$/organism/team";
 
 export const TeamArgs: TeamSectionProps = {
   title: "Meet our team",

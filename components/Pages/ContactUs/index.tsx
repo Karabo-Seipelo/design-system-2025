@@ -1,10 +1,10 @@
 import { ContactUsPageProps } from "..";
-import NavBar from "$/NavBar";
-import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
+import NavBar from "$/organism/navBar";
+import Footer from "$/organism/footer";
+import ContactSection from "$/organism/contact";
 import Section from "$/atoms/Section";
-import Faq from "$/Section/Faq";
-import Page from "$/Page";
+import Faq from "$/organism/faq";
+import Page from "$/template/page";
 
 const ContactUs: React.FC<ContactUsPageProps> = ({
   nav,

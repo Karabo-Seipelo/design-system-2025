@@ -1,4 +1,4 @@
-import { ContactUsPageProps } from "$/Pages";
+import { ContactUsPageProps } from "$/pages";
 import { NavigationArgs, FooterArgs, ContactArgs, FaqArgs } from "../index";
 
 export const ContactUsPageArgs: ContactUsPageProps = {

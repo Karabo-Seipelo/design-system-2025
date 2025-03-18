@@ -1,4 +1,4 @@
-import Testimonial from "../../Card/Testimonial/index";
+import Testimonial from "../card/Testimonial/index";
 
 export type TestimonialProps = {
   id: string;

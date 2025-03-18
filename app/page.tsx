@@ -1,16 +1,16 @@
-"use client"
+"use client";
 import { memo } from "react";
-import Page from "$/Page";
-import NavBar from "$/NavBar";
+import Page from "$/template/page";
+import NavBar from "$/organism/navBar";
 import Section from "$/atoms/Section";
-import HeroSection from "$/Section/Hero";
-import LogoMarquee from "$/LogoMarquee/index";
-import FeatureSection from "$/Section/Features";
-import Pricing from "$/Section/PricingTable/Tier";
-import Faq from "$/Section/Faq";
-import NewsletterSection from "$/Section/Newsletter";
-import ContactSection from "$/Section/Contact";
-import Footer from "$/Section/Footer";
+import HeroSection from "$/organism/hero";
+import LogoMarquee from "$/organism/logoMarquee/index";
+import FeatureSection from "$/organism/features";
+import Pricing from "$/organism/pricingTable/tier";
+import Faq from "$/organism/faq";
+import NewsletterSection from "$/organism/newsletter";
+import ContactSection from "$/organism/contact";
+import Footer from "$/organism/footer";
 import useContent from "#/hooks/useContent";
 
 const Home = () => {

@@ -1,12 +1,12 @@
-import { AboutUsPageProps } from "../index";
-import NavBar from "$/NavBar";
-import Footer from "$/Section/Footer";
-import HeroSection from "$/Section/Hero";
-import StatisticsSection from "$/Section/Statistics";
-import TeamSection from "$/Section/Team";
+import { AboutUsPageProps } from "../";
+import NavBar from "$/organism/navBar";
+import Footer from "$/organism/footer";
+import HeroSection from "$/organism/hero";
+import StatisticsSection from "$/organism/statistics";
+import TeamSection from "$/organism/team";
 import Section from "$/atoms/Section";
-import ContactSection from "$/Section/Contact";
-import Page from "$/Page";
+import ContactSection from "$/organism/contact";
+import Page from "$/template/page";
 
 const AboutUs: React.FC<AboutUsPageProps> = ({
   nav,

@@ -1,5 +1,5 @@
-import { TestimonialsProps } from "../../../../../components/Section/Testimonials";
-import testimonialData from "../../../../../components/Section/Testimonials/testimonials.json";
+import { TestimonialsProps } from "../../../../../components/organism/testimonials";
+import testimonialData from "../../../../../components/organism/testimonials/testimonials.json";
 import { v4 as uuidv4 } from "uuid";
 
 const createTestimonial = (

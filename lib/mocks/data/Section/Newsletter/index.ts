@@ -1,4 +1,4 @@
-import { NewsletterSectionProps } from "../../../../../components/Section/Newsletter";
+import { NewsletterSectionProps } from "../../../../../components/organism/newsletter";
 
 const baseArgs = {
   title: "Get the finest curated abstracts delivered weekly to your inbox",

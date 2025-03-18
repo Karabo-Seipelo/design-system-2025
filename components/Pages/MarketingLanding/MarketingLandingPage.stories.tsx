@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Toast from "$/Toast";
+import Toast from "$/molecules/toast";
 import { MarketingLandingPageArgs } from "#/mocks/data/index";
 import MarketingLandingPage from ".";
 
@@ -31,7 +31,7 @@ export const Default: Story = {
     nextjs: {
       router: {
         pathname: "/",
-      }
-    }
-  }
+      },
+    },
+  },
 };

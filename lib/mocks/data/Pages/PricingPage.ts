@@ -1,4 +1,4 @@
-import { PricingPageProps } from "$/Pages";
+import { PricingPageProps } from "$/pages";
 import {
   NavigationArgs,
   TierPricingArgs as PricingArgs,

@@ -1,15 +1,15 @@
 import Section from "$/atoms/Section";
-import NavBar from "$/NavBar";
-import HeroSection from "$/Section/Hero";
-import LogoMarquee from "$/LogoMarquee/index";
-import FeatureSection from "$/Section/Features";
-import Price from "$/Section/PricingTable/Tier";
-import NewsletterSection from "$/Section/Newsletter";
-import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
-import Faq from "$/Section/Faq";
-import { MarketingLandingPageProps } from "../index";
-import Page from "$/Page";
+import NavBar from "$/organism/navBar";
+import HeroSection from "$/organism/hero";
+import LogoMarquee from "$/organism/logoMarquee/index";
+import FeatureSection from "$/organism/features";
+import Price from "$/organism/pricingTable/tier";
+import NewsletterSection from "$/organism/newsletter";
+import Footer from "$/organism/footer";
+import ContactSection from "$/organism/contact";
+import Faq from "$/organism/faq";
+import { MarketingLandingPageProps } from "../";
+import Page from "$/template/page";
 
 const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
   nav,

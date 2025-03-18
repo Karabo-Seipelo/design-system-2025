@@ -1,13 +1,13 @@
-"use client"
+"use client";
 import { memo } from "react";
-import Page from "$/Page";
-import NavBar from "$/NavBar";
-import Footer from "$/Section/Footer";
-import HeroSection from "$/Section/Hero";
-import StatisticsSection from "$/Section/Statistics";
-import TeamSection from "$/Section/Team";
+import Page from "$/template/page";
+import NavBar from "$/organism/navBar";
+import Footer from "$/organism/footer";
+import HeroSection from "$/organism/hero";
+import StatisticsSection from "$/organism/statistics";
+import TeamSection from "$/organism/team";
 import Section from "$/atoms/Section";
-import ContactSection from "$/Section/Contact";
+import ContactSection from "$/organism/contact";
 import useContent from "#/hooks/useContent";
 
 const About = () => {

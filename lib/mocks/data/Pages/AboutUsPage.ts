@@ -1,4 +1,4 @@
-import { AboutUsPageProps } from "$/Pages";
+import { AboutUsPageProps } from "$/pages";
 import {
   NavigationArgs,
   HeroSimpleArgs,

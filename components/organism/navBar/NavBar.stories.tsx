@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { NavigationArgs } from "../../lib/mocks/data/Navigation/index";
+import { NavigationArgs } from "#/mocks/data/Navigation";
 import NavBar from ".";
 
 const meta = {
@@ -17,5 +17,5 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     ...NavigationArgs,
-  }
+  },
 };

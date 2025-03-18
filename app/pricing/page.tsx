@@ -1,14 +1,14 @@
-"use client"
+"use client";
 import { memo } from "react";
-import Page from "$/Page";
-import Navbar from "$/NavBar";
-import Price from "$/Section/PricingTable/Tier";
+import Page from "$/template/page";
+import Navbar from "$/organism/navBar";
+import Price from "$/organism/pricingTable/tier";
 import Section from "$/atoms/Section";
-import FeatureSection from "$/Section/Features";
-import Testimonials from "$/Section/Testimonials";
-import Faq from "$/Section/Faq";
-import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
+import FeatureSection from "$/organism/features";
+import Testimonials from "$/organism/testimonials";
+import Faq from "$/organism/faq";
+import Footer from "$/organism/footer";
+import ContactSection from "$/organism/contact";
 import useContent from "#/hooks/useContent";
 
 const Pricing = () => {

@@ -7,7 +7,7 @@ import {
 } from "../../../__mocks__/msw/httpHandlers";
 import NewsletterSection from ".";
 import Artboard from "../../atoms/Artboard";
-import Toast from "../../Toast";
+import Toast from "../../molecules/toast";
 import {
   NewsletterDefault,
   NewsletterSuccess,

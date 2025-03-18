@@ -1,11 +1,11 @@
-"use client"
+"use client";
 import { memo } from "react";
-import Page from "$/Page";
-import Faq from "$/Section/Faq";
-import Footer from "$/Section/Footer";
-import Navbar from "$/NavBar";
+import Page from "$/template/page";
+import Faq from "$/organism/faq";
+import Footer from "$/organism/footer";
+import Navbar from "$/organism/navBar";
 import Section from "$/atoms/Section";
-import ContactSection from "$/Section/Contact";
+import ContactSection from "$/organism/contact";
 import useContent from "#/hooks/useContent";
 
 const Contact = () => {

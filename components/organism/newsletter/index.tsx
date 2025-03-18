@@ -1,8 +1,8 @@
-import useToast from "../../Toast/useToast";
+import useToast from "../../molecules/toast/useToast";
 import Image from "next/image";
 import Form from "next/form";
 import axios from "axios";
-import { List } from "../../List";
+import { List } from "../list";
 
 export type Feature = {
   title?: string;

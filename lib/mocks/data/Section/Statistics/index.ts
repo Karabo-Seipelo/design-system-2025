@@ -1,4 +1,4 @@
-import { StatisticsSectionProps } from "$/Section/Statistics";
+import { StatisticsSectionProps } from "$/organism/statistics";
 
 export const StatisticsArgs: StatisticsSectionProps = {
   title: "More than premium abstract imagery",
