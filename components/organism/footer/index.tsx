@@ -26,7 +26,7 @@ export type FooterProps = {
   classes?: string;
 };
 
-const socialsIcons: { [key in socials["icon"]]: any } = {
+const socialsIcons: { [key in socials["icon"]]: React.ComponentType } = {
   youtube: Youtube,
   instagram: Instagram,
   facebook: Facebook,

@@ -6,13 +6,13 @@ import {
   submitFormNewsletterError,
 } from "../../../__mocks__/msw/httpHandlers";
 import NewsletterSection from ".";
-import Artboard from "../../atoms/artboard";
-import Toast from "../../molecules/toast";
+import Artboard from "$/atoms/artboard";
+import Toast from "$/molecules/toast";
 import {
   NewsletterDefault,
   NewsletterSuccess,
   NewsletterError,
-} from "../../../lib/mocks/data/Section/Newsletter/index";
+} from "#/mocks/data/Section/Newsletter/index";
 
 const meta = {
   title: "Marketing/Section/Newsletter",
@@ -46,10 +46,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+type StepFunction = (
+  description: string,
+  callback: () => Promise<void>,
+) => Promise<void>;
+
 const fillAndSubmitForm = async (
   canvas: ReturnType<typeof within>,
   email: string,
-  step: any,
+  step: StepFunction,
 ) => {
   await step("Fill in the form with an email address", async () => {
     await userEvent.type(canvas.getByTestId("email-input"), email);

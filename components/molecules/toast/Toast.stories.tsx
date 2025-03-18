@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import Toast, { ToastProps } from ".";
-import useToast from "./useToast";
+import Toast from ".";
 
 const meta = {
   title: "Component/Feedback/Toast",

@@ -10,7 +10,7 @@ export interface SubMenu {
   name: string;
   description: string;
   href: string;
-  icon: any;
+  icon: React.ComponentType<{ className: string }>;
 }
 
 export interface NavItem {
