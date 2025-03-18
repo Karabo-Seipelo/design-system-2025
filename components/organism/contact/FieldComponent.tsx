@@ -11,7 +11,7 @@ const FieldComponent: React.FC<FieldProps> = (props) => {
     case "email":
       return <InputField {...props} type="email" />;
     case "textarea":
-      return <TextareaField {...props} type="textarea" />;
+      return <TextareaField {...props} />;
     case "submit":
       return <ButtonField {...props} type="submit" />;
     default:

@@ -26,7 +26,7 @@ export type FooterProps = {
   classes?: string;
 };
 
-const socialsIcons: { [key in socials["icon"]]: React.ComponentType } = {
+const socialsIcons: { [key in socials["icon"]]: any } = {
   youtube: Youtube,
   instagram: Instagram,
   facebook: Facebook,
@@ -40,7 +40,6 @@ const Footer: React.FC<FooterProps> = ({
   copyright,
   classes,
 }) => {
-  console.log({ socials });
   return (
     <footer
       className={`flex flex-col items-center justify-center gap-4  text-sm ${classes}`}
@@ -63,7 +62,7 @@ const Footer: React.FC<FooterProps> = ({
             <li key={`social-${index}-${social.icon}`}>
               <Link href={social.href} aria-label={`${social.label} profile`}>
                 <Image
-                  src={socialsIcons[social.icon]}
+                  src={socialsIcons[social.icon] as string}
                   alt={social.label}
                   classes="size-6 fill-red-400"
                 />

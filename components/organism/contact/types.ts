@@ -1,9 +1,8 @@
-import type {
-  Field,
-  TextareaFieldProps,
-  ButtonFieldProps,
-  InputFieldProps,
-} from "./interfaces";
+import type { FieldProps } from "./interfaces";
+
+import { TextareaFieldProps } from "./TextareaField";
+import { ButtonFieldProps } from "./ButtonField";
+import { InputFieldProps } from "./InputField";
 
 type ContactDetails = {
   description: string;
@@ -24,7 +23,12 @@ type Notification = {
 type FormProps = {
   formUrl: string;
   fields: {
-    fields: (Field | TextareaFieldProps | ButtonFieldProps | InputFieldProps)[];
+    fields: (
+      | FieldProps
+      | TextareaFieldProps
+      | ButtonFieldProps
+      | InputFieldProps
+    )[];
   };
   notification?: {
     success?: Notification;
@@ -41,7 +45,7 @@ type ContactSectionProps = {
 };
 
 type FormFieldsProps = {
-  fields: Field[];
+  fields: FieldProps[];
 };
 
 export type {
@@ -50,7 +54,7 @@ export type {
   InputFieldProps,
   ButtonFieldProps,
   TextareaFieldProps,
-  Field,
+  FieldProps,
   FormProps,
   Notification,
   Validation,
