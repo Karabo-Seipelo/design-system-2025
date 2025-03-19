@@ -1,11 +1,10 @@
 import Link from "next/link";
 import "remixicon/fonts/remixicon.css";
-import GitHub from "../../../public/github-line.svg";
-import Twitter from "../../../public/twitter-x-line.svg";
-import Instagram from "../../../public/instagram-line.svg";
-import Facebook from "../../../public/facebook-box-line.svg";
-import Youtube from "../../../public/youtube-line.svg";
-import Image from "$/atoms/image";
+import GitHub from "&/github-line.svg";
+import Twitter from "&/twitter-x-line.svg";
+import Instagram from "&/instagram-line.svg";
+import Facebook from "&/facebook-box-line.svg";
+import Youtube from "&/youtube-line.svg";
 import { v4 as uuidv4 } from "uuid";
 
 type Links = {
@@ -26,12 +25,29 @@ export type FooterProps = {
   classes?: string;
 };
 
-const socialsIcons: { [key in socials["icon"]]: any } = {
-  youtube: Youtube,
-  instagram: Instagram,
-  facebook: Facebook,
-  github: GitHub,
-  twitter: Twitter,
+const generateSocials = (social: string, size: number) => {
+  switch (social) {
+    case "youtube":
+      return (
+        <Youtube width={size} height={size} className="fill-neutral-400" />
+      );
+    case "instagram":
+      return (
+        <Instagram width={size} height={size} className="fill-neutral-400" />
+      );
+    case "facebook":
+      return (
+        <Facebook width={size} height={size} className="fill-neutral-400" />
+      );
+    case "github":
+      return <GitHub width={size} height={size} className="fill-neutral-400" />;
+    case "twitter":
+      return (
+        <Twitter width={size} height={size} className="fill-neutral-400" />
+      );
+    default:
+      return null;
+  }
 };
 
 const Footer: React.FC<FooterProps> = ({
@@ -48,7 +64,7 @@ const Footer: React.FC<FooterProps> = ({
         {links.map((link) => (
           <li key={uuidv4()}>
             <Link
-              className="font-medium text-sm text-gray-400 hover:text-gray-900"
+              className="font-medium text-sm text-neutral-600"
               href={link.href}
             >
               {link.label}
@@ -61,11 +77,7 @@ const Footer: React.FC<FooterProps> = ({
           {socials.map((social, index) => (
             <li key={`social-${index}-${social.icon}`}>
               <Link href={social.href} aria-label={`${social.label} profile`}>
-                <Image
-                  src={socialsIcons[social.icon] as string}
-                  alt={social.label}
-                  classes="size-6 fill-red-400"
-                />
+                {generateSocials(social.icon, 16)}
               </Link>
             </li>
           ))}

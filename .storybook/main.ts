@@ -1,4 +1,30 @@
 import type { StorybookConfig } from "@storybook/nextjs";
+import { Configuration, RuleSetRule } from "webpack";
+
+const webpackFinal: (config: Configuration) => Promise<Configuration> = async (
+  config,
+) => {
+  const fileLoaderRule = config.module?.rules?.find(
+    (rule): rule is RuleSetRule =>
+      rule &&
+      typeof rule === "object" &&
+      rule.test &&
+      typeof rule.test === "object" &&
+      "toString" in rule.test &&
+      rule.test.toString().includes("svg"),
+  );
+
+  if (fileLoaderRule) {
+    fileLoaderRule.exclude = /\.svg$/;
+  }
+
+  config.module?.rules?.push({
+    test: /\.svg$/,
+    use: ["@svgr/webpack"],
+  });
+
+  return config;
+};
 
 const config: StorybookConfig = {
   stories: [
@@ -19,5 +45,6 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ["../public"],
+  webpackFinal,
 };
 export default config;
