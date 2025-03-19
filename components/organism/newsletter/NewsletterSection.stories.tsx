@@ -6,9 +6,9 @@ import {
   submitFormNewsletterError,
 } from "../../../__mocks__/msw/httpHandlers";
 import NewsletterSection from ".";
-import Artboard from "$/atoms/artboard";
+//import Artboard from "$/atoms/artboard";
 import Toast from "$/molecules/toast";
-import { NewsletterDefault } from "#/mocks/data/Section/Newsletter/index";
+import { NewsletterDefault } from "#/mocks/data/Section/Newsletter";
 
 const meta = {
   title: "Marketing/Section/Newsletter",
@@ -31,16 +31,17 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Artboard>
+      <>
         <Toast />
         <Story />
-      </Artboard>
+      </>
     ),
   ],
 } satisfies Meta<typeof NewsletterSection>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
 /*
 type StepFunction = (
   description: string,
