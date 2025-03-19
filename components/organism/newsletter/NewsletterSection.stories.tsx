@@ -6,7 +6,7 @@ import {
   submitFormNewsletterError,
 } from "../../../__mocks__/msw/httpHandlers";
 import NewsletterSection from ".";
-import Artboard from "$/atoms/artboard";
+import Artboard from "../../atoms/artboard";
 import Toast from "$/molecules/toast";
 import { NewsletterDefault } from "#/mocks/data/Section/Newsletter/index";
 
