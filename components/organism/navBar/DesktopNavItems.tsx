@@ -2,19 +2,7 @@ import React from "react";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-
-export interface SubMenu {
-  name: string;
-  description: string;
-  href: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-}
-
-export interface NavItem {
-  name: string;
-  href: string;
-  items?: SubMenu[];
-}
+import { NavItem } from "./index";
 
 const DesktopNavItems: React.FC<{ item: NavItem }> = ({ item }) => {
   if (item.items) {
@@ -37,20 +25,16 @@ const DesktopNavItems: React.FC<{ item: NavItem }> = ({ item }) => {
                 key={subItem.name}
                 className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
               >
-                <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                  <subItem.icon
-                    aria-hidden="true"
-                    className="size-6 text-gray-600 group-hover:text-indigo-600"
-                  />
-                </div>
                 <div className="flex-auto">
-                  <Link
-                    href={item.href}
-                    className="block font-semibold text-gray-900"
-                  >
-                    {item.name}
-                    <span className="absolute inset-0" />
-                  </Link>
+                  {subItem?.href && (
+                    <Link
+                      href={subItem.href}
+                      className="block font-semibold text-gray-900"
+                    >
+                      {item.name}
+                      <span className="absolute inset-0" />
+                    </Link>
+                  )}
                   <p className="mt-1 text-gray-600">{subItem.description}</p>
                 </div>
               </div>
@@ -62,9 +46,16 @@ const DesktopNavItems: React.FC<{ item: NavItem }> = ({ item }) => {
   }
 
   return (
-    <Link href={item.href} className="text-sm/6 font-semibold text-gray-900">
-      {item.name}
-    </Link>
+    <>
+      {item?.href && (
+        <Link
+          href={item.href}
+          className="text-sm/6 font-semibold text-gray-900"
+        >
+          {item.name}
+        </Link>
+      )}
+    </>
   );
 };
 

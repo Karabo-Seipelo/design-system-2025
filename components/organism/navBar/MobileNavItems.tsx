@@ -5,19 +5,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-
-export interface SubMenu {
-  name: string;
-  description: string;
-  href: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-}
-
-export interface NavItem {
-  name: string;
-  href?: string;
-  items?: SubMenu[];
-}
+import { NavItem } from "./index";
 
 const MobileNavItems: React.FC<{ item: NavItem }> = ({ item }) => {
   if (item?.items) {

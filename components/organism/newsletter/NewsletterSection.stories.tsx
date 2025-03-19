@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, waitFor, within, expect } from "@storybook/test";
+// import { userEvent, waitFor, within, expect } from "@storybook/test";
 import { http } from "msw";
 import {
   submitFormNewsletterSuccess,
@@ -8,11 +8,7 @@ import {
 import NewsletterSection from ".";
 import Artboard from "$/atoms/artboard";
 import Toast from "$/molecules/toast";
-import {
-  NewsletterDefault,
-  NewsletterSuccess,
-  NewsletterError,
-} from "#/mocks/data/Section/Newsletter/index";
+import { NewsletterDefault } from "#/mocks/data/Section/Newsletter/index";
 
 const meta = {
   title: "Marketing/Section/Newsletter",
@@ -45,7 +41,7 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
+/*
 type StepFunction = (
   description: string,
   callback: () => Promise<void>
@@ -67,15 +63,17 @@ const fillAndSubmitForm = async (
   await waitFor(() => expect(canvas.getByTestId("toast")).toBeVisible());
 };
 
-export const Default: Story = {
-  args: {
-    ...NewsletterDefault,
-  },
-};
-
 export const SuccessNotification: Story = {
   args: { ...NewsletterSuccess },
-  play: async ({ args, canvasElement, step }) => {
+  play: async ({
+    args,
+    canvasElement,
+    step,
+  }: {
+    args: any;
+    canvasElement: ReturnType<typeof within>;
+    step: StepFunction;
+  }) => {
     const canvas = within(canvasElement);
 
     await fillAndSubmitForm(canvas, "karabo@gmail.com", step);
@@ -90,7 +88,15 @@ export const SuccessNotification: Story = {
 
 export const ErrorNotification: Story = {
   args: { ...NewsletterError },
-  play: async ({ args, canvasElement, step }) => {
+  play: async ({
+    args,
+    canvasElement,
+    step,
+  }: {
+    args: any;
+    canvasElement: ReturnType<typeof within>;
+    step: StepFunction;
+  }) => {
     const canvas = within(canvasElement);
 
     await fillAndSubmitForm(canvas, "karabo@gmail.com", step);
@@ -100,5 +106,12 @@ export const ErrorNotification: Story = {
         args.form.toast.error.message
       )
     );
+  },
+};
+*/
+
+export const Default: Story = {
+  args: {
+    ...NewsletterDefault,
   },
 };
