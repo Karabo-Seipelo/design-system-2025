@@ -3,7 +3,7 @@ import type { StorybookConfig } from "@storybook/nextjs";
 const webpackFinal = async (config: any) => {
   const fileLoaderRule = config.module?.rules?.find(
     (rule) =>
-      rule && typeof rule !== "string" && rule.test?.toString().includes("svg")
+      rule && typeof rule !== "string" && rule.test?.toString().includes("svg"),
   );
 
   if (fileLoaderRule && typeof fileLoaderRule !== "string") {

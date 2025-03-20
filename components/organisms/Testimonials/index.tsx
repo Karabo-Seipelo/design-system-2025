@@ -58,7 +58,7 @@ const Testimonials = ({
                   avatar={avatar}
                   classes="break-inside-avoid"
                 />
-              )
+              ),
             )}
           </div>
         </main>

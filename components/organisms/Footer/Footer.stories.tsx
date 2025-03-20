@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Artboard from "$/atoms/artboard";
+import Artboard from "../../atoms/artboard";
 import Footer from ".";
 import { FooterArgs } from "#/mocks/data/Section/Footer/index";
 

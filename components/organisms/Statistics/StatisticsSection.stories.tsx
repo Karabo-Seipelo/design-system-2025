@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import StatisticsSection from ".";
 import { StatisticsArgs } from "#/mocks/data";
-import Artboard from "$/atoms/artboard";
+import Artboard from "../../atoms/artboard";
 
 const meta = {
   title: "Marketing/Section/Statistics",

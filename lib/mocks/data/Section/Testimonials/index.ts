@@ -8,7 +8,7 @@ const createTestimonial = (
   handle: string,
   testimonial: string,
   imageUrl: string,
-  alt: string
+  alt: string,
 ) => ({
   id: uuidv4(),
   firstName,
@@ -33,7 +33,7 @@ export const TestimonialArgs: TestimonialsProps = {
       data.handle,
       data.testimonial,
       data.imageUrl,
-      data.alt
-    )
+      data.alt,
+    ),
   ),
 };

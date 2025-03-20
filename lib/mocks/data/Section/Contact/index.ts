@@ -98,7 +98,7 @@ const createStoryArgs = (url: string) => ({
 
 export const ContactArgs: ContactSectionProps = {
   ...createStoryArgs(
-    "https://www.greatfrontend.com/api/projects/challenges/contact"
+    "https://www.greatfrontend.com/api/projects/challenges/contact",
   ),
 };
 
