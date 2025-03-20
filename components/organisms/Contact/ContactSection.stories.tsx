@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ContactSection from ".";
 import { http, HttpResponse } from "msw";
-import Artboard from "../../atoms/artboard";
+import Artboard from "../../atoms/artboard/index";
 import {
   ContactArgs,
   ContactSuccessArgs,
@@ -24,7 +24,7 @@ const meta = {
             },
             {
               status: 200,
-            },
+            }
           );
         }),
         submitFormError: http.post("contact/error", () => {
@@ -34,7 +34,7 @@ const meta = {
             },
             {
               status: 500,
-            },
+            }
           );
         }),
       },
