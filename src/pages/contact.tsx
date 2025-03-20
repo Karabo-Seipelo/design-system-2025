@@ -4,7 +4,7 @@ import ContactSection from "$/organisms/Contact";
 import Faq from "$/organisms/Faq";
 import Footer from "$/organisms/Footer";
 import Navbar from "$/organisms/NavBar";
-import Section from "$/atoms/section";
+import Section from "$/atoms/Section";
 import useContent from "@/lib/useContent";
 
 const Contact = () => {

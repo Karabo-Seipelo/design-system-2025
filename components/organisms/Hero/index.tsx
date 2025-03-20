@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Section from "$/atoms/section";
+import Section from "$/atoms/Section";
 import { Button } from "@headlessui/react";
 
 interface Button {
