@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
-import Artboard from "../../atoms/artboard";
+import Artboard from "$/atoms/artboard";
 import NotFound from ".";
 
 const meta = {
