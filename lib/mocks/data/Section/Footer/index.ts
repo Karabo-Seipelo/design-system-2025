@@ -1,4 +1,4 @@
-import { FooterProps } from "$/Section/Footer";
+import { FooterProps } from "$/organisms/Footer";
 
 export const FooterArgs: FooterProps = {
   links: [

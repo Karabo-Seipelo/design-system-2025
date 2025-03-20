@@ -1,15 +1,15 @@
 import { memo } from "react";
-import Page from "$/Page";
-import NavBar from "$/NavBar";
-import Section from "$/atoms/Section";
-import HeroSection from "$/Section/Hero";
-import LogoMarquee from "$/LogoMarquee/index";
-import FeatureSection from "$/Section/Features";
-import Pricing from "$/Section/PricingTable/Tier";
-import Faq from "$/Section/Faq";
-import NewsletterSection from "$/Section/Newsletter";
-import ContactSection from "$/Section/Contact";
-import Footer from "$/Section/Footer";
+import Page from "$/organisms/Page";
+import Navbar from "$/organisms/NavBar";
+import Section from "$/atoms/section";
+import HeroSection from "$/organisms/Hero";
+import LogoMarquee from "$/molecules/LogoMarquee";
+import FeatureSection from "$/organisms/Features";
+import Pricing from "$/organisms/PricingTable/Tier";
+import Faq from "$/organisms/Faq";
+import NewsletterSection from "$/organisms/Newsletter";
+import ContactSection from "$/organisms/Contact";
+import Footer from "$/organisms/Footer";
 import useContent from "@/lib/useContent";
 
 const Home = () => {
@@ -29,7 +29,7 @@ const Home = () => {
 
   return (
     <Page>
-      {navigation && <NavBar {...navigation} />}
+      {navigation && <Navbar {...navigation} />}
       <Section classes="flex flex-col bg-white">
         {hero && <HeroSection {...hero} />}
         {logoMarquee && <LogoMarquee {...logoMarquee} />}

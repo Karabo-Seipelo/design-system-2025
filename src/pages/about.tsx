@@ -1,12 +1,12 @@
 import { memo } from "react";
-import Page from "$/Page";
-import NavBar from "$/NavBar";
-import Footer from "$/Section/Footer";
-import HeroSection from "$/Section/Hero";
-import StatisticsSection from "$/Section/Statistics";
-import TeamSection from "$/Section/Team";
-import Section from "$/atoms/Section";
-import ContactSection from "$/Section/Contact";
+import Page from "$/organisms/Page";
+import Navbar from "$/organisms/NavBar";
+import Footer from "$/organisms/Footer";
+import HeroSection from "$/organisms/Hero";
+import StatisticsSection from "$/organisms/Statistics";
+import TeamSection from "$/organisms/Team";
+import Section from "$/atoms/section";
+import ContactSection from "$/organisms/Contact";
 import useContent from "@/lib/useContent";
 
 const About = () => {
@@ -15,7 +15,7 @@ const About = () => {
 
   return (
     <Page>
-      {navigation && <NavBar {...navigation} />}
+      {navigation && <Navbar {...navigation} />}
       <Section classes="flex flex-col bg-white">
         {hero && <HeroSection {...hero} />}
         {statistics && <StatisticsSection {...statistics} />}

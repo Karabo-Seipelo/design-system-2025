@@ -1,5 +1,5 @@
-import { TestimonialsProps } from "../../../../../components/Section/Testimonials";
-import testimonialData from "../../../../../components/Section/Testimonials/testimonials.json";
+import { TestimonialsProps } from "../../../../../components/organisms/Testimonials";
+import testimonialData from "../../../../../components/organisms/Testimonials/testimonials.json";
 import { v4 as uuidv4 } from "uuid";
 
 const createTestimonial = (
@@ -8,7 +8,7 @@ const createTestimonial = (
   handle: string,
   testimonial: string,
   imageUrl: string,
-  alt: string,
+  alt: string
 ) => ({
   id: uuidv4(),
   firstName,
@@ -33,7 +33,7 @@ export const TestimonialArgs: TestimonialsProps = {
       data.handle,
       data.testimonial,
       data.imageUrl,
-      data.alt,
-    ),
+      data.alt
+    )
   ),
 };
