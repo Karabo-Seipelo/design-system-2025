@@ -1,13 +1,13 @@
 import { memo } from "react";
-import Page from "$/Page";
-import Navbar from "$/NavBar";
-import Price from "$/Section/PricingTable/Tier";
+import Page from "$/organisms/Page";
+import Navbar from "$/organisms/NavBar";
+import Price from "$/organisms/PricingTable/Tier";
 import Section from "$/atoms/Section";
-import FeatureSection from "$/Section/Features";
-import Testimonials from "$/Section/Testimonials";
-import Faq from "$/Section/Faq";
-import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
+import FeatureSection from "$/organisms/Features";
+import Testimonials from "$/organisms/Testimonials";
+import Faq from "$/organisms/Faq";
+import Footer from "$/organisms/Footer";
+import ContactSection from "$/organisms/Contact";
 import useContent from "@/lib/useContent";
 
 const Pricing = () => {

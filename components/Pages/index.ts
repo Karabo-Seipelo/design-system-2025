@@ -1,16 +1,16 @@
 import { NavItem, Brand } from "$/NavBar/index";
 import { CallToAction } from "$/NavBar/CallToAction";
-import { HeroSectionProps } from "$/Section/Hero";
-import { FeatureSectionProps } from "$/Section/Features/index";
-import { FAQProps } from "$/Section/Faq";
-import { FooterProps } from "$/Section/Footer";
-import { ContactSectionProps } from "$/Section/Contact/interfaces";
-import { TestimonialsProps } from "$/Section/Testimonials";
+import { HeroSectionProps } from "$/organisms/Hero";
+import { FeatureSectionProps } from "$/organisms/Features/index";
+import { FAQProps } from "$/organisms/Faq";
+import { FooterProps } from "$/organisms/Footer";
+import { ContactSectionProps } from "$/organisms/Contact/interfaces";
+import { TestimonialsProps } from "$/organisms/Testimonials";
 import { NewsletterSectionProps } from "$/Section/Newsletter";
 import { LogoMarqueeProps } from "$/LogoMarquee/index";
-import { PricingProps } from "$/Section/PricingTable/Tier";
-import { StatisticsSectionProps } from "$/Section/Statistics";
-import { TeamSectionProps } from "$/Section/Team";
+import { PricingProps } from "$/organisms/PricingTable/Tier";
+import { StatisticsSectionProps } from "$/organisms/Statistics";
+import { TeamSectionProps } from "$/organisms/Team";
 
 export interface Navigation {
   navItems: NavItem[];

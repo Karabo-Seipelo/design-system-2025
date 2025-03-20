@@ -1,14 +1,14 @@
 import React from "react";
 import { FeaturesPageProps } from "../index";
 import Section from "$/atoms/Section";
-import NavBar from "$/NavBar";
-import HeroSection from "$/Section/Hero";
-import FeatureSection from "$/Section/Features";
-import Testimonials from "$/Section/Testimonials";
-import Faq from "$/Section/Faq";
-import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
-import Page from "$/Page";
+import NavBar from "$/organisms/NavBar";
+import HeroSection from "$/organisms/Hero";
+import FeatureSection from "$/organisms/Features";
+import Testimonials from "$/organisms/Testimonials";
+import Faq from "$/organisms/Faq";
+import Footer from "$/organisms/Footer";
+import ContactSection from "$/organisms/Contact";
+import Page from "$/organisms/Page";
 
 const FeaturesPage: React.FC<FeaturesPageProps> = ({
   nav,

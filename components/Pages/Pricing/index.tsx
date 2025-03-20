@@ -1,13 +1,13 @@
 import Section from "$/atoms/Section";
-import NavBar from "$/NavBar";
-import FeatureSection from "$/Section/Features";
-import Price from "$/Section/PricingTable/Tier";
-import Testimonials from "$/Section/Testimonials";
-import Footer from "$/Section/Footer";
-import ContactSection from "$/Section/Contact";
-import Faq from "$/Section/Faq";
+import NavBar from "$/organisms/NavBar";
+import FeatureSection from "$/organisms/Features";
+import Price from "$/organisms/PricingTable/Tier";
+import Testimonials from "$/organisms/Testimonials";
+import Footer from "$/organisms/Footer";
+import ContactSection from "$/organisms/Contact";
+import Faq from "$/organisms/Faq";
 import { PricingPageProps } from "../index";
-import Page from "$/Page";
+import Page from "$/organisms/Page";
 
 const PricingPage: React.FC<PricingPageProps> = ({
   nav,
