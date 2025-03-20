@@ -12,8 +12,8 @@ export interface FeatureSectionProps {
   subTitle: string;
   description: string;
   features?: Feature[];
-  featureLayout?: string; //"list" | "grid";
-  orientation?: string; //"left" | "right";
+  featureLayout?: string;
+  orientation?: string;
 }
 
 const List = ({ features }: { features: Feature[] }) => {
