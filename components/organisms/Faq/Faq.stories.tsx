@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Faq from "./index";
-import Artboard from "../../atoms/artboard/index";
+import Artboard from "../../atoms/Artboard/index";
 import { FaqArgs } from "#/mocks/data/index";
 
 const meta = {

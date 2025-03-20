@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import TeamSection from ".";
 import { TeamArgs } from "#/mocks/data";
-import Artboard from "$/atoms/artboard/index";
+import Artboard from "$/atoms/Artboard/index";
 
 const meta = {
   title: "Marketing/Section/Team",

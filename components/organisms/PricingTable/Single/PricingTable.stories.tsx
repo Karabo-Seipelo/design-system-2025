@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import PricingTable from ".";
 import { SinglePricingArgs } from "#/mocks/data/Section/PricingTable";
-import Artboard from "../../../atoms/artboard/index";
+import Artboard from "../../../atoms/Artboard/index";
 
 const meta = {
   title: "Marketing/Section/Pricing/Single",
