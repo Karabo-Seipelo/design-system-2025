@@ -24,11 +24,11 @@ const meta = {
       handlers: {
         submitForm: http.post(
           "/newsletter/success",
-          submitFormNewsletterSuccess
+          submitFormNewsletterSuccess,
         ),
         submitFormError: http.post(
           "/newsletter/error",
-          submitFormNewsletterError
+          submitFormNewsletterError,
         ),
       },
     },
@@ -49,7 +49,7 @@ type Story = StoryObj<typeof meta>;
 const fillAndSubmitForm = async (
   canvas: ReturnType<typeof within>,
   email: string,
-  step: any
+  step: any,
 ) => {
   await step("Fill in the form with an email address", async () => {
     await userEvent.type(canvas.getByTestId("email-input"), email);
@@ -77,8 +77,8 @@ export const SuccessNotification: Story = {
 
     await waitFor(() =>
       expect(canvas.getByTestId("toast")).toHaveTextContent(
-        args.form.toast.success.message
-      )
+        args.form.toast.success.message,
+      ),
     );
   },
 };
@@ -92,8 +92,8 @@ export const ErrorNotification: Story = {
 
     await waitFor(() =>
       expect(canvas.getByTestId("toast")).toHaveTextContent(
-        args.form.toast.error.message
-      )
+        args.form.toast.error.message,
+      ),
     );
   },
 };

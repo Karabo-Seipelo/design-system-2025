@@ -1,5 +1,5 @@
 import { ContactUsPageProps } from "..";
-import NavBar from "$/organisms/NavBar";
+import Nav from "$/organisms/Nav";
 import Footer from "$/organisms/Footer";
 import ContactSection from "$/organisms/Contact";
 import Section from "$/atoms/Section";
@@ -14,7 +14,7 @@ const ContactUs: React.FC<ContactUsPageProps> = ({
 }) => {
   return (
     <Page>
-      <NavBar {...nav} />
+      <Nav {...nav} />
       <Section classes="flex flex-col bg-white">
         <ContactSection {...contact} />
         <Faq {...faq} />

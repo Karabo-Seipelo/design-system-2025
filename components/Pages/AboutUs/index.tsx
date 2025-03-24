@@ -1,5 +1,5 @@
 import { AboutUsPageProps } from "../index";
-import NavBar from "$/organisms/NavBar";
+import Nav from "$/organisms/Nav";
 import Footer from "$/organisms/Footer";
 import HeroSection from "$/organisms/Hero";
 import StatisticsSection from "$/organisms/Statistics";
@@ -18,7 +18,7 @@ const AboutUs: React.FC<AboutUsPageProps> = ({
 }) => {
   return (
     <Page>
-      <NavBar {...nav} />
+      <Nav {...nav} />
       <Section classes="flex flex-col bg-white">
         <HeroSection {...hero} />
         <StatisticsSection {...statistics} />

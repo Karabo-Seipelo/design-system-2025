@@ -29,6 +29,7 @@ export interface NavBarProps {
   callToAction?: CallToAction[];
   brand: Brand;
   classes?: string;
+  cart?: boolean;
 }
 
 const NavBar: React.FC<NavBarProps> = ({

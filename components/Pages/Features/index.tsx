@@ -1,7 +1,7 @@
 import React from "react";
 import { FeaturesPageProps } from "../index";
 import Section from "$/atoms/Section";
-import NavBar from "$/organisms/NavBar";
+import Nav from "$/organisms/Nav";
 import HeroSection from "$/organisms/Hero";
 import FeatureSection from "$/organisms/Features";
 import Testimonials from "$/organisms/Testimonials";
@@ -23,7 +23,7 @@ const FeaturesPage: React.FC<FeaturesPageProps> = ({
 }) => {
   return (
     <Page>
-      <NavBar {...nav} />
+      <Nav {...nav} />
       <Section classes="flex flex-col bg-white">
         <HeroSection {...hero} />
         <FeatureSection {...featureGrid} />

@@ -48,7 +48,7 @@ const MobileMenuDialog: React.FC<MobileMenuDialogProps> = ({
             {callToAction && (
               <CallToActionButtons
                 buttons={callToAction}
-                classes="lg:hidden flex flex-col gap-4  justify-end"
+                classes="lg:hidden flex flex-col gap-4"
               />
             )}
           </div>

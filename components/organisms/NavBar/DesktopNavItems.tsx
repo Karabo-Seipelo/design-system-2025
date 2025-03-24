@@ -5,7 +5,7 @@ import Link from "next/link";
 import { NavItem } from ".";
 
 const DesktopNavItems: React.FC<{ item: NavItem }> = ({ item }) => {
-  if (item.items) {
+  if (item.hasOwnProperty("items")) {
     return (
       <Popover className="relative" key={item.name}>
         <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
