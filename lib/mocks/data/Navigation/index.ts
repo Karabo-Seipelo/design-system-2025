@@ -1,4 +1,4 @@
-import { NavBarProps } from "../../../../components/NavBar/index";
+import { NavBarProps } from "$/organisms/NavBar";
 
 const Nav = [
   { name: "Home", href: "#" },
@@ -6,6 +6,11 @@ const Nav = [
   { name: "Pricing", href: "#" },
   { name: "About us", href: "#" },
   { name: "Contact", href: "#" },
+];
+
+const EcommerceNav = [
+  { name: "Shop all", href: "/shop" },
+  { name: "Latest arrivals", href: "/latest-arrivals" },
 ];
 
 const CallToAction = [
@@ -23,4 +28,10 @@ export const NavigationArgs: NavBarProps = {
   navItems: Nav,
   brand: Brand,
   callToAction: CallToAction,
+};
+
+export const EcommerceNavArgs: NavBarProps = {
+  navItems: EcommerceNav,
+  brand: Brand,
+  cart: true,
 };
