@@ -1,5 +1,5 @@
 import Section from "$/atoms/Section";
-import NavBar from "$/organisms/NavBar";
+import Nav from "$/organisms/Nav";
 import FeatureSection from "$/organisms/Features";
 import Price from "$/organisms/PricingTable/Tier";
 import Testimonials from "$/organisms/Testimonials";
@@ -20,7 +20,7 @@ const PricingPage: React.FC<PricingPageProps> = ({
 }) => {
   return (
     <Page>
-      <NavBar {...nav} />
+      <Nav {...nav} />
       <Section classes="flex flex-col bg-white">
         <Price {...pricing} />
         <Faq {...faq} />

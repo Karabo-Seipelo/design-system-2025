@@ -1,5 +1,5 @@
 import Section from "$/atoms/Section";
-import NavBar from "$/organisms/NavBar";
+import Nav from "$/organisms/Nav";
 import HeroSection from "$/organisms/Hero";
 import LogoMarquee from "$/molecules/LogoMarquee";
 import FeatureSection from "$/organisms/Features";
@@ -26,7 +26,7 @@ const MarketingLandingPage: React.FC<MarketingLandingPageProps> = ({
 }) => {
   return (
     <Page>
-      <NavBar {...nav} />
+      <Nav {...nav} />
       <Section classes="flex flex-col bg-white">
         <HeroSection {...hero} />
         <LogoMarquee {...logoMarquee} />

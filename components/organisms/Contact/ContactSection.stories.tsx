@@ -24,7 +24,7 @@ const meta = {
             },
             {
               status: 200,
-            }
+            },
           );
         }),
         submitFormError: http.post("contact/error", () => {
@@ -34,7 +34,7 @@ const meta = {
             },
             {
               status: 500,
-            }
+            },
           );
         }),
       },
