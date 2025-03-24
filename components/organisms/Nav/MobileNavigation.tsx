@@ -4,12 +4,11 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
+  Button,
 } from "@headlessui/react";
-import { Button } from "@headlessui/react";
 import { NavItem, Brand } from ".";
-import { CallToAction } from "./CallToAction";
+import CallToActionButtons, { CallToAction } from "./CallToAction";
 import NavLogo from "./NavLogo";
-import CallToActionButtons from "./CallToAction";
 
 interface MobileNavigationProps {
   open: boolean;
