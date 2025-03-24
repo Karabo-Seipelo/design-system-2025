@@ -17,16 +17,16 @@ const ProductReview: React.FC<ProductReviewProps> = ({
   const { reviews, loading, error } = useFetchReviews(productId);
 
   if (loading) {
+    // TODO: Add skeleton loader
     return <p>loading</p>;
   }
 
   if (error) {
+    // TODO: how will the error be displayed?
     return <p>{error.message}</p>;
   }
 
   const { aggregate } = reviews;
-
-  console.log(aggregate);
 
   return (
     <Dialog
