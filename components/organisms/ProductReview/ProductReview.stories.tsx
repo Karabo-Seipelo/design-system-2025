@@ -20,6 +20,7 @@ const meta = {
   ],
   args: {
     isOpen: false,
+    productId: "tangerine-mini-tote",
     close: () => {
       console.log("close");
     },
