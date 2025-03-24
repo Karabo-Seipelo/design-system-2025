@@ -20,7 +20,7 @@ const meta = {
   ],
   args: {
     isOpen: false,
-    productId: "tangerine-mini-tote",
+    productId: "urban-drift-bucket-hat",
     close: () => {
       console.log("close");
     },

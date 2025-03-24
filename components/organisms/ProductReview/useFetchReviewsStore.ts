@@ -1,45 +1,14 @@
 import { create } from "zustand";
+import fetchReviewsFromAPI, { Review } from "./fetchReviewFromAPI";
 import axios from "axios";
 
-interface Counts {
+export interface Count {
   count: number;
   rating: number;
 }
 
-interface Aggregate {
-  counts: Counts[];
-  rating: number;
-  total: number;
-}
-
-interface User {
-  name: string;
-  user_id: string;
-  avatar_url: string;
-}
-
-interface Rating {
-  rating: number;
-  content: string;
-  created_at: string;
-  user: User;
-}
-
-interface Pagination {
-  has_more: boolean;
-  page: number;
-  per_page: number;
-  total: number;
-}
-
-interface Review {
-  aggregate: Aggregate;
-  data: Rating[];
-  pagination: Pagination;
-}
-
 interface FetchReviewsStore {
-  reviews: Review[];
+  reviews: Review;
   loading: boolean;
   error: Error | null;
   fetchReviews: (
@@ -50,7 +19,20 @@ interface FetchReviewsStore {
 }
 
 const useFetchReviewsStore = create<FetchReviewsStore>((set) => ({
-  reviews: [],
+  reviews: {
+    aggregate: {
+      counts: [],
+      rating: 0,
+      total: 0,
+    },
+    data: [],
+    pagination: {
+      has_more: false,
+      page: 1,
+      per_page: 12,
+      total: 0,
+    },
+  },
   loading: true,
   error: null,
   fetchReviews: async (
@@ -59,13 +41,18 @@ const useFetchReviewsStore = create<FetchReviewsStore>((set) => ({
     perPage: number = 12,
   ) => {
     try {
-      const { data } = await axios.get(
-        `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${page}&per_page=${perPage}`,
-      );
-
+      const data = await fetchReviewsFromAPI(productId, page, perPage);
       set({ reviews: data });
     } catch (error) {
-      set({ error: error as Error });
+      if (axios.isAxiosError(error)) {
+        set({
+          error: new Error(error.response?.data.message || error.message),
+        });
+      } else {
+        set({
+          error: error instanceof Error ? error : new Error(String(error)),
+        });
+      }
     } finally {
       set({ loading: false });
     }

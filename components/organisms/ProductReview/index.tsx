@@ -15,7 +15,18 @@ const ProductReview: React.FC<ProductReviewProps> = ({
   productId,
 }) => {
   const { reviews, loading, error } = useFetchReviews(productId);
+
+  if (loading) {
+    return <p>loading</p>;
+  }
+
+  if (error) {
+    return <p>{error.message}</p>;
+  }
+
   const { aggregate } = reviews;
+
+  console.log(aggregate);
 
   return (
     <Dialog
@@ -40,7 +51,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({
               <h4 className="font-semibold text-xl text-neutral-900">
                 Overall Rating
               </h4>
-              <OverallRating score={aggregate.rating} total={aggregate.total} />
+              <OverallRating {...aggregate} />
               <div className="flex flex-col items-center p-6 gap-6">
                 <div className="flex w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center">
                   <i className="ri-chat-smile-3-line text-indigo-700 text-2xl"></i>
