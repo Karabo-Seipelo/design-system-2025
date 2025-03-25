@@ -85,12 +85,16 @@ const OverallRating: React.FC<OverallRatingProps> = ({
             <div
               key={currentCount.rating}
               className="flex flex-row justify-between gap-2"
-              onClick={() => applyFilter(currentCount.rating)}
             >
               <div
-                className={`w-[38%] flex items-center gap-1.5 cursor-pointer ${filter === currentCount.rating ? "text-indigo-600" : "text-neutral-900"}`}
+                className={`w-[38%] flex items-center gap-1.5 cursor-pointer `}
               >
-                {getRatingLabel(currentCount.rating)}
+                <Button
+                  className={`${filter === currentCount.rating ? "text-indigo-600" : "text-neutral-900"}`}
+                  onClick={() => applyFilter(currentCount.rating)}
+                >
+                  {getRatingLabel(currentCount.rating)}
+                </Button>
               </div>
               <div className="flex items-center gap-3 grow">
                 <div className="grow h-2 rounded-lg bg-gray-200 overflow-hidden">
