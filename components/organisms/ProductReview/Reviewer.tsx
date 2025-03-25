@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Rating as RatingType } from "./fetchReviewFromAPI";
 import Rating from "./Rating";
 import ReviewDate from "./ReviewDate";
@@ -9,17 +10,33 @@ interface ReviewerProps {
 
 const Reviewer: React.FC<ReviewerProps> = ({ review }) => {
   const { rating, created_at, content, user } = review;
+  const [imageError, setImageError] = useState<boolean>(false);
+  const getInitials = (name: string) => {
+    const initials = name
+      .split(" ")
+      .map((n) => n[0])
+      .join("");
+    return initials.toUpperCase();
+  };
   return (
     <div className="flex flex-col items-center gap-2 w-full">
       <header className="flex flex-row w-full gap-4 justify-between">
         <div className="w-[17%] md:w-[11%]">
           <div className="w-[48px] h-[48px] overflow-hidden rounded-full">
-            <Image
-              src={user.avatar_url}
-              alt={user.name}
-              width={48}
-              height={48}
-            />
+            {imageError ? (
+              <span className="text-neutral-900 font-semibold bg-slate-100 w-full h-full flex items-center justify-center">
+                {getInitials(user.name)}
+              </span>
+            ) : (
+              <Image
+                src={user.avatar_url}
+                alt={user.name}
+                width={48}
+                height={48}
+                onError={() => setImageError(true)}
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
 

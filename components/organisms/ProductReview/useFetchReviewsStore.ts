@@ -42,7 +42,14 @@ const useFetchReviewsStore = create<FetchReviewsStore>((set) => ({
   ) => {
     try {
       const data = await fetchReviewsFromAPI(productId, page, perPage);
-      set({ reviews: data });
+      set((state) => ({
+        reviews: {
+          ...state.reviews,
+          data: [...state.reviews.data, ...data.data],
+          pagination: data.pagination,
+          aggregate: data.aggregate,
+        },
+      }));
     } catch (error) {
       if (axios.isAxiosError(error)) {
         set({

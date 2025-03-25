@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
 import { Button, Dialog, DialogPanel } from "@headlessui/react";
 import OverallRating from "./OverallRating";
@@ -18,19 +18,30 @@ const ProductReview: React.FC<ProductReviewProps> = ({
   close,
   productId,
 }) => {
-  const mediaQueryList = window.matchMedia("(min-width: 768px)");
-  const reviewCountPerPage = mediaQueryList.matches ? 2 : 1;
+  const [reviewCountPerPage, setReviewCountPerPage] = useState<number>(10);
   const { reviews, loading, error, fetchReviews } = useFetchReviews({
     productId,
     perPage: reviewCountPerPage,
   });
-  const [shownReviewsCount, setShownReviewCount] = useState<number>(0);
+  const [shownReviewsCount, setShownReviewCount] = useState<number>(1);
+
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia("(min-width: 768px)");
+    const updateReviewCountPerPage = () => {
+      setReviewCountPerPage(mediaQueryList.matches ? 12 : 10);
+    };
+    updateReviewCountPerPage();
+    mediaQueryList.addEventListener("change", updateReviewCountPerPage);
+    return () => {
+      mediaQueryList.removeEventListener("change", updateReviewCountPerPage);
+    };
+  }, []);
+
   const showMoreReviews = async () => {
     const newCount = shownReviewsCount + reviewCountPerPage;
     const page = Math.ceil(newCount / reviewCountPerPage);
-    const perPage = reviewCountPerPage;
     setShownReviewCount(newCount);
-    await fetchReviews(productId, page, perPage);
+    await fetchReviews(productId, page, reviewCountPerPage);
   };
 
   if (error) {
@@ -60,12 +71,13 @@ const ProductReview: React.FC<ProductReviewProps> = ({
                     <i className="ri-close-large-line"></i>
                   </Button>
                 </header>
-                <div className="flex flex-col lg:flex-row lg:justify-between">
+                <div className="flex flex-col lg:flex-row lg:justify-between lg:gap-20">
                   <OverallRating {...aggregate} title={title} />
                   <Reviews
                     data={data}
                     pagination={pagination}
                     handler={showMoreReviews}
+                    currentCount={shownReviewsCount}
                   />
                 </div>
               </DialogPanel>
