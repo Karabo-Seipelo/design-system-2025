@@ -33,7 +33,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   };
 
   useEffect(() => {
-    console.log({ formStatus });
     if (formStatus) {
       const timer = setTimeout(() => {
         setFormStatus(null);
