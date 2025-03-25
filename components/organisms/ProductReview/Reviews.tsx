@@ -41,7 +41,7 @@ const Reviews: React.FC<ReviewsProps> = ({
 
   return (
     <div
-      className={`flex flex-col items-center py-6 gap-6 lg:pt-0 lg:gap-8 ${classes}`}
+      className={`flex flex-col items-center py-6 gap-6 lg:pt-0 lg:gap-8 ${classes} overflow-scroll`}
     >
       {data.map((review) => (
         <Reviewer key={review.user.user_id} review={review} />

@@ -88,14 +88,14 @@ const ProductReview: React.FC<ProductReviewProps> = ({
                 applyFilter={applyFilter}
                 clearFilter={clearFilter}
                 filter={filter}
-                classes="lg:w-[40%]"
+                classes="lg:w-[40%] pb-5"
               />
               <Reviews
                 data={data}
                 pagination={pagination}
                 handler={showMoreReviews}
                 currentCount={shownReviewsCount}
-                classes="lg:w-[60%]"
+                classes="lg:w-[60%] overflow-y-auto max-h-[400px]"
                 loading={loading}
               />
             </div>
