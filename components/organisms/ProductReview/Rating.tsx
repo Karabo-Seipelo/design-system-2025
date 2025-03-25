@@ -36,7 +36,7 @@ const Rating: React.FC<RatingProps> = ({
           if (index < fullStars) {
             return (
               <i
-                key={index}
+                key={`star-${index}-${total}`}
                 className="ri-star-fill text-yellow-400"
                 aria-hidden="true"
               />
@@ -44,7 +44,7 @@ const Rating: React.FC<RatingProps> = ({
           } else if (index === fullStars && hasHalfStar) {
             return (
               <i
-                key={index}
+                key={`star-${index}-${total}`}
                 className="ri-star-half-fill text-yellow-400"
                 aria-hidden="true"
               />
@@ -52,7 +52,7 @@ const Rating: React.FC<RatingProps> = ({
           } else {
             return (
               <i
-                key={index}
+                key={`star-${index}-${total}`}
                 className="ri-star-fill text-slate-300"
                 aria-hidden="true"
               />

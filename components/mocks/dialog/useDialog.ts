@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import useDialogStore from "./useDialogStore";
 
 const useDialog = () => {

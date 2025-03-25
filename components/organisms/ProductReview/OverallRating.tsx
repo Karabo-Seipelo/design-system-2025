@@ -4,6 +4,7 @@ import Rating from "./Rating";
 import { Count } from "./useFetchReviewsStore";
 
 export interface OverallRatingProps {
+  title: string;
   counts: Count[];
   rating: number;
   total: number;
@@ -52,6 +53,7 @@ const getRatingColor = (rating: number): string => {
 };
 
 const OverallRating: React.FC<OverallRatingProps> = ({
+  title,
   rating,
   total,
   counts,
@@ -62,6 +64,9 @@ const OverallRating: React.FC<OverallRatingProps> = ({
   );
   return (
     <div className="flex flex-col gap-4">
+      {title && (
+        <h4 className="font-semibold text-xl text-neutral-900">{title}</h4>
+      )}
       <Rating classes="flex flex-row gap-4" score={rating} total={total} />
       <div className="flex flex-col gap-y-4">
         {sortedCounts.map((currentCount: Count) => {
