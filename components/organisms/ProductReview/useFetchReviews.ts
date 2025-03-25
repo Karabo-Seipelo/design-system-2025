@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useFetchReviewsStore from "./useFetchReviewsStore";
 
-interface useFetchReviewsProps {
+interface FetchReviewsProps {
   productId: string;
   page?: number;
   perPage?: number;
@@ -13,14 +13,13 @@ const useFetchReviews = ({
   page = 1,
   perPage = 12,
   filter = null,
-}: useFetchReviewsProps) => {
+}: FetchReviewsProps) => {
   const {
     fetchReviews,
     reviews,
     error: storeError,
     loading,
   } = useFetchReviewsStore();
-  //const [loading, setLoading] = useState(storeLoading);
   const [error, setError] = useState(storeError);
 
   useEffect(() => {

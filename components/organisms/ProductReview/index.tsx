@@ -23,17 +23,17 @@ const ProductReview: React.FC<ProductReviewProps> = ({
     productId,
     perPage: reviewCountPerPage,
   });
-  const [shownReviewsCount, setShownReviewCount] = useState<number>(1);
+  const [shownReviewsCount, setShownReviewsCount] = useState<number>(1);
   const [filter, setFilter] = useState<number | null>(null);
   const applyFilter = async (rating: number) => {
     const filter = rating;
     setFilter(rating);
-    setShownReviewCount(1);
+    setShownReviewsCount(1);
     await fetchReviews(productId, 1, reviewCountPerPage, filter);
   };
   const clearFilter = async () => {
     setFilter(null);
-    setShownReviewCount(1);
+    setShownReviewsCount(1);
     await fetchReviews(productId, 1, reviewCountPerPage);
   };
 
@@ -52,7 +52,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({
   const showMoreReviews = async () => {
     const newCount = shownReviewsCount + reviewCountPerPage;
     const page = Math.ceil(newCount / reviewCountPerPage);
-    setShownReviewCount(newCount);
+    setShownReviewsCount(newCount);
     await fetchReviews(productId, page, reviewCountPerPage, filter);
   };
 
