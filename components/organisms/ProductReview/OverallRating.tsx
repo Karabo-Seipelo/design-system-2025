@@ -8,6 +8,10 @@ export interface OverallRatingProps {
   counts: Count[];
   rating: number;
   total: number;
+  applyFilter: (rating: number) => void;
+  clearFilter: () => void;
+  filter: number | null;
+  classes?: string;
 }
 
 enum RatingType {
@@ -57,13 +61,17 @@ const OverallRating: React.FC<OverallRatingProps> = ({
   rating,
   total,
   counts,
+  filter,
+  applyFilter,
+  clearFilter,
+  classes = "",
 }) => {
   const sortedCounts = useMemo(
     () => [...counts].sort((a, b) => b.rating - a.rating),
     [counts],
   );
   return (
-    <div className="flex flex-col gap-4">
+    <div className={`flex flex-col gap-4 ${classes}`}>
       {title && (
         <h4 className="font-semibold text-xl text-neutral-900">{title}</h4>
       )}
@@ -77,8 +85,11 @@ const OverallRating: React.FC<OverallRatingProps> = ({
             <div
               key={currentCount.rating}
               className="flex flex-row justify-between gap-2"
+              onClick={() => applyFilter(currentCount.rating)}
             >
-              <div className="w-[38%] flex items-center gap-1.5">
+              <div
+                className={`w-[38%] flex items-center gap-1.5 cursor-pointer ${filter === currentCount.rating ? "text-indigo-600" : "text-neutral-900"}`}
+              >
                 {getRatingLabel(currentCount.rating)}
               </div>
               <div className="flex items-center gap-3 grow">
@@ -94,13 +105,23 @@ const OverallRating: React.FC<OverallRatingProps> = ({
           );
         })}
       </div>
-
-      <Button
-        aria-label="Write a review"
-        className="flex justify-center items-center gap-1.5 bg-white px-5 py-3 rounded border-[0.5px] border-solid border-neutral-200 shadow-[0px_1px_2px_0_rgb(0_0_0_/_0.06),_0px_1px_3px_0_rgb(0_0_0_/_0.10)]"
-      >
-        Write a review
-      </Button>
+      <div className="flex flex-row gap-4 justify-center">
+        {filter && (
+          <Button
+            onClick={clearFilter}
+            aria-label="Clear Filter"
+            className="flex justify-center items-center gap-1.5 grow px-5 py-3 text-indigo-600"
+          >
+            Clear Filter
+          </Button>
+        )}
+        <Button
+          aria-label="Write a review"
+          className="flex justify-center items-center gap-1.5 bg-white px-5 py-3 rounded border-[0.5px] border-solid border-neutral-200 shadow-[0px_1px_2px_0_rgb(0_0_0_/_0.06),_0px_1px_3px_0_rgb(0_0_0_/_0.10)]"
+        >
+          Write a review
+        </Button>
+      </div>
     </div>
   );
 };

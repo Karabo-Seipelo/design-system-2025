@@ -14,11 +14,13 @@ interface FetchReviewsStore {
   fetchReviews: (
     productId: string,
     page?: number,
-    perPage?: number
+    perPage?: number,
+    filter?: number | null,
   ) => Promise<void>;
+  currentFilter: number | null;
 }
 
-const useFetchReviewsStore = create<FetchReviewsStore>((set) => ({
+const useFetchReviewsStore = create<FetchReviewsStore>((set, get) => ({
   reviews: {
     aggregate: {
       counts: [],
@@ -35,13 +37,40 @@ const useFetchReviewsStore = create<FetchReviewsStore>((set) => ({
   },
   loading: true,
   error: null,
+  currentFilter: null,
   fetchReviews: async (
     productId: string,
     page: number = 1,
-    perPage: number = 12
+    perPage: number = 12,
+    filter: number | null = null,
   ) => {
     try {
-      const data = await fetchReviewsFromAPI(productId, page, perPage);
+      set({ loading: true });
+      const { currentFilter } = get();
+      const resetData =
+        (currentFilter === null && typeof filter === "number") ||
+        (currentFilter !== filter &&
+          typeof filter === "number" &&
+          typeof currentFilter === "number");
+
+      if (resetData) {
+        set((state) => ({
+          reviews: {
+            ...state.reviews,
+            data: [],
+            pagination: {
+              has_more: false,
+              page: 1,
+              per_page: perPage,
+              total: 0,
+            },
+          },
+          currentFilter: filter,
+        }));
+      }
+
+      const data = await fetchReviewsFromAPI(productId, page, perPage, filter);
+
       set((state) => ({
         reviews: {
           ...state.reviews,

@@ -2,12 +2,15 @@ import Reviewer from "./Reviewer";
 import NoReviews from "./NoReviews";
 import { Rating, Pagination } from "./fetchReviewFromAPI";
 import { Button } from "@headlessui/react";
+import ReviewSkeleton from "./ReviewSkeleton";
 
 interface ReviewsProps {
   data: Rating[];
   pagination: Pagination;
   handler: () => void;
   currentCount: number;
+  classes?: string;
+  loading: boolean;
 }
 
 const Reviews: React.FC<ReviewsProps> = ({
@@ -15,14 +18,31 @@ const Reviews: React.FC<ReviewsProps> = ({
   pagination,
   handler,
   currentCount,
+  classes = "",
+  loading,
 }) => {
   const currentlyDisplayed = pagination.total - currentCount;
 
-  if (data.length === 0) {
-    return <NoReviews />;
+  if (data.length === 0 && !loading) {
+    return <NoReviews classes={classes} />;
   }
+
+  if (loading) {
+    return (
+      <div
+        className={`flex flex-col items-center py-6 gap-6 lg:pt-0 lg:gap-8 ${classes}`}
+      >
+        {[...Array(10)].map((_, index) => (
+          <ReviewSkeleton key={index} />
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col items-center py-6 gap-6 lg:pt-0 lg:gap-8">
+    <div
+      className={`flex flex-col items-center py-6 gap-6 lg:pt-0 lg:gap-8 ${classes}`}
+    >
       {data.map((review) => (
         <Reviewer key={review.user.user_id} review={review} />
       ))}

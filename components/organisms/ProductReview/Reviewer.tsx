@@ -51,9 +51,7 @@ const Reviewer: React.FC<ReviewerProps> = ({ review }) => {
               classes="font-normal text-xs text-neutral-600"
             />
           </div>
-          <div>
-            <Rating score={rating} showScore={false} />
-          </div>
+          <Rating score={rating} showScore={false} />
         </div>
       </header>
       <div className="w-full" dangerouslySetInnerHTML={{ __html: content }} />

@@ -40,11 +40,14 @@ export interface Review {
 const fetchReviewsFromAPI = async (
   productId: string,
   page: number,
-  perPage: number
+  perPage: number,
+  filter: number | null = null,
 ): Promise<Review> => {
-  const { data } = await axios.get<Review>(
-    `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${page}&per_page=${perPage}`
-  );
+  const url =
+    filter !== null
+      ? `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${page}&per_page=${perPage}&rating=${filter}`
+      : `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${page}&per_page=${perPage}`;
+  const { data } = await axios.get<Review>(url);
   return data;
 };
 

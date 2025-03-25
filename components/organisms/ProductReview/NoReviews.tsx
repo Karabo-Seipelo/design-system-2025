@@ -1,6 +1,9 @@
-const NoReviews: React.FC = () => {
+interface NoReviewsProps {
+  classes?: string;
+}
+const NoReviews: React.FC<NoReviewsProps> = ({ classes = "" }) => {
   return (
-    <div className="flex flex-col items-center p-6 gap-6">
+    <div className={`flex flex-col items-center p-6 gap-6 ${classes}`}>
       <div className="flex w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center">
         <i className="ri-chat-smile-3-line text-indigo-700 text-2xl"></i>
       </div>

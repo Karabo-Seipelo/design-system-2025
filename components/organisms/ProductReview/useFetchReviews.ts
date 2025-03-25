@@ -5,48 +5,44 @@ interface useFetchReviewsProps {
   productId: string;
   page?: number;
   perPage?: number;
+  filter?: number | null;
 }
 
 const useFetchReviews = ({
   productId,
   page = 1,
   perPage = 12,
+  filter = null,
 }: useFetchReviewsProps) => {
   const {
     fetchReviews,
     reviews,
     error: storeError,
-    loading: storeLoading,
+    loading,
   } = useFetchReviewsStore();
-  const [loading, setLoading] = useState(storeLoading);
+  //const [loading, setLoading] = useState(storeLoading);
   const [error, setError] = useState(storeError);
 
   useEffect(() => {
     let isMounted = true;
 
     const fetchReviewsData = async () => {
-      setLoading(true);
       setError(null);
       try {
-        await fetchReviews(productId, page, perPage);
+        await fetchReviews(productId, page, perPage, filter);
       } catch (err) {
         if (isMounted) {
           setError(err as Error);
         }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
       }
     };
-
     const debounceFetch = setTimeout(fetchReviewsData, 300);
 
     return () => {
       isMounted = false;
       clearTimeout(debounceFetch);
     };
-  }, [fetchReviews, page, perPage, productId]);
+  }, [fetchReviews, filter, page, perPage, productId]);
 
   return { reviews, loading, error, fetchReviews };
 };
