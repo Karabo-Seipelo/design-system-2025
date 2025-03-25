@@ -92,7 +92,7 @@ const OverallRating: React.FC<OverallRatingProps> = ({
 
       <Button
         aria-label="Write a review"
-        className="flex justify-center items-center gap-1.5 bg-white px-5 py-3 rounded border=[0.5px] border-solid border-neutral-200 shadow-[0px_1px_2px_0_rgb(0_0_0_/_0.06),_0px_1px_3px_0_rgb(0_0_0_/_0.10)]"
+        className="flex justify-center items-center gap-1.5 bg-white px-5 py-3 rounded border-[0.5px] border-solid border-neutral-200 shadow-[0px_1px_2px_0_rgb(0_0_0_/_0.06),_0px_1px_3px_0_rgb(0_0_0_/_0.10)]"
       >
         Write a review
       </Button>

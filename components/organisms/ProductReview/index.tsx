@@ -1,75 +1,69 @@
 import "remixicon/fonts/remixicon.css";
 import { Button, Dialog, DialogPanel } from "@headlessui/react";
 import OverallRating from "./OverallRating";
+import Reviews from "./Reviews";
 import useFetchReviews from "./useFetchReviews";
 
 export interface ProductReviewProps {
+  title: string;
   isOpen: boolean;
   close: () => void;
   productId: string;
 }
 
 const ProductReview: React.FC<ProductReviewProps> = ({
+  title,
   isOpen,
   close,
   productId,
 }) => {
   const { reviews, loading, error } = useFetchReviews(productId);
 
-  if (loading) {
-    // TODO: Add skeleton loader
-    return <p>loading</p>;
-  }
-
   if (error) {
     // TODO: how will the error be displayed?
     return <p>{error.message}</p>;
   }
 
-  const { aggregate } = reviews;
+  const { aggregate, data } = reviews;
 
   return (
-    <Dialog
-      open={isOpen}
-      as="div"
-      className="relative z-10 focus:outline-none"
-      onClose={close}
-    >
-      <div className="fixed inset-0 z-10 w-screen overflow-y-auto bg-neutral-950 bg-opacity-80">
-        <div className="flex min-h-full items-center justify-center p-4">
-          <DialogPanel
-            transition
-            className="w-full max-w-md rounded-xl bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
-          >
-            <header className="flex justify-end">
-              <Button className="" onClick={close}>
-                <i className="ri-close-large-line"></i>
-              </Button>
-            </header>
+    <>
+      {!loading && (
+        <Dialog
+          open={isOpen}
+          as="div"
+          className="relative z-10 focus:outline-none"
+          onClose={close}
+        >
+          <div className="fixed inset-0 z-10 w-screen overflow-y-auto bg-neutral-950 bg-opacity-80">
+            <div className="flex min-h-full items-center justify-center p-4">
+              <DialogPanel
+                transition
+                className="w-full md:max-w-lg lg:max-w-5xl rounded-xl bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
+              >
+                <header className="flex justify-end">
+                  <Button className="" onClick={close}>
+                    <i className="ri-close-large-line"></i>
+                  </Button>
+                </header>
 
-            <div className="flex flex-col">
-              <h4 className="font-semibold text-xl text-neutral-900">
-                Overall Rating
-              </h4>
-              <OverallRating {...aggregate} />
-              <div className="flex flex-col items-center p-6 gap-6">
-                <div className="flex w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center">
-                  <i className="ri-chat-smile-3-line text-indigo-700 text-2xl"></i>
+                <div className="flex flex-col lg:flex-row lg:justify-between">
+                  <div>
+                    {title && (
+                      <h4 className="font-semibold text-xl text-neutral-900">
+                        {title}
+                      </h4>
+                    )}
+                    <OverallRating {...aggregate} />
+                  </div>
+                  <Reviews data={data} />
                 </div>
-                <div className="flex flex-col items-center gap-2">
-                  <h6 className="font-medium text-xl text-center text-neutral-900">
-                    No reviews yet!
-                  </h6>
-                  <p className="font-normal text-base text-center text-neutral-900">
-                    Be the first to review this product
-                  </p>
-                </div>
-              </div>
+              </DialogPanel>
             </div>
-          </DialogPanel>
-        </div>
-      </div>
-    </Dialog>
+          </div>
+        </Dialog>
+      )}
+    </>
   );
 };
 

@@ -3,22 +3,34 @@ import React, { useMemo } from "react";
 export interface RatingProps {
   score: number;
   classes?: string;
-  total: number;
+  total?: number;
+  showScore?: boolean;
 }
 
-const Rating: React.FC<RatingProps> = ({ score, total, classes }) => {
+const Score = ({ score }: { score: number }) => {
+  return (
+    <div
+      className="items-center"
+      aria-label={`Rating score: ${score.toFixed(1)}`}
+    >
+      {score.toFixed(1)}
+    </div>
+  );
+};
+
+const Rating: React.FC<RatingProps> = ({
+  score,
+  total,
+  classes,
+  showScore = true,
+}) => {
   const fullStars = Math.floor(score);
   const hasHalfStar = score % 1 !== 0;
   const generateStars = useMemo(() => new Array(5).fill(0), []);
 
   return (
     <div className={`${classes}`}>
-      <div
-        className="items-center"
-        aria-label={`Rating score: ${score.toFixed(1)}`}
-      >
-        {score.toFixed(1)}
-      </div>
+      {showScore && <Score score={score} />}
       <div className="flex flex-row gap-2">
         {generateStars.map((_, index) => {
           if (index < fullStars) {
@@ -48,7 +60,9 @@ const Rating: React.FC<RatingProps> = ({ score, total, classes }) => {
           }
         })}
       </div>
-      {total > 0 && <div className="text-sm">Based on {total} reviews</div>}
+      {total && total > 0 && (
+        <div className="text-sm">Based on {total} reviews</div>
+      )}
     </div>
   );
 };

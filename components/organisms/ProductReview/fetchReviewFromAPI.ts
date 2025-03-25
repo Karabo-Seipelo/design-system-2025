@@ -17,7 +17,7 @@ interface User {
   avatar_url: string;
 }
 
-interface Rating {
+export interface Rating {
   rating: number;
   content: string;
   created_at: string;

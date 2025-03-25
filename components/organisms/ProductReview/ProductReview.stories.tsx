@@ -19,6 +19,7 @@ const meta = {
     ),
   ],
   args: {
+    title: "Overall Rating",
     isOpen: false,
     productId: "urban-drift-bucket-hat",
     close: () => {
