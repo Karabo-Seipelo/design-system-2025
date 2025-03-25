@@ -23,7 +23,7 @@ const meta = {
     isOpen: false,
     productId: "urban-drift-bucket-hat",
     close: () => {
-      console.log("close");
+      console.warn("close");
     },
   },
 } satisfies Meta<typeof ProductReview>;

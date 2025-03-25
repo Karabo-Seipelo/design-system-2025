@@ -1,12 +1,15 @@
 import Reviewer from "./Reviewer";
 import NoReviews from "./NoReviews";
-import { Rating as RatingType } from "./fetchReviewFromAPI";
+import { Rating, Pagination } from "./fetchReviewFromAPI";
+import { Button } from "@headlessui/react";
 
 interface ReviewsProps {
-  data: RatingType[];
+  data: Rating[];
+  pagination: Pagination;
+  handler: () => void;
 }
 
-const Reviews: React.FC<ReviewsProps> = ({ data }) => {
+const Reviews: React.FC<ReviewsProps> = ({ data, pagination, handler }) => {
   if (data.length === 0) {
     return <NoReviews />;
   }
@@ -15,6 +18,13 @@ const Reviews: React.FC<ReviewsProps> = ({ data }) => {
       {data.map((review) => (
         <Reviewer key={review.user.user_id} review={review} />
       ))}
+      <Button
+        onClick={handler}
+        aria-label="Write a review"
+        className="flex justify-center items-center gap-1.5 bg-white px-5 py-3 rounded border-[0.5px] border-solid border-neutral-200 shadow-[0px_1px_2px_0_rgb(0_0_0_/_0.06),_0px_1px_3px_0_rgb(0_0_0_/_0.10)]"
+      >
+        Show {pagination.total} more reviews
+      </Button>
     </div>
   );
 };

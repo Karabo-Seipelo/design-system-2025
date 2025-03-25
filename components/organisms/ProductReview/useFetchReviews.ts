@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
 import useFetchReviewsStore from "./useFetchReviewsStore";
 
-const useFetchReviews = (productId: string, page = 1, perPage = 12) => {
+interface useFetchReviewsProps {
+  productId: string;
+  page?: number;
+  perPage?: number;
+}
+
+const useFetchReviews = ({
+  productId,
+  page = 1,
+  perPage = 12,
+}: useFetchReviewsProps) => {
   const {
     fetchReviews,
     reviews,
@@ -38,7 +48,7 @@ const useFetchReviews = (productId: string, page = 1, perPage = 12) => {
     };
   }, [fetchReviews, page, perPage, productId]);
 
-  return { reviews, loading, error };
+  return { reviews, loading, error, fetchReviews };
 };
 
 export default useFetchReviews;

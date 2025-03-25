@@ -14,7 +14,7 @@ interface FetchReviewsStore {
   fetchReviews: (
     productId: string,
     page?: number,
-    perPage?: number,
+    perPage?: number
   ) => Promise<void>;
 }
 
@@ -38,7 +38,7 @@ const useFetchReviewsStore = create<FetchReviewsStore>((set) => ({
   fetchReviews: async (
     productId: string,
     page: number = 1,
-    perPage: number = 12,
+    perPage: number = 12
   ) => {
     try {
       const data = await fetchReviewsFromAPI(productId, page, perPage);

@@ -38,8 +38,6 @@ const useFormSubmit = ({
         setFormSuccess(false);
       }
 
-      console.log({ status });
-
       setFormStatus(status);
     } catch (error) {
       setFormStatus(errorMsg);

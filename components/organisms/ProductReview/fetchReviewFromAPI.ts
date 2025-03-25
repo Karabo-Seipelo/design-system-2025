@@ -24,7 +24,7 @@ export interface Rating {
   user: User;
 }
 
-interface Pagination {
+export interface Pagination {
   has_more: boolean;
   page: number;
   per_page: number;
@@ -40,10 +40,10 @@ export interface Review {
 const fetchReviewsFromAPI = async (
   productId: string,
   page: number,
-  perPage: number,
+  perPage: number
 ): Promise<Review> => {
   const { data } = await axios.get<Review>(
-    `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${page}&per_page=${perPage}`,
+    `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}/reviews?page=${page}&per_page=${perPage}`
   );
   return data;
 };
