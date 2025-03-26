@@ -31,7 +31,7 @@ const Rating: React.FC<RatingProps> = ({
   return (
     <div className={`${classes}`}>
       {showScore && <Score score={score} />}
-      <div className="flex flex-row gap-2">
+      <div className="flex gap-1">
         {generateStars.map((_, index) => {
           if (index < fullStars) {
             return (
@@ -61,7 +61,7 @@ const Rating: React.FC<RatingProps> = ({
         })}
       </div>
       {total && total > 0 && (
-        <div className="font-normal text-sm text-neutral-600">
+        <div className="text-nowrap font-normal text-sm text-neutral-600">
           Based on {total} reviews
         </div>
       )}

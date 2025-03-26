@@ -76,7 +76,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({
             transition
             className="w-full max-w-[343px] md:max-w-[522px] lg:max-w-[1008px] rounded-lg bg-white p-6 backdrop-blur-2xl duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
           >
-            <header className="flex justify-end lg:pb-6">
+            <header className="flex justify-end pb-6">
               <Button className="" onClick={close}>
                 <i className="ri-close-large-line"></i>
               </Button>
@@ -96,7 +96,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({
                   pagination={pagination}
                   handler={showMoreReviews}
                   currentCount={shownReviewsCount}
-                  classes="w-full flex-1 px-4 md:px-8 lg:pl-0 lg:pr-8 lg:overflow-y-auto"
+                  classes="w-full flex-1 lg:overflow-y-auto"
                   loading={loading}
                 />
               </div>

@@ -30,9 +30,7 @@ const Reviews: React.FC<ReviewsProps> = ({
 
   if (loading) {
     return (
-      <div
-        className={`flex flex-col items-center py-6 gap-6 lg:pt-0 lg:gap-8 ${classes}`}
-      >
+      <div className={`flex flex-col py-6 gap-6 lg:pt-0 mg:gap-8 ${classes}`}>
         {[...Array(10)].map(() => (
           <ReviewSkeleton key={uuidv4()} />
         ))}
@@ -41,9 +39,7 @@ const Reviews: React.FC<ReviewsProps> = ({
   }
 
   return (
-    <div
-      className={`flex flex-col items-center py-6 gap-6 lg:pt-0 lg:gap-8 ${classes}`}
-    >
+    <div className={`flex flex-col py-6 gap-6 lg:pt-0 md:gap-8 ${classes}`}>
       {data.map((review) => (
         <Reviewer key={review.user.user_id} review={review} />
       ))}

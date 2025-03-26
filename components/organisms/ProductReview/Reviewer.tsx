@@ -48,7 +48,7 @@ const Reviewer: React.FC<ReviewerProps> = ({ review }) => {
             />
             <ReviewDate
               date={created_at}
-              classes="font-normal text-xs text-neutral-600"
+              classes="font-normal text-nowrap text-xs text-neutral-600"
             />
           </div>
           <Rating score={rating} showScore={false} />

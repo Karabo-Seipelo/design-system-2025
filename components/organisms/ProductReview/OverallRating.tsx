@@ -71,12 +71,14 @@ const OverallRating: React.FC<OverallRatingProps> = ({
     [counts],
   );
   return (
-    <div className={`flex flex-col gap-4 ${classes}`}>
-      {title && (
-        <h4 className="font-semibold text-xl text-neutral-900">{title}</h4>
-      )}
-      <Rating classes="flex flex-row gap-4" score={rating} total={total} />
-      <div className="flex flex-col gap-y-4">
+    <div className={`flex flex-col gap-6 ${classes}`}>
+      <div className="flex flex-col gap-2">
+        {title && (
+          <h4 className="font-semibold text-xl text-neutral-900">{title}</h4>
+        )}
+        <Rating classes="flex flex-row gap-2" score={rating} total={total} />
+      </div>
+      <div className="flex flex-col gap-4 py-4">
         {sortedCounts.map((currentCount: Count) => {
           const percentageOfVotes = Math.round(
             (currentCount.count / total) * 100,
@@ -109,7 +111,7 @@ const OverallRating: React.FC<OverallRatingProps> = ({
           );
         })}
       </div>
-      <div className="flex flex-row gap-4 justify-center">
+      <div className="flex flex-row gap-6 justify-center">
         {filter && (
           <Button
             onClick={clearFilter}
