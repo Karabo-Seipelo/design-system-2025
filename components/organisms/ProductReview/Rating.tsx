@@ -10,7 +10,7 @@ export interface RatingProps {
 const Score = ({ score }: { score: number }) => {
   return (
     <div
-      className="items-center"
+      className="font-semibold text-base text-neutral-900"
       aria-label={`Rating score: ${score.toFixed(1)}`}
     >
       {score.toFixed(1)}
@@ -61,7 +61,9 @@ const Rating: React.FC<RatingProps> = ({
         })}
       </div>
       {total && total > 0 && (
-        <div className="text-sm">Based on {total} reviews</div>
+        <div className="font-normal text-sm text-neutral-600">
+          Based on {total} reviews
+        </div>
       )}
     </div>
   );

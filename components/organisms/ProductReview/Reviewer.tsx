@@ -54,7 +54,10 @@ const Reviewer: React.FC<ReviewerProps> = ({ review }) => {
           <Rating score={rating} showScore={false} />
         </div>
       </header>
-      <div className="w-full" dangerouslySetInnerHTML={{ __html: content }} />
+      <div
+        className="w-full font-normal text-base text-neutral-600"
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
     </div>
   );
 };
