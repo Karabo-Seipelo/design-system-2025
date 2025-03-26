@@ -42,9 +42,9 @@ const getRatingLabel = (rating: number): string => {
 const getRatingColor = (rating: number): string => {
   switch (rating) {
     case RatingType.Excellent:
-      return "bg-green-500";
+      return "bg-green-600";
     case RatingType.Good:
-      return "bg-green-400";
+      return "bg-green-500";
     case RatingType.Average:
       return "bg-yellow-400";
     case RatingType.BelowAverage:
@@ -68,7 +68,7 @@ const OverallRating: React.FC<OverallRatingProps> = ({
 }) => {
   const sortedCounts = useMemo(
     () => [...counts].sort((a, b) => b.rating - a.rating),
-    [counts],
+    [counts]
   );
   return (
     <div className={`flex flex-col gap-6 ${classes}`}>
@@ -81,7 +81,7 @@ const OverallRating: React.FC<OverallRatingProps> = ({
       <div className="flex flex-col gap-4 py-4">
         {sortedCounts.map((currentCount: Count) => {
           const percentageOfVotes = Math.round(
-            (currentCount.count / total) * 100,
+            (currentCount.count / total) * 100
           );
           return (
             <div
@@ -101,7 +101,7 @@ const OverallRating: React.FC<OverallRatingProps> = ({
               <div className="flex items-center gap-3 grow">
                 <div className="grow h-2 rounded-lg bg-gray-200 overflow-hidden">
                   <div
-                    className={`${getRatingColor(currentCount.rating)} h-full`}
+                    className={`${getRatingColor(currentCount.rating)} h-full rounded-lg`}
                     style={{ width: `${percentageOfVotes}%` }}
                   />
                 </div>
