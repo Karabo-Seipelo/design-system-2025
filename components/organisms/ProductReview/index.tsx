@@ -82,7 +82,7 @@ const ProductReview: React.FC<ProductReviewProps> = ({
               </Button>
             </header>
             <div className="max-h-[calc(100vh-160px)] overflow-y-auto">
-              <div className="h-[calc(100vh_-_232px)] flex flex-col gap-10 lg:flex-row lg:gap-8">
+              <div className="h-[calc(100vh-232px)] flex flex-col gap-10 lg:flex-row lg:gap-8">
                 <OverallRating
                   {...aggregate}
                   title={title}
