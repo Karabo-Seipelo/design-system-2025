@@ -68,7 +68,7 @@ const OverallRating: React.FC<OverallRatingProps> = ({
 }) => {
   const sortedCounts = useMemo(
     () => [...counts].sort((a, b) => b.rating - a.rating),
-    [counts]
+    [counts],
   );
   return (
     <div className={`flex flex-col gap-6 ${classes}`}>
@@ -81,7 +81,7 @@ const OverallRating: React.FC<OverallRatingProps> = ({
       <div className="flex flex-col gap-4 py-4">
         {sortedCounts.map((currentCount: Count) => {
           const percentageOfVotes = Math.round(
-            (currentCount.count / total) * 100
+            (currentCount.count / total) * 100,
           );
           return (
             <div
