@@ -4,6 +4,7 @@ export interface RatingProps {
   score: number;
   classes?: string;
   total?: number;
+  href?: string;
   showScore?: boolean;
 }
 
@@ -23,6 +24,7 @@ const Rating: React.FC<RatingProps> = ({
   total,
   classes,
   showScore = true,
+  href,
 }) => {
   const fullStars = Math.floor(score);
   const hasHalfStar = score % 1 !== 0;
@@ -61,8 +63,10 @@ const Rating: React.FC<RatingProps> = ({
         })}
       </div>
       {total && total > 0 && (
-        <div className="text-nowrap font-normal text-sm text-neutral-600">
-          Based on {total} reviews
+        <div
+          className={`text-nowrap leading-[1.8] font-normal text-sm ${href ? "text-indigo-600 cursor-auto" : "text-neutral-600"}`}
+        >
+          {href ? `See all ${total} reviews` : `Based on ${total} reviews`}
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Rating as RatingType } from "./fetchReviewFromAPI";
-import Rating from "./Rating";
+import Rating from "$/molecules/Rating";
 import ReviewDate from "./ReviewDate";
 import Image from "next/image";
 
