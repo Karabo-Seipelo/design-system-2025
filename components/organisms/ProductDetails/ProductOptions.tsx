@@ -36,7 +36,7 @@ const ProductOptions = () => {
       <div id="Quanity" className="flex flex-col gap-4">
         <span className="text-sm text-neutral-500">Quantity</span>
         <div className="flex flex-row gap-4">
-          <div className="flex flex-row w-[125px] justify-center items-center gap-3 bg-neutral-50 p-.05 rounded-md border border-solid border-neutral-200">
+          <div className="flex flex-row w-[125px] justify-center items-center gap-3 bg-neutral-50 p-0.5 rounded-md border border-solid border-neutral-200">
             <Button>
               <i className="ri-subtract-fill" />
             </Button>

@@ -62,7 +62,7 @@ export interface ProductDetails {
 const fetchProductDetailsAPI = async (
   productId: string,
 ): Promise<ProductDetails> => {
-  const url = ` https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}`;
+  const url = `https://www.greatfrontend.com/api/projects/challenges/e-commerce/products/${productId}`;
   const { data } = await axios.get<ProductDetails>(url);
   return data;
 };

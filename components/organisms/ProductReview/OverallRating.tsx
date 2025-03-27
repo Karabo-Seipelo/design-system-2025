@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Button } from "@headlessui/react";
-import Rating from "./Rating";
+import Rating from "$/molecules/Rating";
 import { Count } from "./useFetchReviewsStore";
 
 export interface OverallRatingProps {
