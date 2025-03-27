@@ -3,11 +3,15 @@ import Rating from "$/molecules/Rating";
 export interface ProductDetailsProps {
   name: string;
   description: string;
+  rating: number;
+  reviews: number;
 }
 
 const ProductDetail: React.FC<ProductDetailsProps> = ({
   name,
   description,
+  rating,
+  reviews,
 }) => {
   return (
     <div className="flex flex-col gap-5">
@@ -24,7 +28,12 @@ const ProductDetail: React.FC<ProductDetailsProps> = ({
             20% off
           </div>
         </div>
-        <Rating score={4.1} total={62} classes="flex flex-row gap-2" href="#" />
+        <Rating
+          score={rating}
+          total={reviews}
+          classes="flex flex-row gap-2"
+          href="#"
+        />
         <div dangerouslySetInnerHTML={{ __html: description }} />
       </div>
     </div>

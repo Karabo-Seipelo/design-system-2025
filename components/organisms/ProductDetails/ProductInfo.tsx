@@ -11,7 +11,6 @@ interface ProductInfoProps {
   info: Info[];
 }
 const ProductInfo: React.FC<ProductInfoProps> = ({ info }) => {
-  console.log(info);
   return (
     <div>
       {info?.map(({ title, description }) => {

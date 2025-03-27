@@ -24,7 +24,7 @@ export interface Info {
   description: string[];
 }
 
-interface Inventory {
+export interface Inventory {
   sku: string;
   color: string;
   size: string;
@@ -55,7 +55,7 @@ export interface ProductDetails {
   priceRange: PriceRange;
   rating: number;
   reviews: number;
-  sizes: string[];
+  sizes: number[];
   sold: number;
 }
 
