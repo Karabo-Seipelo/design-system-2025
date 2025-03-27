@@ -19,9 +19,9 @@ export interface Images {
   image_url: string;
 }
 
-interface Info {
+export interface Info {
   title: string;
-  description: string;
+  description: string[];
 }
 
 interface Inventory {
