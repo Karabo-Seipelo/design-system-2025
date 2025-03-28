@@ -1,10 +1,11 @@
 import React from "react";
 import "remixicon/fonts/remixicon.css";
 import { Button } from "@headlessui/react";
+import { ProductDetailsStore } from "./useProductStore";
 
 interface ProductQuantityProps {
   initialQuantity: number;
-  selected: (options: { quantity: number }) => void;
+  selected: (state: Partial<ProductDetailsStore>) => void;
   stock?: number;
   classes?: string;
 }
@@ -19,7 +20,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
   const handleQuantityChange = (value: number) => {
     if (value >= 0) {
       setQuantity(value);
-      selected({ quantity: value });
+      selected({ selectedQuantity: value });
     }
   };
 

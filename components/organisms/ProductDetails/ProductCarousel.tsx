@@ -1,22 +1,47 @@
+import { useState, useEffect } from "react";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Images as ProductImages } from "./fetchProductDetailsAPI";
 import { v4 as uuidv4 } from "uuid";
+import { ProductDetailsStore } from "./useProductStore";
 
 interface ProductCarouselProps {
   images: ProductImages[];
   loading: boolean;
+  color: string | null;
+  selected: (state: Partial<ProductDetailsStore>) => void;
 }
 
 const ProductCarousel: React.FC<ProductCarouselProps> = ({
   images,
   loading,
+  color,
+  selected,
 }) => {
+  const selectImageBasedOnColor =
+    images.findIndex((item) => item.color === color) ?? 0;
+  const [selectedIndex, setSelectIndex] = useState(selectImageBasedOnColor);
+
+  console.log({ color, selectImageBasedOnColor, selectedIndex });
+  useEffect(() => {
+    const selectImageBasedOnColor =
+      images.findIndex((item) => item.color === color) ?? 0;
+    setSelectIndex(selectImageBasedOnColor);
+  }, [color, images]);
+
   if (loading) {
     return <p>loading</p>;
   }
 
   return (
-    <TabGroup className="flex  flex-col gap-6">
+    <TabGroup
+      className="flex flex-col gap-6"
+      selectedIndex={selectedIndex}
+      onChange={(index) => {
+        const selectedColor = images[index].color;
+        setSelectIndex(index);
+        selected({ selectedColor });
+      }}
+    >
       <TabPanels>
         {images.map(({ image_url }) => (
           <TabPanel key={uuidv4()} className="min-h-[500px] w-full">
@@ -29,9 +54,9 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       </TabPanels>
       <div className="flex flex-1 py-5 overflow-y-auto p-1">
         <TabList className="flex flex-nowrap gap-4 h-[120px]">
-          {images.map(({ image_url }) => (
+          {images.map(({ image_url }, index) => (
             <Tab
-              key={uuidv4()}
+              key={index}
               className="w-20 h-[130px] data-[selected]:outline data-[selected]:outline-indigo-600 rounded-lg"
             >
               <div

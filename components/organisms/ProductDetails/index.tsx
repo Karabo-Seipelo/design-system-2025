@@ -1,5 +1,5 @@
-import React from "react";
-import useFetchProductDetails from "./useFetchProductDetails";
+import React, { useEffect } from "react";
+import useProductStore from "./useProductStore";
 import ProductCarousel from "./ProductCarousel";
 import ProductDetail from "./ProductDetail";
 import ProductOptions from "./ProductOptions";
@@ -11,8 +11,30 @@ export interface ProductDetailsProps {
 }
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
-  const { product, loading, error, selected, quantity } =
-    useFetchProductDetails(productId);
+  const {
+    product,
+    loading,
+    error,
+    selectedQuantity: quantity,
+    inventory,
+    updateState: selected,
+    fetchProductDetails,
+    selectedInventory,
+    selectedColor,
+    setColor,
+  } = useProductStore();
+
+  useEffect(() => {
+    const fetchProductData = async () => {
+      try {
+        await fetchProductDetails(productId);
+      } catch (err) {
+        console.error("Error fetching product details:", err);
+      }
+    };
+
+    fetchProductData();
+  }, [fetchProductDetails, productId]);
 
   return (
     <>
@@ -79,28 +101,36 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
         <div className="flex flex-col gap-10 p-4 lg:flex-row">
           <div className="flex flex-col gap-10 lg:w-[592px]">
             {product?.images && (
-              <ProductCarousel images={product?.images} loading={loading} />
+              <ProductCarousel
+                images={product?.images}
+                loading={loading}
+                color={selectedColor}
+                selected={selected}
+              />
             )}
           </div>
           <div className="flex flex-col gap-10">
             {product?.name &&
               product?.description &&
               product?.rating &&
-              product.reviews && (
+              product.reviews &&
+              selectedInventory && (
                 <ProductDetail
                   name={product?.name}
                   description={product.description}
                   rating={product.rating}
                   reviews={product.reviews}
+                  inventory={selectedInventory}
                 />
               )}
-            {product?.colors && product?.sizes && (
+            {product?.colors && product?.sizes && selectedInventory && (
               <ProductOptions
                 colors={product.colors}
                 sizes={product.sizes}
                 selected={selected}
                 quantity={quantity}
                 classes="flex flex-col gap-4"
+                inventory={selectedInventory}
               />
             )}
             <Button className="flex w-full justify-center items-center gap-1.5 self-stretch bg-indigo-700 px-5 py-3 rounded text-white">
@@ -108,6 +138,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
             </Button>
             {product?.info && <ProductInfo info={product.info} />}
           </div>
+          {console.log({ selectedInventory })}
         </div>
       )}
     </>

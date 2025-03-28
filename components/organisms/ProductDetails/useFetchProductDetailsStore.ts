@@ -21,6 +21,7 @@ interface ProductDetailsStore {
   }) => void;
   selectColor: (color: string) => void;
   selectSize: (size: number | string) => void;
+  updateState: (state: Partial<ProductDetailsStore>) => void;
 }
 
 const useFetchProductDetailsStore = create<ProductDetailsStore>((set) => ({
@@ -74,6 +75,12 @@ const useFetchProductDetailsStore = create<ProductDetailsStore>((set) => ({
   },
   selectInventory: (inventory: Inventory, color, size) => {
     set({ selectedInventory: inventory });
+  },
+  updateState: (state) => {
+    set((prevState) => ({
+      ...prevState,
+      ...state,
+    }));
   },
 }));
 

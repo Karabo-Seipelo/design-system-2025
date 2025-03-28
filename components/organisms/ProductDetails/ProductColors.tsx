@@ -1,25 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "@headlessui/react";
-import { Options } from "./useFetchProductDetails";
+import { ProductDetailsStore } from "./useProductStore";
 
 interface ProductColorsProps {
   colors: string[];
-  selected: (options: Options) => void;
+  selected: (state: Partial<ProductDetailsStore>) => void;
   classes?: string;
+  selectedColor: string | null;
 }
 
 const ProductColors: React.FC<ProductColorsProps> = ({
   colors,
   selected,
   classes = "",
+  selectedColor,
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const handleButtonClick = (color: string, index: number) => {
     setActiveIndex(index);
-    selected({ color });
+    selected({ selectedColor: color });
   };
+  const selectedColorIndex = colors.findIndex(
+    (color) => color === selectedColor,
+  );
+
+  useEffect(() => {
+    const selectedColorIndex = colors.findIndex(
+      (color) => color === selectedColor,
+    );
+    setActiveIndex(selectedColorIndex);
+  }, [colors, selectedColor]);
+
+  console.log({ selectedColorIndex, activeIndex });
 
   return (
     <>

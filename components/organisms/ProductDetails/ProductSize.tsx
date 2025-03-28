@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "@headlessui/react";
 import { Options } from "./useFetchProductDetails";
+import { ProductDetailsStore } from "./useProductStore";
 
 interface ProductSizeProps {
   sizes: number[];
-  selected: (options: Options) => void;
+  selected: (state: Partial<ProductDetailsStore>) => void;
   classes?: string;
 }
 
@@ -18,7 +19,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
 
   const handleButtonClick = (size: number, index: number) => {
     setActiveIndex(index);
-    selected({ size });
+    selected({ selectedSize: size });
   };
 
   return (
