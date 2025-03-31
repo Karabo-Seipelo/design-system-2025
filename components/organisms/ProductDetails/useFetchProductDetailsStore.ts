@@ -37,7 +37,7 @@ const useFetchProductDetailsStore = create<ProductDetailsStore>((set) => ({
       if (data.colors.length > 0) {
         const defaultColor = data.colors[0];
         const defaultSize = data.sizes[0];
-        console.log({ defaultColor, defaultSize });
+
         set({
           selectedColor: defaultColor,
           selectedSize: defaultSize,

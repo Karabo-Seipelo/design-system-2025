@@ -14,13 +14,43 @@ export interface ProductDetailsStore {
   selectedQuantity: number;
   inventory: Inventory[] | null;
   selectedInventory: Inventory | null;
+  unavailableSizes: Record<string, (string | number)[]>;
+  outOfStock: (string | number)[];
   setColor: (color: string) => void;
   setSize: (size: number | string) => void;
   setQuantity: (quantity: number) => void;
   fetchProductDetails: (productId: string) => Promise<void>;
-  getStock: (color: string | null, size: number | null) => Inventory | null;
+  getStock: (
+    color: string | null,
+    size: number | string | null,
+  ) => Inventory | null;
   updateState: (state: Partial<ProductDetailsStore>) => void;
 }
+
+const isColorUnavailable = (
+  color: string,
+  colorSizeMao: Record<string, (string | number)[]>,
+  productSizes: (string | number)[],
+) => {
+  const outOfStockSizes = colorSizeMao[color] || [];
+  return productSizes.every((size) => outOfStockSizes.includes(size));
+};
+
+const getOutOfStockColorSizeMap = (inventory: Inventory[]) => {
+  return inventory.reduce((acc: Record<string, (string | number)[]>, item) => {
+    const { color, size, stock } = item;
+
+    if (stock === 0 && size) {
+      if (!acc[color]) {
+        acc[color] = [];
+      }
+
+      acc[color].push(size);
+    }
+    console.log({ acc });
+    return acc;
+  }, {});
+};
 
 const useProductStore = create<ProductDetailsStore>((set, get) => ({
   product: null,
@@ -31,6 +61,8 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
   selectedQuantity: 1,
   inventory: null,
   selectedInventory: null,
+  unavailableSizes: {},
+  outOfStock: [],
   setColor: (color: string) => {
     set({ selectedColor: color });
   },
@@ -45,11 +77,17 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
       set({ product: data, loading: false });
       set({ inventory: data.inventory });
       // TODO: set the default selected color and size from the first inventory item
+      const unavailableSizes = getOutOfStockColorSizeMap(data.inventory);
+      const unavailableColors = Object.keys(unavailableSizes).filter((color) =>
+        isColorUnavailable(color, unavailableSizes, data.sizes),
+      );
       if (data.inventory.length > 0) {
         set({
           selectedColor: data.inventory[0].color,
           selectedSize: data.inventory[0].size,
           selectedInventory: data.inventory[0],
+          unavailableSizes: unavailableSizes,
+          outOfStock: unavailableColors,
         });
       }
     } catch (error) {
@@ -88,9 +126,6 @@ useProductStore.subscribe((state) => {
   const { getStock, selectedInventory } = useProductStore.getState();
 
   const inventory = getStock(selectedColor, selectedSize);
-  console.log("Selected Color:", selectedColor);
-  console.log("Selected Size:", selectedSize);
-  console.log("Selected Quantity:", state.selectedQuantity);
 
   if (inventory && selectedInventory !== inventory) {
     useProductStore.setState({

@@ -35,14 +35,6 @@ const useFetchProductDetail = (productId: string) => {
     }
   };
 
-  console.log({ selectedOptions });
-  /*
-  useEffect(() => {
-    selectOptions(selectedOptions);
-    console.log({ selectedOptions });
-  }, [selectOptions, selectedOptions]);
-  */
-
   useEffect(() => {
     let isMounted = true;
     const fetchProductData = async () => {

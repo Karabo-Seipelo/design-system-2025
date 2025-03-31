@@ -31,6 +31,8 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       selectedIndex={selectedIndex}
       onChange={(index) => {
         setSelectIndex(index);
+        const selectedImage = images[index];
+        selected({ selectedColor: selectedImage.color });
       }}
     >
       <TabPanels>

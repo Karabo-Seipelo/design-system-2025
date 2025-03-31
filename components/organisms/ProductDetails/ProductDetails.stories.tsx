@@ -23,6 +23,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    productId: "voyager-hoodie",
+    productId: "classic-canvas-tee", //"classic-canvas-tee", // "voyager-hoodie"
   },
 };

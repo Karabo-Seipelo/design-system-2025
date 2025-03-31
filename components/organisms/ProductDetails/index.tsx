@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useProductStore from "./useProductStore";
 import ProductCarousel from "$/molecules/ProductCarousel";
 import ProductDetail from "$/molecules/ProductDetail";
@@ -6,6 +6,7 @@ import ProductInfo from "$/molecules/ProductInfo";
 import ProductOptions from "$/organisms/ProductOptions";
 import { Button } from "@headlessui/react";
 import ProductDetailsSkeleton from "./ProductDetails.skeleton";
+import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 
 export interface ProductDetailsProps {
   productId: string;
@@ -22,6 +23,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
     fetchProductDetails,
     selectedInventory,
     selectedColor,
+    selectedSize,
+    unavailableSizes,
+    outOfStock,
   } = useProductStore();
 
   useEffect(() => {
@@ -35,10 +39,6 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
 
     fetchProductData();
   }, [fetchProductDetails, productId]);
-
-  useEffect(() => {
-    console.log("Selected Inventory:", selectedInventory);
-  }, [selectedInventory]);
 
   return (
     <>
@@ -78,11 +78,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
                 quantity={quantity}
                 classes="flex flex-col gap-4"
                 inventory={selectedInventory}
+                outOfStock={outOfStock}
+                unavailableSizes={unavailableSizes}
               />
             )}
-            <Button className="flex w-full justify-center items-center gap-1.5 self-stretch bg-indigo-700 px-5 py-3 rounded text-white">
-              Add to cart
-            </Button>
             {product?.info && <ProductInfo info={product.info} />}
           </div>
         </div>

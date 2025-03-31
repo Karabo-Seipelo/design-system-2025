@@ -28,5 +28,17 @@ export const Default: Story = {
       console.warn(state);
     },
     selectedColor: "green",
+    outOfStock: [],
+  },
+};
+
+export const OutOfStock: Story = {
+  args: {
+    colors: ["green", "brown"],
+    selected: (state) => {
+      console.warn(state);
+    },
+    selectedColor: "green",
+    outOfStock: ["brown"],
   },
 };
