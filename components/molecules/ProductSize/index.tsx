@@ -4,7 +4,7 @@ import { Button } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 
 interface ProductSizeProps {
-  sizes: number[];
+  sizes: number[] | string[];
   selected: (state: Partial<ProductDetailsStore>) => void;
   classes?: string;
 }
@@ -16,7 +16,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  const handleButtonClick = (size: number, index: number) => {
+  const handleButtonClick = (size: number | string | null, index: number) => {
     setActiveIndex(index);
     selected({ selectedSize: size });
   };

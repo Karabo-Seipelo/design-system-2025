@@ -3,7 +3,7 @@ import ProductDetail from ".";
 import Artboard from "$/atoms/Artboard/index";
 
 const meta = {
-  title: "E-commerce/ProductDetail",
+  title: "E-commerce/ProductDetails/ProductDetail",
   component: ProductDetail,
   tags: ["autodocs"],
   parameters: {

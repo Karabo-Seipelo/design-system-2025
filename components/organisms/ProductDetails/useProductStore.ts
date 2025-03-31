@@ -10,12 +10,12 @@ export interface ProductDetailsStore {
   loading: boolean;
   error: Error | null;
   selectedColor: string | null;
-  selectedSize: number | null;
+  selectedSize: number | string | null;
   selectedQuantity: number;
   inventory: Inventory[] | null;
   selectedInventory: Inventory | null;
   setColor: (color: string) => void;
-  setSize: (size: number) => void;
+  setSize: (size: number | string) => void;
   setQuantity: (quantity: number) => void;
   fetchProductDetails: (productId: string) => Promise<void>;
   getStock: (color: string | null, size: number | null) => Inventory | null;
@@ -34,7 +34,7 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
   setColor: (color: string) => {
     set({ selectedColor: color });
   },
-  setSize: (size: number) => {
+  setSize: (size: number | string) => {
     set({ selectedSize: size });
   },
   setQuantity: (quantity: number) => set({ selectedQuantity: quantity }),

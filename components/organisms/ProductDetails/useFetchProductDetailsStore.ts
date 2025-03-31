@@ -11,7 +11,7 @@ interface ProductDetailsStore {
   error: Error | null;
   selectedInventory: Inventory | null;
   selectedColor: string | undefined;
-  selectedSize: number | undefined;
+  selectedSize: number | string | undefined;
   selectedQuantity: number;
   fetchProductDetails: (productId: string) => Promise<void>;
   selectInventory: (inventory: Inventory, color: string, size?: string) => void;
