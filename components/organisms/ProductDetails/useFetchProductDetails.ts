@@ -16,7 +16,6 @@ const useFetchProductDetail = (productId: string) => {
     fetchProductDetails,
     selectedColor,
     selectedSize,
-    selectOptions,
   } = useFetchProductDetailsStore();
   const [error, setError] = useState(storeError);
   const [selectedOptions, setSelectedOptions] = useState<{
