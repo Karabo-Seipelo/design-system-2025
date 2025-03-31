@@ -42,7 +42,6 @@ const ProductColors: React.FC<ProductColorsProps> = ({
           <div className="flex gap-5">
             {colors.map((color, index) => {
               const isOutOfStock = outOfStock.includes(color);
-              const isDisabled = isOutOfStock || color === selectedColor;
 
               return (
                 <Button

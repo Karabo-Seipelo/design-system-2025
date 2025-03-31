@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Images as ProductImages } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 import { v4 as uuidv4 } from "uuid";
@@ -19,7 +19,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
 }) => {
   const selectImageBasedOnColor =
     images.findIndex((item) => item.color === color) ?? 0;
-  const [selectedIndex, setSelectIndex] = useState(selectImageBasedOnColor);
+  const [selectedIndex, setSelectedIndex] = useState(selectImageBasedOnColor);
 
   if (loading) {
     return <p>loading</p>;
@@ -30,7 +30,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       className="flex flex-col gap-6"
       selectedIndex={selectedIndex}
       onChange={(index) => {
-        setSelectIndex(index);
+        setSelectedIndex(index);
         const selectedImage = images[index];
         selected({ selectedColor: selectedImage.color });
       }}
@@ -49,7 +49,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
         <TabList className="flex flex-nowrap gap-4 h-[120px]">
           {images.map(({ image_url }, index) => (
             <Tab
-              key={index}
+              key={uuidv4()}
               className="w-20 h-[130px] data-[selected]:outline data-[selected]:outline-indigo-600 rounded-lg"
             >
               <div

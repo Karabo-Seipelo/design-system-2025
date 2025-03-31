@@ -28,13 +28,9 @@ const Price: React.FC<PriceProps> = ({
           </div>
         </>
       ) : (
-        <>
-          <div className="flex gap-2">
-            <span className="font-medium text-3xl text-neutral-600">
-              {price}
-            </span>
-          </div>
-        </>
+        <div className="flex gap-2">
+          <span className="font-medium text-3xl text-neutral-600">{price}</span>
+        </div>
       )}
     </>
   );

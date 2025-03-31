@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import useProductStore from "./useProductStore";
 import ProductCarousel from "$/molecules/ProductCarousel";
 import ProductDetail from "$/molecules/ProductDetail";
 import ProductInfo from "$/molecules/ProductInfo";
 import ProductOptions from "$/organisms/ProductOptions";
-import { Button } from "@headlessui/react";
 import ProductDetailsSkeleton from "./ProductDetails.skeleton";
-import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 
 export interface ProductDetailsProps {
   productId: string;
@@ -16,14 +14,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
   const {
     product,
     loading,
-    error,
     selectedQuantity: quantity,
-    inventory,
     updateState: selected,
     fetchProductDetails,
     selectedInventory,
     selectedColor,
-    selectedSize,
     unavailableSizes,
     outOfStock,
   } = useProductStore();

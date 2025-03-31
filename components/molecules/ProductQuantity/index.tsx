@@ -6,7 +6,6 @@ import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore"
 interface ProductQuantityProps {
   initialQuantity: number;
   selected: (state: Partial<ProductDetailsStore>) => void;
-  stock?: number;
   classes?: string;
 }
 
