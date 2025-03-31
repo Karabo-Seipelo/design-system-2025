@@ -1,10 +1,10 @@
 import React from "react";
 import "remixicon/fonts/remixicon.css";
-import ProductQuantity from "./ProductQuantity";
-import ProductSize from "./ProductSize";
-import ProductColors from "./ProductColors";
-import { ProductDetailsStore } from "./useProductStore";
-import { Inventory } from "./fetchProductDetailsAPI";
+import ProductQuantity from "$/molecules/ProductQuantity";
+import ProductSize from "$/molecules/ProductSize";
+import ProductColors from "$/molecules/ProductColors";
+import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
+import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 
 interface ProductOptionsProps {
   colors: string[];

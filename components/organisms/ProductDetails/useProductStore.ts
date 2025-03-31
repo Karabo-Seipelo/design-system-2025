@@ -18,7 +18,7 @@ export interface ProductDetailsStore {
   setSize: (size: number) => void;
   setQuantity: (quantity: number) => void;
   fetchProductDetails: (productId: string) => Promise<void>;
-  getStock: () => Inventory | null;
+  getStock: (color: string | null, size: number | null) => Inventory | null;
   updateState: (state: Partial<ProductDetailsStore>) => void;
 }
 
@@ -32,14 +32,10 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
   inventory: null,
   selectedInventory: null,
   setColor: (color: string) => {
-    const { getStock } = get();
     set({ selectedColor: color });
-    getStock();
   },
   setSize: (size: number) => {
-    const { getStock } = get();
     set({ selectedSize: size });
-    getStock();
   },
   setQuantity: (quantity: number) => set({ selectedQuantity: quantity }),
   fetchProductDetails: async (productId: string) => {
@@ -70,25 +66,37 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
       set({ loading: false });
     }
   },
-  getStock: () => {
-    const { selectedColor, selectedSize, inventory } = get();
+  getStock: (color, size) => {
+    const { inventory } = get();
     return (
       inventory?.find(
         (item) =>
-          item.color === selectedColor &&
-          (item.size === selectedSize || item.size === null),
+          item.color === color && (item.size === size || item.size === null),
       ) || null
     );
   },
   updateState: (state) => {
-    const { getStock } = get();
-
     set((prevState) => ({
       ...prevState,
       ...state,
-      selectedInventory: getStock(),
     }));
   },
 }));
+
+useProductStore.subscribe((state) => {
+  const { selectedColor, selectedSize } = state;
+  const { getStock, selectedInventory } = useProductStore.getState();
+
+  const inventory = getStock(selectedColor, selectedSize);
+  console.log("Selected Color:", selectedColor);
+  console.log("Selected Size:", selectedSize);
+  console.log("Selected Quantity:", state.selectedQuantity);
+
+  if (inventory && selectedInventory !== inventory) {
+    useProductStore.setState({
+      selectedInventory: inventory,
+    });
+  }
+});
 
 export default useProductStore;

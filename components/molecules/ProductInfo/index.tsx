@@ -1,4 +1,4 @@
-import { Info } from "./fetchProductDetailsAPI";
+import { Info } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 import {
   Disclosure,
   DisclosureButton,

@@ -23,6 +23,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    productId: "urban-drift-bucket-hat",
+    productId: "voyager-hoodie",
   },
 };

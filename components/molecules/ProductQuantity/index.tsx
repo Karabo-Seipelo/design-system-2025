@@ -1,7 +1,7 @@
 import React from "react";
 import "remixicon/fonts/remixicon.css";
 import { Button } from "@headlessui/react";
-import { ProductDetailsStore } from "./useProductStore";
+import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 
 interface ProductQuantityProps {
   initialQuantity: number;

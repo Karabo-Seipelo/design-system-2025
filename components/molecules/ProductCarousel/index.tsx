@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { Images as ProductImages } from "./fetchProductDetailsAPI";
+import { Images as ProductImages } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 import { v4 as uuidv4 } from "uuid";
-import { ProductDetailsStore } from "./useProductStore";
+import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 
 interface ProductCarouselProps {
   images: ProductImages[];
@@ -21,13 +21,6 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
     images.findIndex((item) => item.color === color) ?? 0;
   const [selectedIndex, setSelectIndex] = useState(selectImageBasedOnColor);
 
-  console.log({ color, selectImageBasedOnColor, selectedIndex });
-  useEffect(() => {
-    const selectImageBasedOnColor =
-      images.findIndex((item) => item.color === color) ?? 0;
-    setSelectIndex(selectImageBasedOnColor);
-  }, [color, images]);
-
   if (loading) {
     return <p>loading</p>;
   }
@@ -37,9 +30,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       className="flex flex-col gap-6"
       selectedIndex={selectedIndex}
       onChange={(index) => {
-        const selectedColor = images[index].color;
         setSelectIndex(index);
-        selected({ selectedColor });
       }}
     >
       <TabPanels>

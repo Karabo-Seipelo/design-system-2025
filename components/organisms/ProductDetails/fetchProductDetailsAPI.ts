@@ -27,10 +27,10 @@ export interface Info {
 export interface Inventory {
   sku: string;
   color: string;
-  size: number;
+  size: number | string;
   list_price: number;
   discount: number | null;
-  discount_percentage: number;
+  discount_percentage: number | null;
   sale_price: number;
   sold: number;
   stock: number;

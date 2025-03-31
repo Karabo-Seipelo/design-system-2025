@@ -62,11 +62,17 @@ const Rating: React.FC<RatingProps> = ({
           }
         })}
       </div>
-      {total && total > 0 && (
+      {total && total > 0 ? (
         <div
           className={`text-nowrap leading-[1.8] font-normal text-sm ${href ? "text-indigo-600 cursor-auto" : "text-neutral-600"}`}
         >
           {href ? `See all ${total} reviews` : `Based on ${total} reviews`}
+        </div>
+      ) : (
+        <div
+          className={`text-nowrap leading-[1.8] font-normal text-sm text-indigo-600 cursor-auto`}
+        >
+          <a href="">Be the first</a>
         </div>
       )}
     </div>

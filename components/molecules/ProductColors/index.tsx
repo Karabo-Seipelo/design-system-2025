@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
 import { v4 as uuidv4 } from "uuid";
 import { Button } from "@headlessui/react";
-import { ProductDetailsStore } from "./useProductStore";
+import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 
 interface ProductColorsProps {
   colors: string[];
@@ -17,23 +17,13 @@ const ProductColors: React.FC<ProductColorsProps> = ({
   classes = "",
   selectedColor,
 }) => {
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState<number>(() =>
+    colors.findIndex((color) => color === selectedColor),
+  );
   const handleButtonClick = (color: string, index: number) => {
     setActiveIndex(index);
     selected({ selectedColor: color });
   };
-  const selectedColorIndex = colors.findIndex(
-    (color) => color === selectedColor,
-  );
-
-  useEffect(() => {
-    const selectedColorIndex = colors.findIndex(
-      (color) => color === selectedColor,
-    );
-    setActiveIndex(selectedColorIndex);
-  }, [colors, selectedColor]);
-
-  console.log({ selectedColorIndex, activeIndex });
 
   return (
     <>
