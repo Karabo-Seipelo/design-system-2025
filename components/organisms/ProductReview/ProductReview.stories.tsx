@@ -3,7 +3,7 @@ import { useState } from "react";
 import ProductReview from ".";
 
 const meta = {
-  title: "E-commerce/ProductReview",
+  title: "E-commerce/ProductDetails/ProductReview",
   component: ProductReview,
   tags: ["autodocs"],
   parameters: {
