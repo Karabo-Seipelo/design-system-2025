@@ -53,7 +53,6 @@ const ProductSize: React.FC<ProductSizeProps> = ({
                 >
                   <label
                     className={`w-16 flex justify-center items-center gap-1.5 px-5 py-3 rounded border border-solid uppercase hover:bg-neutral-50 focus:bg-neutral-200 disabled:bg-neutral-100 disabled:text-neutral-400 ${activeIndex === index && !isOutOfStock ? "border-indigo-600" : "border-neutral-200"}`}
-                    role="button"
                     aria-label={`Select size ${size}`}
                     htmlFor={String(size)}
                   >
