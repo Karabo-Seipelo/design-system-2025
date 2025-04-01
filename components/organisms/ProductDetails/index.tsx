@@ -15,7 +15,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
     product,
     loading,
     selectedQuantity: quantity,
-    updateState: selected,
+    updateState: updateProductState,
     fetchProductDetails,
     selectedInventory,
     selectedColor,
@@ -47,7 +47,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
                 images={product?.images}
                 loading={loading}
                 color={selectedColor}
-                selected={selected}
+                selected={updateProductState}
               />
             )}
           </div>
@@ -69,7 +69,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
               <ProductOptions
                 colors={product.colors}
                 sizes={product.sizes}
-                selected={selected}
+                selected={updateProductState}
                 quantity={quantity}
                 classes="flex flex-col gap-4"
                 inventory={selectedInventory}
