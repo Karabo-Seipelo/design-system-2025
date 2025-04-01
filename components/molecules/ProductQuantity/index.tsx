@@ -4,6 +4,7 @@ import { Button, Input } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 
 interface ProductQuantityProps {
+  name: string;
   initialQuantity: number;
   selected: (state: Partial<ProductDetailsStore>) => void;
   stock: number;
@@ -28,6 +29,7 @@ const Tooltip: React.FC<TooltipProps> = ({ content }) => {
 };
 
 const ProductQuantity: React.FC<ProductQuantityProps> = ({
+  name,
   initialQuantity,
   selected,
   classes = "",
@@ -43,8 +45,12 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
   };
 
   return (
-    <div id="Quantity" className={`${classes} flex flex-col gap-2`}>
-      <span className="text-sm text-neutral-500">Quantity</span>
+    <fieldset id="Quantity" className={`${classes} flex flex-col gap-4`}>
+      <div>
+        <legend className="flex flex-row text-sm text-neutral-500">
+          Quantity
+        </legend>
+      </div>
       <div className="flex flex-row w-[125px] justify-center items-center gap-3 bg-neutral-50 p-0.5 rounded-md border border-solid border-neutral-200">
         <Button
           disabled={outOfStock}
@@ -56,6 +62,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
         </Button>
         <div>
           <Input
+            name={name}
             type="number"
             value={quantity}
             className={`w-full bg-transparent text-center ${outOfStock ? "text-neutral-300" : ""}`}
@@ -75,7 +82,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
           {quantity >= stock && <Tooltip content="Insufficient stock" />}
         </Button>
       </div>
-    </div>
+    </fieldset>
   );
 };
 

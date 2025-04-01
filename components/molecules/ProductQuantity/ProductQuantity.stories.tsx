@@ -23,6 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    name: "Quantity",
     initialQuantity: 1,
     selected: (state) => {
       console.log(state);
@@ -34,6 +35,7 @@ export const Default: Story = {
 
 export const OutOfStock: Story = {
   args: {
+    name: "Quantity",
     initialQuantity: 1,
     selected: (state) => {
       console.log(state);

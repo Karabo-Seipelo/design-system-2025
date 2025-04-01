@@ -40,6 +40,7 @@ const inventory = {
 
 export const Default: Story = {
   args: {
+    name: "Size",
     sizes,
     selected: (state) => {
       console.log(state);
@@ -53,6 +54,7 @@ export const Default: Story = {
 
 export const Numbers: Story = {
   args: {
+    name: "Size",
     sizes: sizesNumbers,
     selected: (state) => {
       console.log(state);
@@ -66,6 +68,7 @@ export const Numbers: Story = {
 
 export const OutOfStock: Story = {
   args: {
+    name: "Size",
     sizes: sizesNumbers,
     selected: (state) => {
       console.log(state);

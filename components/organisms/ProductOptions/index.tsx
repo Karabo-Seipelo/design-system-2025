@@ -29,9 +29,19 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
   unavailableSizes,
 }) => {
   const disabled = outOfStock.includes(inventory.color);
+  const handleAddCart = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    console.log("Adding to cart:", { data });
+    console.log("Selected inventory:", inventory);
+  };
+
   return (
-    <div className={classes}>
+    <form className={classes} onSubmit={handleAddCart}>
       <ProductColors
+        name="color"
         colors={colors}
         selected={selected}
         classes="flex flex-col gap-4"
@@ -39,6 +49,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
         outOfStock={outOfStock}
       />
       <ProductSize
+        name="size"
         sizes={sizes}
         selected={selected}
         classes="flex flex-col gap-4"
@@ -47,6 +58,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
         unavailableSizes={unavailableSizes}
       />
       <ProductQuantity
+        name="quantity"
         classes="flex flex-col gap-4"
         initialQuantity={quantity}
         selected={selected}
@@ -60,12 +72,13 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
         </div>
       )}
       <Button
+        type="submit"
         disabled={disabled}
         className="flex w-full justify-center items-center gap-1.5 self-stretch bg-indigo-700 hover:bg-indigo-800 focus:bg-indigo-800 disabled:bg-neutral-100 disabled:text-neutral-400 px-5 py-3 rounded text-white"
       >
         Add to cart
       </Button>
-    </div>
+    </form>
   );
 };
 
