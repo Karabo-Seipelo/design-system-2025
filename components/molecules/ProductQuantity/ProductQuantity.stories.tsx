@@ -28,5 +28,17 @@ export const Default: Story = {
       console.log(state);
     },
     stock: 10,
+    outOfStock: false,
+  },
+};
+
+export const OutOfStock: Story = {
+  args: {
+    initialQuantity: 1,
+    selected: (state) => {
+      console.log(state);
+    },
+    stock: 10,
+    outOfStock: true,
   },
 };

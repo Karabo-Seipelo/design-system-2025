@@ -76,7 +76,7 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
       const data = await fetchProductDetailsFromAPI(productId);
       set({ product: data, loading: false });
       set({ inventory: data.inventory });
-      // TODO: set the default selected color and size from the first inventory item
+
       const unavailableSizes = getOutOfStockColorSizeMap(data.inventory);
       const unavailableColors = Object.keys(unavailableSizes).filter((color) =>
         isColorUnavailable(color, unavailableSizes, data.sizes),

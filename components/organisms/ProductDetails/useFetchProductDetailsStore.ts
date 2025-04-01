@@ -15,10 +15,7 @@ interface ProductDetailsStore {
   selectedQuantity: number;
   fetchProductDetails: (productId: string) => Promise<void>;
   selectInventory: (inventory: Inventory, color: string, size?: string) => void;
-  selectOptions: (options: {
-    color?: string | undefined;
-    size?: number | undefined;
-  }) => void;
+  selectOptions: (options: { color?: string; size?: number }) => void;
   selectColor: (color: string) => void;
   selectSize: (size: number | string) => void;
   updateState: (state: Partial<ProductDetailsStore>) => void;
@@ -33,7 +30,7 @@ const useFetchProductDetailsStore = create<ProductDetailsStore>((set) => ({
       set({ loading: true });
       const data = await fetchProductDetailsFromAPI(productId);
       set({ product: data, loading: false });
-      // set the default selected color and size
+
       if (data.colors.length > 0) {
         const defaultColor = data.colors[0];
         const defaultSize = data.sizes[0];

@@ -1,8 +1,7 @@
 import React from "react";
 import "remixicon/fonts/remixicon.css";
-import { Button } from "@headlessui/react";
+import { Button, Input } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
-import { Input } from "@headlessui/react";
 
 interface ProductQuantityProps {
   initialQuantity: number;
@@ -71,7 +70,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
           onClick={() => handleQuantityChange(quantity + 1)}
         >
           <i
-            className={`ri-add-line ${quantity >= stock ? "text-neutral-300" : ""}`}
+            className={`ri-add-line ${quantity >= stock || outOfStock ? "text-neutral-300" : ""}`}
           />
           {quantity >= stock && <Tooltip content="Insufficient stock" />}
         </Button>
