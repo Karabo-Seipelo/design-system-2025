@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Input } from "@headlessui/react";
+import { Input, Button } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 
@@ -47,7 +47,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
                   unavailableSizes[inventory.color]?.includes(size));
 
               return (
-                <div
+                <Button
                   key={uuidv4()}
                   onClick={() => handleButtonClick(size, index)}
                 >
@@ -69,7 +69,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
                     )}
                     {size}
                   </label>
-                </div>
+                </Button>
               );
             })}
           </div>

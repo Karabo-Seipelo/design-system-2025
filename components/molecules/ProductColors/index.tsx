@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
 import { v4 as uuidv4 } from "uuid";
-import { Input } from "@headlessui/react";
+import { Input, Button } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 
 interface ProductColorsProps {
@@ -53,7 +53,7 @@ const ProductColors: React.FC<ProductColorsProps> = ({
               const isOutOfStock = outOfStock.includes(color);
 
               return (
-                <div
+                <Button
                   key={uuidv4()}
                   onClick={() => handleButtonClick(color, index)}
                 >
@@ -77,7 +77,7 @@ const ProductColors: React.FC<ProductColorsProps> = ({
                       className="hidden"
                     />
                   </label>
-                </div>
+                </Button>
               );
             })}
           </div>
