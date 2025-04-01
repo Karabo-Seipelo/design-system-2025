@@ -50,7 +50,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
       </TabPanels>
       <div className="flex flex-1 py-5 overflow-y-auto p-1">
         <TabList className="flex flex-nowrap gap-4 h-[120px]">
-          {images.map(({ image_url }, index) => (
+          {images.map(({ image_url }) => (
             <Tab
               key={uuidv4()}
               className="w-20 h-[130px] data-[selected]:outline data-[selected]:outline-indigo-600 rounded-lg"

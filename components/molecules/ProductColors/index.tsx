@@ -58,7 +58,7 @@ const ProductColors: React.FC<ProductColorsProps> = ({
                   onClick={() => handleButtonClick(color, index)}
                 >
                   <label
-                    className={`relative flex rounded-full w-[40px] h-[40px] items-center justify-center outline outline-offset-1  ${activeIndex === index ? "outline-indigo-600" : "outline-neutral-200"} `}
+                    className={`relative flex rounded-full w-[40px] h-[40px] items-center justify-center outline outline-offset-1 cursor-pointer ${activeIndex === index ? "outline-indigo-600" : "outline-neutral-200"} `}
                     style={{ backgroundColor: color }}
                     aria-label={`Select color ${color}`}
                   >

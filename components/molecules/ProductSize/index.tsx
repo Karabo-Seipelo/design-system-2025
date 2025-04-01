@@ -42,9 +42,8 @@ const ProductSize: React.FC<ProductSizeProps> = ({
           <div className="flex flex-row gap-4 flex-wrap">
             {sizes?.map((size, index) => {
               const isOutOfStock =
-                outOfStock.includes(inventory.color) ||
-                (Object.keys(unavailableSizes).includes(inventory.color) &&
-                  unavailableSizes[inventory.color]?.includes(size));
+                unavailableSizes[inventory.color]?.includes(size) ||
+                outOfStock.includes(size);
 
               return (
                 <Button
@@ -52,7 +51,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
                   onClick={() => handleButtonClick(size, index)}
                 >
                   <label
-                    className={`w-16 flex justify-center items-center gap-1.5 px-5 py-3 rounded border border-solid uppercase hover:bg-neutral-50 focus:bg-neutral-200 disabled:bg-neutral-100 disabled:text-neutral-400 ${activeIndex === index && !isOutOfStock ? "border-indigo-600" : "border-neutral-200"}`}
+                    className={`w-16 flex justify-center items-center gap-1.5 px-5 py-3 rounded border border-solid uppercase hover:bg-neutral-50 focus:bg-neutral-200 cursor-pointer ${isOutOfStock ? `bg-neutral-100 text-neutral-400 cursor-not-allowed` : ""} ${activeIndex === index && !isOutOfStock ? "border-indigo-600" : "border-neutral-200"}`}
                     aria-label={`Select size ${size}`}
                     htmlFor={String(size)}
                   >
