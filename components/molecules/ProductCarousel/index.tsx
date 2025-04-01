@@ -17,9 +17,12 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
   color,
   selected,
 }) => {
-  const selectImageBasedOnColor =
-    images.findIndex((item) => item.color === color) ?? 0;
-  const [selectedIndex, setSelectedIndex] = useState(selectImageBasedOnColor);
+  const selectImageBasedOnColor = images.findIndex(
+    (item) => item.color === color,
+  );
+  const validIndex =
+    selectImageBasedOnColor !== -1 ? selectImageBasedOnColor : 0;
+  const [selectedIndex, setSelectedIndex] = useState(validIndex);
 
   if (loading) {
     return <p>loading</p>;

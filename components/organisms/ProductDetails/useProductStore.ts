@@ -29,10 +29,10 @@ export interface ProductDetailsStore {
 
 const isColorUnavailable = (
   color: string,
-  colorSizeMao: Record<string, (string | number)[]>,
+  colorSizeMap: Record<string, (string | number)[]>,
   productSizes: (string | number)[],
 ) => {
-  const outOfStockSizes = colorSizeMao[color] || [];
+  const outOfStockSizes = colorSizeMap[color] || [];
   return productSizes.every((size) => outOfStockSizes.includes(size));
 };
 
