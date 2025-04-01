@@ -11,7 +11,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Artboard>
+      <Artboard classes="rounded-lg">
         <Story />
       </Artboard>
     ),

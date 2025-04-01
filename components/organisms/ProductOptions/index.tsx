@@ -74,7 +74,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
       <Button
         type="submit"
         disabled={disabled}
-        className={`flex w-full justify-center items-center gap-1.5 self-stretch bg-indigo-700 hover:bg-indigo-800 focus:bg-indigo-800 disabled:bg-neutral-100 disabled:text-neutral-400 px-5 py-3 rounded text-white ${disabled ? "cursor-not-allowed" : ""}`}
+        className={`flex w-full justify-center items-center gap-1.5 self-stretch bg-indigo-700 hover:bg-indigo-800 focus:bg-indigo-800 disabled:bg-neutral-100 disabled:text-neutral-400 text-nowrap h-15 px-6 py-4 text-lg text-white  gap-x-3 rounded ${disabled ? "cursor-not-allowed" : ""}`}
       >
         Add to cart
       </Button>
