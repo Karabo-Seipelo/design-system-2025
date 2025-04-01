@@ -55,6 +55,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
         <Button
           disabled={outOfStock}
           onClick={() => handleQuantityChange(quantity - 1)}
+          className="relative group disabled:cursor-not-allowed"
         >
           <i
             className={`ri-subtract-fill ${outOfStock ? "text-neutral-300" : ""}`}
@@ -65,7 +66,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
             name={name}
             type="number"
             value={quantity}
-            className={`w-full bg-transparent text-center ${outOfStock ? "text-neutral-300" : ""}`}
+            className={`w-full bg-transparent text-center ${outOfStock ? "text-neutral-300 cursor-not-allowed" : ""}`}
             min={`${initialQuantity}`}
             max={`${stock}`}
             onChange={(e) => handleQuantityChange(Number(e.target.value))}
@@ -77,7 +78,7 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
           onClick={() => handleQuantityChange(quantity + 1)}
         >
           <i
-            className={`ri-add-line ${quantity >= stock || outOfStock ? "text-neutral-300" : ""}`}
+            className={`ri-add-line ${quantity >= stock || outOfStock ? "text-neutral-300 " : ""}`}
           />
           {quantity >= stock && <Tooltip content="Insufficient stock" />}
         </Button>
