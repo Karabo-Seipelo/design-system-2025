@@ -8,6 +8,8 @@ export interface ProductDetailsProps {
   rating: number;
   reviews: number;
   inventory: Inventory;
+  locale: string;
+  currency: string;
 }
 
 const ProductDetail: React.FC<ProductDetailsProps> = ({
@@ -16,15 +18,17 @@ const ProductDetail: React.FC<ProductDetailsProps> = ({
   rating,
   reviews,
   inventory,
+  locale,
+  currency,
 }) => {
   const { list_price, sale_price, discount_percentage } = inventory;
-  const price = new Intl.NumberFormat("en-US", {
+  const price = new Intl.NumberFormat(locale, {
     style: "currency",
-    currency: "USD",
+    currency: currency,
   }).format(list_price);
-  const salePrice = new Intl.NumberFormat("en-US", {
+  const salePrice = new Intl.NumberFormat(locale, {
     style: "currency",
-    currency: "USD",
+    currency: currency,
   }).format(sale_price);
   return (
     <div className="flex flex-col gap-5">

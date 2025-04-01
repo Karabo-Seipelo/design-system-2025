@@ -8,9 +8,15 @@ import ProductDetailsSkeleton from "./ProductDetails.skeleton";
 
 export interface ProductDetailsProps {
   productId: string;
+  locale: string;
+  currency: string;
 }
 
-const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
+const ProductDetails: React.FC<ProductDetailsProps> = ({
+  productId,
+  locale,
+  currency,
+}) => {
   const {
     product,
     loading,
@@ -63,6 +69,8 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({ productId }) => {
                   rating={product.rating}
                   reviews={product.reviews}
                   inventory={selectedInventory}
+                  locale={locale}
+                  currency={currency}
                 />
               )}
             {product?.colors && product?.sizes && selectedInventory && (
