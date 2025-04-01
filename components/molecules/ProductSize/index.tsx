@@ -47,26 +47,29 @@ const ProductSize: React.FC<ProductSizeProps> = ({
                   unavailableSizes[inventory.color]?.includes(size));
 
               return (
-                <label
+                <div
                   key={uuidv4()}
-                  className={`w-16 flex justify-center items-center gap-1.5 px-5 py-3 rounded border border-solid uppercase hover:bg-neutral-50 focus:bg-neutral-200 disabled:bg-neutral-100 disabled:text-neutral-400 ${activeIndex === index && !isOutOfStock ? "border-indigo-600" : "border-neutral-200"}`}
                   onClick={() => handleButtonClick(size, index)}
-                  htmlFor={String(size)}
-                  role="button"
-                  aria-label={`Select size ${size}`}
                 >
-                  {size && (
-                    <Input
-                      type="radio"
-                      id={String(size)}
-                      name={name}
-                      value={String(size)}
-                      defaultChecked={activeIndex === index}
-                      className="hidden"
-                    />
-                  )}
-                  {size}
-                </label>
+                  <label
+                    className={`w-16 flex justify-center items-center gap-1.5 px-5 py-3 rounded border border-solid uppercase hover:bg-neutral-50 focus:bg-neutral-200 disabled:bg-neutral-100 disabled:text-neutral-400 ${activeIndex === index && !isOutOfStock ? "border-indigo-600" : "border-neutral-200"}`}
+                    role="button"
+                    aria-label={`Select size ${size}`}
+                    htmlFor={String(size)}
+                  >
+                    {size && (
+                      <Input
+                        type="radio"
+                        id={String(size)}
+                        name={name}
+                        value={String(size)}
+                        defaultChecked={activeIndex === index}
+                        className="hidden"
+                      />
+                    )}
+                    {size}
+                  </label>
+                </div>
               );
             })}
           </div>
