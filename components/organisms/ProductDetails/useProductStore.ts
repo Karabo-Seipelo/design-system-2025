@@ -47,7 +47,6 @@ const getOutOfStockColorSizeMap = (inventory: Inventory[]) => {
 
       acc[color].push(size);
     }
-    console.log({ acc });
     return acc;
   }, {});
 };
