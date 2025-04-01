@@ -70,9 +70,12 @@ const Rating: React.FC<RatingProps> = ({
         </div>
       ) : (
         <div
-          className={`text-nowrap leading-[1.8] font-normal text-sm text-indigo-600 cursor-auto`}
+          className={`text-nowrap leading-[1.8] font-normal text-neutral-900 text-sm cursor-auto`}
         >
-          <a href="">Be the first</a>
+          No reviews yet.{" "}
+          <a href="" className="text-indigo-600 ">
+            Be the first
+          </a>
         </div>
       )}
     </div>
