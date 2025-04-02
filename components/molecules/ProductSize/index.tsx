@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 import Size from "$/atoms/Sizes";
@@ -47,7 +46,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
 
               return (
                 <Size
-                  key={uuidv4()}
+                  key={`${size}-${index}`}
                   name={name}
                   size={size}
                   onClick={() => handleButtonClick(size, index)}

@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 const ProductDetailsSkeleton = () => (
   <div className="flex flex-col gap-10 p-4 lg:flex-row">
     <div className="flex flex-col gap-10 lg:w-[592px]">
@@ -8,7 +7,7 @@ const ProductDetailsSkeleton = () => (
           <div className="flex flex-nowrap gap-4 h-[120px]">
             {Array.from({ length: 7 }).map((_, index) => (
               <div
-                key={uuidv4()}
+                key={`${index}-skeletom`}
                 className="w-20 h-[130px] bg-slate-100 rounded-lg"
               />
             ))}
@@ -41,7 +40,7 @@ const ProductDetailsSkeleton = () => (
         <div className="flex gap-2">
           {Array.from({ length: 3 }).map((_, index) => (
             <span
-              key={uuidv4()}
+              key={`${index}-skeleton-1`}
               className="w-16 h-14 flex justify-center items-center gap-1.5 px-5 py-3 rounded bg-slate-100"
             />
           ))}

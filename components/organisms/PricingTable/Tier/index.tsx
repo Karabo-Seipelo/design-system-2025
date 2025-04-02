@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import { v4 as uuidv4 } from "uuid";
 
 export type Button = {
   label: string;
@@ -137,10 +136,10 @@ const Pricing = ({ title, subTitle, description, tiers }: PricingProps) => {
         </section>
         <TabGroup className="flex flex-col gap-5 lg:gap-10">
           <TabList className="flex flex-row items-center gap-4 self-stretch outline-none w-full md:w-[280px] md:m-auto">
-            {tiers?.map((tier) => {
+            {tiers?.map((tier, index) => {
               return (
                 <Tab
-                  key={uuidv4()}
+                  key={`${tier.subscription}-${index}`}
                   className="justify-center items-center gap-1.5 grow px-4 py-2.5 rounded border-solid border-neutral-200 bg-white data-[selected]:border-[0.5px]"
                 >
                   {tier.subscription}
@@ -156,7 +155,9 @@ const Pricing = ({ title, subTitle, description, tiers }: PricingProps) => {
                   className="flex flex-col w-full lg:flex-row gap-y-8 lg:gap-x-8 mt-12"
                 >
                   {tier.prices.map((price) => {
-                    return <PriceTable key={uuidv4()} {...price} />;
+                    return (
+                      <PriceTable key={`${price.price}-${index}`} {...price} />
+                    );
                   })}
                 </TabPanel>
               );

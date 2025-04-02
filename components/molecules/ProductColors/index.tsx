@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
-import { v4 as uuidv4 } from "uuid";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import ColorSwatch from "$/atoms/ColorSwatch";
 
@@ -53,7 +52,7 @@ const ProductColors: React.FC<ProductColorsProps> = ({
               const isOutOfStock = outOfStock.includes(color);
               return (
                 <ColorSwatch
-                  key={uuidv4()}
+                  key={`${color}-${index}`}
                   name={name}
                   color={color}
                   active={activeIndex === index}

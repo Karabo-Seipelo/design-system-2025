@@ -3,7 +3,6 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { v4 as uuidv4 } from "uuid";
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
 
 export type Article = {
@@ -46,7 +45,7 @@ const Faq = ({ title, subTitle, articles, contactDetails }: FAQProps) => {
           const showDevider = index !== articles.length - 1;
           return (
             <Disclosure
-              key={uuidv4()}
+              key={`${title}-${index}`}
               as="div"
               defaultOpen={true}
               className="flex flex-col gap-4 rounded-xl"

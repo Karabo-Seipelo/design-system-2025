@@ -1,6 +1,5 @@
 import { useMemo } from "react";
 import "remixicon/fonts/remixicon.css";
-import { v4 as uuidv4 } from "uuid";
 
 interface StarsProps {
   score: number;
@@ -16,7 +15,7 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
         if (index < fullStars) {
           return (
             <i
-              key={`star-${uuidv4()}`}
+              key={`star-${index}`}
               className="ri-star-fill text-yellow-400"
               aria-hidden="true"
             />
@@ -24,7 +23,7 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
         } else if (index === fullStars && hasHalfStar) {
           return (
             <i
-              key={`star-${uuidv4()}`}
+              key={`star-${index}`}
               className="ri-star-half-fill text-yellow-400"
               aria-hidden="true"
             />
@@ -32,7 +31,7 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
         } else {
           return (
             <i
-              key={`star-${uuidv4()}`}
+              key={`star-${index}`}
               className="ri-star-fill text-slate-300"
               aria-hidden="true"
             />

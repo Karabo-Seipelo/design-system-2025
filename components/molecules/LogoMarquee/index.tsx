@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import Image from "next/image";
 
 type Logos = {
@@ -23,9 +22,9 @@ const LogoMarquee = ({ logos, title, classes = "" }: LogoMarqueeProps) => {
         </h3>
       )}
       <div className="flex flex-1 flex-row gap-8 scroll-auto animate-marquee">
-        {[...logos, ...logos].map(({ imageUrl, alt }) => (
+        {[...logos, ...logos].map(({ imageUrl, alt }, index) => (
           <Image
-            key={uuidv4()}
+            key={`${alt}-${index}`}
             src={imageUrl}
             alt={alt}
             height={0}

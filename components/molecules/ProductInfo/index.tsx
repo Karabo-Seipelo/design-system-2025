@@ -4,7 +4,6 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { v4 as uuidv4 } from "uuid";
 import "remixicon/fonts/remixicon.css";
 
 interface ProductInfoProps {
@@ -13,10 +12,10 @@ interface ProductInfoProps {
 const ProductInfo: React.FC<ProductInfoProps> = ({ info }) => {
   return (
     <div>
-      {info?.map(({ title, description }) => {
+      {info?.map(({ title, description }, index) => {
         return (
           <Disclosure
-            key={uuidv4()}
+            key={`${title}-${index}`}
             as="div"
             defaultOpen={false}
             className="flex flex-col gap-4 border-solid border-b border-neutral-200 py-6 last:border-transparent"
@@ -33,9 +32,9 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ info }) => {
                 </DisclosureButton>
                 <DisclosurePanel className="flex flex-col gap-4 px-5">
                   <ul className="list-disc text-neutral-600">
-                    {description.map((desc) => (
+                    {description.map((desc, index) => (
                       <li
-                        key={uuidv4()}
+                        key={`${desc}-${index}`}
                         dangerouslySetInnerHTML={{ __html: desc }}
                       />
                     ))}

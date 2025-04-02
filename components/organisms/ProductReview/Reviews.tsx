@@ -3,7 +3,6 @@ import NoReviews from "./NoReviews";
 import { Rating, Pagination } from "./fetchReviewFromAPI";
 import { Button } from "@headlessui/react";
 import ReviewSkeleton from "./ReviewSkeleton";
-import { v4 as uuidv4 } from "uuid";
 
 interface ReviewsProps {
   data: Rating[];
@@ -31,8 +30,8 @@ const Reviews: React.FC<ReviewsProps> = ({
   if (loading) {
     return (
       <div className={`flex flex-col py-6 gap-6 lg:pt-0 mg:gap-8 ${classes}`}>
-        {[...Array(10)].map(() => (
-          <ReviewSkeleton key={uuidv4()} />
+        {[...Array(10)].map((index) => (
+          <ReviewSkeleton key={`${index}-skeleton-2`} />
         ))}
       </div>
     );
