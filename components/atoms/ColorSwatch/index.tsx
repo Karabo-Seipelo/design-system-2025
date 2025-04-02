@@ -44,7 +44,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
       <label
         className={`flex relative rounded-full w-[40px] h-[40px] items-center justify-center`}
         aria-label={ariaLabel ?? `Select color ${color}`}
-        htmlFor="color-swatch"
+        htmlFor={color}
       >
         {isOutOfStock && (
           <div className="w-[125%] h-[1px] bg-neutral-600 -rotate-45 absolute" />
