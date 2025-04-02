@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { Input, Button } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
+import Size from "$/atoms/Size";
 
 interface ProductSizeProps {
   name: string;
@@ -46,28 +45,15 @@ const ProductSize: React.FC<ProductSizeProps> = ({
                 outOfStock.includes(size);
 
               return (
-                <Button
-                  key={uuidv4()}
+                <Size
+                  key={`${size}-${index}`}
+                  name={name}
+                  size={size}
                   onClick={() => handleButtonClick(size, index)}
-                >
-                  <label
-                    className={`w-16 flex justify-center items-center gap-1.5 px-5 py-3 rounded border border-solid uppercase hover:bg-neutral-50 focus:bg-neutral-200 cursor-pointer ${isOutOfStock ? `bg-neutral-100 text-neutral-400 cursor-not-allowed` : ""} ${activeIndex === index && !isOutOfStock ? "border-indigo-600" : "border-neutral-200"}`}
-                    aria-label={`Select size ${size}`}
-                    htmlFor={String(size)}
-                  >
-                    {size && (
-                      <Input
-                        type="radio"
-                        id={String(size)}
-                        name={name}
-                        value={String(size)}
-                        defaultChecked={activeIndex === index}
-                        className="hidden"
-                      />
-                    )}
-                    {size}
-                  </label>
-                </Button>
+                  ariaLabel={`Select size ${size}`}
+                  active={activeIndex === index}
+                  isOutOfStock={isOutOfStock}
+                />
               );
             })}
           </div>

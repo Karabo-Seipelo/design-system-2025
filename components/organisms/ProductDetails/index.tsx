@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useState, useEffect, useMemo } from "react";
 import useProductStore from "./useProductStore";
 import ProductCarousel from "$/molecules/ProductCarousel";
 import ProductDetail from "$/molecules/ProductDetail";
 import ProductInfo from "$/molecules/ProductInfo";
 import ProductOptions from "$/organisms/ProductOptions";
 import ProductDetailsSkeleton from "./ProductDetails.skeleton";
+import { Inventory } from "./fetchProductDetailsAPI";
 
 export interface ProductDetailsProps {
   productId: string;
@@ -27,69 +28,129 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     selectedColor,
     unavailableSizes,
     outOfStock,
+    error: productError,
   } = useProductStore();
-
-  useEffect(() => {
-    const fetchProductData = async () => {
-      try {
-        await fetchProductDetails(productId);
-      } catch (err) {
-        console.error("Error fetching product details:", err);
-      }
-    };
-
-    fetchProductData();
+  const [error, setError] = useState<Error | null>(productError);
+  const memoizedFetchProductDetails = useCallback(async () => {
+    try {
+      await fetchProductDetails(productId);
+      setError(null);
+    } catch (err) {
+      setError(err as Error);
+    }
   }, [fetchProductDetails, productId]);
 
-  return (
-    <>
-      {loading ? (
+  useEffect(() => {
+    try {
+      memoizedFetchProductDetails();
+    } catch (err) {
+      setError(err as Error);
+    }
+  }, [memoizedFetchProductDetails]);
+
+  const {
+    images = [],
+    name = "",
+    description = "",
+    rating = 0,
+    reviews = 0,
+    colors = [],
+    sizes = [],
+    info = null,
+  } = product || {};
+
+  const productDetailsReady = useMemo(
+    () => name && description && rating && reviews && locale && currency,
+    [name, description, rating, reviews, locale, currency],
+  );
+
+  const details = useMemo(
+    () => ({
+      name,
+      description,
+      rating,
+      reviews,
+      inventory: selectedInventory as Inventory,
+      locale,
+      currency,
+    }),
+    [currency, description, locale, name, rating, reviews, selectedInventory],
+  );
+
+  const carouselReady = useMemo(() => images && images.length > 0, [images]);
+
+  const carouselProps = useMemo(
+    () => ({
+      images: images || [],
+      loading,
+      color: selectedColor,
+      selected: updateProductState,
+    }),
+    [images, loading, selectedColor, updateProductState],
+  );
+
+  const optionsReady = useMemo(() => colors && sizes, [colors, sizes]);
+
+  const optionsProps = useMemo(
+    () => ({
+      colors: colors || [],
+      sizes: sizes || [],
+      selected: updateProductState,
+      quantity,
+      classes: "flex flex-col gap-4",
+      inventory: selectedInventory as Inventory,
+      outOfStock,
+      unavailableSizes,
+    }),
+    [
+      colors,
+      outOfStock,
+      quantity,
+      selectedInventory,
+      sizes,
+      unavailableSizes,
+      updateProductState,
+    ],
+  );
+
+  const renderComponents = {
+    carousel: carouselReady && <ProductCarousel {...carouselProps} />,
+    details: productDetailsReady && selectedInventory && (
+      <ProductDetail {...details} />
+    ),
+    options: optionsReady && selectedInventory && (
+      <ProductOptions {...optionsProps} />
+    ),
+    info: info && <ProductInfo info={info} />,
+  };
+
+  if (error) {
+    return (
+      <div className="text-red-500">
+        {error.message || "Something went wrong. Please try again later."}
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div className="flex flex-col gap-10 p-4 lg:flex-row">
         <ProductDetailsSkeleton />
-      ) : (
-        <div className="flex flex-col gap-10 p-4 lg:flex-row">
-          <div className="flex flex-col gap-10 lg:w-[592px]">
-            {product?.images && (
-              <ProductCarousel
-                images={product?.images}
-                loading={loading}
-                color={selectedColor}
-                selected={updateProductState}
-              />
-            )}
-          </div>
-          <div className="flex flex-col gap-10">
-            {product?.name &&
-              product?.description &&
-              product?.rating &&
-              product.reviews &&
-              selectedInventory && (
-                <ProductDetail
-                  name={product?.name}
-                  description={product.description}
-                  rating={product.rating}
-                  reviews={product.reviews}
-                  inventory={selectedInventory}
-                  locale={locale}
-                  currency={currency}
-                />
-              )}
-            {product?.colors && product?.sizes && selectedInventory && (
-              <ProductOptions
-                colors={product.colors}
-                sizes={product.sizes}
-                selected={updateProductState}
-                quantity={quantity}
-                classes="flex flex-col gap-4"
-                inventory={selectedInventory}
-                outOfStock={outOfStock}
-                unavailableSizes={unavailableSizes}
-              />
-            )}
-            {product?.info && <ProductInfo info={product.info} />}
-          </div>
-        </div>
-      )}
-    </>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-10 p-4 lg:flex-row">
+      <div className="flex flex-col gap-10 lg:w-[50%]">
+        {renderComponents.carousel}
+      </div>
+      <div className="flex flex-col gap-10 lg:w-[50%]">
+        {renderComponents.details}
+        {renderComponents.options}
+        {renderComponents.info}
+      </div>
+    </div>
   );
 };
 

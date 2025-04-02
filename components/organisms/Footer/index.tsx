@@ -5,7 +5,6 @@ import Twitter from "../../../public/twitter-x-line.svg";
 import Instagram from "../../../public/instagram-line.svg";
 import Facebook from "../../../public/facebook-box-line.svg";
 import Youtube from "../../../public/youtube-line.svg";
-import { v4 as uuidv4 } from "uuid";
 
 type Links = {
   label: string;
@@ -23,14 +22,6 @@ export type FooterProps = {
   socials: socials[];
   copyright: string;
   classes?: string;
-};
-
-const socialsIcons: { [key in socials["icon"]]: any } = {
-  youtube: Youtube,
-  instagram: Instagram,
-  facebook: Facebook,
-  github: GitHub,
-  twitter: Twitter,
 };
 
 const generateSocials = (social: string) => {
@@ -61,8 +52,8 @@ const Footer: React.FC<FooterProps> = ({
       className={`flex flex-col items-center justify-center gap-4  text-sm ${classes}`}
     >
       <ul className="flex justify-center items-center gap-4 md:gap-6">
-        {links.map((link) => (
-          <li key={uuidv4()}>
+        {links.map((link, index) => (
+          <li key={`footer-link-${index}-${link.label}`}>
             <Link
               className="font-medium text-sm text-gray-400 hover:text-gray-900"
               href={link.href}

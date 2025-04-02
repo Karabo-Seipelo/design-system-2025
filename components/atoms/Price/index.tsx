@@ -1,3 +1,5 @@
+import Badge from "$/atoms/Badge";
+
 interface PriceProps {
   salePrice: string;
   price: string;
@@ -21,10 +23,8 @@ const Price: React.FC<PriceProps> = ({
               {price}
             </span>
           </div>
-          <div className="">
-            <div className="inline-block bg-amber-50 rounded-full border border-solid border-amber-200 px-2.5 py-1 text-sm text-center text-amber-700">
-              {`${discount_percentage}% off`}
-            </div>
+          <div>
+            <Badge discount={discount_percentage} />
           </div>
         </>
       ) : (

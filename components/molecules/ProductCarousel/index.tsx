@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { Images as ProductImages } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
-import { v4 as uuidv4 } from "uuid";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 
 interface ProductCarouselProps {
@@ -40,24 +39,27 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
     >
       <TabPanels>
         {images.map(({ image_url }) => (
-          <TabPanel key={uuidv4()} className="min-h-[500px] w-full">
+          <TabPanel
+            key={image_url}
+            className="min-h-[500px] w-full md:min-h-[800px]"
+          >
             <div
               style={{ backgroundImage: `url(${image_url})` }}
-              className="block w-full min-h-[500px] bg-cover bg-center rounded-lg"
+              className="block w-full min-h-[500px] md:min-h-[800px] bg-cover bg-center rounded-lg"
             />
           </TabPanel>
         ))}
       </TabPanels>
-      <div className="flex flex-1 py-5 overflow-y-auto p-1">
-        <TabList className="flex flex-nowrap gap-4 h-[120px]">
-          {images.map(({ image_url }) => (
+      <div className="flex flex-1 py-5 overflow-x-auto p-1">
+        <TabList className="flex flex-nowrap gap-4 h-[120px] md:h-[190px]">
+          {images.map(({ image_url }, index) => (
             <Tab
-              key={uuidv4()}
-              className="w-20 h-[130px] data-[selected]:outline data-[selected]:outline-indigo-600 rounded-lg"
+              key={`${image_url}-${index}`}
+              className="w-20 md:w-[188px] lg:w-40 h-[120px] md:h-[190px] cursor-pointer data-[selected]:outline data-[selected]:outline-indigo-600 rounded-lg"
             >
               <div
                 style={{ backgroundImage: `url(${image_url})` }}
-                className="block w-full min-h-[130px] bg-cover bg-center rounded-lg"
+                className="block w-full h-[120px] md:h-[190px] bg-cover bg-center rounded-lg"
               />
             </Tab>
           ))}

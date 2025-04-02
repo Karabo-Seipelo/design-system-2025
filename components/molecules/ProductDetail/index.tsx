@@ -32,7 +32,9 @@ const ProductDetail: React.FC<ProductDetailsProps> = ({
   }).format(sale_price);
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="font-semibold text-3xl text-neutral-600">{name}</h2>
+      <h2 className="font-semibold text-3xl text-neutral-600 md:text-5xl">
+        {name}
+      </h2>
       <div className="flex flex-col gap-2">
         <Price
           salePrice={salePrice}

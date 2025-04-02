@@ -4,7 +4,7 @@ import ProductQuantity from "$/molecules/ProductQuantity";
 import ProductSize from "$/molecules/ProductSize";
 import ProductColors from "$/molecules/ProductColors";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
-import { Button } from "@headlessui/react";
+import Button from "$/atoms/Button";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 
 interface ProductOptionsProps {
@@ -61,7 +61,6 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
         name="quantity"
         classes="flex flex-col gap-4"
         initialQuantity={quantity}
-        selected={selected}
         stock={inventory.stock}
         outOfStock={disabled}
       />
@@ -71,11 +70,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
           Sorry, this item is out of stock
         </div>
       )}
-      <Button
-        type="submit"
-        disabled={disabled}
-        className={`flex w-full justify-center items-center gap-1.5 self-stretch bg-indigo-700 hover:bg-indigo-800 focus:bg-indigo-800 disabled:bg-neutral-100 disabled:text-neutral-400 px-5 py-3 rounded text-white ${disabled ? "cursor-not-allowed" : ""}`}
-      >
+      <Button type="submit" disabled={disabled} variant="primary">
         Add to cart
       </Button>
     </form>

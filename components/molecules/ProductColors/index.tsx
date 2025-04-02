@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
-import { v4 as uuidv4 } from "uuid";
-import { Input, Button } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
+import ColorSwatch from "$/atoms/ColorSwatch";
 
 interface ProductColorsProps {
   name: string;
@@ -51,33 +50,15 @@ const ProductColors: React.FC<ProductColorsProps> = ({
           <div className="flex gap-5">
             {colors.map((color, index) => {
               const isOutOfStock = outOfStock.includes(color);
-
               return (
-                <Button
-                  key={uuidv4()}
+                <ColorSwatch
+                  key={`${color}-${index}`}
+                  name={name}
+                  color={color}
+                  active={activeIndex === index}
+                  isOutOfStock={isOutOfStock}
                   onClick={() => handleButtonClick(color, index)}
-                >
-                  <label
-                    className={`relative flex rounded-full w-[40px] h-[40px] items-center justify-center outline outline-offset-1 cursor-pointer ${activeIndex === index ? "outline-indigo-600" : "outline-neutral-200"} `}
-                    style={{ backgroundColor: color }}
-                    aria-label={`Select color ${color}`}
-                  >
-                    {isOutOfStock && (
-                      <div className="w-[125%] h-[1px] bg-neutral-600 -rotate-45 absolute" />
-                    )}
-                    {activeIndex === index && !isOutOfStock && (
-                      <i className="ri-check-fill text-white w-15 h-15" />
-                    )}
-                    <Input
-                      type="radio"
-                      id={color}
-                      name={name}
-                      value={color}
-                      defaultChecked={activeIndex === index}
-                      className="hidden"
-                    />
-                  </label>
-                </Button>
+                />
               );
             })}
           </div>
