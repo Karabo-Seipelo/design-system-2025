@@ -43,7 +43,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     >
       <label
         className={`flex relative rounded-full w-[40px] h-[40px] items-center justify-center`}
-        aria-label={ariaLabel ? ariaLabel : `Select color ${color}`}
+        aria-label={ariaLabel ?? `Select color ${color}`}
         htmlFor="color-swatch"
       >
         {isOutOfStock && (

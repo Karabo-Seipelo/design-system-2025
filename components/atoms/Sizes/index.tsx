@@ -32,7 +32,7 @@ const Size: React.FC<SizeProps> = ({
       disabled={isOutOfStock}
     >
       <label
-        aria-label={ariaLabel ? ariaLabel : `Select size ${size}`}
+        aria-label={ariaLabel ?? `Select size ${size}`}
         htmlFor={String(size)}
       >
         <Input

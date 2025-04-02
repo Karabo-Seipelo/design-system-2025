@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Input, Button } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 import Size from "$/atoms/Sizes";

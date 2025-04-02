@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
 import { v4 as uuidv4 } from "uuid";
-import { Input, Button } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import ColorSwatch from "$/atoms/ColorSwatch";
 

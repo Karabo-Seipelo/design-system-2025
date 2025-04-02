@@ -66,7 +66,6 @@ const Controls: React.FC<ControlsProps> = ({
 
 interface QuantitySelectorProps {
   name: string;
-  classes?: string;
   outOfStock: boolean;
   min: number;
   max: number;

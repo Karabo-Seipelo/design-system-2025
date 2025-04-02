@@ -61,7 +61,6 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
         name="quantity"
         classes="flex flex-col gap-4"
         initialQuantity={quantity}
-        selected={selected}
         stock={inventory.stock}
         outOfStock={disabled}
       />

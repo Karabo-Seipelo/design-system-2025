@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import Stars from "$/atoms/Stars";
 import Button from "$/atoms/Button";
 
