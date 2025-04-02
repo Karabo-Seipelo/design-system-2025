@@ -28,7 +28,7 @@ const Size: React.FC<SizeProps> = ({
   return (
     <Button
       {...(onClick && { onClick })}
-      className={`flex justify-center items-center w-16 px-5 py-3 rounded border border-solid ${variantClasses[variant]}`}
+      className={`flex justify-center items-center w-16 px-5 py-3 rounded border border-solid uppercase ${variantClasses[variant]}`}
       disabled={isOutOfStock}
     >
       <label

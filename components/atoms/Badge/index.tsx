@@ -1,6 +1,6 @@
 interface BadgeProps {
   discount: string | number;
-  variant: "default" | "promo";
+  variant?: "default" | "promo";
 }
 
 const Badge: React.FC<BadgeProps> = ({ discount, variant = "default" }) => {

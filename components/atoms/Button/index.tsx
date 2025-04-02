@@ -1,7 +1,8 @@
 import { Button as UIButton } from "@headlessui/react";
 
 interface ButtonProps {
-  size?: "default" | "xl" | "2xl" | "link";
+  type?: "button" | "submit" | "reset";
+  size?: "default" | "xl" | "2xl" | "link" | "fullWidth";
   variant?:
     | "primary"
     | "primaryHover"
@@ -20,7 +21,8 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
-  size = "default",
+  type,
+  size = "fullWidth",
   variant = "secondary",
   disabled = false,
   classes = "",
@@ -29,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
 }) => {
   const sizeClasses = {
+    fullWidth: "w-full gap-1.5 px-4 py-2.5",
     default: "w-[174px] gap-1.5 px-4 py-2.5",
     xl: "w-[182px] gap-1.5 px-5 py-3",
     "2xl": "w-[216px] gap-2.5 px-6 py-4",
@@ -59,6 +62,7 @@ const Button: React.FC<ButtonProps> = ({
       className={`${classes} ${sizeClasses[size]} ${variantClasses[variant]} flex justify-center items-center grow rounded`}
       {...(autoFocus && { autoFocus: true })}
       {...(onClick && { onClick })}
+      {...(type && { type })}
     >
       {children}
     </UIButton>

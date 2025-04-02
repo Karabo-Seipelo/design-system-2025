@@ -2,6 +2,7 @@ import React from "react";
 import "remixicon/fonts/remixicon.css";
 import { Button, Input } from "@headlessui/react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
+import QuantitySelector from "../QuantitySelector";
 
 interface ProductQuantityProps {
   name: string;
@@ -51,38 +52,15 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
           Quantity
         </legend>
       </div>
-      <div className="flex flex-row w-[125px] justify-center items-center gap-3 bg-neutral-50 p-0.5 rounded-md border border-solid border-neutral-200">
-        <Button
-          disabled={outOfStock}
-          onClick={() => handleQuantityChange(quantity - 1)}
-          className="relative group disabled:cursor-not-allowed"
-        >
-          <i
-            className={`ri-subtract-fill ${outOfStock ? "text-neutral-300" : ""}`}
-          />
-        </Button>
-        <div>
-          <Input
-            name={name}
-            type="number"
-            value={quantity}
-            className={`w-full bg-transparent text-center ${outOfStock ? "text-neutral-300 cursor-not-allowed" : ""}`}
-            min={`${initialQuantity}`}
-            max={`${stock}`}
-            onChange={(e) => handleQuantityChange(Number(e.target.value))}
-          />
-        </div>
-        <Button
-          disabled={quantity >= stock || outOfStock}
-          className="relative group disabled:cursor-not-allowed"
-          onClick={() => handleQuantityChange(quantity + 1)}
-        >
-          <i
-            className={`ri-add-line ${quantity >= stock || outOfStock ? "text-neutral-300 " : ""}`}
-          />
-          {quantity >= stock && <Tooltip content="Insufficient stock" />}
-        </Button>
-      </div>
+      <QuantitySelector
+        name={name}
+        initialQuantity={initialQuantity}
+        outOfStock={outOfStock}
+        min={initialQuantity}
+        max={stock}
+        increment={1}
+        decrement={1}
+      />
     </fieldset>
   );
 };
