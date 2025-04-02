@@ -1,4 +1,6 @@
 import React, { useMemo } from "react";
+import Stars from "$/atoms/Stars";
+import Button from "$/atoms/Button";
 
 export interface RatingProps {
   score: number;
@@ -26,58 +28,24 @@ const Rating: React.FC<RatingProps> = ({
   showScore = true,
   href,
 }) => {
-  const fullStars = Math.floor(score);
-  const hasHalfStar = score % 1 !== 0;
-  const generateStars = useMemo(() => new Array(5).fill(0), []);
-
   return (
     <div className={`${classes}`}>
       {showScore && <Score score={score} />}
       <div className="flex gap-1">
-        {generateStars.map((_, index) => {
-          if (index < fullStars) {
-            return (
-              <i
-                key={`star-${index}-${total}`}
-                className="ri-star-fill text-yellow-400"
-                aria-hidden="true"
-              />
-            );
-          } else if (index === fullStars && hasHalfStar) {
-            return (
-              <i
-                key={`star-${index}-${total}`}
-                className="ri-star-half-fill text-yellow-400"
-                aria-hidden="true"
-              />
-            );
-          } else {
-            return (
-              <i
-                key={`star-${index}-${total}`}
-                className="ri-star-fill text-slate-300"
-                aria-hidden="true"
-              />
-            );
-          }
-        })}
+        <Stars score={score} />
       </div>
-      {total && total > 0 ? (
-        <div
-          className={`text-nowrap leading-[1.8] font-normal text-sm ${href ? "text-indigo-600 cursor-auto" : "text-neutral-600"}`}
-        >
-          {href ? `See all ${total} reviews` : `Based on ${total} reviews`}
-        </div>
-      ) : (
-        <div
-          className={`text-nowrap leading-[1.8] font-normal text-neutral-900 text-sm cursor-auto`}
-        >
-          No reviews yet.{" "}
-          <a href="" className="text-indigo-600 ">
-            Be the first
-          </a>
-        </div>
-      )}
+      <div className="flex gap-1">
+        {total && total > 0 ? (
+          <Button size="link" variant="link">
+            {href ? `See all ${total} reviews` : `Based on ${total} reviews`}
+          </Button>
+        ) : (
+          <Button size="link" variant="link">
+            {" "}
+            No reviews yet. <span>Be the first</span>
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
