@@ -5,6 +5,7 @@ import ProductDetail from "$/molecules/ProductDetail";
 import ProductInfo from "$/molecules/ProductInfo";
 import ProductOptions from "$/organisms/ProductOptions";
 import ProductDetailsSkeleton from "./ProductDetails.skeleton";
+import { Inventory } from "./fetchProductDetailsAPI";
 
 export interface ProductDetailsProps {
   productId: string;
@@ -58,11 +59,22 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     info = null,
   } = product || {};
 
-  const optionsReady = useMemo(() => colors && sizes, [colors, sizes]);
-
   const productDetailsReady = useMemo(
     () => name && description && rating && reviews && locale && currency,
     [name, description, rating, reviews, locale, currency],
+  );
+
+  const details = useMemo(
+    () => ({
+      name,
+      description,
+      rating,
+      reviews,
+      inventory: selectedInventory as Inventory,
+      locale,
+      currency,
+    }),
+    [currency, description, locale, name, rating, reviews, selectedInventory],
   );
 
   const carouselReady = useMemo(() => images && images.length > 0, [images]);
@@ -77,30 +89,37 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     [images, loading, selectedColor, updateProductState],
   );
 
+  const optionsReady = useMemo(() => colors && sizes, [colors, sizes]);
+
+  const optionsProps = useMemo(
+    () => ({
+      colors: colors || [],
+      sizes: sizes || [],
+      selected: updateProductState,
+      quantity,
+      classes: "flex flex-col gap-4",
+      inventory: selectedInventory as Inventory,
+      outOfStock,
+      unavailableSizes,
+    }),
+    [
+      colors,
+      outOfStock,
+      quantity,
+      selectedInventory,
+      sizes,
+      unavailableSizes,
+      updateProductState,
+    ],
+  );
+
   const renderComponents = {
     carousel: carouselReady && <ProductCarousel {...carouselProps} />,
     details: productDetailsReady && selectedInventory && (
-      <ProductDetail
-        name={name}
-        description={description}
-        rating={rating}
-        reviews={reviews}
-        inventory={selectedInventory}
-        locale={locale}
-        currency={currency}
-      />
+      <ProductDetail {...details} />
     ),
     options: optionsReady && selectedInventory && (
-      <ProductOptions
-        colors={colors}
-        sizes={sizes}
-        selected={updateProductState}
-        quantity={quantity}
-        classes="flex flex-col gap-4"
-        inventory={selectedInventory}
-        outOfStock={outOfStock}
-        unavailableSizes={unavailableSizes}
-      />
+      <ProductOptions {...optionsProps} />
     ),
     info: info && <ProductInfo info={info} />,
   };
