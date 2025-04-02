@@ -7,6 +7,7 @@ interface StarsProps {
 
 const Stars: React.FC<StarsProps> = ({ score }) => {
   const totalStars = 5;
+  const uniqueKey = new Date.now();
   const stars = useMemo(() => {
     const fullStars = Math.floor(score);
     const hasHalfStar = score % 1 !== 0;
@@ -24,7 +25,7 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
       aria-label={`Rating: ${score} out of ${totalStars}`}
     >
       {stars.map((starClass, index) => (
-        <i key={index} className={starClass} />
+        <i key={`star-${index}-${uniqueKey}`} className={starClass} />
       ))}
     </div>
   );
