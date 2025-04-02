@@ -7,7 +7,7 @@ interface StarsProps {
 
 const Stars: React.FC<StarsProps> = ({ score }) => {
   const totalStars = 5;
-  const uniqueKey = new Date.now();
+  const uniqueKey = Date.now();
   const stars = useMemo(() => {
     const fullStars = Math.floor(score);
     const hasHalfStar = score % 1 !== 0;
