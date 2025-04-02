@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 import "remixicon/fonts/remixicon.css";
 
 interface StarsProps {
@@ -6,39 +6,26 @@ interface StarsProps {
 }
 
 const Stars: React.FC<StarsProps> = ({ score }) => {
-  const fullStars = Math.floor(score);
-  const hasHalfStar = score % 1 !== 0;
-  const generateStars = useMemo(() => new Array(5).fill(0), []);
+  const totalStars = 5;
+  const stars = useMemo(() => {
+    const fullStars = Math.floor(score);
+    const hasHalfStar = score % 1 !== 0;
+    return Array.from({ length: totalStars }, (_, index) => {
+      if (index < fullStars) return "ri-star-fill text-yellow-400";
+      if (index === fullStars && hasHalfStar)
+        return "ri-star-half-fill text-yellow-400";
+      return "ri-star-fill text-slate-300";
+    });
+  }, [score]);
+
   return (
-    <div className="flex gap-1">
-      {generateStars.map((_, index) => {
-        const key = `star-${index}-${index < fullStars ? "full" : index === fullStars && hasHalfStar ? "half" : "empty"}`;
-        if (index < fullStars) {
-          return (
-            <i
-              key={key}
-              className="ri-star-fill text-yellow-400"
-              aria-hidden="true"
-            />
-          );
-        } else if (index === fullStars && hasHalfStar) {
-          return (
-            <i
-              key={key}
-              className="ri-star-half-fill text-yellow-400"
-              aria-hidden="true"
-            />
-          );
-        } else {
-          return (
-            <i
-              key={key}
-              className="ri-star-fill text-slate-300"
-              aria-hidden="true"
-            />
-          );
-        }
-      })}
+    <div
+      className="flex gap-1"
+      arai-label={`Rating: ${score} out of ${totalStars}`}
+    >
+      {stars.map((starClass, index) => (
+        <i key={index} className={starClass} />
+      ))}
     </div>
   );
 };
