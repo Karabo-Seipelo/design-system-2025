@@ -3,7 +3,7 @@ import QuantitySelector from ".";
 import Artboard from "$/atoms/Artboard";
 
 const meta = {
-  title: "Component/Atoms/QuantitySelector",
+  title: "Component/Molecules/QuantitySelector",
   component: QuantitySelector,
   tags: ["autodocs"],
   parameters: {

@@ -49,7 +49,7 @@ const Controls: React.FC<ControlsProps> = ({
     if (type === "remove" && quantity <= min) {
       return <Tooltip content="Minimum stock required" />;
     }
-    return "";
+    return null;
   };
 
   return (
