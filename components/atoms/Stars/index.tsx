@@ -12,10 +12,11 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
   return (
     <div className="flex gap-1">
       {generateStars.map((_, index) => {
+        const key = `star-${index}-${index < fullStars ? "full" : index === fullStars && hasHalfStar ? "half" : "empty"}`;
         if (index < fullStars) {
           return (
             <i
-              key={`star-${index}`}
+              key={key}
               className="ri-star-fill text-yellow-400"
               aria-hidden="true"
             />
@@ -23,7 +24,7 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
         } else if (index === fullStars && hasHalfStar) {
           return (
             <i
-              key={`star-${index}`}
+              key={key}
               className="ri-star-half-fill text-yellow-400"
               aria-hidden="true"
             />
@@ -31,7 +32,7 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
         } else {
           return (
             <i
-              key={`star-${index}`}
+              key={key}
               className="ri-star-fill text-slate-300"
               aria-hidden="true"
             />

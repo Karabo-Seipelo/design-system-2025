@@ -12,10 +12,11 @@ interface ProductInfoProps {
 const ProductInfo: React.FC<ProductInfoProps> = ({ info }) => {
   return (
     <div>
-      {info?.map(({ title, description }, index) => {
+      {info?.map(({ title, description }) => {
+        const key = `${title}-${description[0].substring(0, 10)}`;
         return (
           <Disclosure
-            key={`${title}-${index}`}
+            key={`${key}`}
             as="div"
             defaultOpen={false}
             className="flex flex-col gap-4 border-solid border-b border-neutral-200 py-6 last:border-transparent"
@@ -32,9 +33,9 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ info }) => {
                 </DisclosureButton>
                 <DisclosurePanel className="flex flex-col gap-4 px-5">
                   <ul className="list-disc text-neutral-600">
-                    {description.map((desc, index) => (
+                    {description.map((desc) => (
                       <li
-                        key={`${desc}-${index}`}
+                        key={`${desc}-${desc.substring(0, 5)}`}
                         dangerouslySetInnerHTML={{ __html: desc }}
                       />
                     ))}

@@ -85,16 +85,6 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
 }) => {
   const [quantity, setQuantity] = useState<number>(initialQuantity);
   const handleQuantityChange = (value: number) => {
-    if (value < min) {
-      setQuantity(min);
-      return;
-    }
-
-    if (max && value > max) {
-      setQuantity(max);
-      return;
-    }
-
     setQuantity(value);
   };
   return (
