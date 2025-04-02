@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
-import Size from "$/atoms/Sizes";
+import Size from "$/atoms/Size";
 
 interface ProductSizeProps {
   name: string;

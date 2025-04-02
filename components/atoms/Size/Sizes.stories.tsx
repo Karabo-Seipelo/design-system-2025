@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
-import Sizes from ".";
+import Size from ".";
 import Artboard from "$/atoms/Artboard";
 
 const meta = {
-  title: "Component/Atoms/Sizes",
-  component: Sizes,
+  title: "Component/Atoms/Size",
+  component: Size,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -16,7 +16,7 @@ const meta = {
       </Artboard>
     ),
   ],
-} satisfies Meta<typeof Sizes>;
+} satisfies Meta<typeof Size>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -34,13 +34,13 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-2">
         <div>Normal</div>
         <div>
-          <Sizes {...args} />
+          <Size {...args} />
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <div>Hover</div>
         <div>
-          <Sizes
+          <Size
             name="size"
             size="M"
             variant="hover"
@@ -52,7 +52,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-2">
         <div>Focus</div>
         <div>
-          <Sizes
+          <Size
             name="size"
             size="M"
             variant="hover"
@@ -64,7 +64,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-2">
         <div>Seleceted</div>
         <div>
-          <Sizes
+          <Size
             name="size"
             size="M"
             variant="selected"
@@ -76,7 +76,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-2">
         <div>Out-of-stock</div>
         <div>
-          <Sizes name="size" size="M" active={false} isOutOfStock={true} />
+          <Size name="size" size="M" active={false} isOutOfStock={true} />
         </div>
       </div>
     </div>
