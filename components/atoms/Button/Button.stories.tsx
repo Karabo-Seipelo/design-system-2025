@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const AllStates: Story = {
   args: {
-    size: "default",
+    size: "md",
     variant: "primary",
   },
   render: () => (
@@ -110,19 +110,23 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
-              <Button>Add Cart</Button>
+              <Button size="xl" variant="secondary">
+                Add Cart
+              </Button>
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <div>Hover</div>
             <div>
-              <Button variant="secondaryHover">Add Cart</Button>
+              <Button size="xl" variant="secondaryHover">
+                Add Cart
+              </Button>
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <div>Focus</div>
             <div>
-              <Button variant="secondaryFocus" autoFocus={true}>
+              <Button size="xl" variant="secondaryFocus" autoFocus={true}>
                 Add Cart
               </Button>
             </div>
@@ -130,7 +134,9 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Disabled</div>
             <div>
-              <Button disabled={true}>Add Cart</Button>
+              <Button size="xl" disabled={true}>
+                Add Cart
+              </Button>
             </div>
           </div>
         </div>

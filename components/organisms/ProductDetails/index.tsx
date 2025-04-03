@@ -141,11 +141,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   }
 
   return (
-    <div className="flex flex-col gap-10 p-4 lg:flex-row">
-      <div className="flex flex-col gap-10 lg:w-[50%]">
+    <div className="w-full px-4 py-12 md:py-16 lg:p-224 grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12">
+      <div className="col-span-4 md:col-span-6">
         {renderComponents.carousel}
       </div>
-      <div className="flex flex-col gap-10 lg:w-[50%]">
+      <div className="col-span-4 md:col-span-6">
         {renderComponents.details}
         {renderComponents.options}
         {renderComponents.info}
