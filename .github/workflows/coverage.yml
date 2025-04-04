@@ -20,6 +20,14 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
 
+      - name: Debug environment variables
+        run: |
+          echo "SONAR_TOKEN is set to: ${{ secrets.SONAR_TOKEN }}"
+          if [ -z "${{ secrets.SONAR_TOKEN }}" ]; then
+            echo "Error: SONAR_TOKEN is not set."
+            exit 1
+          fi
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         with:
