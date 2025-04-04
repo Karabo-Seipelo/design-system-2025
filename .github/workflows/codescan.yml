@@ -1,38 +1,39 @@
 name: Main Workflow
 
 on:
-    push:
-      branches:
-        - main
-        - master
-        - develop
-        - "releases/**"
-    pull_request:
-      types: [opened, synchronize, reopened]
-  
-jobs:
-    sonarqube:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v4
-        with:
-            fetch-depth: 0
+  push:
+    branches:
+      - main
+      - master
+      - develop
+      - "releases/**"
+  pull_request:
+    types: [opened, synchronize, reopened]
 
-        - name: Use Node.js
+jobs:
+  Sonarqube:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-        node-version: '22.x'
+          node-version: "22.x"
 
-        - name: Cache dependencies
-          uses: actions/cache@v2
+      - name: Cahe dependencies
+        uses: actions/cache@v2
         with:
-            path: ~/.npm
-            key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-            restore-keys: |
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
             ${{ runner.os }}-node-
-        - name: Install dependencies
+
+      - name: Install dependencies
         run: npm install
-        - name: SonarQube Scan
+
+      - name: Run SonarQube Scan
         uses: sonarsource/sonarcloud-github-action@v4
         env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
