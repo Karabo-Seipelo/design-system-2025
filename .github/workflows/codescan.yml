@@ -1,38 +1,19 @@
-name: Main Workflow
-
+name: My Test Single Project
 on:
   push:
     branches:
       - main
-      - master
-      - develop
-      - "releases/**"
   pull_request:
     types: [opened, synchronize, reopened]
-
 jobs:
-  Sonarqube:
+  sonarqube:
+    name: SonarQube
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Use Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
         with:
-          node-version: "22.x"
-
-      - name: Cahe dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run SonarQube Scan
-        uses: sonarsource/sonarcloud-github-action@v4
+          fetch-depth: 0
+      - name: SonarQubeScan
+        uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
