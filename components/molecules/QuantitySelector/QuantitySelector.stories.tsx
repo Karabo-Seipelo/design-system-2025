@@ -32,7 +32,7 @@ export const AllStates: Story = {
     decrement: 1,
   },
   render: (args) => (
-    <div className="flex flex-row gap-4">
+    <div className="flex flex-col md:flex-row gap-4">
       <div className="flex flex-col gap-2">
         <h2>Normal</h2>
         <QuantitySelector {...args} />

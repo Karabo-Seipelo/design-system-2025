@@ -1,4 +1,5 @@
 import { Button, Input } from "@headlessui/react";
+import classNames from "classnames";
 import "remixicon/fonts/remixicon.css";
 
 interface ColorSwatchProps {
@@ -35,14 +36,18 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     selectedOutOfStock: "",
   };
 
+  const commonClasses = classNames(
+    "flex relative rounded-full w-[40px] h-[40px] items-center justify-center",
+  );
+
   return (
     <Button
       {...(onClick && { onClick })}
-      className={`flex relative rounded-full w-[40px] h-[40px] items-center justify-center ${variantClasses[variant]}`}
+      className={`${commonClasses} ${variantClasses[variant]}`}
       style={{ backgroundColor: color }}
     >
       <label
-        className={`flex relative rounded-full w-[40px] h-[40px] items-center justify-center`}
+        className={`${commonClasses}`}
         aria-label={ariaLabel ?? `Select color ${color}`}
         htmlFor={color}
       >

@@ -31,7 +31,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-4">
         <h3>Primary</h3>
         <small>Size - 2xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
@@ -68,7 +68,7 @@ export const AllStates: Story = {
       </div>
       <div className="flex flex-col gap-4">
         <small>Size - Xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
@@ -106,7 +106,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-4">
         <h3>Secondary</h3>
         <small>Size - Xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
@@ -144,7 +144,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-4">
         <h3>Link color</h3>
         <small>Size - Xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>

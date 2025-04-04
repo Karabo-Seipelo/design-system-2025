@@ -12,26 +12,22 @@ type OptionalVariant =
 
 type Variant = "primary" | "secondary";
 
-interface ButtonProps {
-  type?: "button" | "submit" | "reset";
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "md" | "lg" | "xl" | "2xl" | "link" | "fullWidth";
   variant?: Variant | OptionalVariant;
   disabled?: boolean;
   className?: string;
   children?: React.ReactNode;
   autoFocus?: boolean;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  type,
-  size = "fullWidth",
+  size = "md",
   variant = "secondary",
   disabled = false,
   className = "",
   autoFocus,
   children,
-  onClick,
   ...props
 }) => {
   const paddingClasses = {
@@ -131,10 +127,9 @@ const Button: React.FC<ButtonProps> = ({
     primaryFocus: "",
     secondaryHover: "",
     secondaryFocus: "",
-    linkFocus: "",
-    linkHover: "",
     link: "",
-    fullWidth: "",
+    linkHover: "",
+    linkFocus: "",
   };
 
   const commonClasses = classNames(
@@ -143,8 +138,6 @@ const Button: React.FC<ButtonProps> = ({
     "transition-colors",
     "text-nowrap",
   );
-
-  // ${classes} ${sizeClasses[size]} ${variantClasses[variant]}
 
   return (
     <UIButton
@@ -155,16 +148,14 @@ const Button: React.FC<ButtonProps> = ({
         variant === "secondary"
           ? secondarySizeClasses[size]
           : paddingClasses[size],
-        variantDisabledClasses[variant],
+        variantDisabledClasses[variant] || "",
         variantClasses[variant],
         fontSizeClasses[size],
         paddingClasses[size],
         spacingClasses[size],
-        className,
+        className || "",
       )}
       {...(autoFocus && { autoFocus: true })}
-      {...(onClick && { onClick })}
-      {...(type && { type })}
       {...props}
     >
       {children}
