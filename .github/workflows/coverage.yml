@@ -25,4 +25,4 @@ jobs:
         with:
           projectBaseDir: .
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_ANALYSIS }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
