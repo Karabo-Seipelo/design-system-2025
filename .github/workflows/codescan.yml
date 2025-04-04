@@ -22,7 +22,7 @@ jobs:
           node-version: "22.x"
 
       - name: Cahe dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
