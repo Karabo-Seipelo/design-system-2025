@@ -7,7 +7,7 @@
 .yarn/install-state.gz
 
 # testing
-/coverage
+/coverage/lcov-report/
 .jest-test-results.json
 jest-test-results.json
 

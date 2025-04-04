@@ -30,7 +30,7 @@ export const AllStates: Story = {
     isOutOfStock: false,
   },
   render: (args) => (
-    <div className="flex flex-row gap-10">
+    <div className="flex flex-col md:flex-row gap-10">
       <div className="flex flex-col gap-2">
         <div>Normal</div>
         <div>
