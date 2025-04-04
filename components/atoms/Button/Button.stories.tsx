@@ -182,3 +182,33 @@ export const AllStates: Story = {
     </div>
   ),
 };
+
+export const Default: Story = {
+  args: {
+    children: "Add Cart",
+  },
+};
+
+export const Primary: Story = {
+  args: {
+    size: "xl",
+    variant: "primary",
+    children: "Add Cart",
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    size: "xl",
+    variant: "secondary",
+    children: "Add Cart",
+  },
+};
+
+export const Link: Story = {
+  args: {
+    size: "sm",
+    variant: "link",
+    children: "See all 62 reviews",
+  },
+};

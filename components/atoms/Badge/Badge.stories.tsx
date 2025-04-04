@@ -33,3 +33,16 @@ export const AllStates: Story = {
     </div>
   ),
 };
+
+export const Default: Story = {
+  args: {
+    discount: 20,
+  },
+};
+
+export const Promo: Story = {
+  args: {
+    discount: 20,
+    variant: "promo",
+  },
+};

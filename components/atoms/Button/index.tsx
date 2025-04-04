@@ -13,7 +13,7 @@ type OptionalVariant =
 type Variant = "primary" | "secondary";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: "md" | "lg" | "xl" | "2xl" | "link" | "fullWidth";
+  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "link" | "fullWidth";
   variant?: Variant | OptionalVariant;
   disabled?: boolean;
   className?: string;
@@ -31,15 +31,17 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const paddingClasses = {
+    sm: "px-0.5 py-0",
     md: "px-3.5 py-2.5",
     lg: "px-4 py-2.5",
     xl: "px-5 py-3",
     "2xl": "px-6 py-4",
-    link: "",
+    link: "px-0.5 py-1",
     fullWidth: "",
   };
 
   const heightClasses = {
+    sm: "h-4",
     md: "h-10",
     lg: "h-11",
     xl: "h-12",
@@ -49,6 +51,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const secondarySizeClasses = {
+    sm: "px-[5px] py-[3px]",
     md: "px-[13px] py-[9px]",
     lg: "px-[15px] py-[9px]",
     xl: "px-[19px] py-[11px]",
@@ -58,6 +61,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const fontSizeClasses = {
+    sm: "text-xs",
     md: "text-sm",
     lg: "text-base",
     xl: "text-base",
@@ -67,6 +71,7 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   const spacingClasses = {
+    sm: "gap-x-1",
     md: "gap-x-1.5",
     lg: "gap-x-2",
     xl: "gap-x-2",
@@ -148,7 +153,7 @@ const Button: React.FC<ButtonProps> = ({
         variant === "secondary"
           ? secondarySizeClasses[size]
           : paddingClasses[size],
-        variantDisabledClasses[variant] || "",
+        variantDisabledClasses[variant],
         variantClasses[variant],
         fontSizeClasses[size],
         paddingClasses[size],
