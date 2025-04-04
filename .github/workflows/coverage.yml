@@ -26,3 +26,7 @@ jobs:
           projectBaseDir: .
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          sonar.pullrequest.key: ${{ github.event.pull_request.number }}
+          sonar.pullrequest.branch: ${{ github.head_ref }}
+          sonar.pullrequest.base: ${{ github.base_ref }}
