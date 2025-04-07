@@ -1,26 +1,22 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ColorSwatches.stories";
+const { Default, Active, OutofStock, ActiveOutofStock } =
+  composeStories(stories);
 import ColorSwatches from ".";
 
 jest.mock("remixicon/fonts/remixicon.css", () => {});
 
 describe("ColorSwatches", () => {
   it("renders with default variant", () => {
-    const handleClick = jest.fn();
-    render(
-      <ColorSwatches
-        name="color-swatch"
-        color="brown"
-        onClick={handleClick}
-        active={false}
-      />,
-    );
+    render(<Default />);
     const swatch = screen.getByTestId("color-swatch");
     expect(swatch).toBeInTheDocument();
   });
 
   it("renders with default variant active", () => {
-    render(<ColorSwatches name="color-swatch" color="brown" active={true} />);
+    render(<Active />);
     const swatch = screen.getByTestId("color-swatch");
     expect(swatch).toBeInTheDocument();
   });
@@ -39,14 +35,13 @@ describe("ColorSwatches", () => {
   });
 
   it("renders with out of stock", () => {
-    render(
-      <ColorSwatches
-        name="color-swatch"
-        color="brown"
-        isOutOfStock={true}
-        active={false}
-      />,
-    );
+    render(<OutofStock />);
+    const swatch = screen.getByTestId("color-swatch");
+    expect(swatch).toBeInTheDocument();
+  });
+
+  it("renders with active out-of-stock", () => {
+    render(<ActiveOutofStock />);
     const swatch = screen.getByTestId("color-swatch");
     expect(swatch).toBeInTheDocument();
   });

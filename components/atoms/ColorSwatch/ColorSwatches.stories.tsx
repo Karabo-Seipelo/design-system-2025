@@ -101,3 +101,43 @@ export const AllStates: Story = {
     </div>
   ),
 };
+
+export const Default: Story = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: false,
+    isOutOfStock: false,
+  },
+};
+
+export const Active: Story = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: true,
+    isOutOfStock: false,
+  },
+};
+
+export const OutofStock: Strou = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: false,
+    isOutOfStock: true,
+  },
+};
+
+export const ActiveOutofStock: Strou = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: true,
+    isOutOfStock: true,
+  },
+};

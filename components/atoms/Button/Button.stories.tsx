@@ -189,11 +189,27 @@ export const Default: Story = {
   },
 };
 
+export const DefaultDisabled: Story = {
+  args: {
+    disabled: true,
+    children: "Add Cart",
+  },
+};
+
 export const Primary: Story = {
   args: {
     size: "xl",
     variant: "primary",
     children: "Add Cart",
+  },
+};
+
+export const PrimaryDisabled: Story = {
+  args: {
+    size: "xl",
+    variant: "primary",
+    children: "Add Cart",
+    disabled: true,
   },
 };
 
@@ -210,5 +226,14 @@ export const Link: Story = {
     size: "sm",
     variant: "link",
     children: "See all 62 reviews",
+  },
+};
+
+export const LinkDisabled: Story = {
+  args: {
+    size: "sm",
+    variant: "link",
+    children: "See all 62 reviews",
+    disabled: true,
   },
 };

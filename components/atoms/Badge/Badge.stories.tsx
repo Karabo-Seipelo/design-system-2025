@@ -42,7 +42,7 @@ export const Default: Story = {
 
 export const Promo: Story = {
   args: {
-    discount: 20,
+    discount: 30,
     variant: "promo",
   },
 };

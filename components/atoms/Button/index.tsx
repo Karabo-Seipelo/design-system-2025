@@ -110,7 +110,7 @@ const Button: React.FC<ButtonProps> = ({
       "text-neutral-900",
       "bg-neutral-50",
     ),
-    link: "text-indigo-700 hover:text-indigo-800 hover:text-indigo-800 focus:text-indigo-800 focus:shadow-[0px_0px_0px_4px_rgba(68,76,231,0.12)] disabled:text-neutral-400",
+    link: "text-indigo-700 hover:text-indigo-800 hover:text-indigo-800 focus:text-indigo-800 focus:shadow-[0px_0px_0px_4px_rgba(68,76,231,0.12)]",
     linkHover: "",
     linkFocus: "",
   };
@@ -132,7 +132,7 @@ const Button: React.FC<ButtonProps> = ({
     primaryFocus: "",
     secondaryHover: "",
     secondaryFocus: "",
-    link: "",
+    link: "disabled:text-neutral-400",
     linkHover: "",
     linkFocus: "",
   };

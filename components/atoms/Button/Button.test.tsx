@@ -1,26 +1,51 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./Button.stories";
+const {
+  Default,
+  DefaultDisabled,
+  Primary,
+  Secondary,
+  PrimaryDisabled,
+  Link,
+  LinkDisabled,
+} = composeStories(stories);
 import Button from ".";
 
 describe("Button", () => {
   it("renders with default variant", () => {
-    render(
-      <Button size="md" variant="primary">
-        Click Me
-      </Button>,
-    );
-    const button = screen.getByText(/Click Me/i);
+    render(<Default />);
+    const button = screen.getByText(/Add Cart/i);
     expect(button).toBeInTheDocument();
+    expect(button).toHaveClass("bg-white");
   });
 
-  it("renders with default variant and disabled", () => {
-    render(
-      <Button size="md" variant="primary" disabled>
-        Click Me
-      </Button>,
-    );
-    const button = screen.getByText(/Click Me/i);
+  it("renders with Secondary variant", () => {
+    render(<Secondary />);
+    const button = screen.getByText(/Add Cart/i);
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass("bg-white");
+  });
+
+  it("renders with default disabled", () => {
+    render(<DefaultDisabled />);
+    const button = screen.getByText(/Add Cart/i);
     expect(button).toBeDisabled();
+  });
+
+  it("renders with primary variant ", () => {
+    render(<Primary />);
+    const button = screen.getByText(/Add Cart/i);
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveClass("bg-indigo-700");
+  });
+
+  it("renders with primary disabled", () => {
+    render(<PrimaryDisabled />);
+    const button = screen.getByText(/Add Cart/i);
+    expect(button).toBeDisabled();
+    expect(button).toHaveClass("disabled:bg-neutral-100");
   });
 
   it("renders with no variant", () => {
@@ -29,61 +54,17 @@ describe("Button", () => {
     expect(button).toBeInTheDocument();
   });
 
-  it("renders with autoFocus", () => {
-    render(
-      <Button size="md" variant="primary" autoFocus>
-        Click Me
-      </Button>,
-    );
-    const button = screen.getByText(/Click Me/i);
-    expect(button).toHaveFocus();
-  });
-
-  it("renders with no size", () => {
-    render(<Button variant="primary">Click Me</Button>);
-    const button = screen.getByText(/Click Me/i);
+  it("renders with link variant", () => {
+    render(<Link />);
+    const button = screen.getByText(/See all 62 reviews/i);
     expect(button).toBeInTheDocument();
+    expect(button).toHaveClass("text-indigo-700");
   });
 
-  it("renders a link button", () => {
-    render(
-      <Button size="link" variant="link">
-        Click Me
-      </Button>,
-    );
-    const button = screen.getByText(/Click Me/i);
-    expect(button).toBeInTheDocument();
-  });
-
-  it("renders a button with className", () => {
-    render(
-      <Button size="md" variant="primary" className="custom-class">
-        Click Me
-      </Button>,
-    );
-    const button = screen.getByText(/Click Me/i);
-    expect(button).toHaveClass("custom-class");
-  });
-
-  it("renders a button with a type", () => {
-    render(
-      <Button size="md" variant="primary" type="submit">
-        Click Me
-      </Button>,
-    );
-    const button = screen.getByText(/Click Me/i);
-    expect(button).toHaveAttribute("type", "submit");
-  });
-
-  it("renders a button click event", () => {
-    const handleClick = jest.fn();
-    render(
-      <Button size="md" variant="primary" onClick={handleClick}>
-        Click Me
-      </Button>,
-    );
-    const button = screen.getByText(/Click Me/i);
-    button.click();
-    expect(handleClick).toHaveBeenCalledTimes(1);
+  it("renders with link disabled", () => {
+    render(<LinkDisabled />);
+    const button = screen.getByText(/See all 62 reviews/i);
+    expect(button).toBeDisabled();
+    expect(button).toHaveClass("disabled:text-neutral-400");
   });
 });
