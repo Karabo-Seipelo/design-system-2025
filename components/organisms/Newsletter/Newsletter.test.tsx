@@ -7,7 +7,7 @@ import axios from "axios";
 jest.mock("next/image", () => ({
   __esModule: true,
   default: (
-    props: JSX.IntrinsicAttributes & React.ImgHTMLAttributes<HTMLImageElement>,
+    props: JSX.IntrinsicAttributes & React.ImgHTMLAttributes<HTMLImageElement>
   ) => {
     return <img {...props} />;
   },
@@ -16,6 +16,7 @@ jest.mock("next/image", () => ({
 describe("NewsletterSection", () => {
   const mockShowToast = jest.fn();
   const mockPost = jest.fn();
+  const spyAxios = jest.spyOn(axios, "post");
 
   const mockProps = {
     formUrl: "/api/subscribe",
@@ -72,6 +73,21 @@ describe("NewsletterSection", () => {
     expect(screen.getByPlaceholderText("Your email")).toBeInTheDocument();
     expect(screen.getByText("Subscribe")).toBeInTheDocument();
     expect(screen.getByAltText("testing")).toBeInTheDocument();
+  });
+
+  it("submits the form successfully and shows a success toast", async () => {
+    mockPost.mockResolvedValueOnce({ status: 200 });
+
+    render(<NewsletterSection {...mockProps} />);
+
+    const emailInput = screen.getByTestId("email-input");
+    const submitButton = screen.getByTestId("email-submit");
+
+    expect(submitButton).toBeInTheDocument();
+    expect(emailInput).toBeInTheDocument();
+
+    await userEvent.type(emailInput, "test@example.com");
+    await userEvent.click(submitButton);
   });
 
   it("does not submit the form if email is not provided", async () => {
