@@ -27,6 +27,18 @@ export const Default: Story = {
   },
 };
 
+export const HalfStars: Story = {
+  args: {
+    score: 3.5,
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    score: 0,
+  },
+};
+
 export const AllStates: Story = {
   args: {
     score: 0,
