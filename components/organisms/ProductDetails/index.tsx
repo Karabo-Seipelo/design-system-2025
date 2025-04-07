@@ -57,11 +57,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     colors = [],
     sizes = [],
     info = null,
-  } = product || {};
+  } = product ?? {};
 
   const productDetailsReady = useMemo(
     () => name && description && rating && reviews && locale && currency,
-    [name, description, rating, reviews, locale, currency],
+    [name, description, rating, reviews, locale, currency]
   );
 
   const details = useMemo(
@@ -74,27 +74,27 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       locale,
       currency,
     }),
-    [currency, description, locale, name, rating, reviews, selectedInventory],
+    [currency, description, locale, name, rating, reviews, selectedInventory]
   );
 
   const carouselReady = useMemo(() => images && images.length > 0, [images]);
 
   const carouselProps = useMemo(
     () => ({
-      images: images || [],
+      images: images ?? [],
       loading,
       color: selectedColor,
       selected: updateProductState,
     }),
-    [images, loading, selectedColor, updateProductState],
+    [images, loading, selectedColor, updateProductState]
   );
 
   const optionsReady = useMemo(() => colors && sizes, [colors, sizes]);
 
   const optionsProps = useMemo(
     () => ({
-      colors: colors || [],
-      sizes: sizes || [],
+      colors: colors ?? [],
+      sizes: sizes ?? [],
       selected: updateProductState,
       quantity,
       classes: "flex flex-col gap-4",
@@ -110,7 +110,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       sizes,
       unavailableSizes,
       updateProductState,
-    ],
+    ]
   );
 
   const renderComponents = {
@@ -127,7 +127,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   if (error) {
     return (
       <div className="text-red-500">
-        {error.message || "Something went wrong. Please try again later."}
+        {error.message ?? "Something went wrong. Please try again later."}
       </div>
     );
   }
