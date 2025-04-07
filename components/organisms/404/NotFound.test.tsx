@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./NotFound.stories";
+const { Default } = composeStories(stories);
 import NotFound from ".";
 
 describe("NotFound", () => {
@@ -17,17 +20,19 @@ describe("NotFound", () => {
   };
 
   it("renders the NotFound component with all props", () => {
-    render(<NotFound {...defaultProps} />);
+    render(<Default />);
 
-    expect(screen.getByText("404 Error")).toBeInTheDocument();
-    expect(screen.getByText("Page Not Found")).toBeInTheDocument();
+    expect(screen.getByText("Not found")).toBeInTheDocument();
+    expect(screen.getByText("We can’t find the page")).toBeInTheDocument();
     expect(
-      screen.getByText("The page you are looking for does not exist."),
+      screen.getByText(
+        "Sorry, the page you are looking for doesn't exist or has been moved."
+      )
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Learn more" }),
+      screen.getByRole("button", { name: "Learn more" })
     ).toBeInTheDocument();
-    expect(screen.getByText("Go Home")).toBeInTheDocument();
+    expect(screen.getByText("Back to Home")).toBeInTheDocument();
   });
 
   it("renders the NotFound component without a subtitle", () => {
@@ -37,7 +42,7 @@ describe("NotFound", () => {
     expect(screen.queryByText("404 Error")).not.toBeInTheDocument();
     expect(screen.getByText("Page Not Found")).toBeInTheDocument();
     expect(
-      screen.getByText("The page you are looking for does not exist."),
+      screen.getByText("The page you are looking for does not exist.")
     ).toBeInTheDocument();
   });
 
@@ -48,7 +53,7 @@ describe("NotFound", () => {
     expect(screen.getByText("404 Error")).toBeInTheDocument();
     expect(screen.getByText("Page Not Found")).toBeInTheDocument();
     expect(
-      screen.queryByText("The page you are looking for does not exist."),
+      screen.queryByText("The page you are looking for does not exist.")
     ).not.toBeInTheDocument();
   });
 

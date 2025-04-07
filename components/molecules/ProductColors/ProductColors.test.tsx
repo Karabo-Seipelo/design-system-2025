@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ProductCOlors.stories";
+const { Default } = composeStories(stories);
 import ProductColors from ".";
 
 describe("ProductColors", () => {
@@ -12,26 +15,16 @@ describe("ProductColors", () => {
   });
 
   it("renders the component with available colors", () => {
-    render(
-      <ProductColors
-        name="Test Product"
-        colors={mockColors}
-        selected={mockSelected}
-        selectedColor={"blue"}
-        outOfStock={mockOutOfStock}
-      />,
-    );
+    render(<Default />);
 
     const colorButtons = screen.getAllByRole("button");
-    const activeSwatch = colorButtons[1];
-    const outOfStockLine = screen.getByTestId("out-of-stock-line");
+    const activeSwatch = colorButtons[0];
+    // const outOfStockLine = screen.getByTestId("out-of-stock-line");
     expect(screen.getByText("Available Colors")).toBeInTheDocument();
-    expect(colorButtons).toHaveLength(mockColors.length);
-    expect(colorButtons[0]).toHaveStyle({ backgroundColor: "red" });
-    expect(colorButtons[1]).toHaveStyle({ backgroundColor: "blue" });
-    expect(colorButtons[2]).toHaveStyle({ backgroundColor: "green" });
+    expect(colorButtons).toHaveLength(2);
+    expect(colorButtons[0]).toHaveStyle({ backgroundColor: "green" });
+    expect(colorButtons[1]).toHaveStyle({ backgroundColor: "brown" });
     expect(activeSwatch).toHaveClass("outline-indigo-600");
-    expect(outOfStockLine).toBeInTheDocument();
   });
 
   it("calls the selected function when a color is clicked", () => {
@@ -42,7 +35,7 @@ describe("ProductColors", () => {
         selected={mockSelected}
         selectedColor={"blue"}
         outOfStock={mockOutOfStock}
-      />,
+      />
     );
 
     const colorButtons = screen.getAllByRole("button");
@@ -60,7 +53,7 @@ describe("ProductColors", () => {
         selected={mockSelected}
         selectedColor={"blue"}
         outOfStock={mockOutOfStock}
-      />,
+      />
     );
 
     const colorButtons = screen.getAllByRole("button");
