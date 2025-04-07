@@ -82,3 +82,33 @@ export const AllStates: Story = {
     </div>
   ),
 };
+
+export const Default: Story = {
+  args: {
+    name: "size",
+    size: "M",
+    variant: "default",
+    active: false,
+    isOutOfStock: false,
+  },
+};
+
+export const Active: Story = {
+  args: {
+    name: "size",
+    size: "M",
+    variant: "default",
+    active: true,
+    isOutOfStock: false,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    name: "size",
+    size: "M",
+    variant: "default",
+    active: false,
+    isOutOfStock: true,
+  },
+};

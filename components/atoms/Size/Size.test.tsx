@@ -1,17 +1,20 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./Sizes.stories";
+const { Default, Active, Disabled } = composeStories(stories);
 import Size from ".";
 
 describe("Size Component", () => {
   it("renders the size button with the correct size label", () => {
-    render(<Size name="size" size="M" active={false} isOutOfStock={false} />);
+    render(<Default />);
 
     expect(screen.getByLabelText("Select size M")).toBeInTheDocument();
     expect(screen.getByText("M")).toBeInTheDocument();
   });
 
   it("applies the correct variant classes when active", () => {
-    render(<Size name="size" size="M" active={true} isOutOfStock={false} />);
+    render(<Active />);
 
     const button = screen.getByRole("button");
     expect(button).toHaveClass("border-indigo-600");
@@ -25,7 +28,7 @@ describe("Size Component", () => {
   });
 
   it("disables the button when isOutOfStock is true", () => {
-    render(<Size name="size" size="M" active={false} isOutOfStock={true} />);
+    render(<Disabled />);
 
     const button = screen.getByRole("button");
     expect(button).toBeDisabled();
@@ -40,7 +43,7 @@ describe("Size Component", () => {
         onClick={handleClick}
         active={false}
         isOutOfStock={false}
-      />,
+      />
     );
 
     const button = screen.getByRole("button");
@@ -56,7 +59,7 @@ describe("Size Component", () => {
         ariaLabel="Custom aria label"
         active={false}
         isOutOfStock={false}
-      />,
+      />
     );
 
     expect(screen.getByLabelText("Custom aria label")).toBeInTheDocument();
