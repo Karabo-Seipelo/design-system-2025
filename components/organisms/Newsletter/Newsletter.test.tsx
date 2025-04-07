@@ -7,7 +7,7 @@ import axios from "axios";
 jest.mock("next/image", () => ({
   __esModule: true,
   default: (
-    props: JSX.IntrinsicAttributes & React.ImgHTMLAttributes<HTMLImageElement>
+    props: JSX.IntrinsicAttributes & React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
     return <img {...props} />;
   },
