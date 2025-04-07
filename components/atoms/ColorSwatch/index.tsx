@@ -45,6 +45,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
       {...(onClick && { onClick })}
       className={`${commonClasses} ${variantClasses[variant]}`}
       style={{ backgroundColor: color }}
+      data-testid="color-swatch"
     >
       <label
         className={`${commonClasses}`}

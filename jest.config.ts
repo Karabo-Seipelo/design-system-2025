@@ -12,6 +12,8 @@ const config: Config = {
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
     "^@/(.*)$": "<rootDir>/src/$1", // Adjust according to your paths
+    "^components/(.*)$": "<rootDir>/components/$1",
+    "^\\$/(.*)$": "<rootDir>/components/$1",
   },
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   transform: {

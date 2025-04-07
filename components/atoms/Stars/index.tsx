@@ -23,6 +23,7 @@ const Stars: React.FC<StarsProps> = ({ score }) => {
     <div
       className="flex gap-1"
       aria-label={`Rating: ${score} out of ${totalStars}`}
+      data-testid="star-rating"
     >
       {stars.map((starClass, index) => (
         <i key={`star-${index}-${uniqueKey}`} className={starClass} />
