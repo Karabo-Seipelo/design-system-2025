@@ -1,0 +1,7 @@
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running tests and generating coverage..."
+npm run test:coverage
+
+echo "Staging coverage files..."
+git add coverage/
