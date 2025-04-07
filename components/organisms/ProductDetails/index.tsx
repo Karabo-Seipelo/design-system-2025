@@ -61,7 +61,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   const productDetailsReady = useMemo(
     () => name && description && rating && reviews && locale && currency,
-    [name, description, rating, reviews, locale, currency]
+    [name, description, rating, reviews, locale, currency],
   );
 
   const details = useMemo(
@@ -74,7 +74,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       locale,
       currency,
     }),
-    [currency, description, locale, name, rating, reviews, selectedInventory]
+    [currency, description, locale, name, rating, reviews, selectedInventory],
   );
 
   const carouselReady = useMemo(() => images && images.length > 0, [images]);
@@ -86,7 +86,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       color: selectedColor,
       selected: updateProductState,
     }),
-    [images, loading, selectedColor, updateProductState]
+    [images, loading, selectedColor, updateProductState],
   );
 
   const optionsReady = useMemo(() => colors && sizes, [colors, sizes]);
@@ -110,7 +110,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
       sizes,
       unavailableSizes,
       updateProductState,
-    ]
+    ],
   );
 
   const renderComponents = {

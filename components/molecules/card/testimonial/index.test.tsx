@@ -14,7 +14,7 @@ jest.mock("next/image", () => ({
   default: (
     props: JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>
+      React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
     return <img {...props} />;
   },

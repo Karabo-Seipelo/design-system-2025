@@ -53,7 +53,10 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
         htmlFor={color}
       >
         {isOutOfStock && (
-          <div className="w-[125%] h-[1px] bg-neutral-600 -rotate-45 absolute" />
+          <div
+            data-testid="out-of-stock-line"
+            className="w-[125%] h-[1px] bg-neutral-600 -rotate-45 absolute"
+          />
         )}
         {active && !isOutOfStock && (
           <i className="ri-check-fill text-white w-15 h-15" />

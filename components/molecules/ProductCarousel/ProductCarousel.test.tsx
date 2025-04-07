@@ -1,0 +1,70 @@
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import ProductCarousel from ".";
+
+describe("ProductCarousel", () => {
+  const mockImages = [
+    { image_url: "image1.jpg", color: "red" },
+    { image_url: "image2.jpg", color: "blue" },
+    { image_url: "image3.jpg", color: "green" },
+  ];
+
+  const mockSelected = jest.fn();
+
+  it("renders loading state when loading is true", () => {
+    render(
+      <ProductCarousel
+        images={mockImages}
+        loading={true}
+        color={null}
+        selected={mockSelected}
+      />,
+    );
+
+    expect(screen.getByText("loading")).toBeInTheDocument();
+  });
+
+  it("selects the correct image based on the color prop", () => {
+    render(
+      <ProductCarousel
+        images={mockImages}
+        loading={false}
+        color="blue"
+        selected={mockSelected}
+      />,
+    );
+
+    const selectedTab = screen.getAllByRole("tab")[1];
+    expect(selectedTab).toHaveAttribute("data-selected");
+  });
+
+  it("defaults to the first image if the color prop does not match", () => {
+    render(
+      <ProductCarousel
+        images={mockImages}
+        loading={false}
+        color="yellow"
+        selected={mockSelected}
+      />,
+    );
+
+    const selectedTab = screen.getAllByRole("tab")[0];
+    expect(selectedTab).toHaveAttribute("data-selected");
+  });
+
+  it("calls the selected callback with the correct color when a tab is clicked", () => {
+    render(
+      <ProductCarousel
+        images={mockImages}
+        loading={false}
+        color={null}
+        selected={mockSelected}
+      />,
+    );
+
+    const secondTab = screen.getAllByRole("tab")[1];
+    secondTab.click();
+
+    expect(mockSelected).toHaveBeenCalledWith({ selectedColor: "blue" });
+  });
+});

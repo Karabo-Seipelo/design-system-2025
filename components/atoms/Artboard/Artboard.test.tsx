@@ -7,7 +7,7 @@ describe("Stars", () => {
     render(
       <Artboard>
         <p>Test Child</p>
-      </Artboard>
+      </Artboard>,
     );
     expect(screen.getByText("Test Child")).toBeInTheDocument();
   });
@@ -17,7 +17,7 @@ describe("Stars", () => {
     render(
       <Artboard classes={customClasses}>
         <p>Test Child</p>
-      </Artboard>
+      </Artboard>,
     );
     const sectionElement = screen.getByText("Test Child").closest("section");
     expect(sectionElement).toHaveClass(customClasses);
@@ -27,7 +27,7 @@ describe("Stars", () => {
     render(
       <Artboard>
         <p>Test Child</p>
-      </Artboard>
+      </Artboard>,
     );
 
     const mainElement = screen.getByRole("main");
@@ -36,7 +36,7 @@ describe("Stars", () => {
     const sectionElement = screen.getByText("Test Child").closest("section");
     expect(sectionElement).toBeInTheDocument();
     expect(sectionElement).toHaveClass(
-      "shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white min-h-[calc(100vh_-32px)]"
+      "shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white min-h-[calc(100vh_-32px)]",
     );
   });
 });

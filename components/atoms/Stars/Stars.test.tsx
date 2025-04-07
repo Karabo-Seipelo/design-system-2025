@@ -13,10 +13,10 @@ describe("Stars", () => {
     const starRating = screen.getByTestId("star-rating");
     expect(starRating).toBeInTheDocument();
     expect(
-      starRating.querySelectorAll(".ri-star-fill.text-yellow-400").length
+      starRating.querySelectorAll(".ri-star-fill.text-yellow-400").length,
     ).toBe(3);
     expect(
-      starRating.querySelectorAll(".ri-star-fill.text-slate-300").length
+      starRating.querySelectorAll(".ri-star-fill.text-slate-300").length,
     ).toBe(2);
   });
 
@@ -25,10 +25,10 @@ describe("Stars", () => {
     const starRating = screen.getByTestId("star-rating");
     expect(starRating).toBeInTheDocument();
     expect(
-      starRating.querySelectorAll(".ri-star-fill.text-yellow-400").length
+      starRating.querySelectorAll(".ri-star-fill.text-yellow-400").length,
     ).toBe(0);
     expect(
-      starRating.querySelectorAll(".ri-star-fill.text-slate-300").length
+      starRating.querySelectorAll(".ri-star-fill.text-slate-300").length,
     ).toBe(5);
   });
 });
