@@ -53,7 +53,10 @@ const Nav: React.FC<NavProps> = ({
         <div className="flex lg:basis-1/3 lg:justify-end gap-x-4">
           {cart && (
             <div id="ShoppingCart" className="px-4 py-2.5">
-              <i className="ri-shopping-bag-3-line"></i>
+              <i
+                data-testid="shopping-cart-icon"
+                className="ri-shopping-bag-3-line"
+              ></i>
             </div>
           )}
           {callToAction && (
