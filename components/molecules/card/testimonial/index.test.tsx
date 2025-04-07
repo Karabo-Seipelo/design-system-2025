@@ -6,14 +6,15 @@ import "@testing-library/jest-dom/jest-globals";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ TestimonialCard.stories";
-const { Default, WithoutHandle, WithoutLastname } = composeStories(stories);
+const { Default, WithoutHandle, WithoutLastname, WithoutAvatar } =
+  composeStories(stories);
 
 jest.mock("next/image", () => ({
   __esModule: true,
   default: (
     props: JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>,
+      React.ImgHTMLAttributes<HTMLImageElement>
   ) => {
     return <img {...props} />;
   },
@@ -38,5 +39,11 @@ describe("TestimonialCard", () => {
 
     expect(screen.getByText("unknown user")).toBeInTheDocument();
     expect(screen.getByAltText("unknown user")).toBeInTheDocument();
+  });
+
+  it("renders the testimonial card without the avatar", () => {
+    render(<WithoutAvatar />);
+
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
   });
 });

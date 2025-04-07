@@ -5,8 +5,6 @@ interface ArtboardProps {
   classes?: string;
 }
 
-// p-[16px] h-screen max-w-[1440px] mx-auto my-0
-
 const Artboard: React.FC<ArtboardProps> = ({ children, classes }) => {
   return (
     <main className="mx-auto min-h-screen max-w-[1440px] p-4">

@@ -63,3 +63,13 @@ export const WithoutLastname: TestimonialStory = {
     },
   },
 };
+
+export const WithoutAvatar: TestimonialStory = {
+  args: {
+    firstName: "Sarah",
+    lastName: "Dole",
+    handle: "@sarahdole",
+    testimonial:
+      "I've been searching for high-quality abstract images for my design projects, and I'm thrilled to have found this platform. The variety and depth of creativity are astounding!",
+  },
+};
