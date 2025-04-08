@@ -28,7 +28,7 @@ describe("ProductCarousel", () => {
         loading={true}
         color={null}
         selected={mockSelected}
-      />
+      />,
     );
 
     expect(screen.getByText("loading")).toBeInTheDocument();
@@ -41,7 +41,7 @@ describe("ProductCarousel", () => {
         loading={false}
         color="blue"
         selected={mockSelected}
-      />
+      />,
     );
 
     const selectedTab = screen.getAllByRole("tab")[1];
@@ -55,7 +55,7 @@ describe("ProductCarousel", () => {
         loading={false}
         color="yellow"
         selected={mockSelected}
-      />
+      />,
     );
 
     const selectedTab = screen.getAllByRole("tab")[0];
@@ -69,7 +69,7 @@ describe("ProductCarousel", () => {
         loading={false}
         color={null}
         selected={mockSelected}
-      />
+      />,
     );
 
     const secondTab = screen.getAllByRole("tab")[1];

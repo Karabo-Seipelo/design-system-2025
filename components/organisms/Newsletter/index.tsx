@@ -1,6 +1,5 @@
 import useToast from "../../organisms/Toast/useToast";
 import Image from "next/image";
-import Form from "next/form";
 import axios from "axios";
 import { List } from "../../molecules/List";
 
@@ -89,7 +88,6 @@ const NewsletterSection = ({
     try {
       const formData = new FormData(event.currentTarget);
       const email = formData.get("email");
-      console.log("Email:", email);
       const response = await axios.post(formUrl, { email });
       const { message, status, badge } =
         response.status === 200 ? toast.success : toast.error;

@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
-import * as stories from "./ProductCOlors.stories";
+import * as stories from "./ProductColors.stories";
 const { Default } = composeStories(stories);
 import ProductColors from ".";
 

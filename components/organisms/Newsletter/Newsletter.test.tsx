@@ -2,7 +2,6 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import NewsletterSection from ".";
-import axios from "axios";
 
 jest.mock("next/image", () => ({
   __esModule: true,

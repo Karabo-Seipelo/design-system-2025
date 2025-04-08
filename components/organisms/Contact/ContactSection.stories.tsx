@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import ContactSection from ".";
 import { http, HttpResponse } from "msw";
-import Artboard from "../../atoms/Artboard/index";
+import Artboard from "$/atoms/Artboard/index";
 import {
   ContactArgs,
   ContactSuccessArgs,
   ContactErrorArgs,
-} from "../../../lib/mocks/data/Section/Contact/index";
+} from "#/mocks/data/Section/Contact/index";
 
 const meta = {
   title: "Marketing/Section/Contact",

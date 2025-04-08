@@ -56,7 +56,7 @@ describe("Nav Component", () => {
         navItems={mockNavItems}
         brand={mockBrand}
         callToAction={mockCallToAction}
-      />
+      />,
     );
 
     expect(screen.getByText("Test Brand")).toBeInTheDocument();
@@ -72,11 +72,11 @@ describe("Nav Component", () => {
         brand={mockBrand}
         cart={true}
         callToAction={mockCallToAction}
-      />
+      />,
     );
 
     expect(screen.getByTestId("shopping-cart-icon")).toHaveClass(
-      "ri-shopping-bag-3-line"
+      "ri-shopping-bag-3-line",
     );
   });
 });

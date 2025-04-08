@@ -29,6 +29,7 @@ describe("ContactSection", () => {
           type: "text",
           placeholder: "Your Name",
           renderType: "input",
+          testid: "name-input",
         },
         {
           id: "email-field",
@@ -37,6 +38,7 @@ describe("ContactSection", () => {
           type: "email",
           placeholder: "Your Email",
           renderType: "input",
+          testid: "email-input",
         },
       ],
       url: "/api/contact",
@@ -79,7 +81,7 @@ describe("ContactSection", () => {
 
   it.skip("renders the contact details", () => {
     render(<ContactSection {...mockProps} />);
-    expect(screen.getByText("Email")).toBeInTheDocument();
+    expect(screen.getByTestId("email-input")).toBeInTheDocument();
     expect(screen.getByText("contact@example.com")).toBeInTheDocument();
     expect(screen.getByText("Phone")).toBeInTheDocument();
     expect(screen.getByText("+1234567890")).toBeInTheDocument();
