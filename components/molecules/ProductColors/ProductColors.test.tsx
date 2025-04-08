@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ProductCOlors.stories";
@@ -27,7 +28,7 @@ describe("ProductColors", () => {
     expect(activeSwatch).toHaveClass("outline-indigo-600");
   });
 
-  it("calls the selected function when a color is clicked", () => {
+  it("calls the selected function when a color is clicked", async () => {
     render(
       <ProductColors
         name="Test Product"
@@ -39,13 +40,14 @@ describe("ProductColors", () => {
     );
 
     const colorButtons = screen.getAllByRole("button");
+
     const colorSwatch = colorButtons[0];
-    colorSwatch.click();
+    await userEvent.click(colorSwatch);
 
     expect(mockSelected).toHaveBeenCalledWith({ selectedColor: "red" });
   });
 
-  it("disables the out-of-stock color swatch", () => {
+  it("disables the out-of-stock color swatch", async () => {
     render(
       <ProductColors
         name="Test Product"
@@ -59,7 +61,7 @@ describe("ProductColors", () => {
     const colorButtons = screen.getAllByRole("button");
     const colorSwatch = colorButtons[2];
     const outOfStockLine = screen.getByTestId("out-of-stock-line");
-    colorSwatch.click();
+    await userEvent.click(colorSwatch);
     expect(mockSelected).toHaveBeenCalledWith({ selectedColor: "green" });
     expect(outOfStockLine).toBeInTheDocument();
   });

@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import QuantitySelector from ".";
 
@@ -16,7 +16,11 @@ describe("QuantitySelector", () => {
       />,
     );
 
-    expect(screen.getByDisplayValue("5")).toBeInTheDocument();
+    const incrementButton = screen.getByTestId("add");
+
+    fireEvent.click(incrementButton);
+
+    expect(screen.getByDisplayValue("6")).toBeInTheDocument();
   });
 
   it("shows tooltip when increment button is disabled due to max quantity", () => {

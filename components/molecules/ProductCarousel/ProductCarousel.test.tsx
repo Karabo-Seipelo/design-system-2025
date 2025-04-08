@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import ProductCarousel from ".";
 
@@ -52,7 +53,7 @@ describe("ProductCarousel", () => {
     expect(selectedTab).toHaveAttribute("data-selected");
   });
 
-  it("calls the selected callback with the correct color when a tab is clicked", () => {
+  it("calls the selected callback with the correct color when a tab is clicked", async () => {
     render(
       <ProductCarousel
         images={mockImages}
@@ -63,7 +64,7 @@ describe("ProductCarousel", () => {
     );
 
     const secondTab = screen.getAllByRole("tab")[1];
-    secondTab.click();
+    await userEvent.click(secondTab);
 
     expect(mockSelected).toHaveBeenCalledWith({ selectedColor: "blue" });
   });

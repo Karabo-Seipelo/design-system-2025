@@ -42,7 +42,7 @@ describe("Reviews Component", () => {
         handler={mockHandler}
         currentCount={0}
         loading={false}
-      />
+      />,
     );
     expect(screen.getByText(/no reviews/i)).toBeInTheDocument();
   });
@@ -55,7 +55,7 @@ describe("Reviews Component", () => {
         handler={mockHandler}
         currentCount={2}
         loading={false}
-      />
+      />,
     );
     expect(screen.getByText("John Doe")).toBeInTheDocument();
     expect(screen.getByText("Jane Smith")).toBeInTheDocument();
@@ -69,10 +69,10 @@ describe("Reviews Component", () => {
         handler={mockHandler}
         currentCount={2}
         loading={false}
-      />
+      />,
     );
     expect(
-      screen.queryByRole("button", { name: /show more reviews/i })
+      screen.queryByRole("button", { name: /show more reviews/i }),
     ).toBeNull();
   });
 });

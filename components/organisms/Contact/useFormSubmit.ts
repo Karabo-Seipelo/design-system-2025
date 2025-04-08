@@ -19,8 +19,10 @@ const useFormSubmit = ({
 }: UseFormSubmitProps) => {
   const [formStatus, setFormStatus] = useState<Status | null>(null);
   const [formSuccess, setFormSuccess] = useState<boolean>(false);
-  const submitHandler = async (formData: FormData) => {
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     try {
+      const formData = new FormData(event.currentTarget);
       const email = formData.get("email");
       const name = formData.get("name");
       const message = formData.get("message");

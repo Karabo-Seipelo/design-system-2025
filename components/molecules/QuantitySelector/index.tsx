@@ -54,6 +54,7 @@ const Controls: React.FC<ControlsProps> = ({
 
   return (
     <Button
+      data-testid={type}
       disabled={outOfStock}
       className={`${classes} disabled:cursor-not-allowed disabled:text-neutral-400`}
       {...(onClick && { onClick })}
@@ -85,8 +86,18 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
 }) => {
   const [quantity, setQuantity] = useState<number>(initialQuantity);
   const handleQuantityChange = (value: number) => {
-    setQuantity(value);
+    if (value >= min && value <= max) {
+      setQuantity(value);
+    }
   };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(event.target.value, 10);
+    if (!isNaN(value)) {
+      handleQuantityChange(value);
+    }
+  };
+
   return (
     <div className="flex flex-row w-[125px] justify-center items-center gap-3 bg-neutral-50 p-0.5 rounded-md border border-solid border-neutral-200">
       <Controls
@@ -105,6 +116,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
           name={name}
           type="number"
           className={`w-full bg-transparent text-center`}
+          onChange={handleInputChange}
         />
       </div>
       <Controls
