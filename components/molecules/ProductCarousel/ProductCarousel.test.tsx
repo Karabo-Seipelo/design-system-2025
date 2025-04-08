@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ProductCarousel.stories";
+const { Default } = composeStories(stories);
 import ProductCarousel from ".";
 
 describe("ProductCarousel", () => {
@@ -12,6 +15,12 @@ describe("ProductCarousel", () => {
 
   const mockSelected = jest.fn();
 
+  it("render the storybook default", () => {
+    render(<Default />);
+    const carousel = screen.getByTestId("product-carousel");
+    expect(carousel).toBeDefined();
+  });
+
   it("renders loading state when loading is true", () => {
     render(
       <ProductCarousel
@@ -19,7 +28,7 @@ describe("ProductCarousel", () => {
         loading={true}
         color={null}
         selected={mockSelected}
-      />,
+      />
     );
 
     expect(screen.getByText("loading")).toBeInTheDocument();
@@ -32,7 +41,7 @@ describe("ProductCarousel", () => {
         loading={false}
         color="blue"
         selected={mockSelected}
-      />,
+      />
     );
 
     const selectedTab = screen.getAllByRole("tab")[1];
@@ -46,7 +55,7 @@ describe("ProductCarousel", () => {
         loading={false}
         color="yellow"
         selected={mockSelected}
-      />,
+      />
     );
 
     const selectedTab = screen.getAllByRole("tab")[0];
@@ -60,7 +69,7 @@ describe("ProductCarousel", () => {
         loading={false}
         color={null}
         selected={mockSelected}
-      />,
+      />
     );
 
     const secondTab = screen.getAllByRole("tab")[1];
