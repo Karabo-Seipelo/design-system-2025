@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./HeroSection.stories";
+const { Simple, FeatureBullets } = composeStories(stories);
 import HeroSection from ".";
 
 describe("HeroSection", () => {
@@ -24,6 +27,28 @@ describe("HeroSection", () => {
       return <img {...props} />;
     },
   }));
+
+  it("renders the storybook simple HeroSection config", () => {
+    render(<Simple />);
+    expect(screen.getByText("Well craft abstract images")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "High quality images for your projects, wallpaper and presentations",
+      ),
+    ).toBeInTheDocument();
+    expect(screen.getAllByRole("button")).toHaveLength(2);
+  });
+
+  it("renders the storybook feature bullets HeroSection config", () => {
+    render(<FeatureBullets />);
+    expect(screen.getByText("Premium abstract images")).toBeInTheDocument();
+    expect(screen.getByText("Minimum 5K image resolution")).toBeInTheDocument();
+    expect(
+      screen.getByText("Various format variants avaliable"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("Retina display support")).toBeInTheDocument();
+    expect(screen.getAllByRole("button")).toHaveLength(2);
+  });
 
   it("renders the HeroSection with all props", () => {
     render(<HeroSection {...mockProps} />);

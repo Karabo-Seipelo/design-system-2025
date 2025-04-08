@@ -14,6 +14,7 @@ const config: Config = {
     "^@/(.*)$": "<rootDir>/src/$1", // Adjust according to your paths
     "^components/(.*)$": "<rootDir>/components/$1",
     "^\\$/(.*)$": "<rootDir>/components/$1",
+    "^#/(.*)$": "<rootDir>/lib/$1",
   },
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   transform: {

@@ -26,11 +26,11 @@ describe("NotFound", () => {
     expect(screen.getByText("We can’t find the page")).toBeInTheDocument();
     expect(
       screen.getByText(
-        "Sorry, the page you are looking for doesn't exist or has been moved."
-      )
+        "Sorry, the page you are looking for doesn't exist or has been moved.",
+      ),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("button", { name: "Learn more" })
+      screen.getByRole("button", { name: "Learn more" }),
     ).toBeInTheDocument();
     expect(screen.getByText("Back to Home")).toBeInTheDocument();
   });
@@ -42,7 +42,7 @@ describe("NotFound", () => {
     expect(screen.queryByText("404 Error")).not.toBeInTheDocument();
     expect(screen.getByText("Page Not Found")).toBeInTheDocument();
     expect(
-      screen.getByText("The page you are looking for does not exist.")
+      screen.getByText("The page you are looking for does not exist."),
     ).toBeInTheDocument();
   });
 
@@ -53,7 +53,7 @@ describe("NotFound", () => {
     expect(screen.getByText("404 Error")).toBeInTheDocument();
     expect(screen.getByText("Page Not Found")).toBeInTheDocument();
     expect(
-      screen.queryByText("The page you are looking for does not exist.")
+      screen.queryByText("The page you are looking for does not exist."),
     ).not.toBeInTheDocument();
   });
 

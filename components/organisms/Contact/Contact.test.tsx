@@ -32,7 +32,7 @@ describe("ContactSection", () => {
     render(<ContactSection {...mockProps} />);
     expect(screen.getByText("Contact Us")).toBeInTheDocument();
     expect(
-      screen.getByText("Feel free to reach out to us anytime.")
+      screen.getByText("Feel free to reach out to us anytime."),
     ).toBeInTheDocument();
   });
 
@@ -62,10 +62,10 @@ describe("ContactSection", () => {
 
     render(<ContactSection {...mockProps} />);
     expect(
-      screen.getByText("Form submitted successfully!")
+      screen.getByText("Form submitted successfully!"),
     ).toBeInTheDocument();
     expect(
-      screen.getByAltText("Form submitted successfully!")
+      screen.getByAltText("Form submitted successfully!"),
     ).toBeInTheDocument();
   });
 
@@ -82,7 +82,7 @@ describe("ContactSection", () => {
     render(<ContactSection {...mockProps} />);
     expect(screen.getByText("Failed to submit the form.")).toBeInTheDocument();
     expect(
-      screen.getByAltText("Failed to submit the form.")
+      screen.getByAltText("Failed to submit the form."),
     ).toBeInTheDocument();
   });
 

@@ -43,7 +43,7 @@ describe("Size Component", () => {
         onClick={handleClick}
         active={false}
         isOutOfStock={false}
-      />
+      />,
     );
 
     const button = screen.getByRole("button");
@@ -59,7 +59,7 @@ describe("Size Component", () => {
         ariaLabel="Custom aria label"
         active={false}
         isOutOfStock={false}
-      />
+      />,
     );
 
     expect(screen.getByLabelText("Custom aria label")).toBeInTheDocument();

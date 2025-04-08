@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./LogoMarquee.stories";
+const { Default } = composeStories(stories);
 import LogoMarquee from ".";
 
 jest.mock("next/image", () => ({
@@ -18,6 +21,14 @@ describe("LogoMarquee", () => {
     { imageUrl: "/logo1.png", alt: "Logo 1" },
     { imageUrl: "/logo2.png", alt: "Logo 2" },
   ];
+
+  it("renders the LogoMarquee component with default props", () => {
+    const argsLogos = Default.args.logos?.length ?? 7;
+    render(<Default />);
+    const images = screen.getAllByRole("img");
+    expect(screen.getByText("Used by teams that love")).toBeInTheDocument();
+    expect(images).toHaveLength(argsLogos * 2);
+  });
 
   it("renders the title when provided", () => {
     render(<LogoMarquee title="Our Partners" logos={logos} />);

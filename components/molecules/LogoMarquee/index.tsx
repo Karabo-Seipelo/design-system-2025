@@ -6,7 +6,7 @@ type Logos = {
 };
 
 export type LogoMarqueeProps = {
-  title: string;
+  title?: string;
   logos: Logos[];
   classes?: string;
 };

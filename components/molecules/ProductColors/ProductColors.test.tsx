@@ -35,7 +35,7 @@ describe("ProductColors", () => {
         selected={mockSelected}
         selectedColor={"blue"}
         outOfStock={mockOutOfStock}
-      />
+      />,
     );
 
     const colorButtons = screen.getAllByRole("button");
@@ -53,7 +53,7 @@ describe("ProductColors", () => {
         selected={mockSelected}
         selectedColor={"blue"}
         outOfStock={mockOutOfStock}
-      />
+      />,
     );
 
     const colorButtons = screen.getAllByRole("button");
