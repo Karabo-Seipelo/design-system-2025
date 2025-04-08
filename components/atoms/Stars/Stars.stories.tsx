@@ -21,6 +21,24 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Default: Story = {
+  args: {
+    score: 3,
+  },
+};
+
+export const HalfStars: Story = {
+  args: {
+    score: 3.5,
+  },
+};
+
+export const Empty: Story = {
+  args: {
+    score: 0,
+  },
+};
+
 export const AllStates: Story = {
   args: {
     score: 0,

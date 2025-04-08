@@ -57,7 +57,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     colors = [],
     sizes = [],
     info = null,
-  } = product || {};
+  } = product ?? {};
 
   const productDetailsReady = useMemo(
     () => name && description && rating && reviews && locale && currency,
@@ -81,7 +81,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   const carouselProps = useMemo(
     () => ({
-      images: images || [],
+      images: images ?? [],
       loading,
       color: selectedColor,
       selected: updateProductState,
@@ -93,8 +93,8 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   const optionsProps = useMemo(
     () => ({
-      colors: colors || [],
-      sizes: sizes || [],
+      colors: colors ?? [],
+      sizes: sizes ?? [],
       selected: updateProductState,
       quantity,
       classes: "flex flex-col gap-4",
@@ -127,7 +127,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   if (error) {
     return (
       <div className="text-red-500">
-        {error.message || "Something went wrong. Please try again later."}
+        {error.message ?? "Something went wrong. Please try again later."}
       </div>
     );
   }
@@ -141,11 +141,11 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   }
 
   return (
-    <div className="flex flex-col gap-10 p-4 lg:flex-row">
-      <div className="flex flex-col gap-10 lg:w-[50%]">
+    <div className="w-full px-4 py-12 md:py-16 lg:p-224 grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12">
+      <div className="col-span-4 md:col-span-6">
         {renderComponents.carousel}
       </div>
-      <div className="flex flex-col gap-10 lg:w-[50%]">
+      <div className="col-span-4 md:col-span-6">
         {renderComponents.details}
         {renderComponents.options}
         {renderComponents.info}

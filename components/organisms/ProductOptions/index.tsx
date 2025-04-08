@@ -6,6 +6,7 @@ import ProductColors from "$/molecules/ProductColors";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import Button from "$/atoms/Button";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
+import { useMediaQuery } from "usehooks-ts";
 
 interface ProductOptionsProps {
   colors: string[];
@@ -28,6 +29,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
   outOfStock,
   unavailableSizes,
 }) => {
+  const isMobileAndBelow = useMediaQuery("(max-width: 768px)");
   const disabled = outOfStock.includes(inventory.color);
   const handleAddCart = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -70,7 +72,12 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
           Sorry, this item is out of stock
         </div>
       )}
-      <Button type="submit" disabled={disabled} variant="primary">
+      <Button
+        type="submit"
+        disabled={disabled}
+        variant="primary"
+        size={isMobileAndBelow ? "xl" : "2xl"}
+      >
         Add to cart
       </Button>
     </form>

@@ -13,6 +13,7 @@ export type TeamSectionProps = {
   description: string;
   team: Team[];
 };
+
 const TeamSection = ({
   title,
   subTitle,

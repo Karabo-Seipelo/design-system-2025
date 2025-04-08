@@ -7,13 +7,13 @@ interface ArtboardProps {
 
 const Artboard: React.FC<ArtboardProps> = ({ children, classes }) => {
   return (
-    <div className={`p-[16px] h-screen max-w-[1440px] mx-auto my-0`}>
+    <main className="mx-auto min-h-screen max-w-[1440px] p-4">
       <section
-        className={`${classes} flex flex-col bg-white rounded-sm w-full h-auto`}
+        className={`shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white min-h-[calc(100vh_-32px)] ${classes}`}
       >
         {children}
       </section>
-    </div>
+    </main>
   );
 };
 

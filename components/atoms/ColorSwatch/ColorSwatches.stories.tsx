@@ -30,7 +30,7 @@ export const AllStates: Story = {
     isOutOfStock: false,
   },
   render: (args) => (
-    <div className="flex flex-row gap-10">
+    <div className="flex flex-col md:flex-row gap-10">
       <div className="flex flex-col gap-2">
         <div>Normal</div>
         <div>
@@ -100,4 +100,44 @@ export const AllStates: Story = {
       </div>
     </div>
   ),
+};
+
+export const Default: Story = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: false,
+    isOutOfStock: false,
+  },
+};
+
+export const Active: Story = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: true,
+    isOutOfStock: false,
+  },
+};
+
+export const OutofStock: Strou = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: false,
+    isOutOfStock: true,
+  },
+};
+
+export const ActiveOutofStock: Strou = {
+  args: {
+    name: "color",
+    color: "orange",
+    variant: "default",
+    active: true,
+    isOutOfStock: true,
+  },
 };

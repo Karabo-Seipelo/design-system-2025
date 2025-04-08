@@ -9,9 +9,9 @@ export interface TestimonialCardProps {
   /** User's testimonial */
   testimonial: string;
   /** User's avatar */
-  avatar: {
-    imageUrl: string;
-    alt: string;
+  avatar?: {
+    imageUrl?: string;
+    alt?: string;
   };
   classes?: string;
 }
@@ -39,7 +39,7 @@ const TestimonialCard = ({
       className={`flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md ${classes}`}
     >
       <header className="flex items-center gap-4 self-stretch">
-        {avatar?.imageUrl && avatar?.alt && (
+        {avatar?.imageUrl && (
           <Avatar
             imageUrl={avatar.imageUrl}
             alt={`${firstName && lastName ? firstName + " " + lastName : "unknown user"}`}

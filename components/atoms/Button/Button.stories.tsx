@@ -23,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const AllStates: Story = {
   args: {
-    size: "default",
+    size: "md",
     variant: "primary",
   },
   render: () => (
@@ -31,7 +31,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-4">
         <h3>Primary</h3>
         <small>Size - 2xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
@@ -68,7 +68,7 @@ export const AllStates: Story = {
       </div>
       <div className="flex flex-col gap-4">
         <small>Size - Xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
@@ -106,23 +106,27 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-4">
         <h3>Secondary</h3>
         <small>Size - Xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
-              <Button>Add Cart</Button>
+              <Button size="xl" variant="secondary">
+                Add Cart
+              </Button>
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <div>Hover</div>
             <div>
-              <Button variant="secondaryHover">Add Cart</Button>
+              <Button size="xl" variant="secondaryHover">
+                Add Cart
+              </Button>
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <div>Focus</div>
             <div>
-              <Button variant="secondaryFocus" autoFocus={true}>
+              <Button size="xl" variant="secondaryFocus" autoFocus={true}>
                 Add Cart
               </Button>
             </div>
@@ -130,7 +134,9 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Disabled</div>
             <div>
-              <Button disabled={true}>Add Cart</Button>
+              <Button size="xl" disabled={true}>
+                Add Cart
+              </Button>
             </div>
           </div>
         </div>
@@ -138,7 +144,7 @@ export const AllStates: Story = {
       <div className="flex flex-col gap-4">
         <h3>Link color</h3>
         <small>Size - Xl</small>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
@@ -175,4 +181,59 @@ export const AllStates: Story = {
       </div>
     </div>
   ),
+};
+
+export const Default: Story = {
+  args: {
+    children: "Add Cart",
+  },
+};
+
+export const DefaultDisabled: Story = {
+  args: {
+    disabled: true,
+    children: "Add Cart",
+  },
+};
+
+export const Primary: Story = {
+  args: {
+    size: "xl",
+    variant: "primary",
+    children: "Add Cart",
+  },
+};
+
+export const PrimaryDisabled: Story = {
+  args: {
+    size: "xl",
+    variant: "primary",
+    children: "Add Cart",
+    disabled: true,
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    size: "xl",
+    variant: "secondary",
+    children: "Add Cart",
+  },
+};
+
+export const Link: Story = {
+  args: {
+    size: "sm",
+    variant: "link",
+    children: "See all 62 reviews",
+  },
+};
+
+export const LinkDisabled: Story = {
+  args: {
+    size: "sm",
+    variant: "link",
+    children: "See all 62 reviews",
+    disabled: true,
+  },
 };
