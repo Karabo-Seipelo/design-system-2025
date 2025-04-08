@@ -20,7 +20,7 @@ const meta = {
   ],
   args: {
     title: "Overall Rating",
-    isOpen: false,
+    isOpen: true,
     productId: "voyager-hoodie",
     close: () => {
       console.warn("close");
