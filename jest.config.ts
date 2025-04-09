@@ -2,7 +2,7 @@ import type { Config } from "jest";
 
 const config: Config = {
   preset: "ts-jest",
-  testEnvironment: "jsdom",
+  testEnvironment: "jest-fixed-jsdom",
   rootDir: "./",
   coverageDirectory: "<rootDir>/coverage",
   collectCoverageFrom: ["<rootDir>/components/**/*.{ts,tsx}"],

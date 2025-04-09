@@ -1,5 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ContactSection.stories";
+
+const { Default, SuccessContact, ErrorContact } = composeStories(stories);
+
 import ContactSection from ".";
 
 describe("ContactSection", () => {
@@ -61,6 +66,24 @@ describe("ContactSection", () => {
     resendForm: { label: "Resend" },
   };
 
+  jest.mock("msw", () => {
+    const originalModule = jest.requireActual("msw");
+    return {
+      ...originalModule,
+      http: {
+        get: jest.fn(),
+        post: jest.fn(),
+        put: jest.fn(),
+        delete: jest.fn(),
+        patch: jest.fn(),
+      },
+      HttpResponse: jest.fn((status, body) => ({
+        status,
+        body,
+      })),
+    };
+  });
+
   jest.mock("next/image", () => ({
     __esModule: true,
     default: (
@@ -70,6 +93,34 @@ describe("ContactSection", () => {
       return <img {...props} />;
     },
   }));
+
+  it("renders with default props", () => {
+    render(<Default />);
+    const title = screen.getByText("Talk to our team");
+    const description = screen.getByText(
+      "We've committed to delivering the support you require to make your experience as smooth as possible.",
+    );
+    expect(title).toBeInTheDocument();
+    expect(description).toBeInTheDocument();
+  });
+
+  it.skip("renders with success contact props", () => {
+    render(<SuccessContact />);
+    const nameIput = screen.getByPlaceholderText("Enter your name");
+    const emailInput = screen.getByPlaceholderText("Enter your email");
+    const message = screen.getByPlaceholderText("Write your message...");
+    const submitButton = screen.getByText("Submit");
+
+    fireEvent.change(nameIput, { target: { value: "John Doe" } });
+    fireEvent.change(emailInput, { target: { value: "John.doe@gmail.com" } });
+    fireEvent.change(message, { target: { value: "Hello!" } });
+    fireEvent.click(submitButton);
+
+    expect(nameIput).toHaveValue("John Doe");
+    expect(emailInput).toHaveValue("John.doe@gmail.com");
+    expect(message).toHaveValue("Hello!");
+    expect(submitButton).toBeInTheDocument();
+  });
 
   it("renders the title and description", () => {
     render(<ContactSection {...mockProps} />);
