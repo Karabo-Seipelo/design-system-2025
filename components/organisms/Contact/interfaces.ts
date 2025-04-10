@@ -10,6 +10,7 @@ export interface FieldProps {
   classes?: string;
   characterLimit?: number;
   testId?: string;
+  type?: string;
 }
 
 export interface FormFieldsProps {
