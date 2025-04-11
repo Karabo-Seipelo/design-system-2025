@@ -7,6 +7,8 @@ describe("Reviews Component", () => {
   const mockPagination = {
     total: 20,
     has_more: true,
+    page: 1,
+    per_page: 10,
   };
 
   const mockData = [

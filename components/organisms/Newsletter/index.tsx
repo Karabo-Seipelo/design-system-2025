@@ -1,6 +1,5 @@
 import useToast from "../../organisms/Toast/useToast";
 import Image from "next/image";
-import Form from "next/form";
 import axios from "axios";
 import { List } from "../../molecules/List";
 
@@ -35,7 +34,7 @@ export type NewsletterSectionProps = {
 };
 
 export type NewsLetterFormProps = {
-  submitHandler: (formData: FormData) => Promise<void>;
+  submitHandler: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
   instruction: string;
   label: string;
   placeholder: string;
@@ -48,7 +47,7 @@ const NewsLetterForm = ({
   placeholder,
 }: NewsLetterFormProps) => {
   return (
-    <Form className="flex flex-col gap-4 w-full" action={submitHandler}>
+    <form className="flex flex-col gap-4 w-full" onSubmit={submitHandler}>
       <div className="flex flex-col md:flex-row gap-4 md:flex-wrap">
         <input
           data-testid="email-input"
@@ -71,7 +70,7 @@ const NewsLetterForm = ({
           {label}
         </button>
       </div>
-    </Form>
+    </form>
   );
 };
 
@@ -84,8 +83,10 @@ const NewsletterSection = ({
   const { formUrl, toast } = form;
   const { showToast } = useToast();
 
-  const submitHandler = async (formData: FormData) => {
+  const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     try {
+      const formData = new FormData(event.currentTarget);
       const email = formData.get("email");
       const response = await axios.post(formUrl, { email });
       const { message, status, badge } =

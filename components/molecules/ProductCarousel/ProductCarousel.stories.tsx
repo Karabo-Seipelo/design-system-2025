@@ -23,11 +23,6 @@ type Story = StoryObj<typeof meta>;
 
 const images = [
   {
-    color: "green",
-    image_url:
-      "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg",
-  },
-  {
     color: "brown",
     image_url:
       "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/voyager-hoodie/voyager-hoodie-1.jpg",

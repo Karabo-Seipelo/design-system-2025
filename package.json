@@ -59,6 +59,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "jest-fixed-jsdom": "^0.0.9",
     "msw": "^2.7.0",
     "msw-storybook-addon": "^2.0.4",
     "postcss": "^8",
