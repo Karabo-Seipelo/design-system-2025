@@ -1,3 +1,5 @@
+import { ToastProps } from "./Toast";
+
 export interface FieldProps {
   id: string;
   name: string;
@@ -30,18 +32,8 @@ export interface ContactSectionProps {
     url: string;
     fields: FieldProps[];
     notification: {
-      error: {
-        badge: string;
-        message: string;
-        status: string;
-        icon?: string;
-      };
-      success: {
-        badge: string;
-        message: string;
-        status: string;
-        icon?: string;
-      };
+      error: ToastProps;
+      success: ToastProps;
     };
   };
   dropShadow?: boolean;
