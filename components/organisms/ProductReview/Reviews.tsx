@@ -30,9 +30,10 @@ const Reviews: React.FC<ReviewsProps> = ({
   if (loading) {
     return (
       <div className={`flex flex-col py-6 gap-6 lg:pt-0 mg:gap-8 ${classes}`}>
-        {Array.from({ length: 10 }).map((_, index) => (
-          <ReviewSkeleton key={`skeleton-${index}`} />
-        ))}
+        {Array.from({ length: 10 }).map((_, index) => {
+          const uniqueId = Date.now();
+          return <ReviewSkeleton key={`skeleton-${uniqueId}-${index}`} />;
+        })}
       </div>
     );
   }

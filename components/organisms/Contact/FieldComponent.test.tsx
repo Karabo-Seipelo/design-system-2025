@@ -127,7 +127,7 @@ describe("FieldComponent", () => {
       <FieldComponent
         {...mockTextareaFieldPropsWithLimit}
         classes={customClasses}
-      />
+      />,
     );
     const textareaElement = screen.getByTestId("field");
     expect(textareaElement).toHaveClass(customClasses);
@@ -164,7 +164,7 @@ describe("FieldComponent", () => {
   it("renders with custom classes", () => {
     const customClasses = "custom-class";
     render(
-      <FieldComponent {...mockButtonFieldProps} classes={customClasses} />
+      <FieldComponent {...mockButtonFieldProps} classes={customClasses} />,
     );
     const buttonElement = screen.getByTestId("field");
     expect(buttonElement).toHaveClass(customClasses);

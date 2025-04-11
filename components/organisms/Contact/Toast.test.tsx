@@ -14,7 +14,7 @@ describe("Toast", () => {
     const toastElement = screen.getByTestId("toast");
     const badgeElement = screen.getByText("Success");
     const messageElement = screen.getByText(
-      "Your message has been sent successfully."
+      "Your message has been sent successfully.",
     );
     expect(toastElement).toBeInTheDocument();
     expect(badgeElement).toBeInTheDocument();
@@ -32,7 +32,7 @@ describe("Toast", () => {
     const toastElement = screen.getByTestId("toast");
     const badgeElement = screen.getByText("Error");
     const messageElement = screen.getByText(
-      "There was an error sending your message."
+      "There was an error sending your message.",
     );
     expect(toastElement).toBeInTheDocument();
     expect(badgeElement).toBeInTheDocument();

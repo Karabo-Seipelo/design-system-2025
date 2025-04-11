@@ -13,7 +13,6 @@ interface ButtonFieldProps {
   classes?: string;
   testId?: string;
   disabled?: boolean;
-  autoFocus?: boolean;
 }
 const ButtonField = ({
   type,
@@ -21,6 +20,7 @@ const ButtonField = ({
   id,
   classes,
   testId,
+  disabled = false,
 }: ButtonFieldProps) => {
   return (
     <Field data-testid="field" className={`flex flex-col ${classes}`}>
@@ -29,6 +29,7 @@ const ButtonField = ({
         type={type}
         id={id}
         className="justify-center items-center gap-1.5 bg-indigo-700 px-4 py-2.5 rounded text-white"
+        disabled={disabled}
       >
         {label}
       </Button>

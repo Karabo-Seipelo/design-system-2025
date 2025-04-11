@@ -43,7 +43,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
     >
       <Controls
         type="remove"
-        outOfStock={outOfStock || quantity <= min}
+        outOfStock={outOfStock ?? quantity <= min}
         classes="relative group"
         onClick={() => handleQuantityChange(quantity - decrement)}
         quantity={quantity}
@@ -63,7 +63,7 @@ const QuantitySelector: React.FC<QuantitySelectorProps> = ({
       </div>
       <Controls
         type="add"
-        outOfStock={outOfStock || quantity >= max}
+        outOfStock={outOfStock ?? quantity >= max}
         classes="relative group"
         onClick={() => handleQuantityChange(quantity + increment)}
         quantity={quantity}

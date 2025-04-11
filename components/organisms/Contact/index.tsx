@@ -73,7 +73,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                       <div className="w-16 h-16 p-4 bg-white rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
                         <Image
                           src={formStatus.icon}
-                          alt={formStatus.status || "status icon"}
+                          alt={formStatus.status ?? "status icon"}
                           width={0}
                           height={0}
                           className="w-8 h-8"

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1257" lines-covered="800" line-rate="0.6364" branches-valid="569" branches-covered="376" branch-rate="0.6607999999999999" timestamp="1744361507499" complexity="0" version="0.1">
+<coverage lines-valid="1258" lines-covered="801" line-rate="0.6367" branches-valid="576" branches-covered="379" branch-rate="0.6579" timestamp="1744371748597" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -857,7 +857,7 @@
         </class>
       </classes>
     </package>
-    <package name="molecules.QuantitySelector" line-rate="0.975" branch-rate="0.7619">
+    <package name="molecules.QuantitySelector" line-rate="0.975" branch-rate="0.72">
       <classes>
         <class name="Controls.tsx" filename="components/molecules/QuantitySelector/Controls.tsx" line-rate="1" branch-rate="0.8">
           <methods>
@@ -919,16 +919,16 @@
             <line number="80" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="index.tsx" filename="components/molecules/QuantitySelector/index.tsx" line-rate="1" branch-rate="0.7272">
+        <class name="index.tsx" filename="components/molecules/QuantitySelector/index.tsx" line-rate="1" branch-rate="0.6666">
           <methods>
             <method name="(anonymous_10)" hits="13" signature="()V">
               <lines>
                 <line number="16" hits="13"/>
               </lines>
             </method>
-            <method name="(anonymous_11)" hits="3" signature="()V">
+            <method name="(anonymous_11)" hits="5" signature="()V">
               <lines>
-                <line number="26" hits="3"/>
+                <line number="26" hits="5"/>
               </lines>
             </method>
             <method name="(anonymous_12)" hits="1" signature="()V">
@@ -936,14 +936,14 @@
                 <line number="32" hits="1"/>
               </lines>
             </method>
-            <method name="(anonymous_13)" hits="1" signature="()V">
+            <method name="(anonymous_13)" hits="2" signature="()V">
               <lines>
-                <line number="48" hits="1"/>
+                <line number="48" hits="2"/>
               </lines>
             </method>
-            <method name="(anonymous_14)" hits="1" signature="()V">
+            <method name="(anonymous_14)" hits="2" signature="()V">
               <lines>
-                <line number="68" hits="1"/>
+                <line number="68" hits="2"/>
               </lines>
             </method>
           </methods>
@@ -955,15 +955,15 @@
             <line number="16" hits="4" branch="false"/>
             <line number="25" hits="13" branch="false"/>
             <line number="26" hits="13" branch="false"/>
-            <line number="27" hits="3" branch="true" condition-coverage="100% (3/3)"/>
+            <line number="27" hits="5" branch="true" condition-coverage="100% (3/3)"/>
             <line number="28" hits="3" branch="false"/>
             <line number="32" hits="13" branch="false"/>
             <line number="33" hits="1" branch="false"/>
             <line number="34" hits="1" branch="true" condition-coverage="100% (1/1)"/>
             <line number="35" hits="1" branch="false"/>
             <line number="39" hits="13" branch="false"/>
-            <line number="48" hits="1" branch="false"/>
-            <line number="68" hits="1" branch="false"/>
+            <line number="48" hits="2" branch="false"/>
+            <line number="68" hits="2" branch="false"/>
             <line number="77" hits="4" branch="false"/>
           </lines>
         </class>
@@ -1172,7 +1172,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.Contact" line-rate="0.5909" branch-rate="0.47450000000000003">
+    <package name="organisms.Contact" line-rate="0.5909" branch-rate="0.4677">
       <classes>
         <class name="ButtonField.tsx" filename="components/organisms/Contact/ButtonField.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -1183,7 +1183,7 @@
             </method>
             <method name="(anonymous_1)" hits="3" signature="()V">
               <lines>
-                <line number="18" hits="3"/>
+                <line number="17" hits="3"/>
               </lines>
             </method>
           </methods>
@@ -1193,9 +1193,9 @@
             <line number="4" hits="3" branch="false"/>
             <line number="5" hits="3" branch="false"/>
             <line number="6" hits="3" branch="false"/>
-            <line number="18" hits="3" branch="false"/>
+            <line number="17" hits="3" branch="false"/>
             <line number="25" hits="3" branch="false"/>
-            <line number="41" hits="3" branch="false"/>
+            <line number="42" hits="3" branch="false"/>
           </lines>
         </class>
         <class name="ContactSection.stories.tsx" filename="components/organisms/Contact/ContactSection.stories.tsx" line-rate="0" branch-rate="1">
@@ -2861,7 +2861,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.ProductReview" line-rate="0.6909000000000001" branch-rate="0.5166">
+    <package name="organisms.ProductReview" line-rate="0.6927" branch-rate="0.5166">
       <classes>
         <class name="NoReviews.tsx" filename="components/organisms/ProductReview/NoReviews.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -3082,7 +3082,7 @@
             </method>
             <method name="(anonymous_3)" hits="4" signature="()V">
               <lines>
-                <line number="42" hits="4"/>
+                <line number="43" hits="4"/>
               </lines>
             </method>
           </methods>
@@ -3098,9 +3098,10 @@
             <line number="30" hits="3" branch="true" condition-coverage="100% (1/1)"/>
             <line number="31" hits="1" branch="false"/>
             <line number="34" hits="10" branch="false"/>
-            <line number="40" hits="2" branch="false"/>
-            <line number="43" hits="4" branch="false"/>
-            <line number="58" hits="2" branch="false"/>
+            <line number="35" hits="10" branch="false"/>
+            <line number="41" hits="2" branch="false"/>
+            <line number="44" hits="4" branch="false"/>
+            <line number="59" hits="2" branch="false"/>
           </lines>
         </class>
         <class name="fetchReviewFromAPI.ts" filename="components/organisms/ProductReview/fetchReviewFromAPI.ts" line-rate="0.4285" branch-rate="0">
