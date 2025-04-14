@@ -24,7 +24,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   variant = "default",
   color,
   ariaLabel,
-  active = false,
+  active,
   isOutOfStock = false,
 }) => {
   const variantClasses = {

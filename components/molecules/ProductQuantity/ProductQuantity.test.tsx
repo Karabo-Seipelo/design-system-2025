@@ -1,81 +1,25 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import ProductQuantity from ".";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ProductQuantity.stories";
+
+const { Default, OutOfStock, CustomClasses } = composeStories(stories);
 
 describe("ProductQuantity", () => {
-  it.skip("renders the ProductQuantity component with all props", () => {
-    render(
-      <ProductQuantity
-        name="Test Product"
-        initialQuantity={2}
-        stock={10}
-        classes="custom-class"
-        outOfStock={false}
-      />,
-    );
+  it("renders the ProductQuantity component with all props", () => {
+    render(<Default />);
 
     expect(screen.getByText("Quantity")).toBeInTheDocument();
-    /*
-    expect(screen.getByRole("fieldset")).toHaveClass(
-      "custom-class flex flex-col gap-4"
-    );
-    */
   });
 
-  it.skip("renders the QuantitySelector with correct props", () => {
-    render(
-      <ProductQuantity
-        name="Test Product"
-        initialQuantity={2}
-        stock={10}
-        outOfStock={false}
-      />,
-    );
-
-    const quantitySelector = screen.getByRole("fieldset").querySelector("div");
-    expect(quantitySelector).toBeInTheDocument();
-    expect(quantitySelector).toHaveTextContent("Quantity");
+  it("renders the ProductQuanity with custom classes", () => {
+    render(<CustomClasses />);
+    const fieldset = screen.getByTestId("quantity-selector-fieldset");
+    expect(fieldset).toHaveClass("bg-red-500");
   });
 
-  it.skip("applies default class when no custom class is provided", () => {
-    render(
-      <ProductQuantity
-        name="Test Product"
-        initialQuantity={1}
-        stock={5}
-        outOfStock={false}
-      />,
-    );
-
-    expect(screen.getByRole("fieldset")).toHaveClass("flex flex-col gap-4");
-  });
-
-  it.skip("renders correctly when outOfStock is true", () => {
-    render(
-      <ProductQuantity
-        name="Test Product"
-        initialQuantity={0}
-        stock={0}
-        outOfStock={true}
-      />,
-    );
-
+  it("renders the out-of-stock ProductQuantity component with all props", () => {
+    render(<OutOfStock />);
     expect(screen.getByText("Quantity")).toBeInTheDocument();
-    expect(screen.getByRole("fieldset")).toBeInTheDocument();
-  });
-
-  it.skip("renders QuantitySelector with min and max values", () => {
-    render(
-      <ProductQuantity
-        name="Test Product"
-        initialQuantity={1}
-        stock={10}
-        outOfStock={false}
-      />,
-    );
-
-    const quantitySelector = screen.getByRole("fieldset").querySelector("div");
-    expect(quantitySelector).toBeInTheDocument();
-    expect(quantitySelector).toHaveTextContent("Quantity");
   });
 });
