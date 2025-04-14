@@ -10,10 +10,16 @@ const {
   PrimaryDisabled,
   Link,
   LinkDisabled,
+  AllStates,
 } = composeStories(stories);
 import Button from ".";
 
 describe("Button", () => {
+  it("renders all variants", () => {
+    render(<AllStates />);
+    const allstates = screen.getByTestId("all-states");
+    expect(allstates).toBeInTheDocument();
+  });
   it("renders with default variant", () => {
     render(<Default />);
     const button = screen.getByText(/Add Cart/i);

@@ -2,10 +2,14 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./Stars.stories";
-const { Default, HalfStars, Empty } = composeStories(stories);
-import Stars from ".";
+const { Default, HalfStars, Empty, AllStates } = composeStories(stories);
 
 describe("Stars", () => {
+  it("renders all states", () => {
+    render(<AllStates />);
+    const allStates = screen.getByTestId("all-states");
+    expect(allStates).toBeInTheDocument();
+  });
   it("renders the given score", () => {
     render(<HalfStars />);
     expect(screen.getByLabelText("Rating: 3.5 out of 5")).toBeInTheDocument();

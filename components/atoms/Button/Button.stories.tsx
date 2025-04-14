@@ -27,7 +27,7 @@ export const AllStates: Story = {
     variant: "primary",
   },
   render: () => (
-    <div className="flex flex-col gap-4">
+    <div data-testid="all-states" className="flex flex-col gap-4">
       <div className="flex flex-col gap-4">
         <h3>Primary</h3>
         <small>Size - 2xl</small>
