@@ -55,7 +55,7 @@ export interface ProductDetails {
   priceRange: PriceRange;
   rating: number;
   reviews: number;
-  sizes: number[];
+  sizes: (number | string)[];
   sold: number;
 }
 

@@ -5,7 +5,7 @@ import Size from "$/atoms/Size";
 
 interface ProductSizeProps {
   name: string;
-  sizes: number[] | string[];
+  sizes: (number | string)[];
   selected: (state: Partial<ProductDetailsStore>) => void;
   classes?: string;
   inventory: Inventory;
