@@ -2,12 +2,16 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./QuantitySelector.stories";
-const { Default, OutOfStock } = composeStories(stories);
+const { Default, OutOfStock, MinimalConfiguration } = composeStories(stories);
 import QuantitySelector from ".";
 
-jest.mock("$/atoms/Artboard", () => (props: React.PropsWithChildren) => (
-  <div data-testid="artboard">{props.children}</div>
-));
+jest.mock("$/atoms/Artboard", () => {
+  const MockArtboard = (props: React.PropsWithChildren) => (
+    <div data-testid="artboard">{props.children}</div>
+  );
+  MockArtboard.displayName = "MockArtboard";
+  return MockArtboard;
+});
 
 describe("QuantitySelector", () => {
   const setup = () => {
@@ -25,7 +29,17 @@ describe("QuantitySelector", () => {
 
   it("renders the component with default props", () => {
     const { input } = setup();
+    const inputElement = input as HTMLInputElement;
     expect(input).toHaveValue(Default.args.initialQuantity);
+    expect(inputElement.value).toBe("3");
+  });
+
+  it("renders the component with minimal configuration", () => {
+    render(<MinimalConfiguration />);
+    const input = screen.getByTestId("quantity-selector-input");
+    const inputElement = input as HTMLInputElement;
+    expect(input).toHaveValue(MinimalConfiguration.args.initialQuantity);
+    expect(inputElement.value).toBe("1");
   });
 
   it("decrements the quantity when the remove button is clicked", () => {

@@ -88,3 +88,14 @@ export const OutOfStock: Story = {
     decrement: 1,
   },
 };
+
+export const MinimalConfiguration: Story = {
+  args: {
+    name: "quantity",
+    outOfStock: true,
+    min: 1,
+    max: 10,
+    increment: 1,
+    decrement: 1,
+  },
+};
