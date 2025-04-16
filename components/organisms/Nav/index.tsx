@@ -1,36 +1,11 @@
 import "remixicon/fonts/remixicon.css";
 import { Button } from "@headlessui/react";
 import useMobileMenu from "./useMobileMenu";
-import CallToActionButtons, { CallToAction } from "./CallToAction";
+import CallToActionButtons from "./CallToAction";
 import NavLogo from "./NavLogo";
 import DesktopNavigation from "./DesktopNavigation";
 import MobileMenuDialog from "./MobileNavigation";
-
-export interface SubMenu {
-  name: string;
-  href: string;
-  description?: string;
-}
-
-export interface NavItem {
-  name: string;
-  href?: string;
-  items?: SubMenu[];
-}
-
-export interface Brand {
-  name: string;
-  imageUrl: string;
-  href?: string;
-}
-
-export interface NavProps {
-  navItems: NavItem[];
-  brand: Brand;
-  cart?: boolean;
-  callToAction?: CallToAction[];
-  classes?: string;
-}
+import { NavProps } from "./interface";
 
 const Nav: React.FC<NavProps> = ({
   navItems,

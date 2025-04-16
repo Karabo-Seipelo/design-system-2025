@@ -43,7 +43,7 @@ const useFetchProductDetailsStore = create<ProductDetailsStore>((set) => ({
     } catch (error) {
       if (axios.isAxiosError(error)) {
         set({
-          error: new Error(error.response?.data.message || error.message),
+          error: new Error(error.response?.data.message ?? error.message),
         });
       } else {
         set({
