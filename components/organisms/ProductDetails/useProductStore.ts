@@ -92,7 +92,7 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
     } catch (error) {
       if (axios.isAxiosError(error)) {
         set({
-          error: new Error(error.response?.data.message || error.message),
+          error: new Error(error.response?.data.message ?? error.message),
         });
       } else {
         set({
@@ -109,7 +109,7 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
       inventory?.find(
         (item) =>
           item.color === color && (item.size === size || item.size === null),
-      ) || null
+      ) ?? null
     );
   },
   updateState: (state) => {

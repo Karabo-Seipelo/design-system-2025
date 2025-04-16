@@ -41,7 +41,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
           <div className="flex flex-row gap-4 flex-wrap">
             {sizes?.map((size, index) => {
               const isOutOfStock =
-                unavailableSizes[inventory.color]?.includes(size) ||
+                unavailableSizes[inventory.color]?.includes(size) ??
                 outOfStock.includes(size);
 
               return (

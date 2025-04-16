@@ -6,7 +6,7 @@ import {
   DisclosurePanel,
   Button,
 } from "@headlessui/react";
-import { NavItem, Brand } from ".";
+import { NavItem, Brand } from "./interface";
 import CallToActionButtons, { CallToAction } from "./CallToAction";
 import NavLogo from "./NavLogo";
 
