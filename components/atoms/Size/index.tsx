@@ -16,8 +16,8 @@ const Size: React.FC<SizeProps> = ({
   onClick,
   variant = "default",
   ariaLabel,
-  active = false,
-  isOutOfStock = false,
+  active,
+  isOutOfStock,
 }) => {
   const variantClasses = {
     default: `bg-white ${active ? "border-indigo-600" : "border-neutral-200"} hover:bg-neutral-50 hover:border-neutral-200 focus:bg-neutral-50 focus:border-neutral-200 disabled:bg-neutral-100 disabled:text-neutral-400 disabled:cursor-not-allowed`,

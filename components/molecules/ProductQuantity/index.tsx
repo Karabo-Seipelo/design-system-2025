@@ -15,10 +15,14 @@ const ProductQuantity: React.FC<ProductQuantityProps> = ({
   initialQuantity,
   classes = "",
   stock,
-  outOfStock = false,
+  outOfStock,
 }) => {
   return (
-    <fieldset id="Quantity" className={`${classes} flex flex-col gap-4`}>
+    <fieldset
+      data-testid="quantity-selector-fieldset"
+      id="Quantity"
+      className={`${classes} flex flex-col gap-4`}
+    >
       <div>
         <legend className="flex flex-row text-sm text-neutral-500">
           Quantity

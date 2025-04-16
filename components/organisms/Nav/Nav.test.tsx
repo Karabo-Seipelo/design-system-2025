@@ -22,8 +22,20 @@ describe("Nav Component", () => {
   ];
 
   const mockCallToAction = [
-    { label: "Sign Up", href: "/signup" },
-    { label: "Login", href: "/login" },
+    {
+      label: "Sign Up",
+      href: "/signup",
+      name: "Sign Up",
+      mobileName: "Sign Up",
+      primary: true,
+    },
+    {
+      label: "Login",
+      href: "/login",
+      name: "Login",
+      mobileName: "Login",
+      primary: false,
+    },
   ];
 
   beforeAll(() => {
@@ -31,11 +43,11 @@ describe("Nav Component", () => {
       observe: jest.fn(),
       unobserve: jest.fn(),
       disconnect: jest.fn(),
-    }));
+    })) as unknown as jest.Mock;
   });
 
   afterAll(() => {
-    global.ResizeObserver.mockClear();
+    (global.ResizeObserver as jest.Mock).mockClear();
   });
 
   it("renders the navigation bar with brand and navigation items", () => {

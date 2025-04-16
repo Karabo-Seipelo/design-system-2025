@@ -29,6 +29,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
 
   return (
     <TabGroup
+      data-testid="product-carousel"
       className="flex flex-col gap-6"
       selectedIndex={selectedIndex}
       onChange={(index) => {

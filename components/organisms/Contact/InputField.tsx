@@ -1,12 +1,19 @@
-import type { FieldProps } from "./interfaces";
+import { Input, Label, Field } from "@headlessui/react";
 
-interface InputFieldProps extends FieldProps {
-  type: "text" | "email" | "password" | "number" | "tel" | "url";
+interface InputFieldProps {
+  label: string;
+  name: string;
+  id: string;
+  classes?: string;
+  testId?: string;
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
+  type: string;
 }
 
 const InputField = ({
   label,
-  type,
   name,
   id,
   placeholder,
@@ -14,13 +21,14 @@ const InputField = ({
   disabled = false,
   classes = "",
   testId,
+  type,
 }: InputFieldProps) => {
   return (
-    <div className={`flex flex-col ${classes}`}>
-      <label htmlFor={id} className="font-medium text-sm">
+    <Field data-testid="field" className={`flex flex-col ${classes}`}>
+      <Label htmlFor={id} className="font-medium text-sm">
         {label}
-      </label>
-      <input
+      </Label>
+      <Input
         data-testid={testId}
         type={type}
         name={name}
@@ -29,8 +37,9 @@ const InputField = ({
         required={required}
         disabled={disabled}
         className="bg-neutral-50 rounded border border-solid border-neutral-200 px-3.5 py-2.5"
+        as="input"
       />
-    </div>
+    </Field>
   );
 };
 

@@ -2,10 +2,15 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./Sizes.stories";
-const { Default, Active, Disabled } = composeStories(stories);
+const { Default, Active, Disabled, AllStates } = composeStories(stories);
 import Size from ".";
 
 describe("Size Component", () => {
+  it("renders all states", () => {
+    render(<AllStates />);
+    const allStates = screen.getByTestId("all-states");
+    expect(allStates).toBeInTheDocument();
+  });
   it("renders the size button with the correct size label", () => {
     render(<Default />);
 

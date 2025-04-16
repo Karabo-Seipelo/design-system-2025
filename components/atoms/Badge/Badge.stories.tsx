@@ -27,7 +27,7 @@ export const AllStates: Story = {
     variant: "default",
   },
   render: (args) => (
-    <div className="flex flex-row gap-6">
+    <div data-testid="all-states" className="flex flex-row gap-6">
       <Badge {...args} />
       <Badge discount={20} variant="promo" />
     </div>

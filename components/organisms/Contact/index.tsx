@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { List } from "$/molecules/List";
-import Form from "next/form";
 import FormFields from "./FormFields";
 import { ContactSectionProps } from "./interfaces";
 import useFormSubmit from "./useFormSubmit";
@@ -70,16 +69,18 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                     data-testid="success"
                     className="flex flex-col items-center gap-6"
                   >
-                    {formStatus?.icon && (
+                    {formStatus?.icon ? (
                       <div className="w-16 h-16 p-4 bg-white rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.1)]">
                         <Image
                           src={formStatus.icon}
-                          alt={formStatus.status}
+                          alt={formStatus.status ?? "status icon"}
                           width={0}
                           height={0}
                           className="w-8 h-8"
                         />
                       </div>
+                    ) : (
+                      <div className="w-8 h-8 bg-gray-200 rounded-full" />
                     )}
                     <div className="font-normal text-xl text-center text-neutral-900">
                       {formStatus.message}
@@ -96,9 +97,12 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                     )}
                   </div>
                 ) : (
-                  <Form className="flex flex-col gap-4" action={submitHandler}>
+                  <form
+                    className="flex flex-col gap-4"
+                    onSubmit={submitHandler}
+                  >
                     <FormFields fields={fields} />
-                  </Form>
+                  </form>
                 )}
               </div>
             </div>

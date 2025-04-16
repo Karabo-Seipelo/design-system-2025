@@ -64,3 +64,38 @@ export const AllStates: Story = {
     </div>
   ),
 };
+
+export const Default: Story = {
+  args: {
+    name: "quantity",
+    initialQuantity: 3,
+    outOfStock: false,
+    min: 1,
+    max: 10,
+    increment: 1,
+    decrement: 1,
+  },
+};
+
+export const OutOfStock: Story = {
+  args: {
+    name: "quantity",
+    initialQuantity: 1,
+    outOfStock: true,
+    min: 1,
+    max: 10,
+    increment: 1,
+    decrement: 1,
+  },
+};
+
+export const MinimalConfiguration: Story = {
+  args: {
+    name: "quantity",
+    outOfStock: true,
+    min: 1,
+    max: 10,
+    increment: 1,
+    decrement: 1,
+  },
+};

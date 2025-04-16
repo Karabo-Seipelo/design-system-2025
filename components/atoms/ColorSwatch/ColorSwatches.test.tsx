@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ColorSwatches.stories";
-const { Default, Active, OutofStock, ActiveOutofStock } =
+const { Default, Active, OutofStock, ActiveOutofStock, AllStates } =
   composeStories(stories);
 import ColorSwatches from ".";
 
@@ -43,6 +43,12 @@ describe("ColorSwatches", () => {
   it("renders with active out-of-stock", () => {
     render(<ActiveOutofStock />);
     const swatch = screen.getByTestId("color-swatch");
+    expect(swatch).toBeInTheDocument();
+  });
+
+  it("renders all states", () => {
+    render(<AllStates />);
+    const swatch = screen.getByTestId("all-states");
     expect(swatch).toBeInTheDocument();
   });
 });

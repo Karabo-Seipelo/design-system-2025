@@ -1,7 +1,15 @@
 import React, { useState } from "react";
-import type { FieldProps } from "./interfaces";
+import { Textarea, Field, Label } from "@headlessui/react";
 
-interface TextareaFieldProps extends FieldProps {
+interface TextareaFieldProps {
+  label: string;
+  name: string;
+  id: string;
+  classes?: string;
+  testId?: string;
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
   characterLimit?: number;
 }
 
@@ -22,11 +30,11 @@ const TextareaField = ({
   };
 
   return (
-    <div className={`flex flex-col ${classes}`}>
-      <label htmlFor={id} className="font-medium text-sm">
+    <Field data-testid="field" className={`flex flex-col ${classes}`}>
+      <Label htmlFor={id} className="font-medium text-sm">
         {label}
-      </label>
-      <textarea
+      </Label>
+      <Textarea
         data-testid={testId}
         name={name}
         id={id}
@@ -38,11 +46,14 @@ const TextareaField = ({
         onChange={handleChange}
       />
       {characterLimit && (
-        <span className="font-normal text-sm text-right text-neutral-500">
+        <span
+          data-testid="char-count"
+          className="font-normal text-sm text-right text-neutral-500"
+        >
           {characterCount}/{characterLimit}
         </span>
       )}
-    </div>
+    </Field>
   );
 };
 

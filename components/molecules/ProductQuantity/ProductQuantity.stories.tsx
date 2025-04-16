@@ -25,9 +25,6 @@ export const Default: Story = {
   args: {
     name: "Quantity",
     initialQuantity: 1,
-    selected: (state) => {
-      console.log(state);
-    },
     stock: 10,
     outOfStock: false,
   },
@@ -37,10 +34,17 @@ export const OutOfStock: Story = {
   args: {
     name: "Quantity",
     initialQuantity: 1,
-    selected: (state) => {
-      console.log(state);
-    },
     stock: 10,
     outOfStock: true,
+  },
+};
+
+export const CustomClasses: Story = {
+  args: {
+    name: "Quantity",
+    initialQuantity: 1,
+    stock: 10,
+    outOfStock: false,
+    classes: "bg-red-500",
   },
 };
