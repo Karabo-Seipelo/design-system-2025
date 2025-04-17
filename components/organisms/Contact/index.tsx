@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { List } from "$/molecules/List";
 import FormFields from "./FormFields";
-import { ContactSectionProps } from "./interfaces";
+import { ContactSectionProps } from "./Contact.interfaces";
 import useFormSubmit from "./useFormSubmit";
 import Toast from "./Toast";
 

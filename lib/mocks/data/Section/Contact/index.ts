@@ -1,4 +1,4 @@
-import { ContactSectionProps } from "../../../../../components/organisms/Contact/interfaces";
+import { ContactSectionProps } from "../../../../../components/organisms/Contact/Contact.interfaces";
 
 const baseArgs = {
   title: "Talk to our team",
@@ -98,7 +98,7 @@ const createStoryArgs = (url: string) => ({
 
 export const ContactArgs: ContactSectionProps = {
   ...createStoryArgs(
-    "https://www.greatfrontend.com/api/projects/challenges/contact",
+    "https://www.greatfrontend.com/api/projects/challenges/contact"
   ),
 };
 
