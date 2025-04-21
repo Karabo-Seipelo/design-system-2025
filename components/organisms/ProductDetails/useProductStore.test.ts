@@ -1,7 +1,9 @@
 import { renderHook, act } from "@testing-library/react";
 import useProductStore from "./useProductStore";
 import fetchProductDetailsFromAPI from "./fetchProductDetailsAPI";
+import axios from "axios";
 
+jest.mock("axios");
 jest.mock("./fetchProductDetailsAPI");
 
 const mockedFetchProductDetailsFromAPI =
@@ -96,7 +98,7 @@ describe("useProductStore", () => {
     jest.clearAllMocks();
   });
 
-  it.skip("should initialize with default state", () => {
+  it("should initialize with default state", () => {
     const { result } = renderHook(() => useProductStore());
     expect(result.current.product).toBeNull();
     expect(result.current.loading).toBe(true);
@@ -148,10 +150,19 @@ describe("useProductStore", () => {
     expect(result.current.outOfStock).toEqual([]);
   });
 
-  it("should handle fetchProductDetails API failure", async () => {
+  it("should handle fetchProductDetails API failure with axios payload", async () => {
+    const errorResponse = {
+      response: {
+        data: {
+          message: "API Error",
+        },
+      },
+    };
     mockedFetchProductDetailsFromAPI.mockRejectedValueOnce(
-      new Error("API Error"),
+      errorResponse as unknown as Error
     );
+
+    jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
 
     const { result } = renderHook(() => useProductStore());
 
@@ -161,6 +172,58 @@ describe("useProductStore", () => {
 
     expect(mockedFetchProductDetailsFromAPI).toHaveBeenCalledWith("1");
     expect(result.current.error).toEqual(new Error("API Error"));
+    expect(result.current.loading).toBe(false);
+  });
+
+  it("should handle fetchProductDetails API failure with failed axios payload", async () => {
+    mockedFetchProductDetailsFromAPI.mockRejectedValueOnce(
+      new Error("API Error")
+    );
+
+    jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
+
+    const { result } = renderHook(() => useProductStore());
+
+    await act(async () => {
+      await result.current.fetchProductDetails("1");
+    });
+
+    expect(mockedFetchProductDetailsFromAPI).toHaveBeenCalledWith("1");
+    expect(result.current.error).toEqual(new Error("API Error"));
+    expect(result.current.loading).toBe(false);
+  });
+
+  it("should handle fetchProductDetails API failure without axios payload", async () => {
+    mockedFetchProductDetailsFromAPI.mockRejectedValueOnce(
+      new Error("API Error")
+    );
+
+    jest.spyOn(axios, "isAxiosError").mockReturnValue(false);
+
+    const { result } = renderHook(() => useProductStore());
+
+    await act(async () => {
+      await result.current.fetchProductDetails("1");
+    });
+
+    expect(mockedFetchProductDetailsFromAPI).toHaveBeenCalledWith("1");
+    expect(result.current.error).toEqual(new Error("API Error"));
+    expect(result.current.loading).toBe(false);
+  });
+
+  it("should handle fetchProductDetails API failure when error fails without and Error instance", async () => {
+    mockedFetchProductDetailsFromAPI.mockRejectedValueOnce("Network Error");
+
+    jest.spyOn(axios, "isAxiosError").mockReturnValue(false);
+
+    const { result } = renderHook(() => useProductStore());
+
+    await act(async () => {
+      await result.current.fetchProductDetails("1");
+    });
+
+    expect(mockedFetchProductDetailsFromAPI).toHaveBeenCalledWith("1");
+    expect(result.current.error).toEqual(new Error("Network Error"));
     expect(result.current.loading).toBe(false);
   });
 
