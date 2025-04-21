@@ -12,18 +12,26 @@ interface Status extends ToastProps {
   icon?: string;
 }
 
+export interface UseFormSubmitReturn {
+  submitHandler: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  formStatus: Status | null;
+  formSuccess: boolean;
+  setFormStatus?: (status: Status | null) => void;
+  setFormSuccess?: (success: boolean) => void;
+}
+
 const useFormSubmit = ({
   url,
   success,
   error: errorMsg,
-}: UseFormSubmitProps) => {
+}: UseFormSubmitProps): UseFormSubmitReturn => {
   const [formStatus, setFormStatus] = useState<Status | null>(null);
   const [formSuccess, setFormSuccess] = useState<boolean>(false);
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
     if (!(form instanceof HTMLFormElement)) {
       console.error(
-        "submitHandler: event.currentTarget is not a valid form element.",
+        "submitHandler: event.currentTarget is not a valid form element."
       );
       return;
     }
