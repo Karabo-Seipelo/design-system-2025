@@ -10,7 +10,7 @@ import { useMediaQuery } from "usehooks-ts";
 
 interface ProductOptionsProps {
   colors: string[];
-  sizes: number[];
+  sizes: (number | string)[];
   quantity: number;
   selected: (state: Partial<ProductDetailsStore>) => void;
   classes?: string;

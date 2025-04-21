@@ -5,7 +5,12 @@ const config: Config = {
   testEnvironment: "jest-fixed-jsdom",
   rootDir: "./",
   coverageDirectory: "<rootDir>/coverage",
-  collectCoverageFrom: ["<rootDir>/components/**/*.{ts,tsx}"],
+  collectCoverageFrom: [
+    "<rootDir>/components/**/*.{ts,tsx}",
+    "!<rootDir>/components/**/*.d.ts",
+    "!<rootDir>/components/**/types.ts",
+    "!<rootDir>/components/**/interfaces.ts",
+  ],
   coverageReporters: ["text", "lcov", "cobertura"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],

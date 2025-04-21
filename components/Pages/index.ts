@@ -4,7 +4,7 @@ import { HeroSectionProps } from "$/organisms/Hero";
 import { FeatureSectionProps } from "$/organisms/Features/index";
 import { FAQProps } from "$/organisms/Faq";
 import { FooterProps } from "$/organisms/Footer";
-import { ContactSectionProps } from "$/organisms/Contact/interfaces";
+import { ContactSectionProps } from "$/organisms/Contact/Contact.interfaces";
 import { TestimonialsProps } from "$/organisms/Testimonials";
 import { NewsletterSectionProps } from "$/Section/Newsletter";
 import { LogoMarqueeProps } from "$/LogoMarquee/index";

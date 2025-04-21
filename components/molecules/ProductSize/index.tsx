@@ -5,7 +5,7 @@ import Size from "$/atoms/Size";
 
 interface ProductSizeProps {
   name: string;
-  sizes: number[] | string[];
+  sizes: (number | string)[];
   selected: (state: Partial<ProductDetailsStore>) => void;
   classes?: string;
   inventory: Inventory;
@@ -41,7 +41,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
           <div className="flex flex-row gap-4 flex-wrap">
             {sizes?.map((size, index) => {
               const isOutOfStock =
-                unavailableSizes[inventory.color]?.includes(size) ||
+                unavailableSizes[inventory.color]?.includes(size) ??
                 outOfStock.includes(size);
 
               return (
