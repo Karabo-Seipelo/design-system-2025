@@ -106,7 +106,7 @@ const Icon = ({
 }: IconProps) => {
   const iconClass = useMemo(
     () => `ri-${iconName(icon)} ${iconColor(color)} ${iconSize(size)}`,
-    [icon, color, size]
+    [icon, color, size],
   );
 
   return (

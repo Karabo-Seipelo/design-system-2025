@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1281" lines-covered="926" line-rate="0.7228" branches-valid="556" branches-covered="436" branch-rate="0.7841" timestamp="1745310715279" complexity="0" version="0.1">
+<coverage lines-valid="1284" lines-covered="929" line-rate="0.7234999999999999" branches-valid="556" branches-covered="436" branch-rate="0.7841" timestamp="1745328108088" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -3323,6 +3323,11 @@
                 <line number="12" hits="2"/>
               </lines>
             </method>
+            <method name="(anonymous_2)" hits="4" signature="()V">
+              <lines>
+                <line number="23" hits="4"/>
+              </lines>
+            </method>
           </methods>
           <lines>
             <line number="2" hits="1" branch="false"/>
@@ -3331,6 +3336,9 @@
             <line number="13" hits="2" branch="false"/>
             <line number="20" hits="1" branch="false"/>
             <line number="23" hits="1" branch="false"/>
+            <line number="33" hits="4" branch="false"/>
+            <line number="44" hits="1" branch="false"/>
+            <line number="99" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="index.tsx" filename="components/organisms/ProductSpecifications/index.tsx" line-rate="1" branch-rate="1">
@@ -3342,17 +3350,17 @@
             </method>
             <method name="(anonymous_2)" hits="4" signature="()V">
               <lines>
-                <line number="50" hits="4"/>
+                <line number="53" hits="4"/>
               </lines>
             </method>
             <method name="(anonymous_3)" hits="4" signature="()V">
               <lines>
-                <line number="55" hits="4"/>
+                <line number="63" hits="4"/>
               </lines>
             </method>
             <method name="(anonymous_4)" hits="16" signature="()V">
               <lines>
-                <line number="74" hits="16"/>
+                <line number="87" hits="16"/>
               </lines>
             </method>
           </methods>
@@ -3362,10 +3370,10 @@
             <line number="3" hits="1" branch="false"/>
             <line number="29" hits="1" branch="false"/>
             <line number="34" hits="1" branch="false"/>
-            <line number="51" hits="4" branch="false"/>
-            <line number="56" hits="4" branch="false"/>
-            <line number="75" hits="16" branch="false"/>
-            <line number="92" hits="1" branch="false"/>
+            <line number="54" hits="4" branch="false"/>
+            <line number="64" hits="4" branch="false"/>
+            <line number="88" hits="16" branch="false"/>
+            <line number="105" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
