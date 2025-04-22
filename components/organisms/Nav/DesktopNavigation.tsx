@@ -1,6 +1,6 @@
 import "remixicon/fonts/remixicon.css";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/react";
-import { NavItem } from ".";
+import { NavItem } from "./interface";
 import { memo } from "react";
 
 interface DesktopNavigationProps {
