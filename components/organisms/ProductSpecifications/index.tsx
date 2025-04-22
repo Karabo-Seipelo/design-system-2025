@@ -52,7 +52,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
         >
           {specifications.map(({ name }, index) => (
             <Tab
-              key={index}
+              key={`${index}-${name}`}
               className="first:pl-0 p-4 font-medium text-base text-neutral-600 border-b-2 border-spacing-[100px] border-solid border-transparent data-[selected]:border-indigo-700 data-[selected]:text-indigo-700 focus-visible:outline-none focus-visible:border-indigo-300 focus-visible:text-indigo-300 hover:border-indigo-300 hover:text-indigo-300"
             >
               {name}
@@ -63,7 +63,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
           {specifications.map(({ title, description, image, list }, index) => (
             <TabPanel
               className="grid grid-cols-4 md:grid-cols-6 lg:grid-col-12 gap-8"
-              key={index}
+              key={`${title}-${index}`}
             >
               <div className="col-span-4 md:col-span-6 lg:col-span-3">
                 <img
@@ -85,7 +85,10 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
 
                 <ul className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {list.map(({ icon, text }, index) => (
-                    <li key={index} className="flex gap-4">
+                    <li
+                      key={`${icon}-${index}-${title}`}
+                      className="flex gap-4"
+                    >
                       <Icon icon={icon} size="xxlarge" color="primary" />
                       <div className="font-normal text-base text-neutral-600 flex flex-col items-start justify-center gap-2 py-2.5">
                         {text}

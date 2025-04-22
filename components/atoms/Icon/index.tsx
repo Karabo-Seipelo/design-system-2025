@@ -79,7 +79,7 @@ const iconName = (icon: string): string => {
     console.warn(`Invalid icon: ${icon}`);
     return "question-line";
   }
-  return ICON_MAP[icon as IconType];
+  return ICON_MAP[icon];
 };
 
 const iconSize = (size: IconSize): string => {
@@ -106,7 +106,7 @@ const Icon = ({
 }: IconProps) => {
   const iconClass = useMemo(
     () => `ri-${iconName(icon)} ${iconColor(color)} ${iconSize(size)}`,
-    [icon, color, size],
+    [icon, color, size]
   );
 
   return (
