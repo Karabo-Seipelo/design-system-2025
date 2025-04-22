@@ -30,7 +30,7 @@ const createSpecificantion = (
   list: {
     icon: string;
     text: string;
-  }[]
+  }[],
 ) => ({
   name,
   title,
@@ -49,8 +49,8 @@ const specifications = Specification[0].specifications.map((specification) =>
     specification.description,
     specification.image.src,
     specification.image.alt,
-    specification.list
-  )
+    specification.list,
+  ),
 );
 
 export const Default: Story = {
