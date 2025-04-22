@@ -48,12 +48,12 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
       <TabGroup className="flex flex-col gap-8">
         <TabList
           as="div"
-          className="flex jestify-center overflow-auto border-b-2 border-solid border-neutral-300 "
+          className="line-tab flex jestify-center relative overflow-auto mb-2"
         >
           {specifications.map(({ name }, index) => (
             <Tab
               key={`${index}-${name}`}
-              className="first:pl-0 p-4 font-medium text-base text-neutral-600 border-b-2 border-spacing-[100px] border-solid border-transparent data-[selected]:border-indigo-700 data-[selected]:text-indigo-700 focus-visible:outline-none focus-visible:border-indigo-300 focus-visible:text-indigo-300 hover:border-indigo-300 hover:text-indigo-300"
+              className="first:pl-0 p-4 relative z-10 font-medium text-base text-neutral-600 border-b-2 border-spacing-[100px] border-solid border-transparent data-[selected]:border-indigo-700 data-[selected]:text-indigo-700 focus-visible:outline-none focus-visible:border-indigo-300 focus-visible:text-indigo-300 hover:border-indigo-300 hover:text-indigo-300"
             >
               {name}
             </Tab>
@@ -62,17 +62,17 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
         <TabPanels>
           {specifications.map(({ title, description, image, list }, index) => (
             <TabPanel
-              className="grid grid-cols-4 md:grid-cols-6 lg:grid-col-12 gap-8"
+              className="flex flex-col lg:grid lg:grid-cols-12 gap-8"
               key={`${title}-${index}`}
             >
-              <div className="col-span-4 md:col-span-6 lg:col-span-3">
+              <div className="lg:col-span-4">
                 <img
                   className="object-cover rounded"
                   src={image.src}
                   alt={image.alt}
                 />
               </div>
-              <div className="col-span-4 md:col-span-6 lg:col-span-8 gap-8">
+              <div className="lg:col-span-8">
                 <div className="flex flex-col gap-2">
                   <h3 className="font-medium text-2xl text-neutral-900">
                     {title}

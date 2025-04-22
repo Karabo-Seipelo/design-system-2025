@@ -102,3 +102,14 @@ body {
     0px 1px 2px 0 rgb(0 0 0 / 0.06),
     0px 1px 3px 0 rgb(0 0 0 / 0.1);
 }
+
+.line-tab {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) calc(50% - 1px),
+    rgba(192, 192, 192, 1) calc(50%),
+    rgba(0, 0, 0, 0) calc(50% + 3px)
+  );
+  background-position: 0px 27px;
+  background-repeat: no-repeat;
+}
