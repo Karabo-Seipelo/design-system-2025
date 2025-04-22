@@ -31,7 +31,7 @@ const useFormSubmit = ({
     const form = event.currentTarget;
     if (!(form instanceof HTMLFormElement)) {
       console.error(
-        "submitHandler: event.currentTarget is not a valid form element."
+        "submitHandler: event.currentTarget is not a valid form element.",
       );
       return;
     }
