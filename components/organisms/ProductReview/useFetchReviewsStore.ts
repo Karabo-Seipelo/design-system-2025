@@ -15,7 +15,7 @@ interface FetchReviewsStore {
     productId: string,
     page?: number,
     perPage?: number,
-    filter?: number | null
+    filter?: number | null,
   ) => Promise<void>;
   currentFilter: number | null;
 }
@@ -42,7 +42,7 @@ const useFetchReviewsStore = create<FetchReviewsStore>((set, get) => ({
     productId: string,
     page: number = 1,
     perPage: number = 12,
-    filter: number | null = null
+    filter: number | null = null,
   ) => {
     try {
       set({ loading: true });

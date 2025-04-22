@@ -159,7 +159,7 @@ describe("useProductStore", () => {
       },
     };
     mockedFetchProductDetailsFromAPI.mockRejectedValueOnce(
-      errorResponse as unknown as Error
+      errorResponse as unknown as Error,
     );
 
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
@@ -177,7 +177,7 @@ describe("useProductStore", () => {
 
   it("should handle fetchProductDetails API failure with failed axios payload", async () => {
     mockedFetchProductDetailsFromAPI.mockRejectedValueOnce(
-      new Error("API Error")
+      new Error("API Error"),
     );
 
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
@@ -195,7 +195,7 @@ describe("useProductStore", () => {
 
   it("should handle fetchProductDetails API failure without axios payload", async () => {
     mockedFetchProductDetailsFromAPI.mockRejectedValueOnce(
-      new Error("API Error")
+      new Error("API Error"),
     );
 
     jest.spyOn(axios, "isAxiosError").mockReturnValue(false);

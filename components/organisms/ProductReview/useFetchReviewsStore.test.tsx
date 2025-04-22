@@ -81,7 +81,7 @@ describe("useFetchReviewsStore", () => {
         "productId",
         1,
         12,
-        null
+        null,
       );
     });
   });
@@ -99,7 +99,7 @@ describe("useFetchReviewsStore", () => {
         "productId",
         1,
         12,
-        5
+        5,
       );
     });
 
@@ -115,7 +115,7 @@ describe("useFetchReviewsStore", () => {
         "productId",
         1,
         12,
-        6
+        6,
       );
     });
     expect(result.current.currentFilter).toBe(6);
@@ -131,7 +131,7 @@ describe("useFetchReviewsStore", () => {
     };
 
     mockedFetchReviewsFromAPI.mockRejectedValueOnce(
-      errorResponse as unknown as Error
+      errorResponse as unknown as Error,
     );
 
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
@@ -149,7 +149,7 @@ describe("useFetchReviewsStore", () => {
 
   it("should handle fetchReviews API failure with failed axios payload", async () => {
     mockedFetchReviewsFromAPI.mockRejectedValueOnce(
-      new Error("API Error") as unknown as Error
+      new Error("API Error") as unknown as Error,
     );
 
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
@@ -167,7 +167,7 @@ describe("useFetchReviewsStore", () => {
 
   it("should handle fetchReviews API failure without axios payload", async () => {
     mockedFetchReviewsFromAPI.mockRejectedValueOnce(
-      new Error("API Error") as unknown as Error
+      new Error("API Error") as unknown as Error,
     );
 
     jest.spyOn(axios, "isAxiosError").mockReturnValue(false);
