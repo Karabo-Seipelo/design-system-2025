@@ -82,14 +82,14 @@ const iconName = (icon: string): string => {
   return ICON_MAP[icon];
 };
 
-const iconSize = (size: IconSize): string => {
+const iconSize = (size: string): string => {
   if (!isValidSize(size)) {
     console.warn(`Invalid size: ${size}`);
     return SIZE_MAP.medium;
   }
   return SIZE_MAP[size];
 };
-const iconColor = (color: IconColor): string => {
+const iconColor = (color: string): string => {
   if (!isValidColor(color)) {
     console.warn(`Invalid color: ${color}`);
     return COLOR_MAP.neutral;
@@ -106,7 +106,7 @@ const Icon = ({
 }: IconProps) => {
   const iconClass = useMemo(
     () => `ri-${iconName(icon)} ${iconColor(color)} ${iconSize(size)}`,
-    [icon, color, size],
+    [icon, color, size]
   );
 
   return (
