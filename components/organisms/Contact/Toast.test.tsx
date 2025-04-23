@@ -5,7 +5,7 @@ import Toast, { ToastStatus } from "./Toast";
 describe("Toast", () => {
   it("renders success toast correctly", () => {
     const props = {
-      status: ToastStatus.SUCCESS,
+      status: "SUCCESS",
       message: "Your message has been sent successfully.",
       badge: "Success",
     };
@@ -23,7 +23,7 @@ describe("Toast", () => {
 
   it("renders error toast correctly", () => {
     const props = {
-      status: ToastStatus.ERROR,
+      status: "ERROR",
       message: "There was an error sending your message.",
       badge: "Error",
     };

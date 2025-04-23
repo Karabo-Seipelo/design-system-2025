@@ -1,15 +1,16 @@
-export enum ToastStatus {
-  SUCCESS = "SUCCESS",
-  ERROR = "ERROR",
-}
+export type ToastStatus = "SUCCESS" | "ERROR";
 export type ToastProps = {
-  status: ToastStatus;
+  status: string;
   message: string;
   badge: string;
 };
 
+const isValidStatus = (status: ToastStatus) => {
+  return status === "SUCCESS" || status === "ERROR";
+};
+
 const Toast = ({ status, message, badge }: ToastProps) => {
-  const isSuccess = status === ToastStatus.SUCCESS;
+  const isSuccess = status === "SUCCESS" && isValidStatus(status);
   const containerClass = `absolute flex w-full md:w-max items-center gap-3 pl-1 pr-2.5 pt-1 pb-1 rounded-[2000px] top-5 left-1/2 -translate-x-1/2 ${isSuccess ? "bg-green-50" : "bg-red-50"}`;
   const badgeClass = `bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center ${isSuccess ? "text-green-700" : "text-red-800"}`;
   const messageClass = `font-medium text-sm gap-1 ${isSuccess ? "text-green-700" : "text-red-600"}`;

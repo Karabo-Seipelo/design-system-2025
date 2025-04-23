@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { ToastProps } from "./Toast";
 
@@ -16,8 +16,8 @@ export interface UseFormSubmitReturn {
   submitHandler: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
   formStatus: Status | null;
   formSuccess: boolean;
-  setFormStatus?: (status: Status | null) => void;
-  setFormSuccess?: (success: boolean) => void;
+  setFormStatus: React.Dispatch<React.SetStateAction<Status | null>>;
+  setFormSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const useFormSubmit = ({

@@ -41,6 +41,8 @@ export const Default: Story = {
     rating: 4.5,
     reviews: 150,
     inventory: inventory,
+    locale: "en-US",
+    currency: "USD",
   },
 };
 
@@ -59,5 +61,7 @@ export const Discount: Story = {
       sale_price: 76,
       sold: 65,
     },
+    locale: "en-US",
+    currency: "USD",
   },
 };

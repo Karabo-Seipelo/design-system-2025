@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 import Size from "$/atoms/Size";
@@ -29,17 +29,28 @@ const ProductSize: React.FC<ProductSizeProps> = ({
     selected({ selectedSize: size });
   };
 
+  const handleActive = useCallback(
+    (active: number, index: number): boolean => {
+      return active === index;
+    },
+    [activeIndex],
+  );
+
   return (
     <>
       {sizes.length > 0 && (
-        <fieldset id="Sizes" className={`${classes} flex flex-col gap-4`}>
+        <fieldset
+          data-testid="Sizes"
+          id="Sizes"
+          className={`${classes} flex flex-col gap-4`}
+        >
           <div>
             <legend className="text-sm text-neutral-500">
               Available Sizes
             </legend>
           </div>
           <div className="flex flex-row gap-4 flex-wrap">
-            {sizes?.map((size, index) => {
+            {sizes.map((size, index) => {
               const isOutOfStock =
                 unavailableSizes[inventory.color]?.includes(size) ??
                 outOfStock.includes(size);
@@ -51,7 +62,7 @@ const ProductSize: React.FC<ProductSizeProps> = ({
                   size={size}
                   onClick={() => handleButtonClick(size, index)}
                   ariaLabel={`Select size ${size}`}
-                  active={activeIndex === index}
+                  active={handleActive(activeIndex, index)}
                   isOutOfStock={isOutOfStock}
                 />
               );

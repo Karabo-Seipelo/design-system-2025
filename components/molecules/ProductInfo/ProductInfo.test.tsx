@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ProductInfo.stories";
+const { Default } = composeStories(stories);
 import ProductInfo from ".";
 
 describe("ProductInfo", () => {
@@ -33,5 +36,10 @@ describe("ProductInfo", () => {
   it("renders fallback UI when info is empty", () => {
     render(<ProductInfo info={[]} />);
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
+
+  it("renders the Default story correctly", () => {
+    render(<Default />);
+    expect(screen.getByText("Features")).toBeInTheDocument();
   });
 });

@@ -1,12 +1,21 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ProductDetail.stories";
+const { Default, Discount } = composeStories(stories);
 import ProductDetail from ".";
 
 describe("ProductDetail", () => {
   const mockInventory = {
+    sku: "vh-green-xl",
+    color: "green",
+    size: "xl",
     list_price: 100,
     sale_price: 80,
+    discount: null,
     discount_percentage: 20,
+    sold: 65,
+    stock: 435,
   };
 
   const defaultProps = {
@@ -43,5 +52,25 @@ describe("ProductDetail", () => {
     expect(
       screen.queryByText("This is a sample product description."),
     ).not.toBeInTheDocument();
+  });
+
+  it("renders the Default story correctly", () => {
+    render(<Default />);
+    expect(screen.getByText("Voyager Hoodie")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "The Voyager Hoodie is for the explorer at heart. Its durable fabric and roomy pockets are perfect for those who are always searching for the next adventure.",
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("renders the Discount story correctly", () => {
+    render(<Discount />);
+    expect(screen.getByText("Voyager Hoodie")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "The Voyager Hoodie is for the explorer at heart. Its durable fabric and roomy pockets are perfect for those who are always searching for the next adventure.",
+      ),
+    ).toBeInTheDocument();
   });
 });

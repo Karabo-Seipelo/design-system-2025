@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { List } from "$/molecules/List";
 import FormFields from "./FormFields";
-import { ContactSectionProps } from "./Contact.interfaces";
+import { ContactSectionProps } from "./interfaces";
 import useFormSubmit from "./useFormSubmit";
 import Toast from "./Toast";
 
@@ -98,6 +98,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
                 ) : (
                   <form
+                    data-testid="contact-form"
                     className="flex flex-col gap-4"
                     onSubmit={submitHandler}
                   >
