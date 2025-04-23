@@ -44,7 +44,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
                 image={image}
                 list={list}
               />
-            )
+            ),
           )}
         </TabPanels>
       </TabGroup>
