@@ -42,21 +42,20 @@ const useProductsStore = create<ProductsStore>((set, get) => ({
     sort,
     direction,
   ) => {
-    set({ loading: true });
     try {
       set({ loading: true });
-      const { data, pagination } = await fetchProductsAPI({
+      const response = await fetchProductsAPI({
         page,
         per_page: perPage,
         collection,
         sort,
         direction,
       });
-      set({ products: data });
+      set({ products: response.data });
       set({
-        page: pagination.page,
-        perPage: pagination.per_page,
-        hasMore: pagination.has_more,
+        page: response.pagination.page,
+        perPage: response.pagination.per_page,
+        hasMore: response.pagination.has_more,
       });
     } catch (error) {
       if (axios.isAxiosError(error)) {
