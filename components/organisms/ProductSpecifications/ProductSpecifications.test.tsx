@@ -10,7 +10,6 @@ describe("ProductSpecifications Component", () => {
   it("renders the product specifications", () => {
     render(<Default />);
     const specifications = screen.getByTestId("title");
-    console.log(specifications);
     expect(specifications).toBeInTheDocument();
   });
 });

@@ -23,6 +23,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
+    name: "Test Product",
     colors: ["green", "brown"],
     selected: (state) => {
       console.warn(state);
@@ -34,6 +35,7 @@ export const Default: Story = {
 
 export const OutOfStock: Story = {
   args: {
+    name: "Test Product",
     colors: ["green", "brown"],
     selected: (state) => {
       console.warn(state);

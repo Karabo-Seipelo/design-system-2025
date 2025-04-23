@@ -1,13 +1,13 @@
-import { NavItem, Brand } from "$/NavBar/index";
-import { CallToAction } from "$/NavBar/CallToAction";
+import { NavItem, Brand } from "$/organisms/Nav/interface";
+import { CallToAction } from "$/organisms/Nav/CallToAction";
 import { HeroSectionProps } from "$/organisms/Hero";
 import { FeatureSectionProps } from "$/organisms/Features/index";
 import { FAQProps } from "$/organisms/Faq";
 import { FooterProps } from "$/organisms/Footer";
-import { ContactSectionProps } from "$/organisms/Contact/Contact.interfaces";
+import { ContactSectionProps } from "$/organisms/Contact/interfaces";
 import { TestimonialsProps } from "$/organisms/Testimonials";
-import { NewsletterSectionProps } from "$/Section/Newsletter";
-import { LogoMarqueeProps } from "$/LogoMarquee/index";
+import { NewsletterSectionProps } from "$/organisms/Newsletter";
+import { LogoMarqueeProps } from "$/molecules/LogoMarquee";
 import { PricingProps } from "$/organisms/PricingTable/Tier";
 import { StatisticsSectionProps } from "$/organisms/Statistics";
 import { TeamSectionProps } from "$/organisms/Team";

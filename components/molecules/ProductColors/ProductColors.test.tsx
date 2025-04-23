@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ProductColors.stories";
-const { Default } = composeStories(stories);
+const { Default, OutOfStock } = composeStories(stories);
 import ProductColors from ".";
 
 describe("ProductColors", () => {
@@ -20,12 +20,50 @@ describe("ProductColors", () => {
 
     const colorButtons = screen.getAllByRole("button");
     const activeSwatch = colorButtons[0];
-    // const outOfStockLine = screen.getByTestId("out-of-stock-line");
+
     expect(screen.getByText("Available Colors")).toBeInTheDocument();
     expect(colorButtons).toHaveLength(2);
     expect(colorButtons[0]).toHaveStyle({ backgroundColor: "green" });
     expect(colorButtons[1]).toHaveStyle({ backgroundColor: "brown" });
     expect(activeSwatch).toHaveClass("outline-indigo-600");
+  });
+
+  it("calls the selected function when a color is clicked", async () => {
+    const consoleSpy = jest.spyOn(console, "warn").mockImplementation(() => {});
+    render(<Default />);
+
+    const colorButtons = screen.getAllByRole("button");
+    const colorSwatch = colorButtons[1];
+
+    await userEvent.click(colorSwatch);
+
+    expect(consoleSpy).toHaveBeenCalledWith({ selectedColor: "brown" });
+    consoleSpy.mockRestore();
+  });
+  it("calls the selected function when a color is clicked on Default story", async () => {
+    const consoleSpy = jest.spyOn(console, "warn").mockImplementation(() => {});
+    render(<Default />);
+
+    const colorButtons = screen.getAllByRole("button");
+    const colorSwatch = colorButtons[1];
+
+    await userEvent.click(colorSwatch);
+
+    expect(consoleSpy).toHaveBeenCalledWith({ selectedColor: "brown" });
+    consoleSpy.mockRestore();
+  });
+
+  it("calls the selected function when a color is clicked on Out of Stock story", async () => {
+    const consoleSpy = jest.spyOn(console, "warn").mockImplementation(() => {});
+    render(<OutOfStock />);
+
+    const colorButtons = screen.getAllByRole("button");
+    const colorSwatch = colorButtons[1];
+
+    await userEvent.click(colorSwatch);
+
+    expect(consoleSpy).toHaveBeenCalledWith({ selectedColor: "brown" });
+    consoleSpy.mockRestore();
   });
 
   it("calls the selected function when a color is clicked", async () => {
