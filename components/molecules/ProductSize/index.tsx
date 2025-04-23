@@ -26,7 +26,6 @@ const ProductSize: React.FC<ProductSizeProps> = ({
 
   const handleButtonClick = (size: number | string | null, index: number) => {
     setActiveIndex(index);
-    console.log("Selected size:", size);
     selected({ selectedSize: size });
   };
 

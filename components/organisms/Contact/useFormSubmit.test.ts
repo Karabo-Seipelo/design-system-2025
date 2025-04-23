@@ -10,12 +10,12 @@ describe("useFormSubmit", () => {
   const mockUrl = "https://example.com/api/submit";
   const mockSuccessToast = {
     message: "Form submitted successfully!",
-    status: ToastStatus.SUCCESS,
+    status: "SUCCESS",
     badge: "Success",
   };
   const mockErrorToast = {
     message: "Failed to submit the form.",
-    status: ToastStatus.ERROR,
+    status: "ERROR",
     badge: "Error",
   };
 

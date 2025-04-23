@@ -1,5 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, renderHook, act } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
+import { composeStories } from "@storybook/react";
+import * as stories from "./ContactSection.stories";
+const { Default, SuccessContact, ErrorContact } = composeStories(stories);
 import ContactSection from ".";
 
 describe("ContactSection", () => {
@@ -8,14 +12,10 @@ describe("ContactSection", () => {
     description: "Feel free to reach out to us anytime.",
     contactDetails: [
       {
-        label: "Email",
-        value: "contact@example.com",
         description: "Our support email address",
         icon: "/icons/email.png",
       },
       {
-        label: "Phone",
-        value: "+1234567890",
         description: "Our support phone number",
         icon: "/icons/phone.png",
       },
@@ -60,6 +60,15 @@ describe("ContactSection", () => {
     dropShadow: true,
     resendForm: { label: "Resend" },
   };
+  const mockSubmitHandler = jest.fn();
+  const mockSetFormStatus = jest.fn();
+  const mockSetFormSuccess = jest.fn();
+  const mockFormStatus = {
+    message: "Form submitted successfully!",
+    icon: "/success.png",
+    badge: "Success",
+    status: "success",
+  };
 
   jest.mock("next/image", () => ({
     __esModule: true,
@@ -71,79 +80,79 @@ describe("ContactSection", () => {
     },
   }));
 
-  it.skip("renders the title and description", () => {
-    render(<ContactSection {...mockProps} />);
-    expect(screen.getByText("Contact Us")).toBeInTheDocument();
-    expect(
-      screen.getByText("Feel free to reach out to us anytime."),
-    ).toBeInTheDocument();
-  });
-
-  it.skip("renders the contact details", () => {
-    render(<ContactSection {...mockProps} />);
-    expect(screen.getByTestId("email-input")).toBeInTheDocument();
-    expect(screen.getByText("contact@example.com")).toBeInTheDocument();
-    expect(screen.getByText("Phone")).toBeInTheDocument();
-    expect(screen.getByText("+1234567890")).toBeInTheDocument();
-  });
-
-  it.skip("renders the form fields", () => {
-    render(<ContactSection {...mockProps} />);
-    expect(screen.getByPlaceholderText("Your Name")).toBeInTheDocument();
-    expect(screen.getByPlaceholderText("Your Email")).toBeInTheDocument();
-  });
-
-  it.skip("displays success message when form is successfully submitted", () => {
-    const mockUseFormSubmit = jest.fn().mockReturnValue({
-      submitHandler: jest.fn(),
-      formStatus: mockProps.form.notification.success,
-      formSuccess: true,
-      setFormStatus: jest.fn(),
-      setFormSuccess: jest.fn(),
-    });
-    jest.mock("./useFormSubmit", () => mockUseFormSubmit);
-
-    render(<ContactSection {...mockProps} />);
-    expect(
-      screen.getByText("Form submitted successfully!"),
-    ).toBeInTheDocument();
-    expect(
-      screen.getByAltText("Form submitted successfully!"),
-    ).toBeInTheDocument();
-  });
-
-  it.skip("displays error message when form submission fails", () => {
-    const mockUseFormSubmit = jest.fn().mockReturnValue({
-      submitHandler: jest.fn(),
-      formStatus: mockProps.form.notification.error,
+  jest.mock("./useFormSubmit", () => {
+    return jest.fn(() => ({
+      submitHandler: mockSubmitHandler,
+      formStatus: null,
       formSuccess: false,
       setFormStatus: jest.fn(),
       setFormSuccess: jest.fn(),
-    });
-    jest.mock("./useFormSubmit", () => mockUseFormSubmit);
-
-    render(<ContactSection {...mockProps} />);
-    expect(screen.getByText("Failed to submit the form.")).toBeInTheDocument();
-    expect(
-      screen.getByAltText("Failed to submit the form."),
-    ).toBeInTheDocument();
+    }));
   });
 
-  it.skip("calls resetHandler when resend button is clicked", () => {
-    const mockSetFormSuccess = jest.fn();
-    const mockSetFormStatus = jest.fn();
-    jest.mock("./useFormSubmit", () => ({
-      submitHandler: jest.fn(),
-      formStatus: mockProps.form.notification.success,
-      formSuccess: true,
-      setFormStatus: mockSetFormStatus,
-      setFormSuccess: mockSetFormSuccess,
-    }));
+  beforeAll(() => {
+    global.FormData = jest.fn(() => ({
+      append: jest.fn(),
+      delete: jest.fn(),
+      get: jest.fn(),
+      getAll: jest.fn(),
+      has: jest.fn(),
+      set: jest.fn(),
+      forEach: jest.fn(),
+    })) as unknown as typeof FormData;
+  });
 
-    render(<ContactSection {...mockProps} />);
-    const resendButton = screen.getByText("Resend");
-    resendButton.click();
-    expect(mockSetFormSuccess).toHaveBeenCalled();
-    expect(mockSetFormStatus).toHaveBeenCalledWith(null);
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("renders component content with contact details", () => {
+    render(<Default />);
+
+    expect(screen.getByText("Talk to our team")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "We've committed to delivering the support you require to make your experience as smooth as possible.",
+      ),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText("123 Maple Street, Springfield IL, USA"),
+    ).toBeInTheDocument();
+    expect(screen.getByText("+1 (650) 555-0198")).toBeInTheDocument();
+    expect(screen.getByText("hello@abstractly")).toBeInTheDocument();
+  });
+
+  it("renders the form fields correctly", () => {
+    render(<Default />);
+
+    const nameField = screen.getByLabelText("Name");
+    const emailField = screen.getByLabelText("Email");
+    const message = screen.getByLabelText("Message");
+    const submitButton = screen.getByRole("button", { name: "Submit" });
+
+    expect(nameField).toBeInTheDocument();
+    expect(emailField).toBeInTheDocument();
+    expect(message).toBeInTheDocument();
+    expect(submitButton).toBeInTheDocument();
+  });
+
+  it("renders the a filled in form", async () => {
+    const user = userEvent.setup();
+    render(<Default />);
+
+    const nameField = screen.getByRole("textbox", { name: /name/i });
+    const emailField = screen.getByRole("textbox", { name: /email/i });
+    const message = screen.getByRole("textbox", { name: /message/i });
+    const submitButton = screen.getByRole("button", { name: /submit/i });
+    const form = screen.getByTestId("contact-form");
+
+    await user.type(nameField, "John Doe");
+    await user.type(emailField, "test@testing.com");
+    await user.type(message, "This is a test message.");
+
+    expect(nameField).toHaveValue("John Doe");
+    expect(emailField).toHaveValue("test@testing.com");
+    expect(message).toHaveValue("This is a test message.");
+    expect(submitButton).toBeInTheDocument();
   });
 });
