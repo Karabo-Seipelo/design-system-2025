@@ -16,6 +16,7 @@ interface ColorSwatchProps {
   isOutOfStock?: boolean;
   color: string;
   ariaLabel?: string;
+  size?: "default" | "sm" | "lg";
 }
 
 const ColorSwatch: React.FC<ColorSwatchProps> = ({
@@ -26,6 +27,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   ariaLabel,
   active,
   isOutOfStock = false,
+  size = "default",
 }) => {
   const variantClasses = {
     default: `outline outline-offset-1 ${active ? "outline-indigo-600" : "outline-transparent"} hover:outline-indigo-200 focus:outline-indigo-200 focus:outline-4`,
@@ -36,14 +38,20 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     selectedOutOfStock: "",
   };
 
+  const sizeClasses = {
+    default: "w-[40px] h-[40px]",
+    sm: "w-[20px] h-[20px]",
+    lg: "w-[50px] h-[50px]",
+  };
+
   const commonClasses = classNames(
-    "flex relative rounded-full w-[40px] h-[40px] items-center justify-center",
+    "flex relative rounded-full items-center justify-center",
   );
 
   return (
     <Button
       {...(onClick && { onClick })}
-      className={`${commonClasses} ${variantClasses[variant]}`}
+      className={`${commonClasses} ${variantClasses[variant]} ${sizeClasses[size]}`}
       style={{ backgroundColor: color }}
       data-testid="color-swatch"
     >

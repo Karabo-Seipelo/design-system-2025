@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Button } from "@headlessui/react";
 import useProductsStore from "./useProductsStore";
+import ProductGridHeader from "./ProductGridHeader";
+import ProductGridCard from "./ProductGridCard";
 
 const ProductGrid = () => {
   const {
@@ -21,7 +22,7 @@ const ProductGrid = () => {
     };
 
     fetchData();
-  }, []);
+  }, [fetchProducts]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -29,20 +30,11 @@ const ProductGrid = () => {
 
   return (
     <section>
-      <header>
-        <h2>Latest Arrivals</h2>
-        <Button>View all</Button>
-      </header>
+      <ProductGridHeader title="Latest Arrivals" label="View all" />
       <div>
-        <div>
-          <div>image</div>
-          <div>
-            <h6>color</h6>
-            <h3>Product Name</h3>
-            <p>price</p>
-            <div>color swatches</div>
-          </div>
-        </div>
+        {products.map(({ product_id, ...product }) => (
+          <ProductGridCard key={product_id} {...product} />
+        ))}
       </div>
     </section>
   );

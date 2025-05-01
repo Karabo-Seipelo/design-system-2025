@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1342" lines-covered="1025" line-rate="0.7637" branches-valid="571" branches-covered="460" branch-rate="0.8056" timestamp="1746092269322" complexity="0" version="0.1">
+<coverage lines-valid="1355" lines-covered="1033" line-rate="0.7623000000000001" branches-valid="576" branches-covered="461" branch-rate="0.8003" timestamp="1746094765242" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -128,9 +128,9 @@
             </method>
           </methods>
           <lines>
-            <line number="1" hits="9" branch="false"/>
-            <line number="2" hits="9" branch="false"/>
-            <line number="24" hits="9" branch="false"/>
+            <line number="1" hits="10" branch="false"/>
+            <line number="2" hits="10" branch="false"/>
+            <line number="24" hits="10" branch="false"/>
             <line number="30" hits="51" branch="false"/>
             <line number="31" hits="51" branch="false"/>
             <line number="33" hits="51" branch="false"/>
@@ -142,7 +142,7 @@
             <line number="118" hits="51" branch="false"/>
             <line number="140" hits="51" branch="false"/>
             <line number="147" hits="51" branch="false"/>
-            <line number="171" hits="9" branch="false"/>
+            <line number="171" hits="10" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -180,19 +180,20 @@
           <methods>
             <method name="(anonymous_1)" hits="43" signature="()V">
               <lines>
-                <line number="21" hits="43"/>
+                <line number="22" hits="43"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="4" branch="false"/>
-            <line number="2" hits="4" branch="false"/>
-            <line number="3" hits="4" branch="false"/>
-            <line number="21" hits="4" branch="false"/>
-            <line number="30" hits="43" branch="false"/>
-            <line number="39" hits="43" branch="false"/>
-            <line number="43" hits="43" branch="false"/>
-            <line number="77" hits="4" branch="false"/>
+            <line number="1" hits="5" branch="false"/>
+            <line number="2" hits="5" branch="false"/>
+            <line number="3" hits="5" branch="false"/>
+            <line number="22" hits="5" branch="false"/>
+            <line number="32" hits="43" branch="false"/>
+            <line number="41" hits="43" branch="false"/>
+            <line number="47" hits="43" branch="false"/>
+            <line number="51" hits="43" branch="false"/>
+            <line number="85" hits="5" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -2826,7 +2827,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.ProductGrid" line-rate="0.8222" branch-rate="1">
+    <package name="organisms.ProductGrid" line-rate="0.7719" branch-rate="0.7894">
       <classes>
         <class name="ProductGrid.stories.tsx" filename="components/organisms/ProductGrid/ProductGrid.stories.tsx" line-rate="0" branch-rate="1">
           <methods>
@@ -2843,6 +2844,43 @@
             <line number="14" hits="0" branch="false"/>
             <line number="21" hits="0" branch="false"/>
             <line number="24" hits="0" branch="false"/>
+          </lines>
+        </class>
+        <class name="ProductGridCard.tsx" filename="components/organisms/ProductGrid/ProductGridCard.tsx" line-rate="0.5" branch-rate="0">
+          <methods>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="4" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="14" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="2" hits="1" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="5" hits="0" branch="false"/>
+            <line number="6" hits="0" branch="false"/>
+            <line number="15" hits="0" branch="false"/>
+            <line number="29" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="ProductGridHeader.tsx" filename="components/organisms/ProductGrid/ProductGridHeader.tsx" line-rate="0.75" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="8" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="1" branch="false"/>
+            <line number="8" hits="1" branch="false"/>
+            <line number="12" hits="0" branch="false"/>
+            <line number="20" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="fetchProductsAPI.ts" filename="components/organisms/ProductGrid/fetchProductsAPI.ts" line-rate="1" branch-rate="1">
@@ -2869,16 +2907,11 @@
             <line number="96" hits="3" branch="false"/>
           </lines>
         </class>
-        <class name="index.tsx" filename="components/organisms/ProductGrid/index.tsx" line-rate="0.875" branch-rate="1">
+        <class name="index.tsx" filename="components/organisms/ProductGrid/index.tsx" line-rate="0.8332999999999999" branch-rate="1">
           <methods>
-            <method name="(anonymous_8)" hits="2" signature="()V">
+            <method name="(anonymous_9)" hits="2" signature="()V">
               <lines>
-                <line number="5" hits="2"/>
-              </lines>
-            </method>
-            <method name="(anonymous_9)" hits="1" signature="()V">
-              <lines>
-                <line number="14" hits="1"/>
+                <line number="6" hits="2"/>
               </lines>
             </method>
             <method name="(anonymous_10)" hits="1" signature="()V">
@@ -2888,7 +2921,17 @@
             </method>
             <method name="(anonymous_11)" hits="1" signature="()V">
               <lines>
-                <line number="15" hits="1"/>
+                <line number="16" hits="1"/>
+              </lines>
+            </method>
+            <method name="(anonymous_12)" hits="1" signature="()V">
+              <lines>
+                <line number="16" hits="1"/>
+              </lines>
+            </method>
+            <method name="(anonymous_13)" hits="0" signature="()V">
+              <lines>
+                <line number="35" hits="0"/>
               </lines>
             </method>
           </methods>
@@ -2896,19 +2939,21 @@
             <line number="1" hits="1" branch="false"/>
             <line number="2" hits="1" branch="false"/>
             <line number="3" hits="1" branch="false"/>
-            <line number="5" hits="1" branch="false"/>
-            <line number="11" hits="2" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
             <line number="12" hits="2" branch="false"/>
-            <line number="14" hits="2" branch="false"/>
-            <line number="15" hits="1" branch="false"/>
+            <line number="13" hits="2" branch="false"/>
+            <line number="15" hits="2" branch="false"/>
             <line number="16" hits="1" branch="false"/>
             <line number="17" hits="1" branch="false"/>
-            <line number="19" hits="0" branch="false"/>
-            <line number="23" hits="1" branch="false"/>
-            <line number="26" hits="2" branch="true" condition-coverage="100% (1/1)"/>
-            <line number="27" hits="2" branch="false"/>
-            <line number="30" hits="0" branch="false"/>
-            <line number="51" hits="1" branch="false"/>
+            <line number="18" hits="1" branch="false"/>
+            <line number="20" hits="0" branch="false"/>
+            <line number="24" hits="1" branch="false"/>
+            <line number="27" hits="2" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="28" hits="2" branch="false"/>
+            <line number="31" hits="0" branch="false"/>
+            <line number="35" hits="0" branch="false"/>
+            <line number="43" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="useProductsStore.ts" filename="components/organisms/ProductGrid/useProductsStore.ts" line-rate="1" branch-rate="1">
