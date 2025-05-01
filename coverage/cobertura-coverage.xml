@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1360" lines-covered="1037" line-rate="0.7625" branches-valid="577" branches-covered="462" branch-rate="0.8006" timestamp="1746096077970" complexity="0" version="0.1">
+<coverage lines-valid="1361" lines-covered="1038" line-rate="0.7626000000000001" branches-valid="587" branches-covered="462" branch-rate="0.787" timestamp="1746103964372" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -2830,7 +2830,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.ProductGrid" line-rate="0.7626999999999999" branch-rate="0.7894">
+    <package name="organisms.ProductGrid" line-rate="0.7666" branch-rate="0.5172">
       <classes>
         <class name="ProductGrid.stories.tsx" filename="components/organisms/ProductGrid/ProductGrid.stories.tsx" line-rate="0" branch-rate="1">
           <methods>
@@ -2849,28 +2849,34 @@
             <line number="24" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="ProductGridCard.tsx" filename="components/organisms/ProductGrid/ProductGridCard.tsx" line-rate="0.5" branch-rate="0">
+        <class name="ProductGridCard.tsx" filename="components/organisms/ProductGrid/ProductGridCard.tsx" line-rate="0.5555" branch-rate="0">
           <methods>
             <method name="(anonymous_1)" hits="0" signature="()V">
               <lines>
-                <line number="5" hits="0"/>
+                <line number="6" hits="0"/>
               </lines>
             </method>
             <method name="(anonymous_2)" hits="0" signature="()V">
               <lines>
-                <line number="29" hits="0"/>
+                <line number="13" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_3)" hits="0" signature="()V">
+              <lines>
+                <line number="43" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="2" hits="1" branch="false"/>
             <line number="3" hits="1" branch="false"/>
-            <line number="5" hits="1" branch="false"/>
-            <line number="10" hits="0" branch="false"/>
-            <line number="11" hits="0" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
             <line number="12" hits="0" branch="false"/>
-            <line number="30" hits="0" branch="false"/>
-            <line number="44" hits="1" branch="false"/>
+            <line number="13" hits="0" branch="true" condition-coverage="0% (0/8)"/>
+            <line number="14" hits="0" branch="false"/>
+            <line number="44" hits="0" branch="false"/>
+            <line number="58" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="ProductGridHeader.tsx" filename="components/organisms/ProductGrid/ProductGridHeader.tsx" line-rate="0.75" branch-rate="1">
@@ -2885,7 +2891,7 @@
             <line number="1" hits="1" branch="false"/>
             <line number="8" hits="1" branch="false"/>
             <line number="12" hits="0" branch="false"/>
-            <line number="20" hits="1" branch="false"/>
+            <line number="22" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="fetchProductsAPI.ts" filename="components/organisms/ProductGrid/fetchProductsAPI.ts" line-rate="1" branch-rate="1">

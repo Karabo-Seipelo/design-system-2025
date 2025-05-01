@@ -29,9 +29,9 @@ const ProductGrid = () => {
   }
 
   return (
-    <section>
+    <section className="flex flex-col gap-4 p-4">
       <ProductGridHeader title="Latest Arrivals" label="View all" />
-      <div>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {products.map(({ product_id, ...product }) => (
           <ProductGridCard key={product_id} {...product} />
         ))}

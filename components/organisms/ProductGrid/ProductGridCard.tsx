@@ -1,22 +1,36 @@
 import { Product } from "./fetchProductsAPI";
 import ColorSwatch from "$/atoms/ColorSwatch";
 import Price from "$/atoms/Price";
+import Image from "next/image";
 
 const ProductGridCard: React.FC<Partial<Product>> = ({
   name,
   colors,
   inventory,
+  images,
 }) => {
-  console.log("ProductGridCard", name, colors, inventory);
   const { list_price, sale_price, discount_percentage, color } = inventory![0];
+  const imageUrl = images?.find((img) => img.color === color)?.image_url;
   return (
-    <div>
-      <div>image</div>
+    <div className="flex flex-col gap-4 group">
+      {imageUrl && (
+        <div className="relative h-[225px] rounded-lg overflow-hidden">
+          <Image
+            src={imageUrl}
+            fill
+            alt={`${name} - ${color}`}
+            sizes="(max-width: 375px) 100%, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover object-center"
+          />
+        </div>
+      )}
       <div className="flex flex-col gap-2">
-        <h6 className="font-normal text-xs text-neutral-900 capitalize">
+        <h6 className="font-normal text-xs text-neutral-600 capitalize">
           {color}
         </h6>
-        <h3 className="font-medium text-lg text-neutral-900">{name}</h3>
+        <h3 className="font-medium text-lg text-neutral-900 group-hover:text-indigo-700">
+          {name}
+        </h3>
         <Price
           salePrice={sale_price}
           listPrice={list_price}

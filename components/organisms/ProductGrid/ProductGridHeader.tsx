@@ -11,7 +11,9 @@ const ProductGridHeader: React.FC<ProductGridHeaderProps> = ({
 }) => {
   return (
     <header className="flex justify-between items-center">
-      <h2 className="font-semibold text-2xl text-neutral-900">{title}</h2>
+      <h2 className="font-semibold text-2xl text-neutral-900 md:text-3xl">
+        {title}
+      </h2>
       <Button>{label}</Button>
     </header>
   );
