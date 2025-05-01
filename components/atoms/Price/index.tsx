@@ -6,6 +6,7 @@ interface PriceProps {
   listPrice: number;
   currency: string;
   locale: string;
+  format?: "default" | "sm";
 }
 
 const formatCurrency = (value: number, currency: string, locale: string) => {
@@ -21,26 +22,43 @@ const Price: React.FC<PriceProps> = ({
   locale = "en-US",
   currency = "USD",
   listPrice,
+  format = "default",
 }) => {
+  const salePriceClasses = {
+    default: "font-medium text-3xl ",
+    sm: "font-normal text-base",
+  };
+  const listPriceClasses = {
+    default: "font-medium text-lg",
+    sm: "font-normal text-xs",
+  };
+
+  const badgeClasses = {
+    default: "",
+    sm: "hidden",
+  };
+
   return (
     <>
       {discount_percentage ? (
         <>
           <div className="flex gap-2">
-            <span className="font-medium text-3xl text-neutral-600">
+            <span className={`${salePriceClasses[format]} text-neutral-600`}>
               {formatCurrency(salePrice, currency, locale)}
             </span>
-            <span className="font-medium text-lg text-neutral-400 line-through">
+            <span
+              className={`${listPriceClasses[format]} text-neutral-400 line-through`}
+            >
               {formatCurrency(listPrice, currency, locale)}
             </span>
           </div>
-          <div>
+          <div className={`${badgeClasses[format]}`}>
             <Badge discount={discount_percentage} />
           </div>
         </>
       ) : (
         <div className="flex gap-2">
-          <span className="font-medium text-3xl text-neutral-600">
+          <span className={`${salePriceClasses[format]} text-neutral-600`}>
             {formatCurrency(listPrice, currency, locale)}
           </span>
         </div>
