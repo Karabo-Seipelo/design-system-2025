@@ -10,13 +10,29 @@ jest.mock("$/atoms/Badge", () => {
 
 describe("Price", () => {
   it("renders with default variant", () => {
-    render(<Price price="100" salePrice="80" discount_percentage={null} />);
+    render(
+      <Price
+        listPrice={100}
+        salePrice={80}
+        discount_percentage={null}
+        currency="USD"
+        locale="en-US"
+      />,
+    );
     const price = screen.getByText(/100/i);
     expect(price).toBeInTheDocument();
   });
 
   it("renders with sale price and discount percentage", () => {
-    render(<Price price="100" salePrice="80" discount_percentage={20} />);
+    render(
+      <Price
+        listPrice={100}
+        salePrice={80}
+        discount_percentage={20}
+        currency="USD"
+        locale="en-US"
+      />,
+    );
     const salePrice = screen.getByText(/80/i);
     const originalPrice = screen.getByText(/100/i);
     const discountBadge = screen.getByText(/Mock Badge/i);

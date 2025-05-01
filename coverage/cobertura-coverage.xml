@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1342" lines-covered="1025" line-rate="0.7637" branches-valid="569" branches-covered="460" branch-rate="0.8084" timestamp="1746091027560" complexity="0" version="0.1">
+<coverage lines-valid="1342" lines-covered="1025" line-rate="0.7637" branches-valid="571" branches-covered="460" branch-rate="0.8056" timestamp="1746092269322" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -297,21 +297,28 @@
         </class>
       </classes>
     </package>
-    <package name="atoms.Price" line-rate="1" branch-rate="1">
+    <package name="atoms.Price" line-rate="1" branch-rate="0.5">
       <classes>
-        <class name="index.tsx" filename="components/atoms/Price/index.tsx" line-rate="1" branch-rate="1">
+        <class name="index.tsx" filename="components/atoms/Price/index.tsx" line-rate="1" branch-rate="0.5">
           <methods>
-            <method name="(anonymous_1)" hits="8" signature="()V">
+            <method name="(anonymous_1)" hits="14" signature="()V">
               <lines>
-                <line number="9" hits="8"/>
+                <line number="11" hits="14"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="8" signature="()V">
+              <lines>
+                <line number="18" hits="8"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="1" hits="3" branch="false"/>
-            <line number="9" hits="3" branch="false"/>
-            <line number="14" hits="8" branch="false"/>
-            <line number="39" hits="3" branch="false"/>
+            <line number="11" hits="3" branch="false"/>
+            <line number="12" hits="14" branch="false"/>
+            <line number="18" hits="3" branch="false"/>
+            <line number="25" hits="8" branch="false"/>
+            <line number="52" hits="3" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -741,9 +748,7 @@
             <line number="15" hits="2" branch="false"/>
             <line number="24" hits="6" branch="false"/>
             <line number="25" hits="6" branch="false"/>
-            <line number="29" hits="6" branch="false"/>
-            <line number="33" hits="6" branch="false"/>
-            <line number="56" hits="2" branch="false"/>
+            <line number="50" hits="2" branch="false"/>
           </lines>
         </class>
       </classes>
