@@ -142,7 +142,7 @@ describe("useProductsStore", () => {
       },
     };
     mockedFetchProductsFromAPI.mockRejectedValueOnce(
-      errorResponse as unknown as Error
+      errorResponse as unknown as Error,
     );
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
     const { result } = renderHook(() => useProductsStore());
@@ -159,13 +159,13 @@ describe("useProductsStore", () => {
     });
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toEqual(
-      new Error("Request failed with status code 404")
+      new Error("Request failed with status code 404"),
     );
   });
 
   it.skip("should handle failed axios error payload", async () => {
     mockedFetchProductsFromAPI.mockRejectedValueOnce(
-      new Error("Request failed with status code 404")
+      new Error("Request failed with status code 404"),
     );
     jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
     const { result } = renderHook(() => useProductsStore());
@@ -182,7 +182,7 @@ describe("useProductsStore", () => {
     });
     expect(result.current.loading).toBe(false);
     expect(result.current.error).toEqual(
-      new Error("Request failed with status code 404")
+      new Error("Request failed with status code 404"),
     );
   });
 
