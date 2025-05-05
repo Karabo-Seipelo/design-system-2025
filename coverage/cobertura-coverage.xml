@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1386" lines-covered="1049" line-rate="0.7568" branches-valid="600" branches-covered="464" branch-rate="0.7733" timestamp="1746427323756" complexity="0" version="0.1">
+<coverage lines-valid="1386" lines-covered="1049" line-rate="0.7568" branches-valid="600" branches-covered="464" branch-rate="0.7733" timestamp="1746431294027" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -9,16 +9,16 @@
       <classes>
         <class name="index.tsx" filename="components/atoms/Artboard/index.tsx" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_1)" hits="49" signature="()V">
+            <method name="(anonymous_1)" hits="54" signature="()V">
               <lines>
-                <line number="8" hits="49"/>
+                <line number="8" hits="54"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="1" hits="16" branch="false"/>
             <line number="8" hits="16" branch="false"/>
-            <line number="9" hits="49" branch="false"/>
+            <line number="9" hits="54" branch="false"/>
             <line number="20" hits="16" branch="false"/>
           </lines>
         </class>
