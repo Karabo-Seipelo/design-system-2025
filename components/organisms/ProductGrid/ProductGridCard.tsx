@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import { Product } from "./fetchProductsAPI";
 import ColorSwatch from "$/atoms/ColorSwatch";
 import Price from "$/atoms/Price";
 import Image from "next/image";
+import useProductCardStore from "./ProductCardStore";
 
 const ProductGridCard: React.FC<Partial<Product>> = ({
   name,
@@ -11,6 +13,22 @@ const ProductGridCard: React.FC<Partial<Product>> = ({
 }) => {
   const { list_price, sale_price, discount_percentage, color } = inventory![0];
   const imageUrl = images?.find((img) => img.color === color)?.image_url;
+  const { updateSate } = useProductCardStore();
+
+  useEffect(() => {
+    updateSate({
+      inventory,
+      selectedColor: color,
+      selectedInventory: inventory![0],
+      product: {
+        name,
+        images,
+        colors,
+        inventory,
+      },
+    });
+  }, [color, colors, images, inventory, name, updateSate]);
+
   return (
     <div className="flex flex-col gap-4 group">
       {imageUrl && (

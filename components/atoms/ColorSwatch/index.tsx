@@ -47,11 +47,24 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   const commonClasses = classNames(
     "flex relative rounded-full items-center justify-center",
   );
+  const normalizeColor = (color: string) => {
+    if (color.toLowerCase() === "white") return "#ffffff";
+    if (color.startsWith("#") && color.length === 4) {
+      return `#${color
+        .slice(1)
+        .split("")
+        .map((c) => c + c)
+        .join("")}`;
+    }
+    return color.toLowerCase();
+  };
+
+  const whiteColorBorder = normalizeColor(color) ? "border" : "";
 
   return (
     <Button
       {...(onClick && { onClick })}
-      className={`${commonClasses} ${variantClasses[variant]} ${sizeClasses[size]}`}
+      className={`${commonClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${whiteColorBorder}`}
       style={{ backgroundColor: color }}
       data-testid="color-swatch"
     >
