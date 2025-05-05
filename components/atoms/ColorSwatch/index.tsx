@@ -30,9 +30,9 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   size = "default",
 }) => {
   const variantClasses = {
-    default: `outline outline-offset-1 ${active ? "outline-indigo-600" : "outline-transparent"} hover:outline-indigo-200 focus:outline-indigo-200 focus:outline-4`,
+    default: `outline outline-offset-2 ${active ? "outline-indigo-600" : "outline-transparent"} hover:outline-offset-0 hover:outline-indigo-200 focus:outline-indigo-200 focus:outline-offset-0 focus:outline-2`,
     hover: "outline outline-offset-1 outline-indigo-200",
-    focus: "outline outline-offset-1 outline-indigo-200 outline-4",
+    focus: "outline outline-offset-1 outline-indigo-200 outline-2",
     selected: `outline outline-offset-1  ${active ? "outline-indigo-600" : "outline-transparent"}`,
     outOfstock: "",
     selectedOutOfStock: "",
@@ -59,12 +59,15 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     return color.toLowerCase();
   };
 
-  const whiteColorBorder = normalizeColor(color) ? "border" : "";
+  const borderColor =
+    normalizeColor(color) === "#ffffff" ? "outline-slate-600 outline-2" : "";
+  const checkColor =
+    normalizeColor(color) === "#ffffff" ? "text-black" : "text-white";
 
   return (
     <Button
       {...(onClick && { onClick })}
-      className={`${commonClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${whiteColorBorder}`}
+      className={`${commonClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${borderColor}`}
       style={{ backgroundColor: color }}
       data-testid="color-swatch"
     >
@@ -80,7 +83,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
           />
         )}
         {active && !isOutOfStock && (
-          <i className="ri-check-fill text-white w-15 h-15" />
+          <i className={`ri-check-fill w-15 h-15 ${checkColor}`} />
         )}
         <Input
           type="radio"

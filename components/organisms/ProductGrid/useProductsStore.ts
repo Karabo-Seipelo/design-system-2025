@@ -17,11 +17,11 @@ export interface ProductsStore {
   sort: SortType | undefined;
   direction: DirectionType | undefined;
   fetchProducts: (
-    page?: number,
-    perPage?: number,
     collection?: string,
     sort?: SortType,
     direction?: DirectionType,
+    page?: number,
+    perPage?: number,
   ) => Promise<void>;
 }
 
@@ -36,11 +36,11 @@ const useProductsStore = create<ProductsStore>((set) => ({
   sort: undefined,
   direction: undefined,
   fetchProducts: async (
-    page = 1,
-    perPage = 10,
     collection,
     sort,
     direction,
+    page = 1,
+    perPage = 10,
   ) => {
     try {
       set({ loading: true });

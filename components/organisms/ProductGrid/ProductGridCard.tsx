@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Product } from "./fetchProductsAPI";
 import ColorSwatch from "$/atoms/ColorSwatch";
 import Price from "$/atoms/Price";
 import Image from "next/image";
-import useProductCardStore from "./ProductCardStore";
 
 const ProductGridCard: React.FC<Partial<Product>> = ({
   name,
@@ -12,29 +11,26 @@ const ProductGridCard: React.FC<Partial<Product>> = ({
   images,
 }) => {
   const { list_price, sale_price, discount_percentage, color } = inventory![0];
-  const imageUrl = images?.find((img) => img.color === color)?.image_url;
-  const { updateSate } = useProductCardStore();
+  const image = images?.find((img) => img.color === color);
+  const [selectedColor, setSelectedColor] = useState<string | null>(color);
+  const [selectedImage, setSelectedImage] = useState<
+    | {
+        color: string;
+        image_url: string;
+      }
+    | undefined
+  >(image);
 
   useEffect(() => {
-    updateSate({
-      inventory,
-      selectedColor: color,
-      selectedInventory: inventory![0],
-      product: {
-        name,
-        images,
-        colors,
-        inventory,
-      },
-    });
-  }, [color, colors, images, inventory, name, updateSate]);
+    console.log({ selectedColor, selectedImage });
+  }, [selectedColor, selectedImage]);
 
   return (
     <div className="flex flex-col gap-4 group">
-      {imageUrl && (
-        <div className="relative h-[225px] rounded-lg overflow-hidden">
+      {selectedImage && (
+        <div className="relative h-[300px] rounded-lg overflow-hidden">
           <Image
-            src={imageUrl}
+            src={selectedImage.image_url}
             fill
             alt={`${name} - ${color}`}
             sizes="(max-width: 375px) 100%, (max-width: 1200px) 50vw, 33vw"
@@ -57,13 +53,18 @@ const ProductGridCard: React.FC<Partial<Product>> = ({
           currency="USD"
           format="sm"
         />
-        <div className="flex gap-2">
+        <div className="flex gap-3">
           {colors?.map((color, index) => (
             <ColorSwatch
+              onClick={() => {
+                setSelectedColor(color);
+                const newImage = images?.find((img) => img.color === color);
+                setSelectedImage(newImage);
+              }}
               key={index}
               color={color}
               name={color}
-              active={false}
+              active={selectedColor === color}
               size="sm"
             />
           ))}
