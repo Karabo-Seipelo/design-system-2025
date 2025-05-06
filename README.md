@@ -1,4 +1,10 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
