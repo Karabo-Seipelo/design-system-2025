@@ -1,29 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
-import { ProductsStore } from "./useProductsStore";
 
-const mockUseProductsStore = jest.fn(
-  (): ProductsStore => ({
-    products: [],
-    fetchProducts: jest.fn(),
-    loading: true,
-    error: null,
-    page: 1,
-    perPage: 10,
-    hasMore: false,
-    collection: undefined,
-    sort: undefined,
-    direction: undefined,
-  }),
-);
-
-const setMockUseProductsStore = (overrides: Partial<ProductsStore>) => {
-  mockUseProductsStore.mockReturnValue({
-    ...mockUseProductsStore(),
-    ...overrides,
-  });
-};
+import { composeStories } from "@storybook/react";
+import {
+  mockProducts,
+  mockUseProductsStore,
+  setMockUseProductsStore,
+} from "./ProductGrid.mocks";
 
 jest.mock("./useProductsStore", () => mockUseProductsStore);
 
@@ -39,12 +23,22 @@ jest.mock("next/image", () => ({
 }));
 
 import ProductGrid from ".";
+import * as stories from "./ProductGrid.stories";
+const { Default } = composeStories(stories);
+
+const TEST_IDS = {
+  loading: "loading",
+  error: "error",
+  productGrid: "product-grid",
+  noProductsMessage: "No products found",
+  colorSwatchBlue: "color-swatch-blue",
+};
 
 describe("ProductGrid Component", () => {
   describe("when rendering the component with loading state", () => {
     it("should render loading state", () => {
       render(<ProductGrid />);
-      const loadingState = screen.getByTestId("loading");
+      const loadingState = screen.getByTestId(TEST_IDS.loading);
       expect(loadingState).toBeInTheDocument();
     });
   });
@@ -58,7 +52,7 @@ describe("ProductGrid Component", () => {
     });
     it("should render error state", () => {
       render(<ProductGrid />);
-      const errorState = screen.getByTestId("error");
+      const errorState = screen.getByTestId(TEST_IDS.error);
       expect(errorState).toBeInTheDocument();
     });
   });
@@ -74,7 +68,7 @@ describe("ProductGrid Component", () => {
 
     it("should render no products message", () => {
       render(<ProductGrid />);
-      const noProductsMessage = screen.getByText("No products found");
+      const noProductsMessage = screen.getByText(TEST_IDS.noProductsMessage);
       expect(noProductsMessage).toBeInTheDocument();
     });
   });
@@ -84,108 +78,7 @@ describe("ProductGrid Component", () => {
       setMockUseProductsStore({
         loading: false,
         error: null,
-        products: [
-          {
-            product_id: "1",
-            name: "Product 1",
-            description: "Description 1",
-            category: {
-              category_id: "1",
-              name: "Category 1",
-              created_at: "2023-01-01",
-            },
-            collection: {
-              collection_id: "1",
-              name: "Collection 1",
-              description: "Description 1",
-              image_url: "collection.jpg",
-              created_at: "2023-01-01",
-            },
-            colors: ["blue", "red"],
-            images: [
-              {
-                color: "red",
-                image_url: "image1.jpg",
-              },
-              {
-                color: "blue",
-                image_url: "image2.jpg",
-              },
-            ],
-            inventory: [
-              {
-                sku: "sku1",
-                color: "red",
-                size: null,
-                list_price: 100,
-                discount: null,
-                discount_percentage: null,
-                sale_price: 90,
-                sold: 5,
-                stock: 10,
-              },
-            ],
-            priceRange: {
-              highest: 100,
-              lowest: 90,
-            },
-            rating: 4.5,
-            reviews: 10,
-            sizes: ["s", "m", "l"],
-            sold: 5,
-            created_at: "",
-          },
-          {
-            product_id: "2",
-            name: "Product 2",
-            description: "Description 2",
-            category: {
-              category_id: "2",
-              name: "Category 2",
-              created_at: "2023-02-01",
-            },
-            collection: {
-              collection_id: "2",
-              name: "Collection 2",
-              description: "Description 2",
-              image_url: "collection2.jpg",
-              created_at: "2023-02-01",
-            },
-            colors: ["green", "yellow"],
-            images: [
-              {
-                color: "green",
-                image_url: "image3.jpg",
-              },
-              {
-                color: "yellow",
-                image_url: "image4.jpg",
-              },
-            ],
-            inventory: [
-              {
-                sku: "sku2",
-                color: "green",
-                size: "m",
-                list_price: 150,
-                discount: 10,
-                discount_percentage: 6.67,
-                sale_price: 140,
-                sold: 3,
-                stock: 7,
-              },
-            ],
-            priceRange: {
-              highest: 150,
-              lowest: 140,
-            },
-            rating: 4.0,
-            reviews: 8,
-            sizes: ["m", "l", "xl"],
-            sold: 3,
-            created_at: "",
-          },
-        ],
+        products: mockProducts,
       });
     });
 
@@ -200,7 +93,7 @@ describe("ProductGrid Component", () => {
       const initialImage = screen.getByAltText("Product 1 - red");
       expect(initialImage).toHaveAttribute("src", "image1.jpg");
 
-      const blueButton = screen.getByTestId("color-swatch-blue");
+      const blueButton = screen.getByTestId(TEST_IDS.colorSwatchBlue);
 
       expect(blueButton).toBeDefined();
 
@@ -208,6 +101,15 @@ describe("ProductGrid Component", () => {
         await userEvent.click(blueButton);
         expect(initialImage).toHaveAttribute("src", "image2.jpg");
       }
+    });
+  });
+
+  // write a describe block for the Default story
+  describe("Default Story", () => {
+    it("should render the Default story", () => {
+      render(<Default />);
+      const productGrid = screen.getByTestId(TEST_IDS.productGrid);
+      expect(productGrid).toBeInTheDocument();
     });
   });
 });

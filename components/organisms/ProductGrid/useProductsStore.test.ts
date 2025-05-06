@@ -91,117 +91,123 @@ describe("useProductsStore", () => {
     jest.clearAllMocks();
   });
 
-  it("should initialize with default values", () => {
-    const { result } = renderHook(() => useProductsStore());
-    expect(result.current.products).toEqual([]);
-    expect(result.current.loading).toBe(true);
-    expect(result.current.error).toBeNull();
-    expect(result.current.page).toBe(1);
-    expect(result.current.perPage).toBe(10);
-    expect(result.current.hasMore).toBe(false);
-    expect(result.current.collection).toBeUndefined();
-    expect(result.current.sort).toBeUndefined();
-    expect(result.current.direction).toBeUndefined();
-  });
-
-  it("should fetch products successfully", async () => {
-    mockedFetchProductsFromAPI.mockResolvedValue(mockProductsData);
-    const { result } = renderHook(() => useProductsStore());
-    await act(async () => {
-      await result.current.fetchProducts(1, 10);
+  describe("Initialization", () => {
+    it("should initialize the store with default values when no actions are performed", () => {
+      const { result } = renderHook(() => useProductsStore());
+      expect(result.current.products).toEqual([]);
+      expect(result.current.loading).toBe(true);
+      expect(result.current.error).toBeNull();
+      expect(result.current.page).toBe(1);
+      expect(result.current.perPage).toBe(10);
+      expect(result.current.hasMore).toBe(false);
+      expect(result.current.collection).toBeUndefined();
+      expect(result.current.sort).toBeUndefined();
+      expect(result.current.direction).toBeUndefined();
     });
-    expect(result.current.products).toEqual(mockProductsData.data);
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).toBeNull();
-    expect(result.current.page).toBe(mockProductsData.pagination.page);
-    expect(result.current.perPage).toBe(mockProductsData.pagination.per_page);
-    expect(result.current.hasMore).toBe(mockProductsData.pagination.has_more);
-    expect(result.current.collection).toBeUndefined();
-    expect(result.current.sort).toBeUndefined();
-    expect(result.current.direction).toBeUndefined();
   });
 
-  it("should handle fetch products error", async () => {
-    const errorMessage = "Network Error";
-    mockedFetchProductsFromAPI.mockRejectedValue(new Error(errorMessage));
-    const { result } = renderHook(() => useProductsStore());
-    await act(async () => {
-      await result.current.fetchProducts(1, 10);
+  describe("Fecting Products", () => {
+    it("should load products successfully when the user fetches them", async () => {
+      mockedFetchProductsFromAPI.mockResolvedValue(mockProductsData);
+      const { result } = renderHook(() => useProductsStore());
+      await act(async () => {
+        await result.current.fetchProducts();
+      });
+      expect(result.current.products).toEqual(mockProductsData.data);
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toBeNull();
+      expect(result.current.page).toBe(mockProductsData.pagination.page);
+      expect(result.current.perPage).toBe(mockProductsData.pagination.per_page);
+      expect(result.current.hasMore).toBe(mockProductsData.pagination.has_more);
+      expect(result.current.collection).toBeUndefined();
+      expect(result.current.sort).toBeUndefined();
+      expect(result.current.direction).toBeUndefined();
+    });
+  });
+
+  describe("Error Handling", () => {
+    it("should display an error when the API call fails", async () => {
+      const errorMessage = "Network Error";
+      mockedFetchProductsFromAPI.mockRejectedValue(new Error(errorMessage));
+      const { result } = renderHook(() => useProductsStore());
+      await act(async () => {
+        await result.current.fetchProducts();
+      });
+
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toEqual(new Error("Network Error"));
     });
 
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).toEqual(new Error("Network Error"));
-  });
-
-  it.skip("should handle axios error", async () => {
-    const errorResponse = {
-      response: {
-        data: {
-          message: "Request failed with status code 404",
+    it("should handle axios-specific errors correctly", async () => {
+      const errorResponse = {
+        response: {
+          data: {
+            message: "Request failed with status code 404",
+          },
         },
-      },
-    };
-    mockedFetchProductsFromAPI.mockRejectedValueOnce(
-      errorResponse as unknown as Error,
-    );
-    jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
-    const { result } = renderHook(() => useProductsStore());
-    await act(async () => {
-      await result.current.fetchProducts(1, 10);
+      };
+      mockedFetchProductsFromAPI.mockRejectedValueOnce(
+        errorResponse as unknown as Error,
+      );
+      jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
+      const { result } = renderHook(() => useProductsStore());
+      await act(async () => {
+        await result.current.fetchProducts();
+      });
+
+      expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
+        page: 1,
+        per_page: 10,
+        collection: undefined,
+        sort: undefined,
+        direction: undefined,
+      });
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toEqual(
+        new Error("Request failed with status code 404"),
+      );
     });
 
-    expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
-      page: 1,
-      per_page: 10,
-      collection: undefined,
-      sort: undefined,
-      direction: undefined,
-    });
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).toEqual(
-      new Error("Request failed with status code 404"),
-    );
-  });
+    it("should handle axios errors with failed payloads", async () => {
+      mockedFetchProductsFromAPI.mockRejectedValueOnce(
+        new Error("Request failed with status code 404"),
+      );
+      jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
+      const { result } = renderHook(() => useProductsStore());
+      await act(async () => {
+        await result.current.fetchProducts();
+      });
 
-  it.skip("should handle failed axios error payload", async () => {
-    mockedFetchProductsFromAPI.mockRejectedValueOnce(
-      new Error("Request failed with status code 404"),
-    );
-    jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
-    const { result } = renderHook(() => useProductsStore());
-    await act(async () => {
-      await result.current.fetchProducts(1, 10);
-    });
-
-    expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
-      page: 1,
-      per_page: 10,
-      collection: undefined,
-      sort: undefined,
-      direction: undefined,
-    });
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).toEqual(
-      new Error("Request failed with status code 404"),
-    );
-  });
-
-  it.skip("should handle non-axios error that fails without an Error instance", async () => {
-    mockedFetchProductsFromAPI.mockRejectedValueOnce("Network Error");
-    jest.spyOn(axios, "isAxiosError").mockReturnValue(false);
-    const { result } = renderHook(() => useProductsStore());
-    await act(async () => {
-      await result.current.fetchProducts(1, 10);
+      expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
+        page: 1,
+        per_page: 10,
+        collection: undefined,
+        sort: undefined,
+        direction: undefined,
+      });
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toEqual(
+        new Error("Request failed with status code 404"),
+      );
     });
 
-    expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
-      page: 1,
-      per_page: 10,
-      collection: undefined,
-      sort: undefined,
-      direction: undefined,
+    it("should handle non-axios errors gracefully", async () => {
+      mockedFetchProductsFromAPI.mockRejectedValueOnce("Network Error");
+      jest.spyOn(axios, "isAxiosError").mockReturnValue(false);
+      const { result } = renderHook(() => useProductsStore());
+      await act(async () => {
+        await result.current.fetchProducts();
+      });
+
+      expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
+        page: 1,
+        per_page: 10,
+        collection: undefined,
+        sort: undefined,
+        direction: undefined,
+      });
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toEqual(new Error("Network Error"));
     });
-    expect(result.current.loading).toBe(false);
-    expect(result.current.error).toEqual(new Error("Network Error"));
   });
 });
