@@ -1,11 +1,11 @@
 import Badge from "$/atoms/Badge";
 
 interface PriceProps {
-  salePrice: number;
+  salePrice: number | null;
   discount_percentage: number | null;
   listPrice: number;
-  currency: string;
-  locale: string;
+  currency?: string;
+  locale?: string;
   format?: "default" | "sm";
 }
 
@@ -43,9 +43,11 @@ const Price: React.FC<PriceProps> = ({
       {discount_percentage ? (
         <>
           <div className="flex gap-2">
-            <span className={`${salePriceClasses[format]} text-neutral-600`}>
-              {formatCurrency(salePrice, currency, locale)}
-            </span>
+            {salePrice && (
+              <span className={`${salePriceClasses[format]} text-neutral-600`}>
+                {formatCurrency(salePrice, currency, locale)}
+              </span>
+            )}
             <span
               className={`${listPriceClasses[format]} text-neutral-400 line-through`}
             >
