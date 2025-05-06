@@ -1,4 +1,32 @@
 import { ProductsStore } from "./useProductsStore";
+import { Inventory } from "./fetchProductsAPI";
+
+const baseCategory = {
+  created_at: "2023-01-01",
+};
+
+const baseCollection = {
+  description: "Description 1",
+  image_url: "collection.jpg",
+  created_at: "2023-01-01",
+};
+
+const baseInventory = {
+  size: null,
+  discount: null,
+  discount_percentage: null,
+  sold: 5,
+};
+
+const createInventory = (overrides: Partial<Inventory>) => ({
+  ...baseInventory,
+  ...overrides,
+});
+
+const createPriceRange = (highest: number, lowest: number) => ({
+  highest,
+  lowest,
+});
 
 export const mockProducts = [
   {
@@ -6,16 +34,14 @@ export const mockProducts = [
     name: "Product 1",
     description: "Description 1",
     category: {
+      ...baseCategory,
       category_id: "1",
       name: "Category 1",
-      created_at: "2023-01-01",
     },
     collection: {
+      ...baseCollection,
       collection_id: "1",
       name: "Collection 1",
-      description: "Description 1",
-      image_url: "collection.jpg",
-      created_at: "2023-01-01",
     },
     colors: ["blue", "red"],
     images: [
@@ -29,22 +55,15 @@ export const mockProducts = [
       },
     ],
     inventory: [
-      {
+      createInventory({
         sku: "sku1",
         color: "red",
         size: null,
         list_price: 100,
-        discount: null,
-        discount_percentage: null,
-        sale_price: 90,
-        sold: 5,
         stock: 10,
-      },
+      }),
     ],
-    priceRange: {
-      highest: 100,
-      lowest: 90,
-    },
+    priceRange: createPriceRange(100, 90),
     rating: 4.5,
     reviews: 10,
     sizes: ["s", "m", "l"],
@@ -56,11 +75,13 @@ export const mockProducts = [
     name: "Product 2",
     description: "Description 2",
     category: {
+      ...baseCategory,
       category_id: "2",
       name: "Category 2",
       created_at: "2023-02-01",
     },
     collection: {
+      ...baseCollection,
       collection_id: "2",
       name: "Collection 2",
       description: "Description 2",
@@ -79,7 +100,7 @@ export const mockProducts = [
       },
     ],
     inventory: [
-      {
+      createInventory({
         sku: "sku2",
         color: "green",
         size: "m",
@@ -89,12 +110,9 @@ export const mockProducts = [
         sale_price: 140,
         sold: 3,
         stock: 7,
-      },
+      }),
     ],
-    priceRange: {
-      highest: 150,
-      lowest: 140,
-    },
+    priceRange: createPriceRange(150, 140),
     rating: 4.0,
     reviews: 8,
     sizes: ["m", "l", "xl"],
