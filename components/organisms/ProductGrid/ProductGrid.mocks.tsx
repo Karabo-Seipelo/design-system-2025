@@ -1,5 +1,16 @@
 import { ProductsStore } from "./useProductsStore";
-import { Inventory } from "./fetchProductsAPI";
+
+export interface Inventory {
+  sku?: string;
+  color?: string;
+  size: string | number | null;
+  list_price?: number;
+  discount: number | null;
+  discount_percentage: number | null;
+  sale_price?: number;
+  sold: number;
+  stock?: number;
+}
 
 const baseCategory = {
   created_at: "2023-01-01",
@@ -12,10 +23,15 @@ const baseCollection = {
 };
 
 const baseInventory = {
+  sku: "default-sku",
+  color: "",
   size: null,
+  list_price: 0,
   discount: null,
   discount_percentage: null,
-  sold: 5,
+  sale_price: 0,
+  sold: 0,
+  stock: 0,
 };
 
 const createInventory = (overrides: Partial<Inventory>) => ({
