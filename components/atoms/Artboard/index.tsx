@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 
 interface ArtboardProps {
-  children: ReactNode;
+  children?: ReactNode;
   classes?: string;
 }
 

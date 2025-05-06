@@ -211,7 +211,7 @@ describe("useProductStore", () => {
     expect(result.current.loading).toBe(false);
   });
 
-  it("should handle fetchProductDetails API failure when error fails without and Error instance", async () => {
+  it("should handle fetchProductDetails API failure when error fails without an Error instance", async () => {
     mockedFetchProductDetailsFromAPI.mockRejectedValueOnce("Network Error");
 
     jest.spyOn(axios, "isAxiosError").mockReturnValue(false);
