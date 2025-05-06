@@ -17,6 +17,7 @@ const ProductGridCard: React.FC<Partial<ProductGridCardProps>> = ({
   inventory,
   images = [],
 }) => {
+  const uniqueId = Date.now();
   const { list_price, sale_price, discount_percentage, color } = inventory![0];
   const image = images.find((img) => img.color === color);
   const [selectedColor, setSelectedColor] = useState<string | null>(color);
@@ -64,7 +65,7 @@ const ProductGridCard: React.FC<Partial<ProductGridCardProps>> = ({
                 const newImage = images.find((img) => img.color === color);
                 setSelectedImage(newImage);
               }}
-              key={index}
+              key={`${uniqueId}-${index}-${color}`}
               color={color}
               name={color}
               active={selectedColor === color}

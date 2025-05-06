@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1398" lines-covered="1086" line-rate="0.7768" branches-valid="588" branches-covered="470" branch-rate="0.7993000000000001" timestamp="1746533218218" complexity="0" version="0.1">
+<coverage lines-valid="1399" lines-covered="1087" line-rate="0.7768999999999999" branches-valid="588" branches-covered="470" branch-rate="0.7993000000000001" timestamp="1746533473829" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -2849,7 +2849,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.ProductGrid" line-rate="0.9886" branch-rate="0.909">
+    <package name="organisms.ProductGrid" line-rate="0.9887" branch-rate="0.909">
       <classes>
         <class name="ProductGrid.mocks.tsx" filename="components/organisms/ProductGrid/ProductGrid.mocks.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -2940,22 +2940,22 @@
             </method>
             <method name="(anonymous_2)" hits="7" signature="()V">
               <lines>
-                <line number="21" hits="7"/>
+                <line number="22" hits="7"/>
               </lines>
             </method>
             <method name="(anonymous_3)" hits="14" signature="()V">
               <lines>
-                <line number="60" hits="14"/>
+                <line number="61" hits="14"/>
               </lines>
             </method>
             <method name="(anonymous_4)" hits="1" signature="()V">
               <lines>
-                <line number="62" hits="1"/>
+                <line number="63" hits="1"/>
               </lines>
             </method>
             <method name="(anonymous_5)" hits="2" signature="()V">
               <lines>
-                <line number="64" hits="2"/>
+                <line number="65" hits="2"/>
               </lines>
             </method>
           </methods>
@@ -2969,12 +2969,13 @@
             <line number="21" hits="7" branch="false"/>
             <line number="22" hits="7" branch="false"/>
             <line number="23" hits="7" branch="false"/>
-            <line number="31" hits="7" branch="false"/>
-            <line number="61" hits="14" branch="false"/>
-            <line number="63" hits="1" branch="false"/>
-            <line number="64" hits="2" branch="false"/>
-            <line number="65" hits="1" branch="false"/>
-            <line number="80" hits="1" branch="false"/>
+            <line number="24" hits="7" branch="false"/>
+            <line number="32" hits="7" branch="false"/>
+            <line number="62" hits="14" branch="false"/>
+            <line number="64" hits="1" branch="false"/>
+            <line number="65" hits="2" branch="false"/>
+            <line number="66" hits="1" branch="false"/>
+            <line number="81" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="ProductGridHeader.tsx" filename="components/organisms/ProductGrid/ProductGridHeader.tsx" line-rate="1" branch-rate="1">
