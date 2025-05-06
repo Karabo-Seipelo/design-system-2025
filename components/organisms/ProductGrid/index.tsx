@@ -31,7 +31,7 @@ const ProductGrid = () => {
 
   if (loading) {
     return (
-      <section className="flex flex-col gap-4 p-4">
+      <section data-testid="loading" className="flex flex-col gap-4 p-4">
         <header className="flex justify-between items-center">
           <div className="w-[210px] h-[36px] bg-slate-100" />
           <div className="w-[50px] h-[22px] bg-slate-100" />
@@ -62,7 +62,7 @@ const ProductGrid = () => {
 
   if (error) {
     return (
-      <section className="flex flex-col gap-4 p-4">
+      <section data-testid="error" className="flex flex-col gap-4 p-4">
         <div className="text-center">
           <p className="text-base font-semibold text-indigo-600">404</p>
           <h1 className="mt-4 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">
@@ -88,12 +88,16 @@ const ProductGrid = () => {
   }
 
   return (
-    <section className="flex flex-col gap-4 p-4">
+    <section data-testid="product-grid" className="flex flex-col gap-4 p-4">
       <ProductGridHeader title="Latest Arrivals" label="View all" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {products.map(({ product_id, ...product }) => (
-          <ProductGridCard key={product_id} {...product} />
-        ))}
+        {products.length > 0 ? (
+          products.map(({ product_id, ...product }) => (
+            <ProductGridCard key={product_id} {...product} />
+          ))
+        ) : (
+          <p>No products found</p>
+        )}
       </div>
     </section>
   );

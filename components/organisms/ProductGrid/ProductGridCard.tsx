@@ -1,17 +1,24 @@
-import { useEffect, useState } from "react";
-import { Product } from "./fetchProductsAPI";
+import { useState } from "react";
 import ColorSwatch from "$/atoms/ColorSwatch";
 import Price from "$/atoms/Price";
 import Image from "next/image";
+import { Inventory, Images } from "./fetchProductsAPI";
 
-const ProductGridCard: React.FC<Partial<Product>> = ({
+export interface ProductGridCardProps {
+  name: string;
+  colors: string[];
+  inventory: Inventory[];
+  images: Images[];
+}
+
+const ProductGridCard: React.FC<Partial<ProductGridCardProps>> = ({
   name,
-  colors,
+  colors = [],
   inventory,
-  images,
+  images = [],
 }) => {
   const { list_price, sale_price, discount_percentage, color } = inventory![0];
-  const image = images?.find((img) => img.color === color);
+  const image = images.find((img) => img.color === color);
   const [selectedColor, setSelectedColor] = useState<string | null>(color);
   const [selectedImage, setSelectedImage] = useState<
     | {
@@ -20,10 +27,6 @@ const ProductGridCard: React.FC<Partial<Product>> = ({
       }
     | undefined
   >(image);
-
-  useEffect(() => {
-    console.log({ selectedColor, selectedImage });
-  }, [selectedColor, selectedImage]);
 
   return (
     <div className="flex flex-col gap-4 group">
@@ -53,12 +56,12 @@ const ProductGridCard: React.FC<Partial<Product>> = ({
           currency="USD"
           format="sm"
         />
-        <div className="flex gap-3">
-          {colors?.map((color, index) => (
+        <div data-testid="color-swatches" className="flex gap-3">
+          {colors.map((color, index) => (
             <ColorSwatch
               onClick={() => {
                 setSelectedColor(color);
-                const newImage = images?.find((img) => img.color === color);
+                const newImage = images.find((img) => img.color === color);
                 setSelectedImage(newImage);
               }}
               key={index}

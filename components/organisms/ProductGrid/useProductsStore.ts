@@ -58,7 +58,6 @@ const useProductsStore = create<ProductsStore>((set) => ({
         hasMore: response.pagination.has_more,
       });
     } catch (error) {
-      console.error("Error fetching products:", error);
       if (axios.isAxiosError(error)) {
         set({
           error: new Error(error.response?.data.message ?? error.message),
