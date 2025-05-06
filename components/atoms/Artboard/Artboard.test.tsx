@@ -25,7 +25,7 @@ describe("Artboard Component", () => {
   });
 
   describe("when custom classes are provided", () => {
-    it("should apply custom classes to the sectin element", () => {
+    it("should apply custom classes to the section element", () => {
       const customClasses = "custom-class";
       render(
         <Artboard classes={customClasses}>
