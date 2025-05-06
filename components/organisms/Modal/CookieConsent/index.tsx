@@ -69,6 +69,9 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
     const mappedCookies = enabledCookies
       .filter((cookie) => cookie.enabled)
       .map((cookie) => cookie.name);
+
+    console.log("Cookies enabled:", mappedCookies);
+
     localStorage.setItem("consentCookies", JSON.stringify(mappedCookies));
     closeModal();
   }, [enabledCookies, closeModal]);
@@ -104,6 +107,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
             </h3>
             {currentCookie && (
               <Switch
+                data-testid={`cookie-switch-${name}`}
                 checked={currentCookie.enabled}
                 onChange={(checked) => handleSwitchChange(name, checked)}
                 className="group relative flex h-6 w-10 cursor-pointer rounded-full bg-gray-100 p-1 transition-colors duration-200 ease-in-out focus:outline-none data-[focus]:outline-1 data-[focus]:outline-indigo data-[checked]:bg-indigo-700"
@@ -187,6 +191,7 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
   return (
     <Overlay>
       <Dialog
+        data-testid="modal-consent"
         open={isOpen}
         onClose={closeModal}
         className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-neutral-950/70 flex justify-center items-center"
