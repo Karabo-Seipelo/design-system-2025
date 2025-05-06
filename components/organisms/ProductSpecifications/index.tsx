@@ -1,6 +1,5 @@
 import React from "react";
-import { TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
-import Icon from "$/atoms/Icon";
+import { TabGroup, TabList, TabPanels } from "@headlessui/react";
 import SpecificationTab from "./SpecificationTab";
 import SpecificationPanel from "./SpecificationPanel";
 import { ProductSpecificationsProps } from "./interface";
