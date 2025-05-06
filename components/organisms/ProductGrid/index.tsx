@@ -39,7 +39,7 @@ const ProductGrid = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {Array.from({ length: 10 }, (_, index) => (
             <div key={index} className="flex flex-col gap-4">
-              <div className="w-[332px] h-[225px] rounded-lg bg-slate-100" />
+              <div className="w-[310px] md:w-[344px] lg:w-[284px] h-[225px] rounded-lg bg-slate-100" />
               <div className="flex flex-col gap-2">
                 <div className="w-[40px] h-[16px] bg-slate-100" />
                 <div className="w-[150px] h-[28px] bg-slate-100" />
@@ -59,8 +59,6 @@ const ProductGrid = () => {
       </section>
     );
   }
-
-  console.log({ productsError });
 
   if (error) {
     return (

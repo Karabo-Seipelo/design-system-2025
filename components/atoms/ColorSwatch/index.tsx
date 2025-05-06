@@ -30,10 +30,15 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   size = "default",
 }) => {
   const variantClasses = {
-    default: `outline outline-offset-2 ${active ? "outline-indigo-600" : "outline-transparent"} hover:outline-offset-0 hover:outline-indigo-200 focus:outline-indigo-200 focus:outline-offset-0 focus:outline-2`,
-    hover: "outline outline-offset-1 outline-indigo-200",
-    focus: "outline outline-offset-1 outline-indigo-200 outline-2",
-    selected: `outline outline-offset-1  ${active ? "outline-indigo-600" : "outline-transparent"}`,
+    default: classNames({
+      "border-2 border-white outline outline-1 outline-indigo-600": active,
+      "hover:border-2 hover:border-indigo-200 focus:border-none focus:outline-none focus:ring-[9.33px] focus:ring-indigo-600/[.12]":
+        !active,
+    }),
+    hover: "hover:border-2 hover:border-indigo-200",
+    focus:
+      "focus:border-none focus:outline-none focus:ring-[9.33px] focus:ring-indigo-600/[.12]",
+    selected: "border-2 border-white outline outline-1 outline-indigo-600",
     outOfstock: "",
     selectedOutOfStock: "",
   };
@@ -44,8 +49,18 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     lg: "w-[50px] h-[50px]",
   };
 
+  const sizeOutOfStockClasses = {
+    default: "w-[50px]",
+    sm: "w-[25px]",
+    lg: "w-[55px]",
+  };
+
   const commonClasses = classNames(
     "flex relative rounded-full items-center justify-center",
+    {
+      "pointer-events-none": isOutOfStock,
+      "cursor-pointer": !isOutOfStock,
+    },
   );
   const normalizeColor = (color: string) => {
     if (color.toLowerCase() === "white") return "#ffffff";
@@ -60,7 +75,9 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   };
 
   const borderColor =
-    normalizeColor(color) === "#ffffff" ? "outline-slate-600 outline-2" : "";
+    normalizeColor(color) === "#ffffff"
+      ? "border-2 border-white outline outline-1 outline-slate-400"
+      : "";
   const checkColor =
     normalizeColor(color) === "#ffffff" ? "text-black" : "text-white";
 
@@ -79,7 +96,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
         {isOutOfStock && (
           <div
             data-testid="out-of-stock-line"
-            className="w-[125%] h-[1px] bg-neutral-600 -rotate-45 absolute"
+            className={`${sizeOutOfStockClasses[size]} h-[1px] bg-neutral-600 -rotate-45 absolute`}
           />
         )}
         {active && !isOutOfStock && (
