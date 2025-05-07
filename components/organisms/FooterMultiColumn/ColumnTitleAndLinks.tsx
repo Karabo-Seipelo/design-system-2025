@@ -6,14 +6,16 @@ const ColumnTitleAndLinks: React.FC<ColumnTitleAndLinksProps> = ({
   items,
 }) => {
   return (
-    <div className="flex flex-col gap-2">
-      <h3 className="font-semibold text-lg text-neutral-900">{title}</h3>
-      <ul className="flex flex-col gap-1">
+    <div className="flex flex-col gap-4">
+      <h3 className="font-normal text-sm text-neutral-500 uppercase">
+        {title}
+      </h3>
+      <ul className="flex flex-col gap-3">
         {items.map((item) => (
           <li key={uniqueId("link-")}>
             <a
               href={item.link}
-              className="text-sm text-neutral-600 hover:text-indigo-500"
+              className="text-base text-neutral-600 hover:text-indigo-500 capitalize"
             >
               {item.text}
             </a>
