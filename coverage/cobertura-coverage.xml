@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1523" lines-covered="1234" line-rate="0.8101999999999999" branches-valid="644" branches-covered="531" branch-rate="0.8245" timestamp="1746649160965" complexity="0" version="0.1">
+<coverage lines-valid="1524" lines-covered="1235" line-rate="0.8103" branches-valid="650" branches-covered="537" branch-rate="0.8261" timestamp="1746650054217" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -1904,7 +1904,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.FooterMultiColumn" line-rate="0.9836" branch-rate="0.8055">
+    <package name="organisms.FooterMultiColumn" line-rate="0.9838" branch-rate="0.8332999999999999">
       <classes>
         <class name="ColumnLogoAndDescription.tsx" filename="components/organisms/FooterMultiColumn/ColumnLogoAndDescription.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -2072,7 +2072,8 @@
             <line number="4" hits="1" branch="false"/>
             <line number="6" hits="1" branch="false"/>
             <line number="11" hits="3" branch="false"/>
-            <line number="20" hits="1" branch="false"/>
+            <line number="12" hits="3" branch="false"/>
+            <line number="21" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

@@ -8,11 +8,12 @@ const FooterMultiColumn: React.FC<FooterMultiColumnProps> = ({
   columns,
   socialAndTerms,
 }) => {
+  const containerClassName = "flex flex-col gap-12 px-[16px]";
   return (
-    <div className="flex flex-col gap-12 px-[16px]">
-      <SubscribeNewsletter {...form} />
-      <FooterColumns columns={columns} />
-      <FooterContact {...socialAndTerms} />
+    <div className={containerClassName}>
+      {form && <SubscribeNewsletter {...form} />}
+      {columns && <FooterColumns columns={columns} />}
+      {socialAndTerms && <FooterContact {...socialAndTerms} />}
     </div>
   );
 };
