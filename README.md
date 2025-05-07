@@ -61,3 +61,4 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 - [ ] Look into adding accessibility unit tests via [jest-axe](https://www.npmjs.com/package/jest-axe)
 - [ ] Look into adding visual regression testing via [chromatic](https://www.chromatic.com/)
+- [ ] refactor the ICONS component to work like the the ICON component in FooterMultiColumn

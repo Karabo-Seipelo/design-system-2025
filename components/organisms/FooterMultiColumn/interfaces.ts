@@ -28,3 +28,11 @@ export interface FooterMultiColumnProps {
 export interface FooterColumnsProps {
   columns: Column[];
 }
+
+export type IconSize = "small" | "medium" | "large" | "xlarge" | "xxlarge";
+
+export interface IconProps {
+  name: string;
+  size: IconSize;
+  color: string;
+}
