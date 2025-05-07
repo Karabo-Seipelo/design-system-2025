@@ -1,9 +1,4 @@
-import {
-  ColumnTitleAndLinksProps,
-  Column,
-  FooterMultiColumnProps,
-  FooterColumnsProps,
-} from "./interfaces";
+import { ColumnTitleAndLinksProps } from "./interfaces";
 import { uniqueId } from "lodash";
 
 const ColumnTitleAndLinks: React.FC<ColumnTitleAndLinksProps> = ({
