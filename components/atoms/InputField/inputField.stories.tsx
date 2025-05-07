@@ -160,7 +160,7 @@ export const Disabled: Story = {
   },
 };
 
-export const Error: Story = {
+export const InputError: Story = {
   args: {
     label: "",
     hintMessage: "",

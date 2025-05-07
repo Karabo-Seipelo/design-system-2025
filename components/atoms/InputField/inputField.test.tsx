@@ -5,7 +5,7 @@ import * as stories from "./inputField.stories";
 const {
   Default,
   Disabled,
-  Error,
+  InputError,
   Required,
   WithHint,
   WithNoErrorMessage,
@@ -27,7 +27,7 @@ describe("InputField Component", () => {
   });
 
   it("renders with Error", () => {
-    render(<Error />);
+    render(<InputError />);
     const input = screen.getByPlaceholderText("Enter your email");
     expect(input).toBeInTheDocument();
   });
