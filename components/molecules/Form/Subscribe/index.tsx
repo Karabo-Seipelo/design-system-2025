@@ -11,7 +11,7 @@ import Button from "$/atoms/Button";
  * @property {string} button.variant - Button variant
  * @property {string} button.type - Button type
  */
-export type SubscribeProps = {
+export interface SubscribeProps {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   input: InputFieldProps;
   button: {
@@ -19,7 +19,7 @@ export type SubscribeProps = {
     variant: "primary" | "secondary";
     type: "submit" | "button";
   };
-};
+}
 
 /**
  * Subscribe component
