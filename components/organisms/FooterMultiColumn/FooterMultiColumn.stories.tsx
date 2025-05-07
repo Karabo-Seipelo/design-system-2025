@@ -94,5 +94,40 @@ export const Default: Story = {
         ],
       },
     ],
+    socialAndTerms: {
+      description: "&copy; 2024 StyleNest, Inc. All rights reserved.",
+      socialLinks: [
+        {
+          name: "youtube",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          name: "instagram",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          name: "facebook",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          name: "github",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          name: "twitter",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+      ],
+    },
   },
 };

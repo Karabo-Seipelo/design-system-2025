@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1512" lines-covered="1223" line-rate="0.8088" branches-valid="642" branches-covered="529" branch-rate="0.8239" timestamp="1746646918585" complexity="0" version="0.1">
+<coverage lines-valid="1523" lines-covered="1234" line-rate="0.8101999999999999" branches-valid="644" branches-covered="531" branch-rate="0.8245" timestamp="1746649160965" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -1904,7 +1904,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.FooterMultiColumn" line-rate="0.98" branch-rate="0.7940999999999999">
+    <package name="organisms.FooterMultiColumn" line-rate="0.9836" branch-rate="0.8055">
       <classes>
         <class name="ColumnLogoAndDescription.tsx" filename="components/organisms/FooterMultiColumn/ColumnLogoAndDescription.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -1974,6 +1974,21 @@
             <line number="41" hits="1" branch="false"/>
           </lines>
         </class>
+        <class name="FooterContact.tsx" filename="components/organisms/FooterMultiColumn/FooterContact.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="3" signature="()V">
+              <lines>
+                <line number="4" hits="3"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="2" hits="1" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="8" hits="3" branch="false"/>
+            <line number="21" hits="1" branch="false"/>
+          </lines>
+        </class>
         <class name="FooterMultiColumn.stories.tsx" filename="components/organisms/FooterMultiColumn/FooterMultiColumn.stories.tsx" line-rate="1" branch-rate="1">
           <methods>
             <method name="(anonymous_1)" hits="4" signature="()V">
@@ -2020,6 +2035,29 @@
             <line number="44" hits="1" branch="false"/>
           </lines>
         </class>
+        <class name="SocialIcons.tsx" filename="components/organisms/FooterMultiColumn/SocialIcons.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="3" signature="()V">
+              <lines>
+                <line number="6" hits="3"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="15" signature="()V">
+              <lines>
+                <line number="9" hits="15"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="1" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+            <line number="7" hits="3" branch="false"/>
+            <line number="10" hits="15" branch="false"/>
+            <line number="20" hits="1" branch="false"/>
+          </lines>
+        </class>
         <class name="index.tsx" filename="components/organisms/FooterMultiColumn/index.tsx" line-rate="1" branch-rate="1">
           <methods>
             <method name="(anonymous_1)" hits="3" signature="()V">
@@ -2029,12 +2067,12 @@
             </method>
           </methods>
           <lines>
-            <line number="1" hits="1" branch="false"/>
             <line number="2" hits="1" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
             <line number="4" hits="1" branch="false"/>
             <line number="6" hits="1" branch="false"/>
-            <line number="10" hits="3" branch="false"/>
-            <line number="40" hits="1" branch="false"/>
+            <line number="11" hits="3" branch="false"/>
+            <line number="20" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
