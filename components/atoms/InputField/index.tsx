@@ -51,6 +51,7 @@ const InputField: React.FC<InputFieldProps> = ({
         variant === "normal",
     },
   );
+  const describedBy = error ? errorId : hintMessage ? hintId : undefined;
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>
@@ -65,7 +66,7 @@ const InputField: React.FC<InputFieldProps> = ({
         name={label}
         aria-label={label}
         aria-invalid={error}
-        aria-describedby={error ? errorId : hintMessage ? hintId : undefined}
+        aria-describedby={describedBy}
         aria-required={args.required}
         {...args}
       />
