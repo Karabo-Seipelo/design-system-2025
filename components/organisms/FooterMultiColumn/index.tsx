@@ -1,6 +1,6 @@
 import SubscribeNewsletter from "$/molecules/Form/SubscribeNewsletter";
 import FooterColumns from "./FooterColumns";
-import { FooterMultiColumnProps } from "./interface";
+import { FooterMultiColumnProps } from "./interfaces";
 
 const FooterMultiColumn: React.FC<FooterMultiColumnProps> = ({
   form,

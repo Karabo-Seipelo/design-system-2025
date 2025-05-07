@@ -3,7 +3,7 @@ import {
   Column,
   FooterMultiColumnProps,
   FooterColumnsProps,
-} from "./interface";
+} from "./interfaces";
 import { uniqueId } from "lodash";
 
 const ColumnTitleAndLinks: React.FC<ColumnTitleAndLinksProps> = ({

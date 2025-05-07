@@ -1,6 +1,6 @@
 import ColumnLogoAndDescription from "./ColumnLogoAndDescription";
 import ColumnTitleAndLinks from "./ColumnTitleAndLinks";
-import { Column, FooterColumnsProps } from "./interface";
+import { Column, FooterColumnsProps } from "./interfaces";
 import DOMPurify from "dompurify";
 
 const FooterColumns: React.FC<FooterColumnsProps> = ({ columns }) => {
@@ -9,7 +9,9 @@ const FooterColumns: React.FC<FooterColumnsProps> = ({ columns }) => {
       <div className="flex flex-col gap-8">
         {columns.map((column: Column, index: number) => {
           if ("logo" in column && "description" in column) {
-            const sanitizedDescription = DOMPurify.sanitize(column.description);
+            const sanitizedDescription = DOMPurify.sanitize(
+              column?.description ?? "",
+            );
             return (
               <ColumnLogoAndDescription
                 key={index}

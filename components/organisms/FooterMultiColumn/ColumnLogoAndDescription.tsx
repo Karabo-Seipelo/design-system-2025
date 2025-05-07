@@ -1,6 +1,6 @@
 import { memo } from "react";
 import Image from "next/image";
-import { ColumnLogoAndDescriptionProps } from "./interface";
+import { ColumnLogoAndDescriptionProps } from "./interfaces";
 
 const ColumnLogoAndDescription: React.FC<ColumnLogoAndDescriptionProps> = memo(
   ({ logo, description = "" }) => {
