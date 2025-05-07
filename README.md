@@ -6,8 +6,6 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Karabo-Seipelo_design-system-2025&metric=bugs)](https://sonarcloud.io/summary/new_code?id=Karabo-Seipelo_design-system-2025)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 # Design System
 
 This project is a design system for the year 2025. It includes a collection of reusable components, styles, and guidelines to ensure consistency and efficiency in design and development.
