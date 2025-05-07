@@ -1,15 +1,15 @@
-import SubscribeNewsletter, {
-  SubscribeNewsletterProps,
-} from "$/molecules/Form/SubscribeNewsletter";
+import SubscribeNewsletter from "$/molecules/Form/SubscribeNewsletter";
+import FooterColumns from "./FooterColumns";
+import { FooterMultiColumnProps } from "./interface";
 
-interface FooterMultiColumnProps {
-  form: SubscribeNewsletterProps;
-}
-
-const FooterMultiColumn: React.FC<FooterMultiColumnProps> = ({ form }) => {
+const FooterMultiColumn: React.FC<FooterMultiColumnProps> = ({
+  form,
+  columns,
+}) => {
   return (
     <div className="flex flex-col gap-12">
       <SubscribeNewsletter {...form} />
+      <FooterColumns columns={columns} />
     </div>
   );
 };

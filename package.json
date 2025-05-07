@@ -24,6 +24,7 @@
     "@next/font": "^14.2.15",
     "axios": "^1.7.9",
     "classnames": "^2.5.1",
+    "dompurify": "^3.2.5",
     "lodash": "^4.17.21",
     "next": "^15.2.4",
     "react": "^18",

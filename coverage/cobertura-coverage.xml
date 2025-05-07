@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1475" lines-covered="1187" line-rate="0.8047" branches-valid="608" branches-covered="502" branch-rate="0.8256" timestamp="1746634748332" complexity="0" version="0.1">
+<coverage lines-valid="1498" lines-covered="1209" line-rate="0.807" branches-valid="626" branches-covered="520" branch-rate="0.8306" timestamp="1746639875004" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -1904,13 +1904,78 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.FooterMultiColumn" line-rate="1" branch-rate="1">
+    <package name="organisms.FooterMultiColumn" line-rate="0.9722" branch-rate="1">
       <classes>
-        <class name="FooterMultiColumn.stories.tsx" filename="components/organisms/FooterMultiColumn/FooterMultiColumn.stories.tsx" line-rate="1" branch-rate="1">
+        <class name="ColumnLogoAndDescription.tsx" filename="components/organisms/FooterMultiColumn/ColumnLogoAndDescription.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="7" signature="()V">
+              <lines>
+                <line number="6" hits="7"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="2" branch="false"/>
+            <line number="2" hits="2" branch="false"/>
+            <line number="5" hits="2" branch="false"/>
+            <line number="7" hits="7" branch="false"/>
+            <line number="30" hits="2" branch="false"/>
+          </lines>
+        </class>
+        <class name="ColumnTitleAndLinks.tsx" filename="components/organisms/FooterMultiColumn/ColumnTitleAndLinks.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="6" signature="()V">
+              <lines>
+                <line number="9" hits="6"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="21" signature="()V">
+              <lines>
+                <line number="17" hits="21"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="7" hits="1" branch="false"/>
+            <line number="9" hits="1" branch="false"/>
+            <line number="13" hits="6" branch="false"/>
+            <line number="18" hits="21" branch="false"/>
+            <line number="32" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="FooterColumns.tsx" filename="components/organisms/FooterMultiColumn/FooterColumns.tsx" line-rate="0.9166" branch-rate="1">
           <methods>
             <method name="(anonymous_1)" hits="3" signature="()V">
               <lines>
-                <line number="14" hits="3"/>
+                <line number="6" hits="3"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="9" signature="()V">
+              <lines>
+                <line number="10" hits="9"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="1" branch="false"/>
+            <line number="2" hits="1" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
+            <line number="7" hits="3" branch="false"/>
+            <line number="11" hits="9" branch="true" condition-coverage="100% (4/4)"/>
+            <line number="12" hits="3" branch="false"/>
+            <line number="13" hits="3" branch="false"/>
+            <line number="20" hits="6" branch="true" condition-coverage="100% (3/3)"/>
+            <line number="21" hits="6" branch="false"/>
+            <line number="29" hits="0" branch="false"/>
+            <line number="36" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="FooterMultiColumn.stories.tsx" filename="components/organisms/FooterMultiColumn/FooterMultiColumn.stories.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="4" signature="()V">
+              <lines>
+                <line number="14" hits="4"/>
               </lines>
             </method>
             <method name="(anonymous_2)" hits="1" signature="()V">
@@ -1924,7 +1989,7 @@
             <line number="3" hits="1" branch="false"/>
             <line number="4" hits="1" branch="false"/>
             <line number="6" hits="1" branch="false"/>
-            <line number="15" hits="3" branch="false"/>
+            <line number="15" hits="4" branch="false"/>
             <line number="22" hits="1" branch="false"/>
             <line number="25" hits="1" branch="false"/>
             <line number="32" hits="1" branch="false"/>
@@ -1935,14 +2000,15 @@
           <methods>
             <method name="(anonymous_1)" hits="3" signature="()V">
               <lines>
-                <line number="9" hits="3"/>
+                <line number="5" hits="3"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="1" hits="1" branch="false"/>
-            <line number="9" hits="1" branch="false"/>
-            <line number="10" hits="3" branch="false"/>
+            <line number="2" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="9" hits="3" branch="false"/>
             <line number="17" hits="1" branch="false"/>
           </lines>
         </class>

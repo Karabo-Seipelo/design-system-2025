@@ -46,25 +46,53 @@ export const Default: Story = {
         type: "submit",
       },
     },
-    /*
     columns: [
       {
-        title: "Column 1",
+        logo: {
+          image_url: "styleNest.png",
+          alt: "StyleNest Logo",
+        },
+        description:
+          "Craft stunning style journeys that weave more joy into every thread.",
+      },
+      {
+        title: "shop categories",
         items: [
-          { text: "Item 1", link: "#" },
-          { text: "Item 2", link: "#" },
-          { text: "Item 3", link: "#" },
+          {
+            text: "unisex",
+            link: "https://www.stylenest.com/unisex",
+          },
+          {
+            text: "women",
+            link: "https://www.stylenest.com/unisex",
+          },
+          {
+            text: "men",
+            link: "https://www.stylenest.com/unisex",
+          },
         ],
       },
       {
-        title: "Column 2",
+        title: "shop collections",
         items: [
-          { text: "Item 4", link: "#" },
-          { text: "Item 5", link: "#" },
-          { text: "Item 6", link: "#" },
+          {
+            text: "Latest arrivals",
+            link: "https://www.stylenest.com/unisex",
+          },
+          {
+            text: "Urban Oasis",
+            link: "https://www.stylenest.com/unisex",
+          },
+          {
+            text: "Cozy Comfort",
+            link: "https://www.stylenest.com/unisex",
+          },
+          {
+            text: "Fresh Fusion",
+            link: "https://www.stylenest.com/unisex",
+          },
         ],
       },
     ],
-    */
   },
 };

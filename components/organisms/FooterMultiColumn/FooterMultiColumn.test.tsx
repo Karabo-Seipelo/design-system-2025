@@ -8,6 +8,16 @@ const mockAction = jest.fn();
 jest.mock("@storybook/addon-actions", () => ({
   action: () => mockAction,
 }));
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: (
+    props: JSX.IntrinsicAttributes &
+      React.ClassAttributes<HTMLImageElement> &
+      React.ImgHTMLAttributes<HTMLImageElement>,
+  ) => {
+    return <img {...props} />;
+  },
+}));
 
 describe("FooterMultiColumn Component", () => {
   describe("When a user views the footer", () => {
