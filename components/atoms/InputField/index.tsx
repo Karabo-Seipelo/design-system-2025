@@ -51,7 +51,15 @@ const InputField: React.FC<InputFieldProps> = ({
         variant === "normal",
     },
   );
-  const describedBy = error ? errorId : hintMessage ? hintId : undefined;
+  const describedBy = (() => {
+    if (error) {
+      return errorId;
+    }
+    if (hintMessage) {
+      return hintId;
+    }
+    return undefined;
+  })();
 
   return (
     <div className={`flex flex-col gap-2 ${className}`}>

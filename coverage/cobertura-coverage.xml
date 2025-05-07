@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1453" lines-covered="1165" line-rate="0.8017" branches-valid="610" branches-covered="504" branch-rate="0.8262" timestamp="1746630848006" complexity="0" version="0.1">
+<coverage lines-valid="1458" lines-covered="1170" line-rate="0.8024" branches-valid="608" branches-covered="502" branch-rate="0.8256" timestamp="1746631068052" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -326,6 +326,11 @@
                 <line number="26" hits="20"/>
               </lines>
             </method>
+            <method name="(anonymous_3)" hits="19" signature="()V">
+              <lines>
+                <line number="54" hits="19"/>
+              </lines>
+            </method>
           </methods>
           <lines>
             <line number="1" hits="2" branch="false"/>
@@ -341,9 +346,14 @@
             <line number="37" hits="19" branch="false"/>
             <line number="38" hits="19" branch="false"/>
             <line number="39" hits="19" branch="false"/>
-            <line number="54" hits="19" branch="true" condition-coverage="100% (4/4)"/>
-            <line number="56" hits="19" branch="false"/>
-            <line number="88" hits="2" branch="false"/>
+            <line number="54" hits="19" branch="false"/>
+            <line number="55" hits="19" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="56" hits="5" branch="false"/>
+            <line number="58" hits="14" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="59" hits="2" branch="false"/>
+            <line number="61" hits="12" branch="false"/>
+            <line number="64" hits="19" branch="false"/>
+            <line number="96" hits="2" branch="false"/>
           </lines>
         </class>
         <class name="inputField.stories.tsx" filename="components/atoms/InputField/inputField.stories.tsx" line-rate="1" branch-rate="1">
