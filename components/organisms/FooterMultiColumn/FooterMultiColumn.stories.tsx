@@ -47,16 +47,15 @@ export const Default: Story = {
         type: "submit",
       },
     },
-    columns: [
-      {
-        id: uniqueId(),
-        logo: {
-          image_url: "styleNest.png",
-          alt: "StyleNest Logo",
-        },
-        description:
-          "Craft stunning style journeys that weave more joy into every thread.",
+    trademark: {
+      logo: {
+        image_url: "styleNest.png",
+        alt: "StyleNest Logo",
       },
+      description:
+        "Craft stunning style journeys that weave<br/> more joy into every thread.",
+    },
+    columns: [
       {
         id: uniqueId(),
         title: "shop categories",

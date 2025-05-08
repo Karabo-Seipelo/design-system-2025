@@ -11,34 +11,27 @@ export interface Logo {
   alt: string | undefined;
 }
 
-export interface ColumnLogoAndDescriptionProps {
+export interface FooterTrademarkProps {
   logo: Logo;
   description?: string;
+  className?: string;
 }
 
-export interface ColumnTitleAndLinksProps {
+export type Column = {
+  id: string | number;
   title: string;
   items: Link[];
-}
-
-export interface ColumnTitleAndLinks extends ColumnTitleAndLinksProps {
-  id: string | number;
-}
-
-export interface ColumnLogoAndDescription
-  extends ColumnLogoAndDescriptionProps {
-  id: string | number;
-}
-
-export type Column = ColumnLogoAndDescription | ColumnTitleAndLinks;
+};
 
 export interface FooterMultiColumnProps {
   form: SubscribeNewsletterProps;
+  trademark: FooterTrademarkProps;
   columns: Column[];
   socialAndTerms: FooterContactProps;
 }
 
 export interface FooterColumnsProps {
+  className?: string;
   columns: Column[];
 }
 
@@ -61,6 +54,7 @@ export interface SocialLink {
 export interface FooterContactProps {
   description: string;
   socialLinks: SocialLink[];
+  className?: string;
 }
 
 export interface SocialIconsProps {
