@@ -5,11 +5,13 @@ export interface Link {
   url: string;
 }
 
+export interface Logo {
+  image_url: string | undefined;
+  alt: string | undefined;
+}
+
 export interface ColumnLogoAndDescriptionProps {
-  logo: {
-    image_url: string | undefined;
-    alt: string | undefined;
-  };
+  logo: Logo;
   description?: string;
 }
 
@@ -18,7 +20,16 @@ export interface ColumnTitleAndLinksProps {
   items: Link[];
 }
 
-export type Column = ColumnLogoAndDescriptionProps | ColumnTitleAndLinksProps;
+export interface ColumnTitleAndLinks extends ColumnTitleAndLinksProps {
+  id: string | number;
+}
+
+export interface ColumnLogoAndDescription
+  extends ColumnLogoAndDescriptionProps {
+  id: string | number;
+}
+
+export type Column = ColumnLogoAndDescription | ColumnTitleAndLinks;
 
 export interface FooterMultiColumnProps {
   form: SubscribeNewsletterProps;

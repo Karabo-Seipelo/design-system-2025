@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Artboard from "$/atoms/Artboard/index";
 import FooterMultiColumn from ".";
 import { action } from "@storybook/addon-actions";
+import { uniqueId } from "lodash";
 
 const meta = {
   title: "E-commerce/FooterMultiColumn",
@@ -48,6 +49,7 @@ export const Default: Story = {
     },
     columns: [
       {
+        id: uniqueId(),
         logo: {
           image_url: "styleNest.png",
           alt: "StyleNest Logo",
@@ -56,40 +58,42 @@ export const Default: Story = {
           "Craft stunning style journeys that weave more joy into every thread.",
       },
       {
+        id: uniqueId(),
         title: "shop categories",
         items: [
           {
             text: "unisex",
-            link: "https://www.stylenest.com/unisex",
+            url: "https://www.stylenest.com/unisex",
           },
           {
             text: "women",
-            link: "https://www.stylenest.com/unisex",
+            url: "https://www.stylenest.com/unisex",
           },
           {
             text: "men",
-            link: "https://www.stylenest.com/unisex",
+            url: "https://www.stylenest.com/unisex",
           },
         ],
       },
       {
+        id: uniqueId(),
         title: "shop collections",
         items: [
           {
             text: "Latest arrivals",
-            link: "https://www.stylenest.com/unisex",
+            url: "https://www.stylenest.com/unisex",
           },
           {
             text: "Urban Oasis",
-            link: "https://www.stylenest.com/unisex",
+            url: "https://www.stylenest.com/unisex",
           },
           {
             text: "Cozy Comfort",
-            link: "https://www.stylenest.com/unisex",
+            url: "https://www.stylenest.com/unisex",
           },
           {
             text: "Fresh Fusion",
-            link: "https://www.stylenest.com/unisex",
+            url: "https://www.stylenest.com/unisex",
           },
         ],
       },
