@@ -23,8 +23,24 @@ export type Column = {
   items: Link[];
 };
 
+export interface Notification {
+  badge: string;
+  message: string;
+  status: string;
+}
+
+export interface Toast {
+  success: Notification;
+  error: Notification;
+}
+
+export interface FormProps extends SubscribeNewsletterProps {
+  formUrl: string;
+  toast: Toast;
+}
+
 export interface FooterMultiColumnProps {
-  form: SubscribeNewsletterProps;
+  form: FormProps;
   trademark: FooterTrademarkProps;
   columns: Column[];
   socialAndTerms: FooterContactProps;
