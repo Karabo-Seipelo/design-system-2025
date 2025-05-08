@@ -11,13 +11,13 @@ const ColumnTitleAndLinks: React.FC<ColumnTitleAndLinksProps> = ({
         {title}
       </h3>
       <ul className="flex flex-col gap-3">
-        {items.map((item) => (
-          <li key={uniqueId("link-")}>
+        {items.map(({ text, url }, index) => (
+          <li key={`${text}-${index}`}>
             <a
-              href={item.link}
+              href={url}
               className="text-base text-neutral-600 hover:text-indigo-500 capitalize"
             >
-              {item.text}
+              {text}
             </a>
           </li>
         ))}

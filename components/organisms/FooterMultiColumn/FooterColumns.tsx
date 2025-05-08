@@ -2,7 +2,6 @@ import ColumnLogoAndDescription from "./ColumnLogoAndDescription";
 import ColumnTitleAndLinks from "./ColumnTitleAndLinks";
 import { Column, FooterColumnsProps } from "./interfaces";
 import DOMPurify from "dompurify";
-import { uniqueId } from "lodash";
 
 const FooterColumns: React.FC<FooterColumnsProps> = ({ columns }) => {
   return (
@@ -13,19 +12,17 @@ const FooterColumns: React.FC<FooterColumnsProps> = ({ columns }) => {
             const sanitizedDescription = DOMPurify.sanitize(
               column?.description ?? "",
             );
-            const key = JSON.stringify(column);
             return (
               <ColumnLogoAndDescription
-                key={key}
+                key={index}
                 logo={column.logo}
                 description={sanitizedDescription}
               />
             );
           } else if ("title" in column && "items" in column) {
-            const key = JSON.stringify(column);
             return (
               <ColumnTitleAndLinks
-                key={key}
+                key={column.title}
                 title={column.title}
                 items={column.items}
               />

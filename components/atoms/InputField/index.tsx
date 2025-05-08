@@ -17,7 +17,7 @@ export interface InputFieldProps extends InputProps {
 /**
  *
  * @param {string} label - Text label for the input field
- * @param {booelan} error - Wheter the input is in an error state
+ * @param {boolean} error - Wheter the input is in an error state
  * @param {string} errorMessage - Error message to display
  * @param {string} hintMessage - Hint message to display
  * @param {string} variant - Visual style variant

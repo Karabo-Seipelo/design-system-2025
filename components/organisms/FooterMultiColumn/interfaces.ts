@@ -2,7 +2,7 @@ import { SubscribeNewsletterProps } from "$/molecules/Form/SubscribeNewsletter";
 
 export interface Link {
   text: string;
-  link: string;
+  url: string;
 }
 
 export interface ColumnLogoAndDescriptionProps {
