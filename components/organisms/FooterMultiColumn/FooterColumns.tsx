@@ -12,17 +12,19 @@ const FooterColumns: React.FC<FooterColumnsProps> = ({ columns }) => {
             const sanitizedDescription = DOMPurify.sanitize(
               column?.description ?? "",
             );
+            const uniqueId = Date.now();
             return (
               <ColumnLogoAndDescription
-                key={index}
+                key={`logo-${index}-${uniqueId}`}
                 logo={column.logo}
                 description={sanitizedDescription}
               />
             );
           } else if ("title" in column && "items" in column) {
+            const uniqueId = Date.now();
             return (
               <ColumnTitleAndLinks
-                key={column.title}
+                key={`links-${index}-${uniqueId}`}
                 title={column.title}
                 items={column.items}
               />

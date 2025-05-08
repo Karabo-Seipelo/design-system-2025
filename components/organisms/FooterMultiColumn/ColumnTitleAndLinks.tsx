@@ -1,5 +1,4 @@
 import { ColumnTitleAndLinksProps } from "./interfaces";
-import { uniqueId } from "lodash";
 
 const ColumnTitleAndLinks: React.FC<ColumnTitleAndLinksProps> = ({
   title,
@@ -11,16 +10,19 @@ const ColumnTitleAndLinks: React.FC<ColumnTitleAndLinksProps> = ({
         {title}
       </h3>
       <ul className="flex flex-col gap-3">
-        {items.map(({ text, url }, index) => (
-          <li key={`${text}-${index}`}>
-            <a
-              href={url}
-              className="text-base text-neutral-600 hover:text-indigo-500 capitalize"
-            >
-              {text}
-            </a>
-          </li>
-        ))}
+        {items.map(({ text, url }, index) => {
+          const uniqueId = Date.now();
+          return (
+            <li key={`${text}-${uniqueId}-${index}`}>
+              <a
+                href={url}
+                className="text-base text-neutral-600 hover:text-indigo-500 capitalize"
+              >
+                {text}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
