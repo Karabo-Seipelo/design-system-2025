@@ -9,6 +9,7 @@ const ERROR_HINT_CLASSES = "text-red-600 text-sm font-normal";
 export interface InputFieldProps extends InputProps {
   variant?: "normal" | "focus" | "disabled" | "error";
   label?: string;
+  name: string;
   hintMessage?: string;
   error?: boolean;
   errorMessage?: string;
@@ -71,7 +72,6 @@ const InputField: React.FC<InputFieldProps> = ({
       <Input
         id={inputId}
         className={`${inputClasses}`}
-        name={label}
         aria-label={label}
         aria-invalid={error}
         aria-describedby={describedBy}
