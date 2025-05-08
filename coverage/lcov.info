@@ -1834,10 +1834,9 @@ FNDA:21,(anonymous_1)
 DA:3,1
 DA:7,6
 DA:14,21
-DA:15,21
-DA:31,1
-LF:5
-LH:5
+DA:30,1
+LF:4
+LH:4
 BRF:0
 BRH:0
 end_of_record

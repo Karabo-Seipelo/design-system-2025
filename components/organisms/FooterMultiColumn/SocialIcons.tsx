@@ -5,8 +5,8 @@ import Icon from "./Icon";
 const SocialIcons: React.FC<SocialIconsProps> = ({ socialLinks }) => {
   return (
     <div className="flex gap-6">
-      {socialLinks.map(({ name, url }, index) => (
-        <Fragment key={`${name}-${index}-${url}`}>
+      {socialLinks.map(({ name, url, id }) => (
+        <Fragment key={`${name}-${id}-${url}`}>
           <a href={url}>
             <Icon name={name} size="large" color="neutral" />
           </a>

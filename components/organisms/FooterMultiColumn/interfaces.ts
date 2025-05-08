@@ -1,6 +1,7 @@
 import { SubscribeNewsletterProps } from "$/molecules/Form/SubscribeNewsletter";
 
 export interface Link {
+  id: string | number;
   text: string;
   url: string;
 }
@@ -50,6 +51,7 @@ export interface IconProps {
 }
 
 export interface SocialLink {
+  id: string | number;
   name: string;
   size: string;
   color: string;

@@ -62,14 +62,17 @@ export const Default: Story = {
         title: "shop categories",
         items: [
           {
+            id: uniqueId(),
             text: "unisex",
             url: "https://www.stylenest.com/unisex",
           },
           {
+            id: uniqueId(),
             text: "women",
             url: "https://www.stylenest.com/unisex",
           },
           {
+            id: uniqueId(),
             text: "men",
             url: "https://www.stylenest.com/unisex",
           },
@@ -80,18 +83,22 @@ export const Default: Story = {
         title: "shop collections",
         items: [
           {
+            id: uniqueId(),
             text: "Latest arrivals",
             url: "https://www.stylenest.com/unisex",
           },
           {
+            id: uniqueId(),
             text: "Urban Oasis",
             url: "https://www.stylenest.com/unisex",
           },
           {
+            id: uniqueId(),
             text: "Cozy Comfort",
             url: "https://www.stylenest.com/unisex",
           },
           {
+            id: uniqueId(),
             text: "Fresh Fusion",
             url: "https://www.stylenest.com/unisex",
           },
@@ -102,30 +109,35 @@ export const Default: Story = {
       description: "&copy; 2024 StyleNest, Inc. All rights reserved.",
       socialLinks: [
         {
+          id: uniqueId(),
           name: "youtube",
           size: "large",
           color: "neutral",
           url: "https://www.youtube.com",
         },
         {
+          id: uniqueId(),
           name: "instagram",
           size: "large",
           color: "neutral",
           url: "https://www.youtube.com",
         },
         {
+          id: uniqueId(),
           name: "facebook",
           size: "large",
           color: "neutral",
           url: "https://www.youtube.com",
         },
         {
+          id: uniqueId(),
           name: "github",
           size: "large",
           color: "neutral",
           url: "https://www.youtube.com",
         },
         {
+          id: uniqueId(),
           name: "twitter",
           size: "large",
           color: "neutral",

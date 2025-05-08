@@ -10,10 +10,9 @@ const ColumnTitleAndLinks: React.FC<ColumnTitleAndLinksProps> = ({
         {title}
       </h3>
       <ul className="flex flex-col gap-3">
-        {items.map(({ text, url }, index) => {
-          const uniqueId = Date.now();
+        {items.map(({ text, url, id }) => {
           return (
-            <li key={`${text}-${uniqueId}-${index}`}>
+            <li key={`${text}-${id}`}>
               <a
                 href={url}
                 className="text-base text-neutral-600 hover:text-indigo-500 capitalize"
