@@ -29,9 +29,9 @@ const Icon: React.FC<IconProps> = ({
   color = "neutral",
   size = "medium",
 }) => {
-  const iconClass = ICON_MAP[name] || "ri-question-line";
-  const sizeClass = SIZE_MAP[size] || SIZE_MAP.medium;
-  const colorClass = COLOR_MAP[color] || COLOR_MAP.neutral;
+  const iconClass = ICON_MAP[name] ?? "ri-question-line";
+  const sizeClass = SIZE_MAP[size] ?? SIZE_MAP.medium;
+  const colorClass = COLOR_MAP[color] ?? COLOR_MAP.neutral;
 
   return (
     <i

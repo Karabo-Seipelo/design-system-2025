@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1524" lines-covered="1235" line-rate="0.8103" branches-valid="650" branches-covered="537" branch-rate="0.8261" timestamp="1746650054217" complexity="0" version="0.1">
+<coverage lines-valid="1522" lines-covered="1233" line-rate="0.8101" branches-valid="656" branches-covered="543" branch-rate="0.8277" timestamp="1746695350611" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -1904,7 +1904,7 @@
         </class>
       </classes>
     </package>
-    <package name="organisms.FooterMultiColumn" line-rate="0.9838" branch-rate="0.8332999999999999">
+    <package name="organisms.FooterMultiColumn" line-rate="0.9833" branch-rate="0.8541">
       <classes>
         <class name="ColumnLogoAndDescription.tsx" filename="components/organisms/FooterMultiColumn/ColumnLogoAndDescription.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -1943,7 +1943,7 @@
             <line number="29" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="FooterColumns.tsx" filename="components/organisms/FooterMultiColumn/FooterColumns.tsx" line-rate="0.9333" branch-rate="0.8665999999999999">
+        <class name="FooterColumns.tsx" filename="components/organisms/FooterMultiColumn/FooterColumns.tsx" line-rate="0.9285" branch-rate="0.8665999999999999">
           <methods>
             <method name="(anonymous_1)" hits="3" signature="()V">
               <lines>
@@ -1960,7 +1960,6 @@
             <line number="1" hits="1" branch="false"/>
             <line number="2" hits="1" branch="false"/>
             <line number="4" hits="1" branch="false"/>
-            <line number="5" hits="1" branch="false"/>
             <line number="7" hits="1" branch="false"/>
             <line number="8" hits="3" branch="false"/>
             <line number="12" hits="9" branch="true" condition-coverage="100% (4/4)"/>
@@ -2014,7 +2013,7 @@
             <line number="33" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="Icon.tsx" filename="components/organisms/FooterMultiColumn/Icon.tsx" line-rate="1" branch-rate="0.375">
+        <class name="Icon.tsx" filename="components/organisms/FooterMultiColumn/Icon.tsx" line-rate="1" branch-rate="0.6428">
           <methods>
             <method name="(anonymous_0)" hits="15" signature="()V">
               <lines>
@@ -2028,9 +2027,9 @@
             <line number="13" hits="1" branch="false"/>
             <line number="21" hits="1" branch="false"/>
             <line number="27" hits="1" branch="false"/>
-            <line number="32" hits="15" branch="true" condition-coverage="50% (1/2)"/>
-            <line number="33" hits="15" branch="true" condition-coverage="50% (1/2)"/>
-            <line number="34" hits="15" branch="true" condition-coverage="50% (1/2)"/>
+            <line number="32" hits="15" branch="true" condition-coverage="75% (3/4)"/>
+            <line number="33" hits="15" branch="true" condition-coverage="75% (3/4)"/>
+            <line number="34" hits="15" branch="true" condition-coverage="75% (3/4)"/>
             <line number="36" hits="15" branch="false"/>
             <line number="44" hits="1" branch="false"/>
           </lines>
@@ -2039,23 +2038,22 @@
           <methods>
             <method name="(anonymous_1)" hits="3" signature="()V">
               <lines>
-                <line number="6" hits="3"/>
+                <line number="5" hits="3"/>
               </lines>
             </method>
             <method name="(anonymous_2)" hits="15" signature="()V">
               <lines>
-                <line number="9" hits="15"/>
+                <line number="8" hits="15"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="1" hits="1" branch="false"/>
             <line number="3" hits="1" branch="false"/>
-            <line number="4" hits="1" branch="false"/>
-            <line number="6" hits="1" branch="false"/>
-            <line number="7" hits="3" branch="false"/>
-            <line number="10" hits="15" branch="false"/>
-            <line number="20" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="3" branch="false"/>
+            <line number="9" hits="15" branch="false"/>
+            <line number="19" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="index.tsx" filename="components/organisms/FooterMultiColumn/index.tsx" line-rate="1" branch-rate="1">
