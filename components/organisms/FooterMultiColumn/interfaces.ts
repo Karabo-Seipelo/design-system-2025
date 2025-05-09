@@ -34,9 +34,10 @@ export interface Toast {
   error: Notification;
 }
 
-export interface FormProps extends SubscribeNewsletterProps {
+export interface FormProps extends Omit<SubscribeNewsletterProps, "onSubmit"> {
   formUrl: string;
   toast: Toast;
+  onSubmit: (email: string) => Promise<void>;
 }
 
 export interface FooterMultiColumnProps {

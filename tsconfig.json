@@ -16,6 +16,8 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
+      "@hooks/*": ["./hooks/*"],
+      "@utils/*": ["./utils/*"],
       "#/*": ["./lib/*"],
       "$/*": ["./components/*"],
       "@/*": ["./src/*"],

@@ -20,6 +20,8 @@ const config: Config = {
     "^components/(.*)$": "<rootDir>/components/$1",
     "^\\$/(.*)$": "<rootDir>/components/$1",
     "^#/(.*)$": "<rootDir>/lib/$1",
+    "^@hooks/(.*)$": "<rootDir>/hooks/$1",
+    "^@utils/(.*)$": "<rootDir>/utils/$1",
   },
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   transform: {

@@ -10,6 +10,7 @@ import {
   submitFormNewsletterSuccess,
   submitFormNewsletterError,
 } from "../../../__mocks__/msw/httpHandlers";
+import axios from "axios";
 
 const meta = {
   title: "E-commerce/FooterMultiColumn",
@@ -70,9 +71,149 @@ export const Default: Story = {
         "Subscribe to our newsletter and get the latest updates, news, and special offers delivered directly to your inbox.",
       formUrl:
         "https://www.greatfrontend.com/api/projects/challenges/newsletter",
-      onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+      onSubmit: async (email: string) => {
         action("onSubmit")();
+      },
+      input: {
+        type: "email",
+        name: "email",
+        placeholder: "Enter your email",
+        required: true,
+        "aria-label": "Email",
+        className: "basis-full md:basis-[80%]",
+      },
+      button: {
+        label: "Subscribe",
+        variant: "primary",
+        type: "submit",
+      },
+      toast: {
+        success: {
+          badge: "Success",
+          message: "You have successfully subscribed to our newsletter.",
+          status: "SUCCESS",
+        },
+        error: {
+          badge: "Error",
+          message: "There was an error subscribing to the newsletter.",
+          status: "ERROR",
+        },
+      },
+    },
+
+    trademark: {
+      logo: {
+        image_url: "styleNest.png",
+        alt: "StyleNest Logo",
+      },
+      description:
+        "Craft stunning style journeys that weave<br/> more joy into every thread.",
+    },
+    columns: [
+      {
+        id: uniqueId(),
+        title: "shop categories",
+        items: [
+          {
+            id: uniqueId(),
+            text: "unisex",
+            url: "https://www.stylenest.com/unisex",
+          },
+          {
+            id: uniqueId(),
+            text: "women",
+            url: "https://www.stylenest.com/unisex",
+          },
+          {
+            id: uniqueId(),
+            text: "men",
+            url: "https://www.stylenest.com/unisex",
+          },
+        ],
+      },
+      {
+        id: uniqueId(),
+        title: "shop collections",
+        items: [
+          {
+            id: uniqueId(),
+            text: "Latest arrivals",
+            url: "https://www.stylenest.com/unisex",
+          },
+          {
+            id: uniqueId(),
+            text: "Urban Oasis",
+            url: "https://www.stylenest.com/unisex",
+          },
+          {
+            id: uniqueId(),
+            text: "Cozy Comfort",
+            url: "https://www.stylenest.com/unisex",
+          },
+          {
+            id: uniqueId(),
+            text: "Fresh Fusion",
+            url: "https://www.stylenest.com/unisex",
+          },
+        ],
+      },
+    ],
+    socialAndTerms: {
+      description: "&copy; 2024 StyleNest, Inc. All rights reserved.",
+      socialLinks: [
+        {
+          id: uniqueId(),
+          name: "youtube",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          id: uniqueId(),
+          name: "instagram",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          id: uniqueId(),
+          name: "facebook",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          id: uniqueId(),
+          name: "github",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+        {
+          id: uniqueId(),
+          name: "twitter",
+          size: "large",
+          color: "neutral",
+          url: "https://www.youtube.com",
+        },
+      ],
+    },
+  },
+};
+
+export const SubmitEmail: Story = {
+  args: {
+    form: {
+      title: "Join our newsletter",
+      description:
+        "Subscribe to our newsletter and get the latest updates, news, and special offers delivered directly to your inbox.",
+      formUrl:
+        "https://www.greatfrontend.com/api/projects/challenges/newsletter",
+      onSubmit: async (email: string) => {
+        await axios.post(
+          "https://www.greatfrontend.com/api/projects/challenges/newsletter",
+          { email },
+        );
       },
       input: {
         type: "email",
@@ -208,9 +349,8 @@ export const SuccessNotification: Story = {
       description:
         "Subscribe to our newsletter and get the latest updates, news, and special offers delivered directly to your inbox.",
       formUrl: "/newsletter/success",
-      onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        action("onSubmit")();
+      onSubmit: async (email: string) => {
+        await axios.post("/newsletter/success", { email });
       },
       input: {
         type: "email",
@@ -357,9 +497,8 @@ export const ErrorNotification: Story = {
       description:
         "Subscribe to our newsletter and get the latest updates, news, and special offers delivered directly to your inbox.",
       formUrl: "newsletter/error",
-      onSubmit: (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        action("onSubmit")();
+      onSubmit: async (email: string) => {
+        await axios.post("/newsletter/error", { email });
       },
       input: {
         type: "email",
