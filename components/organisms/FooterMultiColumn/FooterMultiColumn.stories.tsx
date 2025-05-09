@@ -100,7 +100,6 @@ export const Default: Story = {
         },
       },
     },
-
     trademark: {
       logo: {
         image_url: "styleNest.png",

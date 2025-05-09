@@ -22,7 +22,19 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const AllStates: Story = {
-  render: () => (
+  args: {
+    name: "email",
+    label: "",
+    hintMessage: "",
+    type: "email",
+    pattern: "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$",
+    placeholder: "Enter your email",
+    disabled: false,
+    required: false,
+    error: false,
+    errorMessage: "",
+  },
+  render: (args) => (
     <div className="flex flex-col gap-10">
       <header className="w-full flex bg-neutral-100 p-6 rounded-lg">
         <h1 className="font-bold text-4xl text-neutral-700">Input field</h1>
@@ -31,17 +43,19 @@ export const AllStates: Story = {
         <div className="flex flex-col gap-2">
           <h5 className="font-normal text-xl text-gray-950">Normal</h5>
           <InputField
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            name={args.name}
+            type={args.type}
+            pattern={args.pattern}
             placeholder="Enter your email"
           />
         </div>
         <div className="flex flex-col gap-2">
           <h5 className="font-normal text-xl text-gray-950">Focus</h5>
           <InputField
-            type="email"
+            name={args.name}
+            type={args.type}
             value="test@gmail.com"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            pattern={args.pattern}
             placeholder="Enter your email"
             variant="focus"
           />
@@ -49,17 +63,19 @@ export const AllStates: Story = {
         <div className="flex flex-col gap-2">
           <h5 className="font-normal text-xl text-gray-950">Filled</h5>
           <InputField
+            name={args.name}
             value="test@gmail.com"
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            type={args.type}
+            pattern={args.pattern}
             placeholder="Enter your email"
           />
         </div>
         <div className="flex flex-col gap-2">
           <h5 className="font-normal text-xl text-gray-950">Disabled</h5>
           <InputField
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            name={args.name}
+            type={args.type}
+            pattern={args.pattern}
             placeholder="Enter your email"
             variant="disabled"
             disabled={true}
@@ -68,8 +84,9 @@ export const AllStates: Story = {
         <div className="flex flex-col gap-2">
           <h5 className="font-normal text-xl text-gray-950">Hint</h5>
           <InputField
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            name={args.name}
+            type={args.type}
+            pattern={args.pattern}
             placeholder="Enter your email"
             variant="disabled"
             disabled={true}
@@ -81,9 +98,11 @@ export const AllStates: Story = {
             Error - Required
           </h5>
           <InputField
-            type="email"
+            name={args.name}
+            type={args.type}
             placeholder="Enter your email"
             errorMessage="Email address is required"
+            pattern={args.pattern}
             error={true}
             required
           />
@@ -93,8 +112,9 @@ export const AllStates: Story = {
             Error - Invalid Filled
           </h5>
           <InputField
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            name={args.name}
+            type={args.type}
+            pattern={args.pattern}
             placeholder="Enter your email"
             error={true}
             errorMessage="Please enter a valid email address."
@@ -103,8 +123,9 @@ export const AllStates: Story = {
         <div className="flex flex-col gap-2">
           <h5 className="font-normal text-xl text-gray-950">Error - Focused</h5>
           <InputField
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            name={args.name}
+            type={args.type}
+            pattern={args.pattern}
             placeholder="Enter your email"
             variant="error"
             error={true}
@@ -114,9 +135,10 @@ export const AllStates: Story = {
         <div className="flex flex-col gap-2">
           <h5 className="font-normal text-xl text-gray-950">Label</h5>
           <InputField
+            name={args.name}
             label="Email"
-            type="email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            type={args.type}
+            pattern={args.pattern}
             placeholder="Enter your email"
             variant="disabled"
             disabled={true}
@@ -129,6 +151,7 @@ export const AllStates: Story = {
 
 export const Default: Story = {
   args: {
+    name: "email",
     label: "",
     hintMessage: "",
     type: "email",
@@ -149,6 +172,7 @@ export const Default: Story = {
 
 export const Disabled: Story = {
   args: {
+    name: "email",
     label: "",
     hintMessage: "",
     type: "email",
@@ -162,6 +186,7 @@ export const Disabled: Story = {
 
 export const InputError: Story = {
   args: {
+    name: "email",
     label: "",
     hintMessage: "",
     type: "email",
@@ -176,6 +201,7 @@ export const InputError: Story = {
 
 export const Required: Story = {
   args: {
+    name: "email",
     label: "",
     hintMessage: "",
     type: "email",
@@ -190,6 +216,7 @@ export const Required: Story = {
 
 export const WithHint: Story = {
   args: {
+    name: "email",
     label: "",
     hintMessage: "This is a hint to help user.",
     type: "email",
@@ -204,6 +231,7 @@ export const WithHint: Story = {
 
 export const WithNoErrorMessage: Story = {
   args: {
+    name: "email",
     label: "",
     hintMessage: "",
     type: "email",
@@ -217,6 +245,7 @@ export const WithNoErrorMessage: Story = {
 
 export const WithIdAndLabel: Story = {
   args: {
+    name: "email",
     label: "Email",
     hintMessage: "",
     type: "email",

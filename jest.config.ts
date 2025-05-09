@@ -7,6 +7,7 @@ const config: Config = {
   coverageDirectory: "<rootDir>/coverage",
   collectCoverageFrom: [
     "<rootDir>/components/**/*.{ts,tsx}",
+    "<rootDir>/hooks/**/*.{ts,tsx}",
     "!<rootDir>/components/**/*.d.ts",
     "!<rootDir>/components/**/types.ts",
     "!<rootDir>/components/**/interfaces.ts",
@@ -27,7 +28,10 @@ const config: Config = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
-  testMatch: ["<rootDir>/components/**/*.test.(ts|tsx)"],
+  testMatch: [
+    "<rootDir>/components/**/*.test.(ts|tsx)",
+    "<rootDir>/hooks/**/*.test.(ts|tsx)",
+  ],
 };
 
 export default config;

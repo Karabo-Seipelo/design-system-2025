@@ -26,6 +26,7 @@ const useSubmitNewsletter = ({
     } catch (error) {
       const { message, status, badge } = toast.error;
       showToast(message, status, badge);
+      console.error("Error submitting newsletter:", error);
     }
   };
 
