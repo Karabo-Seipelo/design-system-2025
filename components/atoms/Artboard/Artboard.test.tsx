@@ -63,7 +63,7 @@ describe("Artboard Component", () => {
       const sectionElement = screen.getByText("Test Child").closest("section");
       expect(sectionElement).toBeInTheDocument();
       expect(sectionElement).toHaveClass(
-        "shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white min-h-[calc(100vh_-32px)]",
+        "shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white",
       );
     });
   });

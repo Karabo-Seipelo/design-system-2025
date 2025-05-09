@@ -1,7 +1,7 @@
 import TextareaField from "./TextareaField";
 import InputField from "./InputField";
 import ButtonField, { ButtonFieldType } from "./ButtonField";
-import { FieldProps } from "./Contact.interfaces";
+import { FieldProps } from "./interfaces";
 
 const FieldComponent: React.FC<FieldProps> = (props) => {
   const { renderType, ...rest } = props;
