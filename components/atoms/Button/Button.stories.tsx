@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { ButtonVariant, OptionalVariant } from "./interfaces";
 import Button from ".";
 import Artboard from "$/atoms/Artboard";
 
@@ -24,7 +25,7 @@ type Story = StoryObj<typeof meta>;
 export const AllStates: Story = {
   args: {
     size: "md",
-    variant: "primary",
+    variant: ButtonVariant.PRIMARY,
   },
   render: () => (
     <div data-testid="all-states" className="flex flex-col gap-4">
@@ -35,7 +36,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
-              <Button size="2xl" variant="primary">
+              <Button size="2xl" variant={ButtonVariant.PRIMARY}>
                 Add Cart
               </Button>
             </div>
@@ -43,7 +44,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Hover</div>
             <div>
-              <Button size="2xl" variant="primaryHover">
+              <Button size="2xl" variant={OptionalVariant.PRIMARY_HOVER}>
                 Add Cart
               </Button>
             </div>
@@ -51,7 +52,11 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Focus</div>
             <div>
-              <Button size="2xl" variant="primaryFocus" autoFocus={true}>
+              <Button
+                size="2xl"
+                variant={OptionalVariant.PRIMARY_FOCUS}
+                autoFocus={true}
+              >
                 Add Cart
               </Button>
             </div>
@@ -59,7 +64,11 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Disabled</div>
             <div>
-              <Button size="2xl" variant="primary" disabled={true}>
+              <Button
+                size="2xl"
+                variant={ButtonVariant.PRIMARY}
+                disabled={true}
+              >
                 Add Cart
               </Button>
             </div>
@@ -72,7 +81,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
-              <Button size="xl" variant="primary">
+              <Button size="xl" variant={ButtonVariant.PRIMARY}>
                 Add Cart
               </Button>
             </div>
@@ -80,7 +89,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Hover</div>
             <div>
-              <Button size="xl" variant="primaryHover">
+              <Button size="xl" variant={OptionalVariant.PRIMARY_HOVER}>
                 Add Cart
               </Button>
             </div>
@@ -88,7 +97,11 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Focus</div>
             <div>
-              <Button size="xl" variant="primaryFocus" autoFocus={true}>
+              <Button
+                size="xl"
+                variant={OptionalVariant.PRIMARY_FOCUS}
+                autoFocus={true}
+              >
                 Add Cart
               </Button>
             </div>
@@ -96,7 +109,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Disabled</div>
             <div>
-              <Button size="xl" variant="primary" disabled={true}>
+              <Button size="xl" variant={ButtonVariant.PRIMARY} disabled={true}>
                 Add Cart
               </Button>
             </div>
@@ -110,7 +123,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
-              <Button size="xl" variant="secondary">
+              <Button size="xl" variant={ButtonVariant.SECONDARY}>
                 Add Cart
               </Button>
             </div>
@@ -118,7 +131,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Hover</div>
             <div>
-              <Button size="xl" variant="secondaryHover">
+              <Button size="xl" variant={OptionalVariant.SECONDARY_HOVER}>
                 Add Cart
               </Button>
             </div>
@@ -126,7 +139,11 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Focus</div>
             <div>
-              <Button size="xl" variant="secondaryFocus" autoFocus={true}>
+              <Button
+                size="xl"
+                variant={OptionalVariant.SECONDARY_FOCUS}
+                autoFocus={true}
+              >
                 Add Cart
               </Button>
             </div>
@@ -148,7 +165,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Normal</div>
             <div>
-              <Button size="link" variant="link">
+              <Button size="link" variant={OptionalVariant.LINK}>
                 See all 62 reviews
               </Button>
             </div>
@@ -156,7 +173,7 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Hover</div>
             <div>
-              <Button size="link" variant="linkHover">
+              <Button size="link" variant={OptionalVariant.LINK_HOVER}>
                 See all 62 reviews
               </Button>
             </div>
@@ -164,7 +181,11 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Focus</div>
             <div>
-              <Button size="link" variant="linkFocus" autoFocus={true}>
+              <Button
+                size="link"
+                variant={OptionalVariant.LINK_FOCUS}
+                autoFocus={true}
+              >
                 See all 62 reviews
               </Button>
             </div>
@@ -172,7 +193,11 @@ export const AllStates: Story = {
           <div className="flex flex-col gap-2">
             <div>Disabled</div>
             <div>
-              <Button size="link" variant="link" disabled={true}>
+              <Button
+                size="link"
+                variant={OptionalVariant.LINK}
+                disabled={true}
+              >
                 See all 62 reviews
               </Button>
             </div>
@@ -199,7 +224,7 @@ export const DefaultDisabled: Story = {
 export const Primary: Story = {
   args: {
     size: "xl",
-    variant: "primary",
+    variant: ButtonVariant.PRIMARY,
     children: "Add Cart",
   },
 };
@@ -207,7 +232,7 @@ export const Primary: Story = {
 export const PrimaryDisabled: Story = {
   args: {
     size: "xl",
-    variant: "primary",
+    variant: ButtonVariant.PRIMARY,
     children: "Add Cart",
     disabled: true,
   },
@@ -216,7 +241,7 @@ export const PrimaryDisabled: Story = {
 export const Secondary: Story = {
   args: {
     size: "xl",
-    variant: "secondary",
+    variant: ButtonVariant.SECONDARY,
     children: "Add Cart",
   },
 };
@@ -224,7 +249,7 @@ export const Secondary: Story = {
 export const Link: Story = {
   args: {
     size: "sm",
-    variant: "link",
+    variant: OptionalVariant.LINK,
     children: "See all 62 reviews",
   },
 };
@@ -232,7 +257,7 @@ export const Link: Story = {
 export const LinkDisabled: Story = {
   args: {
     size: "sm",
-    variant: "link",
+    variant: OptionalVariant.LINK,
     children: "See all 62 reviews",
     disabled: true,
   },

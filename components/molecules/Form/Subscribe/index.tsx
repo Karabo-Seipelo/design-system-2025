@@ -1,5 +1,10 @@
 import InputField, { InputFieldProps } from "$/atoms/InputField";
+import { ButtonProps } from "$/atoms/Button/interfaces";
 import Button from "$/atoms/Button";
+
+export interface SubscribeButtonProps extends ButtonProps {
+  label: string;
+}
 
 /**
  * Subscribe component props
@@ -14,11 +19,7 @@ import Button from "$/atoms/Button";
 export interface SubscribeProps {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   input: InputFieldProps;
-  button: {
-    label: string;
-    variant: "primary" | "secondary";
-    type: "submit" | "button";
-  };
+  button: SubscribeButtonProps;
 }
 
 /**
@@ -34,7 +35,7 @@ const Subscribe = ({ onSubmit, button, input }: SubscribeProps) => {
       <div className="flex flex-col md:flex-row gap-4 md:gap-[2%] md:flex-wrap">
         <InputField {...input} className="basis-full md:basis-[80%]" />
         <Button
-          variant="primary"
+          variant={button.variant}
           className="basis-full md:basis-[18%]"
           type={button.type}
         >

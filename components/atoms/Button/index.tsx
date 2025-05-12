@@ -1,25 +1,6 @@
 import { Button as UIButton } from "@headlessui/react";
 import classNames from "classnames";
-
-type OptionalVariant =
-  | "primaryHover"
-  | "primaryFocus"
-  | "secondaryHover"
-  | "secondaryFocus"
-  | "link"
-  | "linkHover"
-  | "linkFocus";
-
-type Variant = "primary" | "secondary";
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: "sm" | "md" | "lg" | "xl" | "2xl" | "link" | "fullWidth";
-  variant?: Variant | OptionalVariant;
-  disabled?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-  autoFocus?: boolean;
-}
+import { ButtonProps, ButtonVariant, OptionalVariant } from "./interfaces";
 
 const Button: React.FC<ButtonProps> = ({
   size = "md",
@@ -115,7 +96,10 @@ const Button: React.FC<ButtonProps> = ({
     linkFocus: "",
   };
 
-  const variantDisabledClasses = {
+  const variantDisabledClasses: Record<
+    ButtonVariant | OptionalVariant,
+    string
+  > = {
     primary: classNames(
       "disabled:bg-neutral-100",
       "disabled:text-neutral-400",
@@ -150,11 +134,11 @@ const Button: React.FC<ButtonProps> = ({
       className={classNames(
         commonClasses,
         heightClasses[size],
-        variant === "secondary"
+        variant === ButtonVariant.SECONDARY
           ? secondarySizeClasses[size]
           : paddingClasses[size],
-        variantDisabledClasses[variant],
-        variantClasses[variant],
+        variantDisabledClasses[variant as ButtonVariant | OptionalVariant],
+        variantClasses[variant as ButtonVariant | OptionalVariant],
         fontSizeClasses[size],
         paddingClasses[size],
         spacingClasses[size],
