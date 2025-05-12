@@ -5,6 +5,7 @@ import ProductSize from "$/molecules/ProductSize";
 import ProductColors from "$/molecules/ProductColors";
 import { ProductDetailsStore } from "$/organisms/ProductDetails/useProductStore";
 import Button from "$/atoms/Button";
+import { ButtonVariant, ButtonTypeEnum } from "$/atoms/Button/interfaces";
 import { Inventory } from "$/organisms/ProductDetails/fetchProductDetailsAPI";
 import { useMediaQuery } from "usehooks-ts";
 
@@ -73,9 +74,9 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
         </div>
       )}
       <Button
-        type="submit"
+        type={ButtonTypeEnum.SUBMIT}
         disabled={disabled}
-        variant="primary"
+        variant={ButtonVariant.PRIMARY}
         size={isMobileAndBelow ? "xl" : "2xl"}
       >
         Add to cart
