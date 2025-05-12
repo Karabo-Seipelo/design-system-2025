@@ -75,7 +75,6 @@ const useProductStore = create<ProductDetailsStore>((set, get) => ({
       const data = await fetchProductDetailsFromAPI(productId);
       set({ product: data, loading: false });
       set({ inventory: data.inventory });
-
       const unavailableSizes = getOutOfStockColorSizeMap(data.inventory);
       const unavailableColors = Object.keys(unavailableSizes).filter((color) =>
         isColorUnavailable(color, unavailableSizes, data.sizes),

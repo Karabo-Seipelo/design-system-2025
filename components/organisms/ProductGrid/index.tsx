@@ -3,8 +3,13 @@ import useProductsStore from "./useProductsStore";
 import ProductGridHeader from "./ProductGridHeader";
 import ProductGridCard from "./ProductGridCard";
 import ProductGridSkeleton from "./ProductGrid.skeleton";
+import { ProductGridProps } from "./interfaces";
 
-const ProductGrid = () => {
+const ProductGrid: React.FC<ProductGridProps> = ({
+  title,
+  collection = "latest",
+  label = null,
+}) => {
   const {
     products,
     fetchProducts,
@@ -16,7 +21,6 @@ const ProductGrid = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const collection = "latest";
         await fetchProducts(collection);
       } catch (err) {
         setError(err as Error);
@@ -24,7 +28,7 @@ const ProductGrid = () => {
     };
 
     fetchData();
-  }, [fetchProducts]);
+  }, [collection, fetchProducts]);
 
   useEffect(() => {
     setError(productsError);
@@ -62,8 +66,8 @@ const ProductGrid = () => {
   }
 
   return (
-    <section data-testid="product-grid" className="flex flex-col gap-4 p-4">
-      <ProductGridHeader title="Latest Arrivals" label="View all" />
+    <section data-testid="product-grid" className="flex flex-col gap-4">
+      <ProductGridHeader title={title} label={label} />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         {products.length > 0 ? (
           products.map(({ product_id, ...product }) => (

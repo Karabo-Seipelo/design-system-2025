@@ -11,6 +11,11 @@ import { LogoMarqueeProps } from "$/molecules/LogoMarquee";
 import { PricingProps } from "$/organisms/PricingTable/Tier";
 import { StatisticsSectionProps } from "$/organisms/Statistics";
 import { TeamSectionProps } from "$/organisms/Team";
+import { NavProps } from "$/organisms/Nav/interface";
+import { ProductDetailsProps } from "$/organisms/ProductDetails/index";
+import { ProductSpecificationsProps } from "$/organisms/ProductSpecifications/interface";
+import { ProductGridProps } from "$/organisms/ProductGrid/interfaces";
+import { FooterMultiColumnProps } from "$/organisms/FooterMultiColumn/interfaces";
 
 export interface Navigation {
   navItems: NavItem[];
@@ -65,4 +70,12 @@ export interface AboutUsPageProps extends BasePageProps {
 export interface ContactUsPageProps extends BasePageProps {
   contact: ContactSectionProps;
   faq: FAQProps;
+}
+
+export interface ProductDetailsPageProps {
+  nav: NavProps;
+  productDetails: ProductDetailsProps;
+  productSpecification: ProductSpecificationsProps;
+  collection: ProductGridProps;
+  footer: FooterMultiColumnProps;
 }

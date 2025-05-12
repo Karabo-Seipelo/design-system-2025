@@ -24,7 +24,7 @@ describe("Page Component", () => {
 
   it("applies custom classes when classes prop is provided", () => {
     render(
-      <Page classes="custom-class">
+      <Page className="custom-class">
         <p>Test Content</p>
       </Page>,
     );
