@@ -34,7 +34,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <Artboard classes="py-[48px] md:py-[64px] lg:p-[96px]">
+      <Artboard classes="w-full md:py-[116px] lg:py-[65px] lg:px-[96px]">
         <Toast />
         <Story />
       </Artboard>
