@@ -22,7 +22,7 @@ const createSpecification = (
   description: string,
   imageSrc: string,
   imageAlt: string,
-  listItems: { icon: string; text: string }[]
+  listItems: { icon: string; text: string }[],
 ) => ({
   name,
   title,
@@ -44,13 +44,13 @@ const specifications = specificationData.map((spec) =>
     spec.description,
     spec.imageSrc,
     spec.imageAlt,
-    spec.listItems
-  )
+    spec.listItems,
+  ),
 );
 
 const createFooterColumn = (
   title: string,
-  items: { text: string; url: string }[]
+  items: { text: string; url: string }[],
 ) => ({
   id: uniqueId(),
   title,
