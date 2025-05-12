@@ -21,7 +21,7 @@ const createSpecification = (
   description: string,
   imageSrc: string,
   imageAlt: string,
-  listItems: { icon: string; text: string }[],
+  listItems: { icon: string; text: string }[]
 ) => ({
   name,
   title,
@@ -36,64 +36,79 @@ const createSpecification = (
   })),
 });
 
-const specifications = [
-  createSpecification(
-    "Sustainability",
-    "Eco-Friendly Choice",
-    "With our sustainable approach, we curate clothing that makes a statement of care—care for the planet, and for the art of fashion.",
-    "product-img-main.jpg",
-    "Placeholder Image 1",
-    [
+const specificationData = [
+  {
+    name: "Sustainability",
+    title: "Eco-Friendly Choice",
+    description:
+      "With our sustainable approach, we curate clothing that makes a statement of care—care for the planet, and for the art of fashion.",
+    imageSrc: "product-img-main.jpg",
+    imageAlt: "Placeholder Image 1",
+    listItems: [
       { icon: "recycle", text: "Recycled Materials" },
       { icon: "paint", text: "Low Impact Dye" },
       { icon: "plant", text: "Carbon Neutral" },
       { icon: "water", text: "Water Conservation" },
     ],
-  ),
-  createSpecification(
-    "Comfort",
-    "Uncompromised Comfort",
-    "Our garments are a sanctuary of softness, tailored to drape gracefully and allow for freedom of movement.",
-    "product-img-main2.jpg",
-    "Placeholder Image 2",
-    [
+  },
+  {
+    name: "Comfort",
+    title: "Uncompromised Comfort",
+    description:
+      "Our garments are a sanctuary of softness, tailored to drape gracefully and allow for freedom of movement.",
+    imageSrc: "product-img-main2.jpg",
+    imageAlt: "Placeholder Image 2",
+    listItems: [
       { icon: "t-shirt", text: "Ergonomic Fits" },
       { icon: "hand-heart", text: "Soft-to-the-Touch Fabrics" },
       { icon: "windy", text: "Breathable Weaves" },
       { icon: "color-filter", text: "Thoughtful Design" },
     ],
-  ),
-  createSpecification(
-    "Durability",
-    "Built to Last",
-    "Here’s to apparel that you can trust to look as good as new, wear after wear, year after year.",
-    "product-img-main3.jpg",
-    "Placeholder Image 3",
-    [
+  },
+  {
+    name: "Durability",
+    title: "Built to Last",
+    description:
+      "Here’s to apparel that you can trust to look as good as new, wear after wear, year after year.",
+    imageSrc: "product-img-main3.jpg",
+    imageAlt: "Placeholder Image 3",
+    listItems: [
       { icon: "stack", text: "Reinforced Construction" },
       { icon: "scales", text: "Quality Control" },
       { icon: "shield-star", text: "Material Resilience" },
       { icon: "price-tag-2", text: "Warranty and Repair" },
     ],
-  ),
-  createSpecification(
-    "Versatility",
-    "Versatile by Design",
-    "Our pieces are a celebration of versatility, offering a range of styles that are as perfect for a business meeting as they are for a casual brunch.",
-    "product-img-main4.jpg",
-    "Placeholder Image 4",
-    [
+  },
+  {
+    name: "Versatility",
+    title: "Versatile by Design",
+    description:
+      "Our pieces are a celebration of versatility, offering a range of styles that are as perfect for a business meeting as they are for a casual brunch.",
+    imageSrc: "product-img-main4.jpg",
+    imageAlt: "Placeholder Image 4",
+    listItems: [
       { icon: "rainbow", text: "Adaptive Styles" },
       { icon: "shirt", text: "Functional Fashion" },
       { icon: "plant", text: "Timeless Aesthetics" },
       { icon: "shapes", text: "Mix-and-Match Potential" },
     ],
-  ),
+  },
 ];
+
+const specifications = specificationData.map((spec) =>
+  createSpecification(
+    spec.name,
+    spec.title,
+    spec.description,
+    spec.imageSrc,
+    spec.imageAlt,
+    spec.listItems
+  )
+);
 
 const createFooterColumn = (
   title: string,
-  items: { text: string; url: string }[],
+  items: { text: string; url: string }[]
 ) => ({
   id: uniqueId(),
   title,
@@ -102,6 +117,25 @@ const createFooterColumn = (
     ...item,
   })),
 });
+
+const SOCIAL_LINKS = [
+  { name: "youtube", url: "https://www.youtube.com" },
+  { name: "instagram", url: "https://www.instagram.com" },
+  { name: "facebook", url: "https://www.facebook.com" },
+  { name: "github", url: "https://www.github.com" },
+  { name: "twitter", url: "https://www.twitter.com" },
+];
+
+const SOCIAL_LINK_SIZE = "large";
+const SOCIAL_LINK_COLOR = "neutral";
+
+const socialLinks = SOCIAL_LINKS.map((link) => ({
+  id: uniqueId(),
+  name: link.name,
+  size: SOCIAL_LINK_SIZE,
+  color: SOCIAL_LINK_COLOR,
+  url: link.url,
+}));
 
 const footerColumns = [
   createFooterColumn("shop categories", [
@@ -192,43 +226,7 @@ export const Default: Story = {
       columns: footerColumns,
       socialAndTerms: {
         description: "&copy; 2024 StyleNest, Inc. All rights reserved.",
-        socialLinks: [
-          {
-            id: uniqueId(),
-            name: "youtube",
-            size: "large",
-            color: "neutral",
-            url: "https://www.youtube.com",
-          },
-          {
-            id: uniqueId(),
-            name: "instagram",
-            size: "large",
-            color: "neutral",
-            url: "https://www.youtube.com",
-          },
-          {
-            id: uniqueId(),
-            name: "facebook",
-            size: "large",
-            color: "neutral",
-            url: "https://www.youtube.com",
-          },
-          {
-            id: uniqueId(),
-            name: "github",
-            size: "large",
-            color: "neutral",
-            url: "https://www.youtube.com",
-          },
-          {
-            id: uniqueId(),
-            name: "twitter",
-            size: "large",
-            color: "neutral",
-            url: "https://www.youtube.com",
-          },
-        ],
+        socialLinks,
       },
     },
   },
