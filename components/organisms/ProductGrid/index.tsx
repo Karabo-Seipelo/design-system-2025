@@ -35,7 +35,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
   }, [productsError]);
 
   if (loading) {
-    return <ProductGridSkeleton />;
+    return <ProductGridSkeleton data-testid="product-grid-loading" />;
   }
 
   if (error) {

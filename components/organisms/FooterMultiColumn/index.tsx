@@ -24,7 +24,7 @@ const FooterMultiColumn: React.FC<FooterMultiColumnProps> = ({
   });
 
   return (
-    <footer className={containerClassName}>
+    <footer data-testid="footer-multicolumn" className={containerClassName}>
       {form && <SubscribeNewsletter {...rest} onSubmit={submitHandler} />}
       <div className="flex flex-col gap-12 lg:flex-row">
         {trademark && <FooterTrademark {...trademark} className="lg:w-[50%]" />}

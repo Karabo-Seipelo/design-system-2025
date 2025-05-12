@@ -30,6 +30,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     outOfStock,
     error: productError,
   } = useProductStore();
+
   const [error, setError] = useState<Error | null>(productError);
   const memoizedFetchProductDetails = useCallback(async () => {
     try {
@@ -59,8 +60,16 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     info = null,
   } = product ?? {};
 
-  const productDetailsReady = useMemo(
-    () => name && description && rating && reviews && locale && currency,
+  const productDetailsReady: boolean = useMemo(
+    () =>
+      Boolean(
+        name &&
+          description &&
+          typeof rating === "number" &&
+          typeof reviews === "number" &&
+          locale &&
+          currency,
+      ),
     [name, description, rating, reviews, locale, currency],
   );
 
@@ -134,14 +143,20 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   if (loading) {
     return (
-      <div className="flex flex-col gap-10 p-4 lg:flex-row">
+      <div
+        data-testid="product-detail-loading"
+        className="flex flex-col gap-10 p-4 lg:flex-row"
+      >
         <ProductDetailsSkeleton />
       </div>
     );
   }
 
   return (
-    <div className="w-full grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12">
+    <div
+      data-testid="product-detail"
+      className="w-full grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12"
+    >
       <div className="col-span-4 md:col-span-6">
         {renderComponents.carousel}
       </div>
