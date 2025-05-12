@@ -20,6 +20,7 @@ export interface SubscribeProps {
   onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
   input: InputFieldProps;
   button: SubscribeButtonProps;
+  className?: string;
 }
 
 /**
@@ -29,14 +30,25 @@ export interface SubscribeProps {
  * @param {object} button - Button properties
  * @returns {JSX.Element}
  */
-const Subscribe = ({ onSubmit, button, input }: SubscribeProps) => {
+const Subscribe = ({
+  onSubmit,
+  button,
+  input,
+  className = "",
+}: SubscribeProps) => {
   return (
-    <form className="flex flex-col gap-4 w-full" onSubmit={onSubmit}>
+    <form
+      className={`flex flex-col gap-4 w-full ${className}`}
+      onSubmit={onSubmit}
+    >
       <div className="flex flex-col md:flex-row gap-4 md:gap-[2%] md:flex-wrap">
-        <InputField {...input} className="basis-full md:basis-[80%]" />
+        <InputField
+          {...input}
+          className="basis-full md:basis-[80%] lg:basis-[73%]"
+        />
         <Button
           variant={button.variant}
-          className="basis-full md:basis-[18%]"
+          className="basis-full md:basis-[18%] lg:basis-[20%]"
           type={button.type}
         >
           {button.label}

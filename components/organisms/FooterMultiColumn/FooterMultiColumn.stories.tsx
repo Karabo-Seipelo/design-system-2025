@@ -47,8 +47,7 @@ type Story = StoryObj<typeof meta>;
 
 const commonForm = {
   title: "Join our newsletter",
-  description:
-    "Subscribe to our newsletter and get the latest updates, news, and special offers delivered directly to your inbox.",
+  description: "We’ll send you a nice letter once per week. No spam.",
   input: {
     type: "email",
     name: "email",

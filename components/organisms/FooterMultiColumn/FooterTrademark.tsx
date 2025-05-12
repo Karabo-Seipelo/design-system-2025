@@ -9,7 +9,7 @@ const FooterTrademark: React.FC<FooterTrademarkProps> = ({
 }) => {
   const sanitizedDescription = DOMPurify.sanitize(description);
   return (
-    <div className={`flex flex-col gap-2 ${className}`}>
+    <div className={`flex flex-col gap-2 lg:gap-8 ${className}`}>
       <div className="relative w-[105px] h-8">
         <Image
           src={logo.image_url ?? "/fallback-logo.png"}
