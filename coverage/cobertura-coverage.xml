@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1593" lines-covered="1285" line-rate="0.8066" branches-valid="648" branches-covered="547" branch-rate="0.8441" timestamp="1747067744024" complexity="0" version="0.1">
+<coverage lines-valid="1599" lines-covered="1291" line-rate="0.8073" branches-valid="648" branches-covered="547" branch-rate="0.8441" timestamp="1747069871494" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -4644,18 +4644,38 @@
         </class>
       </classes>
     </package>
-    <package name="components.pages.ProductDetails" line-rate="0.9" branch-rate="1">
+    <package name="components.pages.ProductDetails" line-rate="0.9229999999999999" branch-rate="1">
       <classes>
-        <class name="ProductDetails.stories.tsx" filename="components/pages/ProductDetails/ProductDetails.stories.tsx" line-rate="0.8" branch-rate="1">
+        <class name="ProductDetails.stories.tsx" filename="components/pages/ProductDetails/ProductDetails.stories.tsx" line-rate="0.875" branch-rate="1">
           <methods>
-            <method name="(anonymous_8)" hits="0" signature="()V">
+            <method name="(anonymous_8)" hits="4" signature="()V">
               <lines>
-                <line number="218" hits="0"/>
+                <line number="18" hits="4"/>
               </lines>
             </method>
-            <method name="(anonymous_9)" hits="0" signature="()V">
+            <method name="(anonymous_9)" hits="16" signature="()V">
               <lines>
-                <line number="218" hits="0"/>
+                <line number="33" hits="16"/>
+              </lines>
+            </method>
+            <method name="(anonymous_10)" hits="2" signature="()V">
+              <lines>
+                <line number="94" hits="2"/>
+              </lines>
+            </method>
+            <method name="(anonymous_11)" hits="7" signature="()V">
+              <lines>
+                <line number="100" hits="7"/>
+              </lines>
+            </method>
+            <method name="(anonymous_12)" hits="0" signature="()V">
+              <lines>
+                <line number="155" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_13)" hits="0" signature="()V">
+              <lines>
+                <line number="155" hits="0"/>
               </lines>
             </method>
           </methods>
@@ -4666,10 +4686,16 @@
             <line number="6" hits="1" branch="false"/>
             <line number="15" hits="1" branch="false"/>
             <line number="18" hits="1" branch="false"/>
-            <line number="133" hits="1" branch="false"/>
-            <line number="183" hits="1" branch="false"/>
-            <line number="218" hits="0" branch="false"/>
-            <line number="219" hits="0" branch="false"/>
+            <line number="25" hits="4" branch="false"/>
+            <line number="33" hits="16" branch="false"/>
+            <line number="39" hits="1" branch="false"/>
+            <line number="94" hits="1" branch="false"/>
+            <line number="97" hits="2" branch="false"/>
+            <line number="100" hits="7" branch="false"/>
+            <line number="106" hits="1" branch="false"/>
+            <line number="120" hits="1" branch="false"/>
+            <line number="155" hits="0" branch="false"/>
+            <line number="156" hits="0" branch="false"/>
           </lines>
         </class>
         <class name="index.tsx" filename="components/pages/ProductDetails/index.tsx" line-rate="1" branch-rate="1">
