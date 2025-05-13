@@ -7,8 +7,12 @@ import { ProductGridProps } from "./interfaces";
 
 const ProductGrid: React.FC<ProductGridProps> = ({
   title,
-  collection = "latest",
   label = null,
+  collection = "latest",
+  sort,
+  direction,
+  page,
+  perPage,
 }) => {
   const {
     products,
@@ -21,7 +25,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await fetchProducts(collection);
+        await fetchProducts({ collection, sort, direction, page, perPage });
       } catch (err) {
         setError(err as Error);
       }

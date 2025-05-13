@@ -121,6 +121,7 @@ export const Default: Story = {
     collection: {
       title: "In this collection",
       collection: "urban",
+      perPage: 4,
     },
     footer: {
       form: {

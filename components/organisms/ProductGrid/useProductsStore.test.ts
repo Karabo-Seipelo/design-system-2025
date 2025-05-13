@@ -111,7 +111,7 @@ describe("useProductsStore", () => {
       mockedFetchProductsFromAPI.mockResolvedValue(mockProductsData);
       const { result } = renderHook(() => useProductsStore());
       await act(async () => {
-        await result.current.fetchProducts();
+        await result.current.fetchProducts({ collection: "latest" });
       });
       expect(result.current.products).toEqual(mockProductsData.data);
       expect(result.current.loading).toBe(false);
@@ -131,7 +131,7 @@ describe("useProductsStore", () => {
       mockedFetchProductsFromAPI.mockRejectedValue(new Error(errorMessage));
       const { result } = renderHook(() => useProductsStore());
       await act(async () => {
-        await result.current.fetchProducts();
+        await result.current.fetchProducts({ collection: "latest" });
       });
 
       expect(result.current.loading).toBe(false);
@@ -152,13 +152,13 @@ describe("useProductsStore", () => {
       jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
       const { result } = renderHook(() => useProductsStore());
       await act(async () => {
-        await result.current.fetchProducts();
+        await result.current.fetchProducts({ collection: "latest" });
       });
 
       expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
         page: 1,
         per_page: 10,
-        collection: undefined,
+        collection: "latest",
         sort: undefined,
         direction: undefined,
       });
@@ -175,13 +175,13 @@ describe("useProductsStore", () => {
       jest.spyOn(axios, "isAxiosError").mockReturnValue(true);
       const { result } = renderHook(() => useProductsStore());
       await act(async () => {
-        await result.current.fetchProducts();
+        await result.current.fetchProducts({ collection: "latest" });
       });
 
       expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
         page: 1,
         per_page: 10,
-        collection: undefined,
+        collection: "latest",
         sort: undefined,
         direction: undefined,
       });
@@ -196,13 +196,13 @@ describe("useProductsStore", () => {
       jest.spyOn(axios, "isAxiosError").mockReturnValue(false);
       const { result } = renderHook(() => useProductsStore());
       await act(async () => {
-        await result.current.fetchProducts();
+        await result.current.fetchProducts({ collection: "latest" });
       });
 
       expect(mockedFetchProductsFromAPI).toHaveBeenCalledWith({
         page: 1,
         per_page: 10,
-        collection: undefined,
+        collection: "latest",
         sort: undefined,
         direction: undefined,
       });

@@ -6,6 +6,14 @@ import fetchProductsAPI, {
 } from "./fetchProductsAPI";
 import axios from "axios";
 
+export interface FetchProductArgs {
+  collection?: string;
+  sort?: SortType;
+  direction?: DirectionType;
+  page?: number;
+  perPage?: number;
+}
+
 export interface ProductsStore {
   products: Product[];
   loading: boolean;
@@ -16,13 +24,7 @@ export interface ProductsStore {
   collection: string | undefined;
   sort: SortType | undefined;
   direction: DirectionType | undefined;
-  fetchProducts: (
-    collection?: string,
-    sort?: SortType,
-    direction?: DirectionType,
-    page?: number,
-    perPage?: number,
-  ) => Promise<void>;
+  fetchProducts: (args: FetchProductArgs) => Promise<void>;
 }
 
 const useProductsStore = create<ProductsStore>((set) => ({
@@ -35,13 +37,13 @@ const useProductsStore = create<ProductsStore>((set) => ({
   collection: undefined,
   sort: undefined,
   direction: undefined,
-  fetchProducts: async (
-    collection,
+  fetchProducts: async ({
+    collection = "latest",
     sort,
     direction,
     page = 1,
     perPage = 10,
-  ) => {
+  }) => {
     try {
       set({ loading: true });
       const response = await fetchProductsAPI({
