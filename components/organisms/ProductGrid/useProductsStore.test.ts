@@ -125,6 +125,23 @@ describe("useProductsStore", () => {
     });
   });
 
+  it("should load products with no collection when the user fetches them", async () => {
+    mockedFetchProductsFromAPI.mockResolvedValue(mockProductsData);
+    const { result } = renderHook(() => useProductsStore());
+    await act(async () => {
+      await result.current.fetchProducts();
+    });
+    expect(result.current.products).toEqual(mockProductsData.data);
+    expect(result.current.loading).toBe(false);
+    expect(result.current.error).toBeNull();
+    expect(result.current.page).toBe(mockProductsData.pagination.page);
+    expect(result.current.perPage).toBe(mockProductsData.pagination.per_page);
+    expect(result.current.hasMore).toBe(mockProductsData.pagination.has_more);
+    expect(result.current.collection).toBeUndefined();
+    expect(result.current.sort).toBeUndefined();
+    expect(result.current.direction).toBeUndefined();
+  });
+
   describe("Error Handling", () => {
     it("should display an error when the API call fails", async () => {
       const errorMessage = "Network Error";
