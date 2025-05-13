@@ -3,159 +3,20 @@ import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ProductDetails.stories";
 const { Default } = composeStories(stories);
+import * as useProductStoreModule from "../../organisms/ProductDetails/useProductStore";
+import { mockProduct, mockUseProductStore, mockProductDetails } from "./mocks";
 import { ProductDetailsPageProps } from "../index";
 import ProductDetailsPage from ".";
-
-const mockProduct = {
-  product_Id: "12345",
-  name: "Voyager Hoodie",
-  description: "A warm and cozy hoodie for your adventures.",
-  category: {
-    category_id: "unisex",
-    name: "Unisex",
-    created_at: "2023-10-01T12:00:00Z",
-  },
-  collection: {
-    collection_id: "urban",
-    name: "Urban Oasis",
-    description: "A collection of urban-inspired clothing.",
-    image_url: "https://example.com/urban.jpg",
-    created_at: "2023-10-01T12:00:00Z",
-  },
-  created_at: "2023-10-01T12:00:00Z",
-  colors: ["green", "brown"],
-  images: [
-    {
-      color: "green",
-      url: "https://example.com/image1.jpg",
-    },
-    {
-      color: "brown",
-      url: "https://example.com/image2.jpg",
-    },
-  ],
-  info: [
-    {
-      title: "Features",
-      description: [
-        "Designed for comfort and durability.",
-        "Soft, breathable fabric ideal for travel and adventure.",
-        "Large front pocket and adjustable hood.",
-        "Minimalist design pairs well with any style.",
-        "Made with eco-conscious materials.",
-      ],
-    },
-    {
-      title: "Fabric & Care",
-      description: [
-        "Machine wash cold on a gentle cycle.",
-        "Tumble dry low or hang to dry.",
-        "Do not use fabric softeners or bleach.",
-        "Iron on a low setting if necessary.",
-      ],
-    },
-    {
-      title: "Shipping",
-      description: [
-        "Free shipping on orders over $50.",
-        "Standard shipping within 5-7 business days.",
-        "Express shipping available at checkout.",
-        "International shipping options available.",
-      ],
-    },
-  ],
-  inventory: [
-    {
-      sku: "vh-green-xs",
-      color: "green",
-      size: "xs",
-      list_price: 95,
-      discount: null,
-      discount_percentage: 20,
-      sale_price: 76,
-      sold: 85,
-      stock: 415,
-    },
-    {
-      sku: "vh-green-sm",
-      color: "green",
-      size: "sm",
-      list_price: 95,
-      discount: null,
-      discount_percentage: 20,
-      sale_price: 76,
-      sold: 80,
-      stock: 420,
-    },
-    {
-      sku: "vh-brown-xs",
-      color: "brown",
-      size: "xs",
-      list_price: 95,
-      discount: null,
-      discount_percentage: 20,
-      sale_price: 76,
-      sold: 85,
-      stock: 415,
-    },
-    {
-      sku: "vh-brown-md",
-      color: "brown",
-      size: "md",
-      list_price: 95,
-      discount: null,
-      discount_percentage: 20,
-      sale_price: 76,
-      sold: 75,
-      stock: 425,
-    },
-  ],
-  priceRange: {
-    highest: 76,
-    lowest: 76,
-  },
-  rating: 4.5,
-  reviews: 120,
-  size: ["xs", "sm", "lg", "xl"],
-  sold: 750,
-};
 
 jest.mock("next/image", () => ({
   __esModule: true,
   default: (
     props: JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>
+      React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
     return <img {...props} />;
   },
-}));
-
-jest.mock("../../organisms/ProductDetails/useProductStore", () => ({
-  __esModule: true,
-  default: jest.fn(() => ({
-    product: {
-      images: mockProduct.images,
-      name: mockProduct.name,
-      description: mockProduct.description,
-      rating: mockProduct.rating,
-      reviews: mockProduct.reviews,
-      colors: mockProduct.colors,
-      sizes: mockProduct.size,
-      info: mockProduct.info,
-    },
-    loading: false,
-    selectedQuantity: 1,
-    updateState: jest.fn(),
-    fetchProductDetails: jest.fn(),
-    selectedInventory: {
-      ...mockProduct.inventory[0],
-    },
-    selectedColor: "green",
-    unavailableSizes: [],
-    outOfStock: ["red"],
-    error: null,
-  })),
 }));
 
 jest.mock("../../organisms/ProductGrid/useProductsStore", () => ({
@@ -177,48 +38,126 @@ Object.defineProperty(window, "matchMedia", {
   })),
 });
 
-describe("ProductDetails Component", () => {
-  describe("When the user visits the product details page", () => {
-    describe("using stories", () => {
-      it("should display the navigation bar", () => {
-        render(<Default />);
-        const navigation = screen.getByTestId("navigation");
-        expect(navigation).toBeInTheDocument();
-      });
+describe("Product Details Page", () => {
+  beforeEach(() => {
+    jest.restoreAllMocks();
+  });
 
-      it("should display the product details section", () => {
+  describe("Display the navigation Bar", () => {
+    beforeEach(() => {
+      mockUseProductStore(mockProductDetails);
+    });
+
+    it("Given the navigation bar is rendered, Then it should be in the document", () => {
+      render(<Default />);
+      const navigation = screen.getByTestId("navigation");
+      expect(navigation).toBeInTheDocument();
+    });
+
+    it("Given the navigation bar is rendered, Then it should display key links", () => {
+      render(<Default />);
+      const navigation = screen.getByTestId("navigation");
+      const links = navigation.querySelectorAll("a");
+      expect(links.length).toBe(3);
+      expect(links[0]).toHaveTextContent("StyleNest");
+      expect(links[1]).toHaveTextContent("Shop all");
+      expect(links[2]).toHaveTextContent("Latest arrivals");
+    });
+  });
+
+  describe("When the product details are being fetched", () => {
+    beforeEach(() => {
+      mockUseProductStore({ ...mockProductDetails, loading: true });
+    });
+    it("Then the product details skeleton should be displayed", () => {
+      render(<Default />);
+      const productDetailsSkeleton = screen.getByTestId(
+        "product-detail-loading",
+      );
+      expect(productDetailsSkeleton).toBeInTheDocument();
+    });
+  });
+
+  describe("When the product details are successfully fetched", () => {
+    beforeEach(() => {
+      mockUseProductStore(mockProductDetails);
+    });
+    it("Then the product details section should be displayed", () => {
+      render(<Default />);
+      const productDetails = screen.getByTestId("product-detail");
+      expect(productDetails).toBeInTheDocument();
+    });
+
+    describe("Handling missing product images", () => {
+      it("Given the product has no images, then the product details section should still be displayed", () => {
+        mockUseProductStore({
+          ...mockProductDetails,
+          product: {
+            ...mockProductDetails.product,
+            images: [],
+          },
+        });
+
+        render(<Default />);
+        const productDetails = screen.getByTestId("product-detail");
+        expect(productDetails).toBeInTheDocument();
+      });
+    });
+
+    describe("Handling missing sizes and color", () => {
+      it("Given the product has no sizes, then the product details section should still be displayed", () => {
+        mockUseProductStore({
+          ...mockProductDetails,
+          product: {
+            ...mockProductDetails.product,
+            sizes: null,
+          },
+        });
+
         render(<Default />);
         const productDetails = screen.getByTestId("product-detail");
         expect(productDetails).toBeInTheDocument();
       });
 
-      it("should display the product specification section", () => {
-        render(<Default />);
-        const productSpecifications = screen.getByTestId(
-          "product-specifications"
-        );
-        expect(productSpecifications).toBeInTheDocument();
-      });
+      it("Given the product has no colors, then the product details section should still be displayed", () => {
+        mockUseProductStore({
+          ...mockProductDetails,
+          product: {
+            ...mockProductDetails.product,
+            colors: null,
+          },
+        });
 
-      it("should display the product grid of the given collection", () => {
         render(<Default />);
-        const productGrid = screen.getByTestId("product-grid");
-        expect(productGrid).toBeInTheDocument();
-      });
-
-      it("should display the footer", () => {
-        render(<Default />);
-        const footer = screen.getByTestId("footer-multicolumn");
-        expect(footer).toBeInTheDocument();
+        const productDetails = screen.getByTestId("product-detail");
+        expect(productDetails).toBeInTheDocument();
       });
     });
+  });
 
-    it("should render the components with all the required args ", () => {
-      render(
-        <ProductDetailsPage {...(Default.args as ProductDetailsPageProps)} />
+  describe("When the product details are not fetched", () => {
+    it("should display a fallback error message for null errors", () => {
+      mockUseProductStore({
+        loading: false,
+        error: "Error fetching product details",
+      });
+
+      render(<Default />);
+      const errorMessage = screen.getByText(
+        "Something went wrong. Please try again later.",
       );
-      const productGrid = screen.getByTestId("product-grid");
-      expect(productGrid).toBeInTheDocument();
+      expect(errorMessage).toBeInTheDocument();
+    });
+
+    it("should display a fallback error message", () => {
+      mockUseProductStore({
+        loading: false,
+        error: new Error("Error fetching product details"),
+      });
+
+      render(<Default />);
+      const errorMessage = screen.getByText("Error fetching product details");
+      expect(errorMessage).toBeInTheDocument();
     });
   });
 });

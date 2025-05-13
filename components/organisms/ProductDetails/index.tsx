@@ -98,7 +98,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     [images, loading, selectedColor, updateProductState],
   );
 
-  const optionsReady = useMemo(() => colors && sizes, [colors, sizes]);
+  const optionsReady = useMemo(
+    () => Array.isArray(colors) && colors.length > 0 && sizes,
+    [colors, sizes],
+  );
 
   const optionsProps = useMemo(
     () => ({
@@ -135,7 +138,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   if (error) {
     return (
-      <div className="text-red-500">
+      <div data-testid="product-detail-error" className="text-red-500">
         {error.message ?? "Something went wrong. Please try again later."}
       </div>
     );
