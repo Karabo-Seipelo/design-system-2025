@@ -1,4 +1,4 @@
-import { NavItem, Brand } from "$/organisms/Nav/interface";
+import { NavItem, Brand, NavProps } from "$/organisms/Nav/interface";
 import { CallToAction } from "$/organisms/Nav/CallToAction";
 import { HeroSectionProps } from "$/organisms/Hero";
 import { FeatureSectionProps } from "$/organisms/Features/index";
@@ -11,7 +11,6 @@ import { LogoMarqueeProps } from "$/molecules/LogoMarquee";
 import { PricingProps } from "$/organisms/PricingTable/Tier";
 import { StatisticsSectionProps } from "$/organisms/Statistics";
 import { TeamSectionProps } from "$/organisms/Team";
-import { NavProps } from "$/organisms/Nav/interface";
 import { ProductDetailsProps } from "$/organisms/ProductDetails/index";
 import { ProductSpecificationsProps } from "$/organisms/ProductSpecifications/interface";
 import { ProductGridProps } from "$/organisms/ProductGrid/interfaces";
