@@ -3,6 +3,8 @@ import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ProductDetails.stories";
 const { Default } = composeStories(stories);
+import { ProductDetailsPageProps } from "../index";
+import ProductDetailsPage from ".";
 
 const mockProduct = {
   product_Id: "12345",
@@ -123,7 +125,7 @@ jest.mock("next/image", () => ({
   default: (
     props: JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>,
+      React.ImgHTMLAttributes<HTMLImageElement>
   ) => {
     return <img {...props} />;
   },
@@ -177,36 +179,46 @@ Object.defineProperty(window, "matchMedia", {
 
 describe("ProductDetails Component", () => {
   describe("When the user visits the product details page", () => {
-    it("should display the navigation bar", () => {
-      render(<Default />);
-      const navigation = screen.getByTestId("navigation");
-      expect(navigation).toBeInTheDocument();
+    describe("using stories", () => {
+      it("should display the navigation bar", () => {
+        render(<Default />);
+        const navigation = screen.getByTestId("navigation");
+        expect(navigation).toBeInTheDocument();
+      });
+
+      it("should display the product details section", () => {
+        render(<Default />);
+        const productDetails = screen.getByTestId("product-detail");
+        expect(productDetails).toBeInTheDocument();
+      });
+
+      it("should display the product specification section", () => {
+        render(<Default />);
+        const productSpecifications = screen.getByTestId(
+          "product-specifications"
+        );
+        expect(productSpecifications).toBeInTheDocument();
+      });
+
+      it("should display the product grid of the given collection", () => {
+        render(<Default />);
+        const productGrid = screen.getByTestId("product-grid");
+        expect(productGrid).toBeInTheDocument();
+      });
+
+      it("should display the footer", () => {
+        render(<Default />);
+        const footer = screen.getByTestId("footer-multicolumn");
+        expect(footer).toBeInTheDocument();
+      });
     });
 
-    it("should display the product details section", () => {
-      render(<Default />);
-      const productDetails = screen.getByTestId("product-detail");
-      expect(productDetails).toBeInTheDocument();
-    });
-
-    it("should display the product specification section", () => {
-      render(<Default />);
-      const productSpecifications = screen.getByTestId(
-        "product-specifications",
+    it("should render the components with all the required args ", () => {
+      render(
+        <ProductDetailsPage {...(Default.args as ProductDetailsPageProps)} />
       );
-      expect(productSpecifications).toBeInTheDocument();
-    });
-
-    it("should display the product grid of the given collection", () => {
-      render(<Default />);
       const productGrid = screen.getByTestId("product-grid");
       expect(productGrid).toBeInTheDocument();
-    });
-
-    it("should display the footer", () => {
-      render(<Default />);
-      const footer = screen.getByTestId("footer-multicolumn");
-      expect(footer).toBeInTheDocument();
     });
   });
 });
