@@ -1,4 +1,4 @@
-import { NavProps } from "$/organisms/Nav";
+import { NavProps } from "$/organisms/Nav/interface";
 
 const SubMenu = [
   { name: "Features", href: "#" },

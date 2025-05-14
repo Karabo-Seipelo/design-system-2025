@@ -6,6 +6,7 @@ import Specification from "./specification.json";
 const meta: Meta<typeof ProductSpecifications> = {
   title: "E-commerce/ProductSpecifications",
   component: ProductSpecifications,
+  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },

@@ -8,7 +8,7 @@ describe("Artboard Component", () => {
       render(
         <Artboard>
           <p>Test Child</p>
-        </Artboard>
+        </Artboard>,
       );
       expect(screen.getByText("Test Child")).toBeInTheDocument();
     });
@@ -30,7 +30,7 @@ describe("Artboard Component", () => {
       render(
         <Artboard classes={customClasses}>
           <p>Test Child</p>
-        </Artboard>
+        </Artboard>,
       );
       const sectionElement = screen.getByText("Test Child").closest("section");
       expect(sectionElement).toHaveClass(customClasses);
@@ -42,7 +42,7 @@ describe("Artboard Component", () => {
       render(
         <Artboard>
           <p>Test Child</p>
-        </Artboard>
+        </Artboard>,
       );
       const sectionElement = screen.getByText("Test Child").closest("section");
       expect(sectionElement).not.toHaveClass("custom-class");
@@ -54,7 +54,7 @@ describe("Artboard Component", () => {
       render(
         <Artboard classes="shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white">
           <p>Test Child</p>
-        </Artboard>
+        </Artboard>,
       );
 
       const mainElement = screen.getByRole("main");
@@ -63,7 +63,7 @@ describe("Artboard Component", () => {
       const sectionElement = screen.getByText("Test Child").closest("section");
       expect(sectionElement).toBeInTheDocument();
       expect(sectionElement).toHaveClass(
-        "shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white"
+        "shadow-sm md:shadow-md lg:shadow-lg rounded-md bg-white",
       );
     });
   });
@@ -85,7 +85,7 @@ describe("Artboard Component", () => {
         render(
           <Artboard classes="shadow-sm">
             <p>Test Child</p>
-          </Artboard>
+          </Artboard>,
         );
         const sectionElement = screen
           .getByText("Test Child")
@@ -98,7 +98,7 @@ describe("Artboard Component", () => {
         render(
           <Artboard classes="md:shadow-md">
             <p>Test Child</p>
-          </Artboard>
+          </Artboard>,
         );
         const sectionElement = screen
           .getByText("Test Child")
@@ -111,7 +111,7 @@ describe("Artboard Component", () => {
         render(
           <Artboard classes="lg:shadow-lg">
             <p>Test Child</p>
-          </Artboard>
+          </Artboard>,
         );
         const sectionElement = screen
           .getByText("Test Child")

@@ -10,7 +10,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
   specifications,
 }) => {
   return (
-    <div className="flex flex-col px-4 py-12 gap-16">
+    <div data-testid="product-specifications" className="flex flex-col gap-16">
       <div className="flex flex-col gap-6">
         <h2
           data-testId="title"

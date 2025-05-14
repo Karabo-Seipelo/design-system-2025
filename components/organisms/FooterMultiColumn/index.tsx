@@ -14,10 +14,8 @@ const FooterMultiColumn: React.FC<FooterMultiColumnProps> = ({
 }) => {
   const containerClassName = classNames(
     "flex flex-col gap-12 mh:gap-16",
-    "py-12 md:py-16 lg:py-24",
-    "px-4 xl:px-0",
     "mx-auto w-full max-[1216px]",
-  ); //"flex flex-col gap-12 px-[16px]";
+  );
   const { onSubmit, ...rest } = form;
   const { submitHandler } = useSubmitNewsletter({
     onSubmit,
@@ -26,7 +24,7 @@ const FooterMultiColumn: React.FC<FooterMultiColumnProps> = ({
   });
 
   return (
-    <footer className={containerClassName}>
+    <footer data-testid="footer-multicolumn" className={containerClassName}>
       {form && <SubscribeNewsletter {...rest} onSubmit={submitHandler} />}
       <div className="flex flex-col gap-12 lg:flex-row">
         {trademark && <FooterTrademark {...trademark} className="lg:w-[50%]" />}

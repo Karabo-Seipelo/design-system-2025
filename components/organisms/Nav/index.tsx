@@ -16,7 +16,7 @@ const Nav: React.FC<NavProps> = ({
 }) => {
   const { mobileMenuOpen, openMobileMenu, closeMobileMenu } = useMobileMenu();
   return (
-    <nav>
+    <nav data-testid="navigation">
       <div
         id="Navigation"
         className={`flex mx-auto max-w-7xl items-center justify-between p-6 lg:px-8 ${classes}`}

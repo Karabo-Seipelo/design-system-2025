@@ -30,6 +30,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     outOfStock,
     error: productError,
   } = useProductStore();
+
   const [error, setError] = useState<Error | null>(productError);
   const memoizedFetchProductDetails = useCallback(async () => {
     try {
@@ -41,11 +42,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   }, [fetchProductDetails, productId]);
 
   useEffect(() => {
-    try {
-      memoizedFetchProductDetails();
-    } catch (err) {
+    memoizedFetchProductDetails().catch((err) => {
       setError(err as Error);
-    }
+    });
   }, [memoizedFetchProductDetails]);
 
   const {
@@ -59,8 +58,16 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     info = null,
   } = product ?? {};
 
-  const productDetailsReady = useMemo(
-    () => name && description && rating && reviews && locale && currency,
+  const productDetailsReady: boolean = useMemo(
+    () =>
+      Boolean(
+        name &&
+          description &&
+          typeof rating === "number" &&
+          typeof reviews === "number" &&
+          locale &&
+          currency,
+      ),
     [name, description, rating, reviews, locale, currency],
   );
 
@@ -89,7 +96,10 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
     [images, loading, selectedColor, updateProductState],
   );
 
-  const optionsReady = useMemo(() => colors && sizes, [colors, sizes]);
+  const optionsReady = useMemo(
+    () => Array.isArray(colors) && colors.length > 0 && sizes,
+    [colors, sizes],
+  );
 
   const optionsProps = useMemo(
     () => ({
@@ -126,7 +136,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   if (error) {
     return (
-      <div className="text-red-500">
+      <div data-testid="product-detail-error" className="text-red-500">
         {error.message ?? "Something went wrong. Please try again later."}
       </div>
     );
@@ -134,14 +144,20 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 
   if (loading) {
     return (
-      <div className="flex flex-col gap-10 p-4 lg:flex-row">
+      <div
+        data-testid="product-detail-loading"
+        className="flex flex-col gap-10 p-4 lg:flex-row"
+      >
         <ProductDetailsSkeleton />
       </div>
     );
   }
 
   return (
-    <div className="w-full px-4 py-12 md:py-16 lg:p-224 grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12">
+    <div
+      data-testid="product-detail"
+      className="w-full grid grid-cols-4 gap-x-4 gap-y-12 md:grid-cols-6 md:gap-x-8 lg:grid-cols-12"
+    >
       <div className="col-span-4 md:col-span-6">
         {renderComponents.carousel}
       </div>

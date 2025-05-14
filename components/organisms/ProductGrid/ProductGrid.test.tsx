@@ -25,7 +25,6 @@ jest.mock("next/image", () => ({
 import ProductGrid from ".";
 import * as stories from "./ProductGrid.stories";
 const { Default } = composeStories(stories);
-
 const TEST_IDS = {
   loading: "loading",
   error: "error",
@@ -35,29 +34,30 @@ const TEST_IDS = {
 };
 
 describe("ProductGrid Component", () => {
-  describe("when rendering the component with loading state", () => {
-    it("should render loading state", () => {
-      render(<ProductGrid />);
+  describe("Given the component is in a loading state", () => {
+    it("Then it should display the loading state", () => {
+      render(<ProductGrid title="Testing" />);
       const loadingState = screen.getByTestId(TEST_IDS.loading);
       expect(loadingState).toBeInTheDocument();
     });
   });
 
-  describe("when rendering the component with error state", () => {
+  describe("Given the component encounters an error", () => {
     beforeEach(() => {
       setMockUseProductsStore({
         loading: false,
         error: new Error("Failed to fetch products"),
       });
     });
-    it("should render error state", () => {
-      render(<ProductGrid />);
+
+    it("Then it should display the error state", () => {
+      render(<ProductGrid title="Testing" />);
       const errorState = screen.getByTestId(TEST_IDS.error);
       expect(errorState).toBeInTheDocument();
     });
   });
 
-  describe("when rendering the component with no products", () => {
+  describe("Given there are no products available", () => {
     beforeEach(() => {
       setMockUseProductsStore({
         loading: false,
@@ -66,14 +66,14 @@ describe("ProductGrid Component", () => {
       });
     });
 
-    it("should render no products message", () => {
-      render(<ProductGrid />);
+    it("Then it should display a message indicating no products are found", () => {
+      render(<ProductGrid title="Testing" />);
       const noProductsMessage = screen.getByText(TEST_IDS.noProductsMessage);
       expect(noProductsMessage).toBeInTheDocument();
     });
   });
 
-  describe("when rendering the component with products", () => {
+  describe("Given there are products available", () => {
     beforeEach(() => {
       setMockUseProductsStore({
         loading: false,
@@ -82,19 +82,18 @@ describe("ProductGrid Component", () => {
       });
     });
 
-    it("should render product grid with products", () => {
-      render(<ProductGrid />);
-      const productGrid = screen.getByTestId("product-grid");
+    it("Then it should display the product grid with products", () => {
+      render(<ProductGrid title="Testing" label="label" />);
+      const productGrid = screen.getByTestId(TEST_IDS.productGrid);
       expect(productGrid).toBeInTheDocument();
     });
 
-    it("should update selected color and image when color is clicked", async () => {
-      render(<ProductGrid />);
+    it("And when a color swatch is clicked, it should update the selected color and image", async () => {
+      render(<ProductGrid title="Testing" />);
       const initialImage = screen.getByAltText("Product 1 - red");
       expect(initialImage).toHaveAttribute("src", "image1.jpg");
 
       const blueButton = screen.getByTestId(TEST_IDS.colorSwatchBlue);
-
       expect(blueButton).toBeDefined();
 
       if (blueButton) {
@@ -104,12 +103,27 @@ describe("ProductGrid Component", () => {
     });
   });
 
-  // write a describe block for the Default story
-  describe("Default Story", () => {
-    it("should render the Default story", () => {
+  describe("Given the Default story is rendered", () => {
+    it("Then it should display the Default story correctly", () => {
       render(<Default />);
       const productGrid = screen.getByTestId(TEST_IDS.productGrid);
       expect(productGrid).toBeInTheDocument();
+    });
+  });
+
+  describe("Given the component is rendered with a title", () => {
+    it("Then it should display the title correctly", () => {
+      render(<ProductGrid title="Product Grid Title" />);
+      const titleElement = screen.getByText("Product Grid Title");
+      expect(titleElement).toBeInTheDocument();
+    });
+  });
+
+  describe("Given the component is rendered with a label", () => {
+    it("Then it should display the label correctly", () => {
+      render(<ProductGrid title="Testing" label="Product Label" />);
+      const labelElement = screen.getByText("Product Label");
+      expect(labelElement).toBeInTheDocument();
     });
   });
 });
