@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1612" lines-covered="1305" line-rate="0.8095" branches-valid="651" branches-covered="558" branch-rate="0.8571" timestamp="1747234751514" complexity="0" version="0.1">
+<coverage lines-valid="1607" lines-covered="1300" line-rate="0.8089" branches-valid="651" branches-covered="558" branch-rate="0.8571" timestamp="1747236653478" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -4735,26 +4735,6 @@
             <line number="10" hits="1" branch="false"/>
             <line number="17" hits="9" branch="false"/>
             <line number="30" hits="1" branch="false"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="components.pages.ProductDetails.mocks" line-rate="1" branch-rate="1">
-      <classes>
-        <class name="index.ts" filename="components/pages/ProductDetails/mocks/index.ts" line-rate="1" branch-rate="1">
-          <methods>
-            <method name="(anonymous_9)" hits="12" signature="()V">
-              <lines>
-                <line number="136" hits="12"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="1" hits="1" branch="false"/>
-            <line number="3" hits="1" branch="false"/>
-            <line number="117" hits="1" branch="false"/>
-            <line number="136" hits="1" branch="false"/>
-            <line number="139" hits="12" branch="false"/>
           </lines>
         </class>
       </classes>

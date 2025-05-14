@@ -1,4 +1,4 @@
-import * as useProductStoreModule from "../../../organisms/ProductDetails/useProductStore";
+import * as useProductStoreModule from "../../../../components/organisms/ProductDetails/useProductStore";
 
 export const mockProduct = {
   product_Id: "12345",
@@ -134,7 +134,7 @@ export const mockProductDetails = {
 };
 
 export const mockUseProductStore = (
-  state: Partial<ReturnType<typeof useProductStoreModule.default>>,
+  state: Partial<ReturnType<typeof useProductStoreModule.default>>
 ) => {
   jest.spyOn(useProductStoreModule, "default").mockReturnValue({
     product: null,
