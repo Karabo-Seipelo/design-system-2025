@@ -84,7 +84,7 @@ describe("Product Details Page", () => {
     });
     it("Then the product details section should be displayed", () => {
       render(<Default />);
-      const productDetails = screen.getByTestId("product-detail");
+      const productDetails = screen.getByTestId("page");
       expect(productDetails).toBeInTheDocument();
     });
 

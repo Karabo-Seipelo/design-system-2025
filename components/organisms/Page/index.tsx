@@ -5,7 +5,9 @@ export interface PageProps {
 
 const Page: React.FC<PageProps> = ({ className = "", children }) => {
   return (
-    <div className={`${className} max-w-[1440px] mx-auto`}>{children}</div>
+    <div data-testid="page" className={`${className} max-w-[1440px] mx-auto`}>
+      {children}
+    </div>
   );
 };
 
