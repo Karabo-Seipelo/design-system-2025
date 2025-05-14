@@ -42,11 +42,9 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
   }, [fetchProductDetails, productId]);
 
   useEffect(() => {
-    try {
-      memoizedFetchProductDetails();
-    } catch (err) {
+    memoizedFetchProductDetails().catch((err) => {
       setError(err as Error);
-    }
+    });
   }, [memoizedFetchProductDetails]);
 
   const {

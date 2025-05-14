@@ -134,7 +134,7 @@ export const mockProductDetails = {
 };
 
 export const mockUseProductStore = (
-  state: Partial<ReturnType<typeof useProductStoreModule.default>>
+  state: Partial<ReturnType<typeof useProductStoreModule.default>>,
 ) => {
   jest.spyOn(useProductStoreModule, "default").mockReturnValue({
     product: null,

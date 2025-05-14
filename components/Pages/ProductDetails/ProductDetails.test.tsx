@@ -16,7 +16,7 @@ jest.mock("next/image", () => ({
   default: (
     props: JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>
+      React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
     return <img {...props} />;
   },
@@ -75,7 +75,7 @@ describe("Product Details Page", () => {
     it("Then the product details skeleton should be displayed", () => {
       render(<Default />);
       const productDetailsSkeleton = screen.getByTestId(
-        "product-detail-loading"
+        "product-detail-loading",
       );
       expect(productDetailsSkeleton).toBeInTheDocument();
     });
@@ -147,7 +147,7 @@ describe("Product Details Page", () => {
 
       render(<Default />);
       const errorMessage = screen.getByText(
-        "Something went wrong. Please try again later."
+        "Something went wrong. Please try again later.",
       );
       expect(errorMessage).toBeInTheDocument();
     });
