@@ -60,11 +60,11 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     {
       "pointer-events-none": isOutOfStock,
       "cursor-pointer": !isOutOfStock,
-    },
+    }
   );
   const normalizeColor = (color: string) => {
     if (color.toLowerCase() === "white") return "#ffffff";
-    if (color.startsWith("#") && color.length === 4) {
+    if (color.startsWith("#") && color.length === 5) {
       return `#${color
         .slice(1)
         .split("")
