@@ -60,7 +60,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     {
       "pointer-events-none": isOutOfStock,
       "cursor-pointer": !isOutOfStock,
-    }
+    },
   );
   const normalizeColor = (color: string) => {
     if (color.toLowerCase() === "white") return "#ffffff";
