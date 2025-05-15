@@ -51,7 +51,7 @@ describe("ColorSwatches Component", () => {
         color="brown"
         ariaLabel="Select color brown"
         active={false}
-      />
+      />,
     );
     const swatch = screen.getByLabelText("Select color brown");
     expect(swatch).toBeInTheDocument();

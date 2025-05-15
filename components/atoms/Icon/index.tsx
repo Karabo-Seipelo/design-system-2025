@@ -2,6 +2,12 @@ import { useMemo } from "react";
 import "remixicon/fonts/remixicon.css";
 
 export type IconType =
+  | "youtube"
+  | "facebook"
+  | "twitter"
+  | "instagram"
+  | "linkedin"
+  | "github"
   | "rainbow"
   | "shirt"
   | "plant"
@@ -23,7 +29,7 @@ export type IconSize = "small" | "medium" | "large" | "xlarge" | "xxlarge";
 export type IconColor = "primary" | "secondary" | "neutral";
 
 export interface IconProps {
-  icon: string;
+  name: string;
   size?: string;
   color?: string;
   className?: string;
@@ -31,21 +37,27 @@ export interface IconProps {
 }
 
 const ICON_MAP: Record<IconType, string> = {
-  rainbow: "rainbow-line",
-  shirt: "shirt-line",
-  plant: "plant-line",
-  shapes: "shapes-line",
-  "price-tag-2": "price-tag-2-line",
-  "shield-star": "shield-star-line",
-  scales: "scales-2-line",
-  stack: "stack-line",
-  "color-filter": "color-filter-line",
-  "hand-heart": "hand-heart-line",
-  windy: "windy-line",
-  "t-shirt": "t-shirt-line",
-  recycle: "recycle-line",
-  paint: "paint-line",
-  water: "water-flash-line",
+  youtube: "ri-youtube-line",
+  facebook: "ri-facebook-box-line",
+  twitter: "ri-twitter-x-line",
+  instagram: "ri-instagram-line",
+  linkedin: "ri-linkedin-line",
+  github: "ri-github-line",
+  rainbow: "ri-rainbow-line",
+  shirt: "ri-shirt-line",
+  plant: "ri-plant-line",
+  shapes: "ri-shapes-line",
+  "price-tag-2": "ri-price-tag-2-line",
+  "shield-star": "ri-shield-star-line",
+  scales: "ri-scales-2-line",
+  stack: "ri-stack-line",
+  "color-filter": "ri-color-filter-line",
+  "hand-heart": "ri-hand-heart-line",
+  windy: "ri-windy-line",
+  "t-shirt": "ri-t-shirt-line",
+  recycle: "ri-recycle-line",
+  paint: "ri-paint-line",
+  water: "ri-water-flash-line",
 };
 
 const SIZE_MAP: Record<IconSize, string> = {
@@ -77,7 +89,7 @@ const isValidColor = (color: string): color is IconColor => {
 const iconName = (icon: string): string => {
   if (!isValidIcon(icon)) {
     console.warn(`Invalid icon: ${icon}`);
-    return "question-line";
+    return "ri-question-line";
   }
   return ICON_MAP[icon];
 };
@@ -97,26 +109,13 @@ const iconColor = (color: string): string => {
   return COLOR_MAP[color];
 };
 
-const Icon = ({
-  icon,
-  size = "medium",
-  color = "neutral",
-  className,
-  style,
-}: IconProps) => {
+const Icon = ({ name, size = "medium", color = "neutral" }: IconProps) => {
   const iconClass = useMemo(
-    () => `ri-${iconName(icon)} ${iconColor(color)} ${iconSize(size)}`,
-    [icon, color, size],
+    () => `${iconName(name)} ${iconColor(color)} ${iconSize(size)}`,
+    [name, color, size],
   );
 
-  return (
-    <div
-      className={`w-12 h-12 flex items-center justify-center bg-white rounded-full p-3 shadow-[0_1px_3px_rgba(0,0,0,0.1)] ${className}`}
-      style={style}
-    >
-      <i className={iconClass}></i>
-    </div>
-  );
+  return <i className={iconClass} />;
 };
 
 export default Icon;
