@@ -60,7 +60,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
     {
       "pointer-events-none": isOutOfStock,
       "cursor-pointer": !isOutOfStock,
-    },
+    }
   );
   const normalizeColor = (color: string) => {
     if (color.toLowerCase() === "white") return "#ffffff";
@@ -99,7 +99,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
             className={`${sizeOutOfStockClasses[size]} h-[1px] bg-neutral-600 -rotate-45 absolute`}
           />
         )}
-        {active && !isOutOfStock && (
+        {active && !isOutOfStock && size !== "sm" && (
           <i className={`ri-check-fill w-15 h-15 ${checkColor}`} />
         )}
         <Input

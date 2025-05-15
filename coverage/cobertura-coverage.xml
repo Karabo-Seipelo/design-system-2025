@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1606" lines-covered="1299" line-rate="0.8088" branches-valid="651" branches-covered="558" branch-rate="0.8571" timestamp="1747237510491" complexity="0" version="0.1">
+<coverage lines-valid="1606" lines-covered="1299" line-rate="0.8088" branches-valid="652" branches-covered="559" branch-rate="0.8573000000000001" timestamp="1747294838200" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -151,7 +151,7 @@
         </class>
       </classes>
     </package>
-    <package name="components.atoms.ColorSwatch" line-rate="0.9309999999999999" branch-rate="0.7726999999999999">
+    <package name="components.atoms.ColorSwatch" line-rate="0.9309999999999999" branch-rate="0.7826000000000001">
       <classes>
         <class name="ColorSwatches.stories.tsx" filename="components/atoms/ColorSwatch/ColorSwatches.stories.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -180,7 +180,7 @@
             <line number="135" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="index.tsx" filename="components/atoms/ColorSwatch/index.tsx" line-rate="0.8887999999999999" branch-rate="0.7726999999999999">
+        <class name="index.tsx" filename="components/atoms/ColorSwatch/index.tsx" line-rate="0.8887999999999999" branch-rate="0.7826000000000001">
           <methods>
             <method name="(anonymous_1)" hits="73" signature="()V">
               <lines>
