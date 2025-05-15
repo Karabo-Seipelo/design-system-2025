@@ -16,6 +16,7 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
+      "@mocks/*": ["./__mocks__/*"],
       "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
       "#/*": ["./lib/*"],

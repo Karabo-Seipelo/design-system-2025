@@ -23,6 +23,8 @@ const config: Config = {
     "^#/(.*)$": "<rootDir>/lib/$1",
     "^@hooks/(.*)$": "<rootDir>/hooks/$1",
     "^@utils/(.*)$": "<rootDir>/utils/$1",
+    "^@mocks/(.*)$": "<rootDir>/__mocks__/$1",
+    "^next/image$": "<rootDir>/__mocks__/next/index.tsx",
   },
   testPathIgnorePatterns: ["/node_modules/", "/.next/"],
   transform: {
