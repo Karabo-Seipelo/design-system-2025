@@ -7,11 +7,8 @@ export interface AvatarProps {
   sizes?: string;
 }
 
-const Avatar = ({ imageUrl, alt, sizes, className }: AvatarProps) => (
-  <div
-    data-testid="avatar"
-    className={`relative ${className ? className : ""}`}
-  >
+const Avatar = ({ imageUrl, alt, sizes, className = "" }: AvatarProps) => (
+  <div data-testid="avatar" className={`relative ${className}`}>
     <Image
       src={imageUrl ?? "/default-avatar.png"}
       fill
