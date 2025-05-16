@@ -6,7 +6,7 @@ jest.mock("next/image", () => ({
   default: (
     props: JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>,
+      React.ImgHTMLAttributes<HTMLImageElement>
   ) => {
     return <img {...props} />;
   },
@@ -18,7 +18,6 @@ describe("Avatar Component", () => {
   describe("Given the Avatar component is rendered", () => {
     it("should render with default props", () => {
       render(<Avatar alt="John Doe" imageUrl="/src/test.png" />);
-      screen.debug();
       const avatar = screen.getByAltText(/John Doe/i) as HTMLImageElement;
       console.log(avatar.className);
       expect(avatar).toBeInTheDocument();
@@ -39,7 +38,7 @@ describe("Avatar Component", () => {
           alt="John Doe"
           imageUrl="/src/test.png"
           className="custom-class"
-        />,
+        />
       );
       const avatar = screen.getByTestId("avatar");
       expect(avatar).toHaveClass("custom-class");
