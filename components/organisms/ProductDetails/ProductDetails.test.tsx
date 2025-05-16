@@ -52,7 +52,6 @@ describe("ProductDetails", () => {
     jest.mock("./useProductStore", () => mockUseProductStore);
 
     render(<Default />);
-    console.log(screen.debug());
     // const productName = screen.getByText(/voyager hoodie/i);
   });
 });
