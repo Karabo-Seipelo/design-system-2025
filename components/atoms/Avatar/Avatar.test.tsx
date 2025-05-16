@@ -6,7 +6,7 @@ jest.mock("next/image", () => ({
   default: (
     props: JSX.IntrinsicAttributes &
       React.ClassAttributes<HTMLImageElement> &
-      React.ImgHTMLAttributes<HTMLImageElement>
+      React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
     return <img {...props} />;
   },
@@ -38,7 +38,7 @@ describe("Avatar Component", () => {
           alt="John Doe"
           imageUrl="/src/test.png"
           className="custom-class"
-        />
+        />,
       );
       const avatar = screen.getByTestId("avatar");
       expect(avatar).toHaveClass("custom-class");
