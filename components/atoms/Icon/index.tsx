@@ -43,7 +43,6 @@ export interface IconProps {
   size?: string;
   color?: string;
   className?: string;
-  style?: React.CSSProperties;
 }
 
 const ICON_MAP: Record<IconType, string> = {
@@ -132,7 +131,7 @@ const iconColor = (color: string): string => {
 const Icon = ({ name, size = "medium", color = "neutral" }: IconProps) => {
   const iconClass = useMemo(
     () => `${iconName(name)} ${iconColor(color)} ${iconSize(size)}`,
-    [name, color, size],
+    [name, color, size]
   );
 
   return <i className={iconClass} />;
