@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import FeatureSection from ".";
+import { ORIENTATION, FEATURE_LAYOUT } from "./interfaces";
 
 describe("FeatureSection", () => {
   it("renders the title, subtitle, and description", () => {
@@ -28,8 +29,10 @@ describe("FeatureSection", () => {
     render(
       <FeatureSection
         title="Features"
+        subTitle="Our Offerings"
+        description="Explore our features"
         features={features}
-        featureLayout="list"
+        featureLayout={FEATURE_LAYOUT.LIST}
       />,
     );
 
@@ -48,8 +51,10 @@ describe("FeatureSection", () => {
     render(
       <FeatureSection
         title="Features"
+        subTitle="Our Offerings"
+        description="Explore our features"
         features={features}
-        featureLayout="grid"
+        featureLayout={FEATURE_LAYOUT.GRID}
       />,
     );
 
@@ -64,7 +69,9 @@ describe("FeatureSection", () => {
       <FeatureSection
         title="Features"
         imageUrl="/test-image.png"
-        orientation="left"
+        subTitle="Our Offerings"
+        description="Explore our features"
+        orientation={ORIENTATION.LEFT}
       />,
     );
 
@@ -74,7 +81,13 @@ describe("FeatureSection", () => {
   });
 
   it("does not render features or image if not provided", () => {
-    render(<FeatureSection title="Features" />);
+    render(
+      <FeatureSection
+        title="Features"
+        subTitle="Our Offerings"
+        description="Explore our features"
+      />,
+    );
 
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
     expect(screen.queryByText("Feature 1")).not.toBeInTheDocument();

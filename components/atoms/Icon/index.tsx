@@ -2,6 +2,16 @@ import { useMemo } from "react";
 import "remixicon/fonts/remixicon.css";
 
 export type IconType =
+  | "refresh"
+  | "team"
+  | "refund"
+  | "brush"
+  | "download"
+  | "copyright"
+  | "p2p"
+  | "rocket"
+  | "water-percent"
+  | "hd"
   | "youtube"
   | "facebook"
   | "twitter"
@@ -37,6 +47,16 @@ export interface IconProps {
 }
 
 const ICON_MAP: Record<IconType, string> = {
+  refresh: "ri-refresh-line",
+  team: "ri-team-line",
+  refund: "ri-refund-2-line",
+  brush: "ri-brush-line",
+  download: "ri-download-2-line",
+  copyright: "ri-copyright-line",
+  p2p: "ri-p2p-line",
+  rocket: "ri-rocket-2-line",
+  "water-percent": "ri-water-percent-line",
+  hd: "ri-hd-line",
   youtube: "ri-youtube-line",
   facebook: "ri-facebook-box-line",
   twitter: "ri-twitter-x-line",
