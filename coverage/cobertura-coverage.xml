@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1617" lines-covered="1311" line-rate="0.8107" branches-valid="639" branches-covered="554" branch-rate="0.8669" timestamp="1747399090515" complexity="0" version="0.1">
+<coverage lines-valid="1629" lines-covered="1323" line-rate="0.8120999999999999" branches-valid="639" branches-covered="554" branch-rate="0.8669" timestamp="1747407682636" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -4254,8 +4254,58 @@
         </class>
       </classes>
     </package>
-    <package name="components.organisms.Team" line-rate="0.41659999999999997" branch-rate="0.9">
+    <package name="components.organisms.Team" line-rate="0.7082999999999999" branch-rate="0.9">
       <classes>
+        <class name="TeamCard.tsx" filename="components/organisms/Team/TeamCard.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="6" signature="()V">
+              <lines>
+                <line number="4" hits="6"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="1" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="5" hits="6" branch="false"/>
+            <line number="24" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="TeamHeader.tsx" filename="components/organisms/Team/TeamHeader.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="4" signature="()V">
+              <lines>
+                <line number="3" hits="4"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="1" branch="false"/>
+            <line number="8" hits="4" branch="false"/>
+            <line number="29" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="TeamList.tsx" filename="components/organisms/Team/TeamList.tsx" line-rate="1" branch-rate="0.75">
+          <methods>
+            <method name="(anonymous_1)" hits="4" signature="()V">
+              <lines>
+                <line number="4" hits="4"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="6" signature="()V">
+              <lines>
+                <line number="6" hits="6"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="2" hits="1" branch="false"/>
+            <line number="4" hits="1" branch="false"/>
+            <line number="5" hits="4" branch="false"/>
+            <line number="7" hits="6" branch="false"/>
+            <line number="22" hits="1" branch="false"/>
+          </lines>
+        </class>
         <class name="TeamSection.stories.tsx" filename="components/organisms/Team/TeamSection.stories.tsx" line-rate="0" branch-rate="1">
           <methods>
             <method name="(anonymous_1)" hits="0" signature="()V">
@@ -4274,25 +4324,20 @@
             <line number="25" hits="0" branch="false"/>
           </lines>
         </class>
-        <class name="index.tsx" filename="components/organisms/Team/index.tsx" line-rate="1" branch-rate="0.9">
+        <class name="index.tsx" filename="components/organisms/Team/index.tsx" line-rate="1" branch-rate="1">
           <methods>
             <method name="(anonymous_1)" hits="4" signature="()V">
               <lines>
-                <line number="17" hits="4"/>
-              </lines>
-            </method>
-            <method name="(anonymous_2)" hits="6" signature="()V">
-              <lines>
-                <line number="46" hits="6"/>
+                <line number="5" hits="4"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="1" branch="false"/>
-            <line number="17" hits="1" branch="false"/>
-            <line number="23" hits="4" branch="false"/>
-            <line number="47" hits="6" branch="false"/>
-            <line number="75" hits="1" branch="false"/>
+            <line number="2" hits="1" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="11" hits="4" branch="false"/>
+            <line number="21" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
