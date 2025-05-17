@@ -36,7 +36,7 @@ export type IconType =
 
 export type IconSize = "small" | "medium" | "large" | "xlarge" | "xxlarge";
 
-export type IconColor = "primary" | "secondary" | "neutral";
+export type IconColor = "primary" | "secondary" | "neutral" | "gray";
 
 export interface IconProps {
   name: string;
@@ -90,6 +90,7 @@ const COLOR_MAP: Record<IconColor, string> = {
   primary: "text-indigo-700",
   secondary: "text-secondary-500",
   neutral: "text-neutral-900",
+  gray: "text-neutral-400",
 };
 
 const isValidIcon = (icon: string): icon is IconType => {

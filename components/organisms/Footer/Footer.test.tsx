@@ -2,33 +2,6 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Footer from ".";
 
-jest.mock("remixicon/fonts/remixicon.css", () => {});
-jest.mock("../../../public/github-line.svg", () => {
-  return function MockGitHub(props) {
-    return <svg {...props} />;
-  };
-});
-jest.mock("../../../public/twitter-x-line.svg", () => {
-  return function MockTwitter(props) {
-    return <svg {...props} />;
-  };
-});
-jest.mock("../../../public/instagram-line.svg", () => {
-  return function MockInstagram(props) {
-    return <svg {...props} />;
-  };
-});
-jest.mock("../../../public/facebook-box-line.svg", () => {
-  return function MockFacebook(props) {
-    return <svg {...props} />;
-  };
-});
-jest.mock("../../../public/youtube-line.svg", () => {
-  return function MockYoutube(props) {
-    return <svg {...props} />;
-  };
-});
-
 describe("Footer", () => {
   const mockLinks = [
     { label: "Home", href: "/" },
@@ -100,7 +73,7 @@ describe("Footer", () => {
         links={mockLinks}
         socials={mockSocials}
         copyright={mockCopyright}
-        classes={customClass}
+        className={customClass}
       />,
     );
 
