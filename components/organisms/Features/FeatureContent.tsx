@@ -1,15 +1,19 @@
-import { FeatureContentProps, ORIENTATION, FEATURE_LAYOUT } from "./interfaces";
+import { FeatureContentProps } from "./interfaces";
 import FeatureList from "./FeatureList";
 import FeatureInage from "./FeatureImage";
+import classNames from "classnames";
 
 const FeatureContent: React.FC<FeatureContentProps> = ({
   imageUrl,
   features,
-  orientation = ORIENTATION.RIGHT,
-  featureLayout = FEATURE_LAYOUT.LIST,
+  orientation = "right",
+  featureLayout = "list",
 }) => {
+  const mainClasses = classNames(
+    "flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8",
+  );
   return (
-    <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
+    <main className={mainClasses}>
       {features && (
         <FeatureList features={features} featureLayout={featureLayout} />
       )}

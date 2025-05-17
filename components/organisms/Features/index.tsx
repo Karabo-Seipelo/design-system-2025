@@ -1,4 +1,4 @@
-import { FeatureSectionProps, ORIENTATION, FEATURE_LAYOUT } from "./interfaces";
+import { FeatureSectionProps } from "./interfaces";
 import FeatureContent from "./FeatureContent";
 import FeatureHeader from "./FeatureHeader";
 
@@ -8,8 +8,8 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
   title,
   description,
   features,
-  orientation = ORIENTATION.RIGHT,
-  featureLayout = FEATURE_LAYOUT.LIST,
+  orientation = "right",
+  featureLayout = "list",
 }) => {
   return (
     <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">

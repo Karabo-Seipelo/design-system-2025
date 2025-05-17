@@ -1,12 +1,6 @@
-export enum ORIENTATION {
-  LEFT = "left",
-  RIGHT = "right",
-}
+export type Orientation = "left" | "right";
 
-export enum FEATURE_LAYOUT {
-  LIST = "list",
-  GRID = "grid",
-}
+export type Layout = "list" | "grid";
 
 export interface Feature {
   title: string;
@@ -16,12 +10,12 @@ export interface Feature {
 
 export interface FeatureListProps {
   features: Feature[];
-  featureLayout: FEATURE_LAYOUT;
+  featureLayout: Layout;
 }
 
 export interface FeatureImageProps {
   imageUrl: string;
-  orientation: ORIENTATION;
+  orientation: Orientation;
 }
 
 export interface FeatureHeaderProps {

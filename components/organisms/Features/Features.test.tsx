@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import FeatureSection from ".";
-import { ORIENTATION, FEATURE_LAYOUT } from "./interfaces";
 
 describe("FeatureSection", () => {
   it("renders the title, subtitle, and description", () => {
@@ -32,7 +31,7 @@ describe("FeatureSection", () => {
         subTitle="Our Offerings"
         description="Explore our features"
         features={features}
-        featureLayout={FEATURE_LAYOUT.LIST}
+        featureLayout="list"
       />,
     );
 
@@ -54,7 +53,7 @@ describe("FeatureSection", () => {
         subTitle="Our Offerings"
         description="Explore our features"
         features={features}
-        featureLayout={FEATURE_LAYOUT.GRID}
+        featureLayout="grid"
       />,
     );
 
@@ -71,7 +70,7 @@ describe("FeatureSection", () => {
         imageUrl="/test-image.png"
         subTitle="Our Offerings"
         description="Explore our features"
-        orientation={ORIENTATION.LEFT}
+        orientation="left"
       />,
     );
 
