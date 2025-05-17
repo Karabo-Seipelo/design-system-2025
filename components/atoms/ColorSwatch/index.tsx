@@ -64,7 +64,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
   );
   const normalizeColor = (color: string) => {
     if (color.toLowerCase() === "white") return "#ffffff";
-    if (color.startsWith("#") && color.length === 4) {
+    if (color.startsWith("#") && color.length === 5) {
       return `#${color
         .slice(1)
         .split("")
@@ -99,7 +99,7 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
             className={`${sizeOutOfStockClasses[size]} h-[1px] bg-neutral-600 -rotate-45 absolute`}
           />
         )}
-        {active && !isOutOfStock && (
+        {active && !isOutOfStock && size !== "sm" && (
           <i className={`ri-check-fill w-15 h-15 ${checkColor}`} />
         )}
         <Input

@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Avatar from ".";
 
 jest.mock("next/image", () => ({
   __esModule: true,
@@ -13,12 +12,18 @@ jest.mock("next/image", () => ({
   },
 }));
 
+import Avatar from ".";
+
 describe("Avatar Component", () => {
   describe("Given the Avatar component is rendered", () => {
     it("should render with default props", () => {
       render(<Avatar alt="John Doe" imageUrl="/src/test.png" />);
-      const avatar = screen.getByAltText(/John Doe/i);
+      const avatar = screen.getByAltText(/John Doe/i) as HTMLImageElement;
+      console.log(avatar.className);
       expect(avatar).toBeInTheDocument();
+      expect(avatar.tagName).toBe("IMG");
+      expect(avatar).toHaveAttribute("alt", "John Doe");
+      expect(avatar).toHaveClass("object-cover");
     });
 
     it("should render the correct image URL", () => {
@@ -32,10 +37,10 @@ describe("Avatar Component", () => {
         <Avatar
           alt="John Doe"
           imageUrl="/src/test.png"
-          classes="custom-class"
+          className="custom-class"
         />,
       );
-      const avatar = screen.getByAltText(/John Doe/i);
+      const avatar = screen.getByTestId("avatar");
       expect(avatar).toHaveClass("custom-class");
     });
 

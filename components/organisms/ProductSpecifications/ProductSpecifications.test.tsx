@@ -2,7 +2,17 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ProuctSpecifications.stories";
-// import ProductSpecifications from ".";
+
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: (
+    props: JSX.IntrinsicAttributes &
+      React.ClassAttributes<HTMLImageElement> &
+      React.ImgHTMLAttributes<HTMLImageElement>,
+  ) => {
+    return <img {...props} />;
+  },
+}));
 
 const { Default } = composeStories(stories);
 

@@ -12,7 +12,7 @@ const meta: Meta<typeof ProductSpecifications> = {
   },
   decorators: [
     (Story) => (
-      <Artboard classes="py-[48px] md:py-[64px] lg:p-[96px]">
+      <Artboard classes="py-[48px] px-[16px] md:py-[64px] lg:p-[96px]">
         <Story />
       </Artboard>
     ),

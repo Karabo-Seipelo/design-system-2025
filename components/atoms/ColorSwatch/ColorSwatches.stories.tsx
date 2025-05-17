@@ -112,6 +112,26 @@ export const Default: Story = {
   },
 };
 
+export const WhiteSwatch: Story = {
+  args: {
+    name: "color",
+    color: "white",
+    variant: "default",
+    active: false,
+    isOutOfStock: false,
+  },
+};
+
+export const WhiteSwatchWithHex: Story = {
+  args: {
+    name: "color",
+    color: "#ffff",
+    variant: "default",
+    active: false,
+    isOutOfStock: false,
+  },
+};
+
 export const Active: Story = {
   args: {
     name: "color",

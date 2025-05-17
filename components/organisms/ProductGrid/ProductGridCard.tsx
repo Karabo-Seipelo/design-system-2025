@@ -38,7 +38,7 @@ const ProductGridCard: React.FC<Partial<ProductGridCardProps>> = ({
             fill
             alt={`${name} - ${color}`}
             sizes="(max-width: 375px) 100%, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover object-center"
+            className="object-cover"
           />
         </div>
       )}

@@ -3,7 +3,7 @@ import Icon from ".";
 
 describe("Icon Component", () => {
   it("renders the icon with default settings", () => {
-    const { container } = render(<Icon icon="shirt" />);
+    const { container } = render(<Icon name="shirt" />);
     const icon = container.querySelector("i");
     expect(icon).toBeInTheDocument();
     expect(icon).toHaveClass("ri-shirt-line");
@@ -13,7 +13,7 @@ describe("Icon Component", () => {
 
   it("renders the icon with custom size and color", () => {
     const { container } = render(
-      <Icon icon="shirt" size="large" color="primary" />,
+      <Icon name="shirt" size="large" color="primary" />,
     );
     const icon = container.querySelector("i");
     expect(icon).toBeInTheDocument();
@@ -24,7 +24,7 @@ describe("Icon Component", () => {
 
   it("renders the fallback icon when passing an invalid icon", () => {
     const { container } = render(
-      <Icon icon="invalid-icon" size="invalid-color" color="invlaid-color" />,
+      <Icon name="invalid-icon" size="invalid-color" color="invlaid-color" />,
     );
     const icon = container.querySelector("i");
     expect(icon).toBeInTheDocument();

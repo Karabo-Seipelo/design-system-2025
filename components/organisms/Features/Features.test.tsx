@@ -28,6 +28,8 @@ describe("FeatureSection", () => {
     render(
       <FeatureSection
         title="Features"
+        subTitle="Our Offerings"
+        description="Explore our features"
         features={features}
         featureLayout="list"
       />,
@@ -48,6 +50,8 @@ describe("FeatureSection", () => {
     render(
       <FeatureSection
         title="Features"
+        subTitle="Our Offerings"
+        description="Explore our features"
         features={features}
         featureLayout="grid"
       />,
@@ -64,6 +68,8 @@ describe("FeatureSection", () => {
       <FeatureSection
         title="Features"
         imageUrl="/test-image.png"
+        subTitle="Our Offerings"
+        description="Explore our features"
         orientation="left"
       />,
     );
@@ -74,7 +80,13 @@ describe("FeatureSection", () => {
   });
 
   it("does not render features or image if not provided", () => {
-    render(<FeatureSection title="Features" />);
+    render(
+      <FeatureSection
+        title="Features"
+        subTitle="Our Offerings"
+        description="Explore our features"
+      />,
+    );
 
     expect(screen.queryByRole("img")).not.toBeInTheDocument();
     expect(screen.queryByText("Feature 1")).not.toBeInTheDocument();

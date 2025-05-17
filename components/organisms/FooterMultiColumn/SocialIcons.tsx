@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { SocialIconsProps } from "./interfaces";
-import Icon from "./Icon";
+import Icon from "$/atoms/Icon";
 
 const SocialIcons: React.FC<SocialIconsProps> = ({ socialLinks }) => {
   return (
