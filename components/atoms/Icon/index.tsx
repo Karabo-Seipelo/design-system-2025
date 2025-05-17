@@ -32,7 +32,9 @@ export type IconType =
   | "t-shirt"
   | "recycle"
   | "paint"
-  | "water";
+  | "water"
+  | "add-circle"
+  | "indeterminate-circle";
 
 export type IconSize = "small" | "medium" | "large" | "xlarge" | "xxlarge";
 
@@ -76,6 +78,8 @@ const ICON_MAP: Record<IconType, string> = {
   recycle: "ri-recycle-line",
   paint: "ri-paint-line",
   water: "ri-water-flash-line",
+  "add-circle": "ri-add-circle-line",
+  "indeterminate-circle": "ri-indeterminate-circle-line",
 };
 
 const SIZE_MAP: Record<IconSize, string> = {
