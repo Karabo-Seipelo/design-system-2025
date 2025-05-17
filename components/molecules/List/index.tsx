@@ -1,13 +1,5 @@
 import Image from "next/image";
-
-interface Feature {
-  title?: string;
-  description: string;
-  icon: string;
-  dropShadow?: boolean;
-  tel?: string;
-  mailto?: string;
-}
+import { Feature } from "./interfaces";
 
 const RenderList = (feature: Feature) => {
   if (feature.tel) {
