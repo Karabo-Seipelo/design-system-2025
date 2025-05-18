@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1668" lines-covered="1364" line-rate="0.8177" branches-valid="663" branches-covered="557" branch-rate="0.8401000000000001" timestamp="1747570602634" complexity="0" version="0.1">
+<coverage lines-valid="1709" lines-covered="1384" line-rate="0.8098000000000001" branches-valid="693" branches-covered="570" branch-rate="0.8225" timestamp="1747598929484" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -556,6 +556,104 @@
             <line number="22" hits="43" branch="false"/>
             <line number="29" hits="215" branch="false"/>
             <line number="35" hits="9" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="components.atoms.TextareaField" line-rate="0.6829000000000001" branch-rate="0.5666">
+      <classes>
+        <class name="TextareaCharacterCount.tsx" filename="components/atoms/TextareaField/TextareaCharacterCount.tsx" line-rate="0.5" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="4" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="3" branch="false"/>
+            <line number="4" hits="3" branch="false"/>
+            <line number="10" hits="0" branch="false"/>
+            <line number="17" hits="0" branch="false"/>
+            <line number="18" hits="0" branch="false"/>
+            <line number="25" hits="3" branch="false"/>
+          </lines>
+        </class>
+        <class name="TextareaField.stories.tsx" filename="components/atoms/TextareaField/TextareaField.stories.tsx" line-rate="0" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="13" hits="0"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="0" signature="()V">
+              <lines>
+                <line number="30" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="2" hits="0" branch="false"/>
+            <line number="3" hits="0" branch="false"/>
+            <line number="5" hits="0" branch="false"/>
+            <line number="14" hits="0" branch="false"/>
+            <line number="21" hits="0" branch="false"/>
+            <line number="24" hits="0" branch="false"/>
+            <line number="31" hits="0" branch="false"/>
+          </lines>
+        </class>
+        <class name="index.tsx" filename="components/atoms/TextareaField/index.tsx" line-rate="0.8928" branch-rate="0.5666">
+          <methods>
+            <method name="(anonymous_11)" hits="33" signature="()V">
+              <lines>
+                <line number="8" hits="33"/>
+              </lines>
+            </method>
+            <method name="(anonymous_12)" hits="31" signature="()V">
+              <lines>
+                <line number="14" hits="31"/>
+              </lines>
+            </method>
+            <method name="(anonymous_13)" hits="54" signature="()V">
+              <lines>
+                <line number="21" hits="54"/>
+              </lines>
+            </method>
+            <method name="(anonymous_14)" hits="23" signature="()V">
+              <lines>
+                <line number="40" hits="23"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="3" branch="false"/>
+            <line number="2" hits="3" branch="false"/>
+            <line number="3" hits="3" branch="false"/>
+            <line number="5" hits="3" branch="false"/>
+            <line number="6" hits="3" branch="false"/>
+            <line number="8" hits="3" branch="false"/>
+            <line number="11" hits="33" branch="false"/>
+            <line number="12" hits="31" branch="false"/>
+            <line number="14" hits="31" branch="false"/>
+            <line number="15" hits="31" branch="true" condition-coverage="66.66666666666666% (2/3)"/>
+            <line number="16" hits="0" branch="false"/>
+            <line number="18" hits="31" branch="false"/>
+            <line number="20" hits="31" branch="false"/>
+            <line number="22" hits="54" branch="true" condition-coverage="0% (0/1)"/>
+            <line number="27" hits="0" branch="false"/>
+            <line number="29" hits="54" branch="false"/>
+            <line number="34" hits="31" branch="false"/>
+            <line number="37" hits="31" branch="false"/>
+            <line number="40" hits="31" branch="false"/>
+            <line number="41" hits="23" branch="false"/>
+            <line number="42" hits="23" branch="false"/>
+            <line number="43" hits="23" branch="false"/>
+            <line number="44" hits="23" branch="true" condition-coverage="0% (0/1)"/>
+            <line number="45" hits="0" branch="false"/>
+            <line number="48" hits="31" branch="false"/>
+            <line number="63" hits="31" branch="false"/>
+            <line number="64" hits="31" branch="false"/>
+            <line number="90" hits="3" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -1438,7 +1536,7 @@
         </class>
       </classes>
     </package>
-    <package name="components.organisms.Contact" line-rate="0.9243000000000001" branch-rate="0.6567000000000001">
+    <package name="components.organisms.Contact" line-rate="0.8571" branch-rate="0.597">
       <classes>
         <class name="ButtonField.tsx" filename="components/organisms/Contact/ButtonField.tsx" line-rate="1" branch-rate="1">
           <methods>
@@ -1530,9 +1628,9 @@
                 <line number="31" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_3)" hits="3" signature="()V">
+            <method name="(anonymous_3)" hits="4" signature="()V">
               <lines>
-                <line number="45" hits="3"/>
+                <line number="45" hits="4"/>
               </lines>
             </method>
           </methods>
@@ -1545,7 +1643,7 @@
             <line number="12" hits="1" branch="false"/>
             <line number="21" hits="0" branch="false"/>
             <line number="32" hits="0" branch="false"/>
-            <line number="46" hits="3" branch="false"/>
+            <line number="46" hits="4" branch="false"/>
             <line number="54" hits="1" branch="false"/>
             <line number="57" hits="1" branch="false"/>
             <line number="63" hits="1" branch="false"/>
@@ -1569,9 +1667,9 @@
         </class>
         <class name="FieldComponent.tsx" filename="components/organisms/Contact/FieldComponent.tsx" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_11)" hits="43" signature="()V">
+            <method name="(anonymous_11)" hits="42" signature="()V">
               <lines>
-                <line number="6" hits="43"/>
+                <line number="6" hits="42"/>
               </lines>
             </method>
           </methods>
@@ -1580,11 +1678,11 @@
             <line number="2" hits="3" branch="false"/>
             <line number="3" hits="3" branch="false"/>
             <line number="6" hits="3" branch="false"/>
-            <line number="7" hits="43" branch="false"/>
-            <line number="8" hits="43" branch="true" condition-coverage="100% (5/5)"/>
+            <line number="7" hits="42" branch="false"/>
+            <line number="8" hits="40" branch="true" condition-coverage="100% (5/5)"/>
             <line number="10" hits="12" branch="false"/>
             <line number="12" hits="10" branch="false"/>
-            <line number="14" hits="11" branch="false"/>
+            <line number="14" hits="8" branch="false"/>
             <line number="16" hits="9" branch="false"/>
             <line number="18" hits="1" branch="false"/>
             <line number="22" hits="3" branch="false"/>
@@ -1632,28 +1730,28 @@
             <line number="48" hits="3" branch="false"/>
           </lines>
         </class>
-        <class name="TextareaField.tsx" filename="components/organisms/Contact/TextareaField.tsx" line-rate="1" branch-rate="0.8">
+        <class name="TextareaField.tsx" filename="components/organisms/Contact/TextareaField.tsx" line-rate="0" branch-rate="0">
           <methods>
-            <method name="(anonymous_9)" hits="35" signature="()V">
+            <method name="(anonymous_9)" hits="0" signature="()V">
               <lines>
-                <line number="16" hits="35"/>
+                <line number="16" hits="0"/>
               </lines>
             </method>
-            <method name="(anonymous_10)" hits="24" signature="()V">
+            <method name="(anonymous_10)" hits="0" signature="()V">
               <lines>
-                <line number="28" hits="24"/>
+                <line number="28" hits="0"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="3" branch="false"/>
-            <line number="2" hits="3" branch="false"/>
-            <line number="16" hits="3" branch="false"/>
-            <line number="27" hits="35" branch="false"/>
-            <line number="28" hits="35" branch="false"/>
-            <line number="29" hits="24" branch="false"/>
-            <line number="32" hits="35" branch="false"/>
-            <line number="62" hits="3" branch="false"/>
+            <line number="1" hits="0" branch="false"/>
+            <line number="2" hits="0" branch="false"/>
+            <line number="16" hits="0" branch="false"/>
+            <line number="27" hits="0" branch="false"/>
+            <line number="28" hits="0" branch="false"/>
+            <line number="29" hits="0" branch="false"/>
+            <line number="32" hits="0" branch="false"/>
+            <line number="62" hits="0" branch="false"/>
           </lines>
         </class>
         <class name="index.tsx" filename="components/organisms/Contact/index.tsx" line-rate="0.8823000000000001" branch-rate="0.8">

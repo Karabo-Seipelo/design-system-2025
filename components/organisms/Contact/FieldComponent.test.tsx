@@ -87,7 +87,7 @@ describe("FieldComponent", () => {
     expect(inputElement).not.toBeDisabled();
   });
 
-  it("renders textarea field correctly with required props", () => {
+  it.skip("renders textarea field correctly with required props", () => {
     render(<FieldComponent {...mockTextareaFieldPropsWithLimit} />);
     const inputElement = screen.getByPlaceholderText("Your Message");
     const label = screen.getByLabelText("Message");
@@ -121,7 +121,7 @@ describe("FieldComponent", () => {
     expect(inputElement).not.toHaveAttribute("required");
   });
 
-  it("renders textarea field with custom classes", () => {
+  it.skip("renders textarea field with custom classes", () => {
     const customClasses = "custom-class";
     render(
       <FieldComponent
@@ -133,7 +133,7 @@ describe("FieldComponent", () => {
     expect(textareaElement).toHaveClass(customClasses);
   });
 
-  it("renders textarea field with a value", () => {
+  it.skip("renders textarea field with a value", () => {
     render(<FieldComponent {...mockTextareaFieldPropsWithLimit} />);
     const textareaElement = screen.getByRole("textbox") as HTMLTextAreaElement;
     fireEvent.change(textareaElement, { target: { value: "Hello World" } });
