@@ -29,13 +29,13 @@ const baseArgs = {
         badge: "Error",
         message:
           "Failed to submit. Please ensure your details are correct or try again later.",
-        status: "error",
+        status: "ERROR",
       },
       success: {
         badge: "Success",
         message:
           "Submission successful! We will get back to you in 3-5 days via email.",
-        status: "success",
+        status: "SUCCESS",
         icon: "/check-fill-success.svg",
       },
     },

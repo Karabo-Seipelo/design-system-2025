@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { ToastProps } from "./Toast";
+import { ToastProps } from "$/organisms/Toast";
 
 interface UseFormSubmitProps {
   url: string;

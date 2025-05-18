@@ -28,15 +28,16 @@ export const SuccessToast: Story = {
     badge: "Success",
     message: "Subscription successful! Please check your email to confirm.",
     status: "SUCCESS",
+    autoDissmiss: 5000,
   },
   render: (args) => {
-    const { showToast } = useToast();
-    const { badge, message, status } = args;
+    const { badge, message, status, autoDissmiss } = args;
+    const { showToast } = useToast(autoDissmiss);
     return (
       <>
         <Toast {...args} />
         <button
-          onClick={() => showToast(message, status, badge)}
+          onClick={() => showToast(message ?? "", status ?? "", badge ?? "")}
           className="flex justify-center items-center gap-1.5 px-4 py-2.5 rounded bg-indigo-700 text-white"
         >
           Show Toast
@@ -50,16 +51,17 @@ export const ErrorToast: Story = {
   args: {
     badge: "Error",
     message: "Subscription failed. Please try again.",
-    status: "ERROR",
+    autoDissmiss: 5000,
   },
   render: (args) => {
-    const { showToast } = useToast();
-    const { badge, message, status } = args;
+    const { badge, message, status, autoDissmiss } = args;
+    const { showToast } = useToast(autoDissmiss);
+
     return (
       <>
         <Toast {...args} />
         <button
-          onClick={() => showToast(message, status, badge)}
+          onClick={() => showToast(message ?? "", status ?? "", badge ?? "")}
           className="flex justify-center items-center gap-1.5 px-4 py-2.5 rounded bg-indigo-700 text-white"
         >
           Show Toast

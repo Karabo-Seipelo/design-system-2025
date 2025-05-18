@@ -2,9 +2,11 @@ import { useEffect } from "react";
 import useToastStore from "./useToastStore";
 
 export type Toast = {
-  badge: string;
-  message: string;
-  icon: string;
+  status?: string;
+  badge?: string;
+  message?: string;
+  icon?: string;
+  autoDissmiss?: number;
 };
 
 const useToast = (timeout: number = 4000) => {

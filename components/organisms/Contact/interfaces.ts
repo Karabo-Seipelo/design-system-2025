@@ -1,4 +1,4 @@
-import { ToastProps } from "./Toast";
+import { ToastProps } from "$/organisms/Toast";
 import { Feature } from "$/molecules/List/interfaces";
 
 export interface FieldProps {
@@ -78,8 +78,8 @@ export interface ContactFormCardProps {
   formSuccess: boolean;
   formStatus?: FormStatus | null;
   label: string;
-  resetHandler: () => void;
   fields: Field[];
+  resetHandler: () => void;
   submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 

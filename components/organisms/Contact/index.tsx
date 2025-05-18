@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ContactSectionProps } from "./interfaces";
 import useFormSubmit from "./useFormSubmit";
-import Toast from "./Toast";
+import useToast from "$/organisms/Toast/useToast";
 import ContactSectionHeader from "./ContactSectionHeader";
 import ContactFormCard from "./ContactFormCard";
 
@@ -17,6 +17,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   dropShadow = true,
   resendForm: { label },
 }) => {
+  const { showToast } = useToast();
   const {
     submitHandler,
     formStatus,
@@ -31,18 +32,13 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   };
 
   useEffect(() => {
-    if (formStatus) {
-      const timer = setTimeout(() => {
-        setFormStatus(null);
-        setFormSuccess((prev) => !prev);
-      }, 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [formStatus, setFormStatus, setFormSuccess]);
+    const { message, badge, status } = formStatus || {};
+    console.log("Form Status:", formStatus);
+    showToast(message ?? "", status ?? "", badge ?? "");
+  }, [formStatus, showToast]);
 
   return (
     <section>
-      {formStatus && !formSuccess && <Toast {...formStatus} />}
       <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
         <section className="flex flex-col gap-12 md:gap-16 lg:w-full">
           <main className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8 lg:w-full">

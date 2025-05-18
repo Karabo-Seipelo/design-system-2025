@@ -1,29 +1,53 @@
 import useToast from "./useToast";
+import classNames from "classnames";
 
 export type ToastProps = {
-  status: string;
-  message: string;
-  badge: string;
+  status?: string;
+  badge?: string;
+  message?: string;
+  icon?: string;
+  autoDissmiss?: number;
 };
 
-const Toast = () => {
-  const { status, message, badge } = useToast();
+// TODO: can add auto-dismiss functionality with regards to values
+// being passed to the component as a prop
+// to pass to the custom hook
+const Toast: React.FC<ToastProps> = ({ autoDissmiss, ...props }) => {
+  const {
+    status = props.status,
+    message = props.message,
+    badge = props.badge,
+  } = useToast(autoDissmiss);
+  const toastClasses = classNames(
+    "fixed z-50 flex w-full md:w-max items-center gap-3 pl-1 pr-2.5 pt-1 pb-1 rounded-[2000px] top-5 left-1/2 -translate-x-1/2",
+    {
+      "bg-green-50": status === "SUCCESS",
+      "bg-red-50": status === "ERROR",
+    },
+  );
+  const badgeClasses = classNames(
+    "bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center",
+    {
+      "text-green-700": status === "SUCCESS",
+      "text-red-800": status === "ERROR",
+    },
+  );
+  const messageClasses = classNames("font-medium text-sm gap-1", {
+    "text-green-700": status === "SUCCESS",
+    "text-red-600": status === "ERROR",
+  });
 
   return (
     <>
       {status && message && badge && (
         <div
           data-testid="toast"
-          className={`fixed z-50 flex w-full md:w-max items-center gap-3 pl-1 pr-2.5 pt-1 pb-1 rounded-[2000px] top-5 left-1/2 -translate-x-1/2 ${status === "SUCCESS" ? "bg-green-50" : "bg-red-50"}`}
+          role="status"
+          aria-live="polite"
+          className={toastClasses}
         >
-          <div
-            className={`bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center ${status === "SUCCESS" ? "text-green-700" : "text-red-800"}`}
-          >
-            {badge}
-          </div>
-          <div
-            className={`font-medium text-sm gap-1 ${status === "SUCCESS" ? "text-green-700" : "text-red-600"}`}
-          >
+          <div className={badgeClasses}>{badge}</div>
+          <div className={messageClasses}>
             <p>{message}</p>
           </div>
         </div>
