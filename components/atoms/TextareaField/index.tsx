@@ -50,7 +50,7 @@ const TextareaField = ({
       "outline-none ring-2 ring-indigo-500 outline-offset-2 outline-indigo-200/50":
         variant === "focus",
       "text-neutral-400": variant === "required",
-    }
+    },
   );
 
   return (
@@ -63,6 +63,7 @@ const TextareaField = ({
         className={textareaClasses}
         onInput={handleChange}
         onBlur={handleBlur}
+        name={props.name ?? label}
         {...props}
       />
       <div className="flex flex-row items-center justify-between">
@@ -78,11 +79,10 @@ const TextareaField = ({
             </span>
           )}
         </div>
-
         {maxLength && !showRequiredError && (
           <TextareaCharacterCount
             count={characterCount}
-            limit={maxLength ?? 0}
+            limit={maxLength}
             exceedCharacterLimit={isCharacterLimitExceeded}
             className="mt-1"
           />

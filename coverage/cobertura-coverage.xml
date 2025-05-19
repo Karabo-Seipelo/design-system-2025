@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1732" lines-covered="1399" line-rate="0.8077" branches-valid="717" branches-covered="577" branch-rate="0.8047" timestamp="1747658412044" complexity="0" version="0.1">
+<coverage lines-valid="1736" lines-covered="1422" line-rate="0.8190999999999999" branches-valid="728" branches-covered="606" branch-rate="0.8323999999999999" timestamp="1747663414575" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -9,19 +9,19 @@
       <classes>
         <class name="index.tsx" filename="components/atoms/Artboard/index.tsx" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_1)" hits="75" signature="()V">
+            <method name="(anonymous_1)" hits="82" signature="()V">
               <lines>
-                <line number="9" hits="75"/>
+                <line number="9" hits="82"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="21" branch="false"/>
-            <line number="2" hits="21" branch="false"/>
-            <line number="9" hits="21" branch="false"/>
-            <line number="10" hits="75" branch="false"/>
-            <line number="15" hits="75" branch="false"/>
-            <line number="24" hits="21" branch="false"/>
+            <line number="1" hits="22" branch="false"/>
+            <line number="2" hits="22" branch="false"/>
+            <line number="9" hits="22" branch="false"/>
+            <line number="10" hits="82" branch="false"/>
+            <line number="15" hits="82" branch="false"/>
+            <line number="24" hits="22" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -560,84 +560,83 @@
         </class>
       </classes>
     </package>
-    <package name="components.atoms.TextareaField" line-rate="0.6718000000000001" branch-rate="0.44439999999999996">
+    <package name="components.atoms.TextareaField" line-rate="0.9704999999999999" branch-rate="0.8153">
       <classes>
-        <class name="TextareaCharacterCount.tsx" filename="components/atoms/TextareaField/TextareaCharacterCount.tsx" line-rate="0.5" branch-rate="1">
+        <class name="TextareaCharacterCount.tsx" filename="components/atoms/TextareaField/TextareaCharacterCount.tsx" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_1)" hits="0" signature="()V">
+            <method name="(anonymous_1)" hits="4" signature="()V">
               <lines>
-                <line number="4" hits="0"/>
+                <line number="4" hits="4"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="3" branch="false"/>
-            <line number="4" hits="3" branch="false"/>
-            <line number="10" hits="0" branch="false"/>
-            <line number="17" hits="0" branch="false"/>
-            <line number="18" hits="0" branch="false"/>
-            <line number="25" hits="3" branch="false"/>
+            <line number="1" hits="4" branch="false"/>
+            <line number="4" hits="4" branch="false"/>
+            <line number="10" hits="4" branch="false"/>
+            <line number="18" hits="4" branch="false"/>
+            <line number="25" hits="4" branch="false"/>
           </lines>
         </class>
-        <class name="TextareaField.stories.tsx" filename="components/atoms/TextareaField/TextareaField.stories.tsx" line-rate="0" branch-rate="1">
+        <class name="TextareaField.stories.tsx" filename="components/atoms/TextareaField/TextareaField.stories.tsx" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_1)" hits="0" signature="()V">
+            <method name="(anonymous_1)" hits="8" signature="()V">
               <lines>
-                <line number="13" hits="0"/>
+                <line number="13" hits="8"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="2" hits="0" branch="false"/>
-            <line number="3" hits="0" branch="false"/>
-            <line number="5" hits="0" branch="false"/>
-            <line number="14" hits="0" branch="false"/>
-            <line number="21" hits="0" branch="false"/>
-            <line number="24" hits="0" branch="false"/>
-            <line number="32" hits="0" branch="false"/>
-            <line number="43" hits="0" branch="false"/>
-            <line number="52" hits="0" branch="false"/>
-            <line number="62" hits="0" branch="false"/>
-            <line number="73" hits="0" branch="false"/>
-            <line number="82" hits="0" branch="false"/>
+            <line number="2" hits="1" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="14" hits="8" branch="false"/>
+            <line number="21" hits="1" branch="false"/>
+            <line number="24" hits="1" branch="false"/>
+            <line number="32" hits="1" branch="false"/>
+            <line number="43" hits="1" branch="false"/>
+            <line number="52" hits="1" branch="false"/>
+            <line number="62" hits="1" branch="false"/>
+            <line number="73" hits="1" branch="false"/>
+            <line number="82" hits="1" branch="false"/>
           </lines>
         </class>
-        <class name="index.tsx" filename="components/atoms/TextareaField/index.tsx" line-rate="1" branch-rate="0.47609999999999997">
+        <class name="index.tsx" filename="components/atoms/TextareaField/index.tsx" line-rate="1" branch-rate="0.9523">
           <methods>
-            <method name="(anonymous_2)" hits="33" signature="()V">
+            <method name="(anonymous_2)" hits="45" signature="()V">
               <lines>
-                <line number="9" hits="33"/>
+                <line number="9" hits="45"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="3" branch="false"/>
-            <line number="2" hits="3" branch="false"/>
-            <line number="3" hits="3" branch="false"/>
-            <line number="5" hits="3" branch="false"/>
-            <line number="6" hits="3" branch="false"/>
-            <line number="7" hits="3" branch="false"/>
-            <line number="9" hits="3" branch="false"/>
-            <line number="15" hits="33" branch="false"/>
-            <line number="16" hits="31" branch="false"/>
-            <line number="18" hits="31" branch="true" condition-coverage="75% (3/4)"/>
-            <line number="27" hits="31" branch="false"/>
-            <line number="38" hits="31" branch="false"/>
-            <line number="39" hits="31" branch="false"/>
-            <line number="56" hits="31" branch="false"/>
-            <line number="95" hits="3" branch="false"/>
+            <line number="1" hits="4" branch="false"/>
+            <line number="2" hits="4" branch="false"/>
+            <line number="3" hits="4" branch="false"/>
+            <line number="5" hits="4" branch="false"/>
+            <line number="6" hits="4" branch="false"/>
+            <line number="7" hits="4" branch="false"/>
+            <line number="9" hits="4" branch="false"/>
+            <line number="15" hits="45" branch="false"/>
+            <line number="16" hits="42" branch="false"/>
+            <line number="18" hits="42" branch="true" condition-coverage="100% (4/4)"/>
+            <line number="27" hits="42" branch="false"/>
+            <line number="38" hits="42" branch="false"/>
+            <line number="39" hits="42" branch="false"/>
+            <line number="56" hits="42" branch="false"/>
+            <line number="95" hits="4" branch="false"/>
           </lines>
         </class>
-        <class name="useTextareaField.tsx" filename="components/atoms/TextareaField/useTextareaField.tsx" line-rate="0.8064" branch-rate="0.4242">
+        <class name="useTextareaField.tsx" filename="components/atoms/TextareaField/useTextareaField.tsx" line-rate="0.9444" branch-rate="0.75">
           <methods>
-            <method name="(anonymous_0)" hits="31" signature="()V">
+            <method name="(anonymous_0)" hits="42" signature="()V">
               <lines>
-                <line number="4" hits="31"/>
+                <line number="4" hits="42"/>
               </lines>
             </method>
-            <method name="(anonymous_1)" hits="54" signature="()V">
+            <method name="(anonymous_1)" hits="65" signature="()V">
               <lines>
-                <line number="15" hits="54"/>
+                <line number="15" hits="65"/>
               </lines>
             </method>
             <method name="(anonymous_2)" hits="23" signature="()V">
@@ -645,31 +644,31 @@
                 <line number="39" hits="23"/>
               </lines>
             </method>
-            <method name="(anonymous_3)" hits="0" signature="()V">
+            <method name="(anonymous_3)" hits="1" signature="()V">
               <lines>
-                <line number="55" hits="0"/>
+                <line number="55" hits="1"/>
               </lines>
             </method>
-            <method name="(anonymous_4)" hits="5" signature="()V">
+            <method name="(anonymous_4)" hits="12" signature="()V">
               <lines>
-                <line number="62" hits="5"/>
+                <line number="62" hits="12"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="1" hits="3" branch="false"/>
-            <line number="2" hits="3" branch="false"/>
-            <line number="4" hits="3" branch="false"/>
-            <line number="14" hits="31" branch="false"/>
-            <line number="16" hits="54" branch="true" condition-coverage="0% (0/1)"/>
-            <line number="21" hits="0" branch="false"/>
-            <line number="23" hits="54" branch="false"/>
-            <line number="29" hits="31" branch="false"/>
-            <line number="32" hits="31" branch="false"/>
-            <line number="33" hits="31" branch="false"/>
-            <line number="34" hits="31" branch="false"/>
-            <line number="35" hits="31" branch="false"/>
-            <line number="39" hits="31" branch="false"/>
+            <line number="1" hits="4" branch="false"/>
+            <line number="2" hits="4" branch="false"/>
+            <line number="4" hits="4" branch="false"/>
+            <line number="14" hits="42" branch="false"/>
+            <line number="16" hits="65" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="21" hits="2" branch="false"/>
+            <line number="23" hits="63" branch="false"/>
+            <line number="29" hits="42" branch="false"/>
+            <line number="32" hits="42" branch="false"/>
+            <line number="33" hits="42" branch="false"/>
+            <line number="34" hits="42" branch="false"/>
+            <line number="35" hits="42" branch="false"/>
+            <line number="39" hits="42" branch="false"/>
             <line number="40" hits="23" branch="false"/>
             <line number="41" hits="23" branch="false"/>
             <line number="42" hits="23" branch="false"/>
@@ -678,16 +677,21 @@
             <line number="49" hits="23" branch="false"/>
             <line number="50" hits="23" branch="false"/>
             <line number="52" hits="23" branch="true" condition-coverage="75% (3/4)"/>
-            <line number="55" hits="31" branch="false"/>
-            <line number="56" hits="0" branch="true" condition-coverage="0% (0/3)"/>
-            <line number="57" hits="0" branch="false"/>
-            <line number="59" hits="0" branch="true" condition-coverage="0% (0/4)"/>
-            <line number="62" hits="31" branch="false"/>
-            <line number="63" hits="5" branch="true" condition-coverage="0% (0/1)"/>
+            <line number="55" hits="42" branch="false"/>
+            <line number="56" hits="1" branch="true" condition-coverage="100% (3/3)"/>
+            <line number="57" hits="1" branch="false"/>
+            <line number="59" hits="1" branch="true" condition-coverage="75% (3/4)"/>
+            <line number="62" hits="42" branch="false"/>
+            <line number="63" hits="12" branch="true" condition-coverage="0% (0/1)"/>
             <line number="64" hits="0" branch="false"/>
             <line number="65" hits="0" branch="false"/>
-            <line number="71" hits="31" branch="false"/>
-            <line number="82" hits="3" branch="false"/>
+            <line number="70" hits="12" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="71" hits="3" branch="true" condition-coverage="100% (4/4)"/>
+            <line number="72" hits="3" branch="false"/>
+            <line number="73" hits="3" branch="false"/>
+            <line number="74" hits="3" branch="true" condition-coverage="83.33333333333334% (5/6)"/>
+            <line number="78" hits="42" branch="false"/>
+            <line number="89" hits="4" branch="false"/>
           </lines>
         </class>
       </classes>

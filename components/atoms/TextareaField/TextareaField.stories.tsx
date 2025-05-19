@@ -79,7 +79,7 @@ export const Focus: Story = {
   },
 };
 
-export const Error: Story = {
+export const WithError: Story = {
   args: {
     name: "message",
     label: "Message",

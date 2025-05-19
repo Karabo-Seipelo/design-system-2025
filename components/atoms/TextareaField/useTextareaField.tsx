@@ -66,7 +66,14 @@ const useTextareaField = ({
         hasCharacterLimitExceeded((value ?? "").toString()),
       );
     }
-  }, [value, hasCharacterLimitExceeded]);
+
+    if (defaultValue !== undefined) {
+      const message = getValidationMessage(defaultValue, validationRule ?? []);
+      setShowErrorMessage(!!message);
+      setErrorMessage(message);
+      setShowRequiredError(required && !defaultValue?.toString().trim());
+    }
+  }, [value, hasCharacterLimitExceeded, defaultValue]);
 
   return {
     isCharacterLimitExceeded,

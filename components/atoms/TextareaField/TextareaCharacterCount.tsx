@@ -14,7 +14,7 @@ const TextareaCharacterCount: React.FC<TextareaCharacterCountProps> = ({
       "text-red-500": exceedCharacterLimit,
     },
   );
-  console.log("exceedCharacterLimit", exceedCharacterLimit);
+
   return (
     <span data-testid="char-count" className={charClaesses}>
       {count}/{limit}
