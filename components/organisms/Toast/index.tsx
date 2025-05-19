@@ -9,9 +9,8 @@ export type ToastProps = {
   autoDissmiss?: number;
 };
 
-// TODO: can add auto-dismiss functionality with regards to values
-// being passed to the component as a prop
-// to pass to the custom hook
+// TODO: Look into migrating to Headless Dialog UI
+// TODO: Seperate the showToast and sideToast logic with adding the content and styling
 const Toast: React.FC<ToastProps> = ({ autoDissmiss, ...props }) => {
   const {
     status = props.status,
@@ -37,6 +36,7 @@ const Toast: React.FC<ToastProps> = ({ autoDissmiss, ...props }) => {
     "text-red-600": status === "ERROR",
   });
 
+  // TODO: don't use the state to show the toast, use a boolean store to opt into show the toast
   return (
     <>
       {status && message && badge && (

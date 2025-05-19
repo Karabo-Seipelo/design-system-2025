@@ -1,5 +1,10 @@
 import { TextareaProps } from "@headlessui/react";
 
+export interface ValidationRule {
+  pattern: string;
+  message: string;
+}
+
 export interface TextareaFieldProps extends TextareaProps {
   label: string;
   classes?: string;
@@ -10,8 +15,11 @@ export interface TextareaFieldProps extends TextareaProps {
     | "focus"
     | "disabled"
     | "error"
+    | "required"
     | "error-filled"
     | "error-focused";
+  validationRule?: ValidationRule[];
+  requiredMessage?: string;
 }
 
 export interface TextareaCharacterCountProps {
