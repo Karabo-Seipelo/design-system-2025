@@ -22,14 +22,14 @@ const Toast: React.FC<ToastProps> = ({ autoDissmiss, ...props }) => {
     {
       "bg-green-50": status === "SUCCESS",
       "bg-red-50": status === "ERROR",
-    }
+    },
   );
   const badgeClasses = classNames(
     "bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center",
     {
       "text-green-700": status === "SUCCESS",
       "text-red-800": status === "ERROR",
-    }
+    },
   );
   const messageClasses = classNames("font-medium text-sm gap-1", {
     "text-green-700": status === "SUCCESS",

@@ -10,8 +10,15 @@ export type Toast = {
 };
 
 const useToast = (timeout: number = 4000) => {
-  const { showToast, hideToast, message, badge, icon, status } =
-    useToastStore();
+  const {
+    showToast,
+    hideToast,
+    message,
+    badge,
+    icon,
+    status,
+    setToastContent,
+  } = useToastStore();
 
   useEffect(() => {
     if (message && timeout) {
@@ -22,7 +29,15 @@ const useToast = (timeout: number = 4000) => {
     }
   }, [hideToast, timeout, message]);
 
-  return { showToast, hideToast, message, badge, icon, status };
+  return {
+    showToast,
+    setToastContent,
+    hideToast,
+    message,
+    badge,
+    icon,
+    status,
+  };
 };
 
 export default useToast;

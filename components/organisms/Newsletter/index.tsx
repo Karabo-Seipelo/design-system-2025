@@ -81,7 +81,7 @@ const NewsletterSection = ({
   form,
 }: NewsletterSectionProps) => {
   const { formUrl, toast } = form;
-  const { showToast } = useToast();
+  const { setToastContent } = useToast();
 
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -91,11 +91,11 @@ const NewsletterSection = ({
       const response = await axios.post(formUrl, { email });
       const { message, status, badge } =
         response.status === 200 ? toast.success : toast.error;
-      showToast(message, status, badge);
+      setToastContent(message, status, badge);
     } catch (error) {
       console.error(error);
       const { message, status, badge } = toast.error;
-      showToast(message, status, badge);
+      setToastContent(message, status, badge);
     }
   };
 

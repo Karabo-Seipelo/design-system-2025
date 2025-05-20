@@ -6,6 +6,11 @@ import * as stories from "./ProductCarousel.stories";
 const { Default } = composeStories(stories);
 import ProductCarousel from ".";
 
+const mockAction = jest.fn();
+jest.mock("@storybook/addon-actions", () => ({
+  action: () => mockAction,
+}));
+
 describe("ProductCarousel", () => {
   const mockImages = [
     { image_url: "image1.jpg", color: "red" },

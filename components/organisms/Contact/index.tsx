@@ -17,7 +17,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   dropShadow = true,
   resendForm: { label },
 }) => {
-  const { showToast } = useToast();
+  const { setToastContent } = useToast();
   const {
     submitHandler,
     formStatus,
@@ -34,8 +34,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   useEffect(() => {
     const { message, badge, status } = formStatus || {};
     console.log("Form Status:", formStatus);
-    showToast(message ?? "", status ?? "", badge ?? "");
-  }, [formStatus, showToast]);
+    setToastContent(message ?? "", status ?? "", badge ?? "");
+  }, [formStatus, setToastContent]);
 
   return (
     <section>

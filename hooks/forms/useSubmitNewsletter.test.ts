@@ -3,7 +3,7 @@ import { renderHook, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 const mockShowToast = jest.fn();
-const mockUseToast = jest.fn(() => ({ showToast: mockShowToast }));
+const mockUseToast = jest.fn(() => ({ setToastContent: mockShowToast }));
 jest.mock("$/organisms/Toast/useToast", () => mockUseToast);
 
 import useSubmitNewsletter from "./useSubmitNewsletter";
