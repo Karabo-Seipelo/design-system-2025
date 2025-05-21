@@ -1,18 +1,19 @@
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import useToast from "./useToast";
 import classNames from "classnames";
 
-export type ToastProps = {
+export interface ToastProps {
   status?: string;
   badge?: string;
   message?: string;
   icon?: string;
   autoDissmiss?: number;
-};
+}
 
-// TODO: Look into migrating to Headless Dialog UI
-// TODO: Seperate the showToast and sideToast logic with adding the content and styling
 const Toast: React.FC<ToastProps> = ({ autoDissmiss, ...props }) => {
   const {
+    open,
+    closeToast,
     status = props.status,
     message = props.message,
     badge = props.badge,
@@ -22,32 +23,29 @@ const Toast: React.FC<ToastProps> = ({ autoDissmiss, ...props }) => {
     {
       "bg-green-50": status === "SUCCESS",
       "bg-red-50": status === "ERROR",
-    },
+    }
   );
   const badgeClasses = classNames(
     "bg-white px-2.5 py-0.5 rounded-full font-medium text-sm text-center",
     {
       "text-green-700": status === "SUCCESS",
       "text-red-800": status === "ERROR",
-    },
+    }
   );
   const messageClasses = classNames("font-medium text-sm gap-1", {
     "text-green-700": status === "SUCCESS",
     "text-red-600": status === "ERROR",
   });
 
-  // TODO: don't use the state to show the toast, use a boolean store to opt into show the toast
   return (
-    <>
-      {status && message && badge && (
-        <div data-testid="toast" role="status" className={toastClasses}>
-          <div className={badgeClasses}>{badge}</div>
-          <div className={messageClasses}>
-            <p>{message}</p>
-          </div>
+    <Dialog open={open} onClose={() => closeToast()}>
+      <DialogPanel data-testid="toast" role="status" className={toastClasses}>
+        <DialogTitle className={badgeClasses}>{badge}</DialogTitle>
+        <div className={messageClasses}>
+          <p>{message}</p>
         </div>
-      )}
-    </>
+      </DialogPanel>
+    </Dialog>
   );
 };
 

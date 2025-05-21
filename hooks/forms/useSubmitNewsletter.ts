@@ -13,7 +13,7 @@ const useSubmitNewsletter = ({
   toast,
   inputName,
 }: UseSubmitNewsletterProps) => {
-  const { setToastContent } = useToast();
+  const { displayToast } = useToast();
 
   const submitHandler = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,10 +22,10 @@ const useSubmitNewsletter = ({
       const email = formData.get(inputName) as string;
       await onSubmit(email);
       const { message, status, badge } = toast.success;
-      setToastContent(message, status, badge);
+      displayToast({ message, status, badge });
     } catch (error) {
       const { message, status, badge } = toast.error;
-      setToastContent(message, status, badge);
+      displayToast({ message, status, badge });
       console.error("Error submitting newsletter:", error);
     }
   };

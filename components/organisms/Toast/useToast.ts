@@ -11,6 +11,9 @@ export type Toast = {
 
 const useToast = (timeout: number = 4000) => {
   const {
+    open,
+    openToast,
+    closeToast,
     showToast,
     hideToast,
     message,
@@ -20,16 +23,35 @@ const useToast = (timeout: number = 4000) => {
     setToastContent,
   } = useToastStore();
 
+  const displayToast = ({
+    message,
+    status,
+    badge,
+  }: {
+    message: string;
+    status: string | null;
+    badge: string | null;
+  }) => {
+    if (message && status && badge) {
+      showToast(message, status, badge);
+      openToast(true);
+    }
+  };
+
   useEffect(() => {
     if (message && timeout) {
       const timer = setTimeout(() => {
-        hideToast();
+        closeToast();
       }, timeout);
       return () => clearTimeout(timer);
     }
-  }, [hideToast, timeout, message]);
+  }, [timeout, message, closeToast]);
 
   return {
+    displayToast,
+    open,
+    openToast,
+    closeToast,
     showToast,
     setToastContent,
     hideToast,

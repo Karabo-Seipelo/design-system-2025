@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { ContactSectionProps } from "./interfaces";
 import useFormSubmit from "./useFormSubmit";
-import useToast from "$/organisms/Toast/useToast";
 import ContactSectionHeader from "./ContactSectionHeader";
 import ContactFormCard from "./ContactFormCard";
 
@@ -17,7 +15,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   dropShadow = true,
   resendForm: { label },
 }) => {
-  const { setToastContent } = useToast();
   const {
     submitHandler,
     formStatus,
@@ -30,12 +27,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({
     setFormSuccess((prev) => !prev);
     setFormStatus(null);
   };
-
-  useEffect(() => {
-    const { message, badge, status } = formStatus || {};
-    console.log("Form Status:", formStatus);
-    setToastContent(message ?? "", status ?? "", badge ?? "");
-  }, [formStatus, setToastContent]);
 
   return (
     <section>
