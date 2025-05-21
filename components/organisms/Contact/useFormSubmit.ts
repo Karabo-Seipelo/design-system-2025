@@ -29,7 +29,7 @@ const useFormSubmit = ({
   const [formSuccess, setFormSuccess] = useState<boolean>(false);
   const submitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     const form = event.currentTarget;
-    if (!(form instanceof HTMLFormElement)) {
+    if (!form || !(form instanceof HTMLFormElement)) {
       console.error(
         "submitHandler: event.currentTarget is not a valid form element.",
       );

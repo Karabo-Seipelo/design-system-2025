@@ -16,7 +16,9 @@ jest.mock("next/image", () => ({
       React.ClassAttributes<HTMLImageElement> &
       React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
-    return <img {...props} />;
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    const { fill, ...rest } = props;
+    return <img {...rest} />;
   },
 }));
 

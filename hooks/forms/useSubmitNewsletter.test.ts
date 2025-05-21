@@ -26,7 +26,7 @@ describe("useSubmitNewsletter", () => {
         onSubmit: mockOnSubmit,
         toast: mockToast,
         inputName: "email",
-      })
+      }),
     );
     return result.current.submitHandler;
   };
@@ -77,7 +77,7 @@ describe("useSubmitNewsletter", () => {
     expect(mockShowToast).toHaveBeenCalledWith(
       mockToast.success.message,
       mockToast.success.status,
-      mockToast.success.badge
+      mockToast.success.badge,
     );
   });
 
@@ -92,7 +92,7 @@ describe("useSubmitNewsletter", () => {
     expect(mockShowToast).toHaveBeenCalledWith(
       mockToast.error.message,
       mockToast.error.status,
-      mockToast.error.badge
+      mockToast.error.badge,
     );
   });
 });

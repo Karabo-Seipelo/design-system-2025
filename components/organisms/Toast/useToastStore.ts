@@ -17,13 +17,13 @@ interface ToastState {
   showToast: (
     message: string,
     status: string | null,
-    badge: string | null
+    badge: string | null,
   ) => void;
   hideToast: () => void;
   setToastContent: (
     message: string,
     status: string | null,
-    badge: string | null
+    badge: string | null,
   ) => void;
 }
 

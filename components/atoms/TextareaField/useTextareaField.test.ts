@@ -22,7 +22,6 @@ describe("useTextareaField", () => {
       }),
     );
 
-    console.log(result.current);
     expect(result.current.isCharacterLimitExceeded).toBe(false);
     expect(result.current.showRequiredError).toBe(false);
     expect(result.current.showErrorMessage).toBe(false);

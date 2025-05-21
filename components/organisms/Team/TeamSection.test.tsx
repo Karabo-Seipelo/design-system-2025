@@ -2,6 +2,19 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import TeamSection from ".";
 
+jest.mock("next/image", () => ({
+  __esModule: true,
+  default: (
+    props: JSX.IntrinsicAttributes &
+      React.ClassAttributes<HTMLImageElement> &
+      React.ImgHTMLAttributes<HTMLImageElement>,
+  ) => {
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    const { fill, ...rest } = props;
+    return <img {...rest} />;
+  },
+}));
+
 describe("TeamSection", () => {
   const mockTeam = [
     {
