@@ -4,11 +4,6 @@ import { composeStories } from "@storybook/react";
 import * as stories from "./TextareaField.stories";
 import { mockUseTextareaField } from "../../../__mocks__/component/atoms/TextareaField";
 
-jest.mock("./useTextareaField", () => ({
-  __esModule: true,
-  default: jest.fn(),
-}));
-
 const {
   Default,
   FilledWithCharacterCount,

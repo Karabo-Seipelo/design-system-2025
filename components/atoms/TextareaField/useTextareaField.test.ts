@@ -41,8 +41,6 @@ describe("useTextareaField", () => {
       }),
     );
 
-    console.log(result.current.characterCount);
-
     await act(() => {
       result.current.handleChange({
         target: { value: "test" },
