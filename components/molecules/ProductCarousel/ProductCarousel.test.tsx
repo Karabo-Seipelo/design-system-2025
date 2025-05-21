@@ -20,12 +20,6 @@ describe("ProductCarousel", () => {
 
   const mockSelected = jest.fn();
 
-  it("render the storybook default", () => {
-    render(<Default />);
-    const carousel = screen.getByTestId("product-carousel");
-    expect(carousel).toBeDefined();
-  });
-
   it("renders loading state when loading is true", () => {
     render(
       <ProductCarousel
@@ -83,18 +77,21 @@ describe("ProductCarousel", () => {
     expect(mockSelected).toHaveBeenCalledWith({ selectedColor: "blue" });
   });
 
-  it.skip("render the storybook default", async () => {
+  it("render the storybook default", () => {
+    render(<Default />);
+    const carousel = screen.getByTestId("product-carousel");
+    expect(carousel).toBeInTheDocument();
+  });
+
+  it("render the storybook default", async () => {
     render(<Default />);
 
-    const secondTab = screen.getByTestId("tab");
+    const secondTab = screen.getAllByTestId("product-carousel-tab")[0];
     expect(secondTab).toBeInTheDocument();
-
-    console.log("secondTab", secondTab);
-    console.log(secondTab);
 
     await fireEvent.click(secondTab);
 
-    // expect(mockAction).toHaveBeenCalledTimes(1);
+    expect(mockAction).toHaveBeenCalledTimes(1);
     expect(mockAction).toHaveBeenCalled();
   });
 });
