@@ -12,7 +12,7 @@ const meta = {
   decorators: [
     (Story) => (
       <Artboard
-        data-testId="product-grid"
+        data-testid="product-grid"
         classes="py-[48px] md:py-[64px] lg:p-[96px]"
       >
         <Story />

@@ -29,7 +29,6 @@ const TextareaField = ({
     defaultValue: props.defaultValue,
     maxLength,
     required,
-    requiredMessage,
     validationRule,
     onInput: props.onInput,
     onBlur: props.onBlur,

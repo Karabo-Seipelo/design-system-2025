@@ -1,16 +1,26 @@
 import { useCallback, useState, useEffect } from "react";
 import { getValidationMessage, getInitialCharacterCount } from "@utils/index";
+import { ValidationRule } from "./interfaces";
+
+export interface UseTextareaFieldArgs {
+  value?: string | number | readonly string[] | undefined;
+  defaultValue?: string | number | readonly string[] | undefined;
+  maxLength?: number;
+  required?: boolean;
+  validationRule?: ValidationRule[];
+  onInput?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
+}
 
 const useTextareaField = ({
-  value,
-  defaultValue,
+  value = undefined,
+  defaultValue = undefined,
   maxLength,
   required,
-  requiredMessage,
   validationRule,
   onInput,
   onBlur,
-}: any) => {
+}: UseTextareaFieldArgs) => {
   const hasCharacterLimitExceeded = useCallback(
     (val: string) => {
       if (
@@ -68,12 +78,21 @@ const useTextareaField = ({
     }
 
     if (defaultValue !== undefined) {
-      const message = getValidationMessage(defaultValue, validationRule ?? []);
+      const message = getValidationMessage(
+        (defaultValue = ""),
+        validationRule ?? [],
+      );
       setShowErrorMessage(!!message);
       setErrorMessage(message);
-      setShowRequiredError(required && !defaultValue?.toString().trim());
+      setShowRequiredError(!!required && !defaultValue?.toString().trim());
     }
-  }, [value, hasCharacterLimitExceeded, defaultValue]);
+  }, [
+    value,
+    hasCharacterLimitExceeded,
+    defaultValue,
+    validationRule,
+    required,
+  ]);
 
   return {
     isCharacterLimitExceeded,

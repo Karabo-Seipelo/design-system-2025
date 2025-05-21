@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
@@ -81,5 +81,20 @@ describe("ProductCarousel", () => {
     await userEvent.click(secondTab);
 
     expect(mockSelected).toHaveBeenCalledWith({ selectedColor: "blue" });
+  });
+
+  it.skip("render the storybook default", async () => {
+    render(<Default />);
+
+    const secondTab = screen.getByTestId("tab");
+    expect(secondTab).toBeInTheDocument();
+
+    console.log("secondTab", secondTab);
+    console.log(secondTab);
+
+    await fireEvent.click(secondTab);
+
+    // expect(mockAction).toHaveBeenCalledTimes(1);
+    expect(mockAction).toHaveBeenCalled();
   });
 });

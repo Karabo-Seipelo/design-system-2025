@@ -13,7 +13,7 @@ const ProductSpecifications: React.FC<ProductSpecificationsProps> = ({
     <div data-testid="product-specifications" className="flex flex-col gap-16">
       <div className="flex flex-col gap-6">
         <h2
-          data-testId="title"
+          data-testid="title"
           className="text-3xl text-neutral-900 font-semibold md:text-5xl"
         >
           {title}
