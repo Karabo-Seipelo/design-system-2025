@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import { useState } from "react";
 import ProductReview from ".";
 
@@ -23,7 +24,7 @@ const meta = {
     isOpen: true,
     productId: "voyager-hoodie",
     close: () => {
-      console.warn("close");
+      action("close")();
     },
   },
 } satisfies Meta<typeof ProductReview>;

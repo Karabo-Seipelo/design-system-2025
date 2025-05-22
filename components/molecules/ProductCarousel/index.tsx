@@ -55,6 +55,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = ({
         <TabList className="flex flex-nowrap gap-4 h-[120px] md:h-[190px]">
           {images.map(({ image_url }, index) => (
             <Tab
+              data-testid="product-carousel-tab"
               key={`${image_url}-${index}`}
               className="w-20 md:w-[188px] lg:w-40 h-[120px] md:h-[190px] cursor-pointer data-[selected]:outline data-[selected]:outline-indigo-600 rounded-lg"
             >

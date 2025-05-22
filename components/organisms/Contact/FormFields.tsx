@@ -1,5 +1,5 @@
 import FieldComponent from "./FieldComponent";
-import { FormFieldsProps } from "./Contact.interfaces";
+import { FormFieldsProps } from "./interfaces";
 
 const FormFields: React.FC<FormFieldsProps> = ({ fields }) => {
   return (

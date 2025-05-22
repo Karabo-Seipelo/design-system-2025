@@ -16,34 +16,44 @@ jest.mock("next/image", () => ({
       React.ClassAttributes<HTMLImageElement> &
       React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
-    return <img {...props} />;
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    const { fill, ...rest } = props;
+    return <img {...rest} />;
   },
 }));
 
 describe("TestimonialCard", () => {
-  it("renders the testimonial card with all props", () => {
-    render(<Default />);
-    expect(screen.getByText("Sarah Dole")).toBeInTheDocument();
-    expect(screen.getByText("@sarahdole")).toBeInTheDocument();
+  describe("when all props are provided", () => {
+    it("should display the user's name and handle when all props are provided", () => {
+      render(<Default />);
+      expect(screen.getByText("Sarah Dole")).toBeInTheDocument();
+      expect(screen.getByText("@sarahdole")).toBeInTheDocument();
+    });
   });
 
-  it("renders the testimonial card without handle", () => {
-    render(<WithoutHandle />);
+  describe("when the handle is missing", () => {
+    it("should display the use's name but not the handle when the handle is missing", () => {
+      render(<WithoutHandle />);
 
-    expect(screen.getByText("Sarah Dole")).toBeInTheDocument();
-    expect(screen.queryByText("@sarahdole")).not.toBeInTheDocument();
+      expect(screen.getByText("Sarah Dole")).toBeInTheDocument();
+      expect(screen.queryByText("@sarahdole")).not.toBeInTheDocument();
+    });
   });
 
-  it("renders the testimonial card with unknown user when name is not provided", () => {
-    render(<WithoutLastname />);
+  describe("when the name is not provided", () => {
+    it("should display 'unknown user' when the name is not provided", () => {
+      render(<WithoutLastname />);
 
-    expect(screen.getByText("unknown user")).toBeInTheDocument();
-    expect(screen.getByAltText("unknown user")).toBeInTheDocument();
+      expect(screen.getByText("unknown user")).toBeInTheDocument();
+      expect(screen.getByAltText("unknown user")).toBeInTheDocument();
+    });
   });
 
-  it("renders the testimonial card without the avatar", () => {
-    render(<WithoutAvatar />);
+  describe("when the avatar is not provided", () => {
+    it("should not display the avatar when it is not provided", () => {
+      render(<WithoutAvatar />);
 
-    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+      expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    });
   });
 });

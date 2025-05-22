@@ -1,7 +1,6 @@
 import { renderHook, act } from "@testing-library/react";
-import axios from "axios";
+import axios, { AxiosError, AxiosHeaders } from "axios";
 import useFormSubmit from "./useFormSubmit";
-import { ToastStatus } from "./Toast";
 
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -80,7 +79,19 @@ describe("useFormSubmit", () => {
   });
 
   it("should handle failed form submission", async () => {
-    mockedAxios.post.mockRejectedValueOnce(new Error("Network Error"));
+    const axosError = {
+      isAxiosError: true,
+      name: "AxiosError",
+      message: "Network Error",
+      config: {
+        headers: new AxiosHeaders(),
+        method: "POST",
+        url: mockUrl,
+      },
+      toJSON: jest.fn(),
+    } as AxiosError;
+
+    mockedAxios.post.mockRejectedValueOnce(axosError);
 
     const { result } = renderHook(() =>
       useFormSubmit({

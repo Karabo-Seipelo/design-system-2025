@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import ProductSize from ".";
 import Artboard from "$/atoms/Artboard/index";
+import { act } from "react";
 
 const meta = {
   title: "E-commerce/ProductDetails/ProductSize",
@@ -43,7 +45,7 @@ export const Default: Story = {
     name: "Size",
     sizes,
     selected: (state) => {
-      console.log(state);
+      action(`Selected: ${state}`)();
     },
     classes: "flex flex-col gap-4",
     inventory: inventory,
@@ -57,7 +59,7 @@ export const Numbers: Story = {
     name: "Size",
     sizes: sizesNumbers,
     selected: (state) => {
-      console.log(state);
+      action(`Selected: ${state}`)();
     },
     classes: "flex flex-col gap-4",
     inventory: inventory,
@@ -71,7 +73,7 @@ export const OutOfStock: Story = {
     name: "Size",
     sizes: sizesNumbers,
     selected: (state) => {
-      console.log(state);
+      action(`Selected: ${state}`)();
     },
     classes: "flex flex-col gap-4",
     inventory: inventory,

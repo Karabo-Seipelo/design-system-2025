@@ -1,10 +1,15 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
 import * as stories from "./ProductCarousel.stories";
 const { Default } = composeStories(stories);
 import ProductCarousel from ".";
+
+const mockAction = jest.fn();
+jest.mock("@storybook/addon-actions", () => ({
+  action: () => mockAction,
+}));
 
 describe("ProductCarousel", () => {
   const mockImages = [
@@ -14,12 +19,6 @@ describe("ProductCarousel", () => {
   ];
 
   const mockSelected = jest.fn();
-
-  it("render the storybook default", () => {
-    render(<Default />);
-    const carousel = screen.getByTestId("product-carousel");
-    expect(carousel).toBeDefined();
-  });
 
   it("renders loading state when loading is true", () => {
     render(
@@ -76,5 +75,23 @@ describe("ProductCarousel", () => {
     await userEvent.click(secondTab);
 
     expect(mockSelected).toHaveBeenCalledWith({ selectedColor: "blue" });
+  });
+
+  it("render the storybook default", () => {
+    render(<Default />);
+    const carousel = screen.getByTestId("product-carousel");
+    expect(carousel).toBeInTheDocument();
+  });
+
+  it("render the storybook default", async () => {
+    render(<Default />);
+
+    const secondTab = screen.getAllByTestId("product-carousel-tab")[0];
+    expect(secondTab).toBeInTheDocument();
+
+    await fireEvent.click(secondTab);
+
+    expect(mockAction).toHaveBeenCalledTimes(1);
+    expect(mockAction).toHaveBeenCalled();
   });
 });

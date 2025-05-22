@@ -1,4 +1,4 @@
-import TextareaField from "./TextareaField";
+import TextareaField from "$/atoms/TextareaField";
 import InputField from "./InputField";
 import ButtonField, { ButtonFieldType } from "./ButtonField";
 import { FieldProps } from "./interfaces";

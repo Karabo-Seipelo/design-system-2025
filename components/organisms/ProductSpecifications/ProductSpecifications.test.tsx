@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable jsx-a11y/alt-text */
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { composeStories } from "@storybook/react";
@@ -10,7 +12,9 @@ jest.mock("next/image", () => ({
       React.ClassAttributes<HTMLImageElement> &
       React.ImgHTMLAttributes<HTMLImageElement>,
   ) => {
-    return <img {...props} />;
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    const { fill, ...rest } = props;
+    return <img {...rest} />;
   },
 }));
 

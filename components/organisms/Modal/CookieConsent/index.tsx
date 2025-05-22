@@ -70,8 +70,6 @@ const CookieConsent: React.FC<CookieConsentProps> = ({
       .filter((cookie) => cookie.enabled)
       .map((cookie) => cookie.name);
 
-    console.log("Cookies enabled:", mappedCookies);
-
     localStorage.setItem("consentCookies", JSON.stringify(mappedCookies));
     closeModal();
   }, [enabledCookies, closeModal]);

@@ -33,7 +33,7 @@ describe("FormFields", () => {
         required: false,
         type: "textarea",
         testId: "message-input",
-        renderType: "textarea", // Add this property
+        renderType: "textarea",
       },
     ],
   };

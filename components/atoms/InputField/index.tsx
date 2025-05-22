@@ -46,7 +46,7 @@ const InputField: React.FC<InputFieldProps> = ({
         variant === "focus",
       "ring-2 ring-red-500 outline outline-offset-2 outline-red-200/50":
         variant === "error",
-      "disabled:disabled:border-neutral-100 disabled:text-neutral-400":
+      "disabled:border-neutral-100 disabled:text-neutral-400":
         variant === "disabled",
       "focus:ring-2 focus:ring-indigo-500 focus:outline focus:outline-offset-2 focus:outline-indigo-200/50":
         variant === "normal",

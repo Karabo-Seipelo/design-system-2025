@@ -110,23 +110,23 @@ const isValidColor = (color: string): color is IconColor => {
 };
 
 const iconName = (icon: string): string => {
+  // handle invalid icon if size is not in SIZE_MAP, return default size
   if (!isValidIcon(icon)) {
-    console.warn(`Invalid icon: ${icon}`);
     return "ri-question-line";
   }
   return ICON_MAP[icon];
 };
 
 const iconSize = (size: string): string => {
+  // handle invalid size if size is not in SIZE_MAP, return default size
   if (!isValidSize(size)) {
-    console.warn(`Invalid size: ${size}`);
     return SIZE_MAP.medium;
   }
   return SIZE_MAP[size];
 };
 const iconColor = (color: string): string => {
+  // handle invalid size if color is not in SIZE_MAP, return default size
   if (!isValidColor(color)) {
-    console.warn(`Invalid color: ${color}`);
     return COLOR_MAP.neutral;
   }
   return COLOR_MAP[color];

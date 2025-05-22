@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import ProductCarousel from ".";
 import Artboard from "$/atoms/Artboard/index";
 
@@ -50,7 +51,7 @@ export const Default: Story = {
     loading: false,
     color: "green",
     selected: (state) => {
-      console.warn(state);
+      action(`Selected: ${state}`)();
     },
   },
 };
