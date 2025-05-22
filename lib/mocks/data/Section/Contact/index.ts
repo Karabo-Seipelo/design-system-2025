@@ -96,16 +96,18 @@ const createStoryArgs = (url: string) => ({
   },
 });
 
-export const ContactArgs: ContactSectionProps = {
+type ContactSectionArgs = Omit<ContactSectionProps, "onSubmit">;
+
+export const ContactArgs: ContactSectionArgs = {
   ...createStoryArgs(
     "https://www.greatfrontend.com/api/projects/challenges/contact",
   ),
 };
 
-export const ContactSuccessArgs: ContactSectionProps = {
+export const ContactSuccessArgs: ContactSectionArgs = {
   ...createStoryArgs("/contact/success"),
 };
 
-export const ContactErrorArgs: ContactSectionProps = {
+export const ContactErrorArgs: ContactSectionArgs = {
   ...createStoryArgs("/contact/error"),
 };

@@ -41,6 +41,7 @@ export interface ContactSectionProps {
   resendForm: {
     label: string;
   };
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export interface ContactSectionHeaderProps {
@@ -87,4 +88,22 @@ export interface ContactFormSuccessProps {
   formStatus?: FormStatus | null;
   label: string;
   onReset: () => void;
+}
+
+export interface UseFormSubmitProps {
+  url: string;
+  success: ToastProps;
+  error: ToastProps;
+}
+
+export interface Status extends ToastProps {
+  icon?: string;
+}
+
+export interface UseFormSubmitReturn {
+  submitHandler: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
+  formStatus: Status | null;
+  formSuccess: boolean;
+  setFormStatus: React.Dispatch<React.SetStateAction<Status | null>>;
+  setFormSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }

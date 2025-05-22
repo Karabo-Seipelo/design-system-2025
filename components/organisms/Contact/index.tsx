@@ -1,7 +1,10 @@
 import { ContactSectionProps } from "./interfaces";
 import useFormSubmit from "./useFormSubmit";
 import ContactSectionHeader from "./ContactSectionHeader";
+import ContactForm from "./ContactForm";
 import ContactFormCard from "./ContactFormCard";
+import { on } from "events";
+import { set } from "lodash";
 
 const ContactSection: React.FC<ContactSectionProps> = ({
   title,
@@ -14,6 +17,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
   },
   dropShadow = true,
   resendForm: { label },
+  onSubmit,
 }) => {
   const {
     submitHandler,
@@ -28,6 +32,11 @@ const ContactSection: React.FC<ContactSectionProps> = ({
     setFormStatus(null);
   };
 
+  const formSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    await onSubmit(event);
+  };
+
   return (
     <section>
       <div className="flex h-full flex-col items-start px-3 py-12 md:px-4 md:py-16 lg:items-center lg:justify-center lg:px-24 lg:py-24">
@@ -39,16 +48,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
               contactDetails={contactDetails}
               dropShadow={dropShadow}
             />
-            <div className="flex flex-col gap-10 lg:w-1/2">
-              <ContactFormCard
-                formSuccess={formSuccess}
-                formStatus={formStatus}
-                label={label}
-                resetHandler={resetHandler}
-                fields={fields}
-                submitHandler={submitHandler}
-              />
-            </div>
+            <ContactForm fields={fields} onSubmit={formSubmitHandler} />
           </main>
         </section>
       </div>

@@ -1,24 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { ToastProps } from "$/organisms/Toast";
-
-interface UseFormSubmitProps {
-  url: string;
-  success: ToastProps;
-  error: ToastProps;
-}
-
-interface Status extends ToastProps {
-  icon?: string;
-}
-
-export interface UseFormSubmitReturn {
-  submitHandler: (event: React.FormEvent<HTMLFormElement>) => Promise<void>;
-  formStatus: Status | null;
-  formSuccess: boolean;
-  setFormStatus: React.Dispatch<React.SetStateAction<Status | null>>;
-  setFormSuccess: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { UseFormSubmitProps, UseFormSubmitReturn, Status } from "./interfaces";
 
 const useFormSubmit = ({
   url,
