@@ -39,7 +39,7 @@ const Toast: React.FC<ToastProps> = ({ autoDissmiss, ...props }) => {
 
   return (
     <Dialog open={open} onClose={() => closeToast()}>
-      <DialogPanel data-testid="toast" role="status" className={toastClasses}>
+      <DialogPanel data-testid="toast" role="output" className={toastClasses}>
         <DialogTitle className={badgeClasses}>{badge}</DialogTitle>
         <div className={messageClasses}>
           <p>{message}</p>
