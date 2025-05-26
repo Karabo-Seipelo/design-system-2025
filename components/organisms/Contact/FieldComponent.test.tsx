@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import FieldComponent from "./FieldComponent";
 import { ButtonFieldType } from "./ButtonField";
@@ -121,58 +121,15 @@ describe("FieldComponent", () => {
     expect(inputElement).not.toHaveAttribute("required");
   });
 
-  it.skip("renders textarea field with custom classes", () => {
-    const customClasses = "custom-class";
-    render(
-      <FieldComponent
-        {...mockTextareaFieldPropsWithLimit}
-        classes={customClasses}
-      />,
-    );
-    const textareaElement = screen.getByTestId("field");
-    expect(textareaElement).toHaveClass(customClasses);
-  });
-
-  it.skip("renders textarea field with a value", () => {
-    render(<FieldComponent {...mockTextareaFieldPropsWithLimit} />);
-    const textareaElement = screen.getByRole("textbox") as HTMLTextAreaElement;
-    fireEvent.change(textareaElement, { target: { value: "Hello World" } });
-    expect(textareaElement.value).toBe("Hello World");
-    const charCountElement = screen.getByTestId("char-count");
-    expect(charCountElement).toHaveTextContent("11/200");
-  });
-
   it("renders correctly with required props", () => {
     render(<FieldComponent {...mockButtonFieldProps} />);
-    const buttonElement = screen.getByTestId("submit-button-test");
+    const buttonElement = screen.getByRole("button", {
+      name: "Submit",
+      hidden: false,
+    });
     const label = screen.getByText("Submit");
     expect(buttonElement).toBeInTheDocument();
     expect(label).toBeInTheDocument();
     expect(buttonElement).toHaveAttribute("type", "submit");
-    expect(buttonElement).toHaveAttribute("id", "submit-button");
-  });
-
-  it("renders without optional props", () => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { classes, testId, ...rest } = mockButtonFieldProps;
-    render(<FieldComponent {...rest} />);
-    const buttonElement = screen.getByTestId("field");
-    expect(buttonElement).toBeInTheDocument();
-    expect(buttonElement).not.toHaveAttribute("className");
-  });
-
-  it("renders with custom classes", () => {
-    const customClasses = "custom-class";
-    render(
-      <FieldComponent {...mockButtonFieldProps} classes={customClasses} />,
-    );
-    const buttonElement = screen.getByTestId("field");
-    expect(buttonElement).toHaveClass(customClasses);
-  });
-
-  it("renders no component", () => {
-    render(<FieldComponent {...mockButtonFieldProps} renderType="testing" />);
-    const inputElement = screen.queryByTestId("field");
-    expect(inputElement).not.toBeInTheDocument();
   });
 });

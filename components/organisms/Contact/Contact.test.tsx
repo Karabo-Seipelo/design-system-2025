@@ -13,7 +13,8 @@ describe("ContactSection", () => {
   jest.mock("next/image", () => ({
     __esModule: true,
     default: (
-      props: JSX.IntrinsicAttributes & React.ImgHTMLAttributes<HTMLImageElement>
+      props: JSX.IntrinsicAttributes &
+        React.ImgHTMLAttributes<HTMLImageElement>,
     ) => {
       return <img {...props} />;
     },
@@ -47,11 +48,11 @@ describe("ContactSection", () => {
         expect(screen.getByText("Talk to our team")).toBeInTheDocument();
         expect(
           screen.getByText(
-            "We've committed to delivering the support you require to make your experience as smooth as possible."
-          )
+            "We've committed to delivering the support you require to make your experience as smooth as possible.",
+          ),
         ).toBeInTheDocument();
         expect(
-          screen.getByText("123 Maple Street, Springfield IL, USA")
+          screen.getByText("123 Maple Street, Springfield IL, USA"),
         ).toBeInTheDocument();
         expect(screen.getByText("+1 (650) 555-0198")).toBeInTheDocument();
         expect(screen.getByText("hello@abstractly")).toBeInTheDocument();
@@ -64,7 +65,7 @@ describe("ContactSection", () => {
         expect(screen.getByLabelText("Email")).toBeInTheDocument();
         expect(screen.getByLabelText("Message")).toBeInTheDocument();
         expect(
-          screen.getByRole("button", { name: "Submit" })
+          screen.getByRole("button", { name: "Submit" }),
         ).toBeInTheDocument();
       });
     });
@@ -79,7 +80,7 @@ describe("ContactSection", () => {
               icon: "success",
             },
             formSuccess: true,
-          })
+          }),
         );
 
         const user = userEvent.setup();

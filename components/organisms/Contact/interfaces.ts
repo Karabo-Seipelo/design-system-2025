@@ -41,7 +41,6 @@ export interface ContactSectionProps {
   resendForm: {
     label: string;
   };
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export interface ContactSectionHeaderProps {
