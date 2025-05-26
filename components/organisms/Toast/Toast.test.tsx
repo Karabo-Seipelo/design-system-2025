@@ -1,6 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import Toast from "./index";
 import useToast from "./useToast";
+import { composeStories } from "@storybook/react";
+import * as stories from "./Toast.stories";
+const { SuccessToast } = composeStories(stories);
 
 jest.mock("./useToast");
 
@@ -28,7 +31,7 @@ describe("Toast", () => {
     useToastMock.mockReturnValue(basicToastProps);
 
     render(
-      <Toast status="SUCCESS" badge="Success" message="Operation successful" />,
+      <Toast status="SUCCESS" badge="Success" message="Operation successful" />
     );
 
     const toast = screen.getByTestId("toast");
@@ -48,7 +51,7 @@ describe("Toast", () => {
     });
 
     render(
-      <Toast status="ERROR" badge="Error" message="Something went wrong" />,
+      <Toast status="ERROR" badge="Error" message="Something went wrong" />
     );
 
     const toast = screen.getByTestId("toast");
@@ -95,12 +98,7 @@ describe("Toast", () => {
     });
 
     render(
-      <Toast
-        autoDissmiss={3000}
-        status="SUCCESS"
-        badge="Auto"
-        message="Auto"
-      />,
+      <Toast autoDissmiss={3000} status="SUCCESS" badge="Auto" message="Auto" />
     );
     expect(useToastMock).toHaveBeenCalledWith(3000);
   });
@@ -119,5 +117,21 @@ describe("Toast", () => {
 
     expect(screen.getByText("Test Badge")).toBeInTheDocument();
     expect(screen.getByText("Test Message")).toBeInTheDocument();
+  });
+
+  it("renders the storybook Default story correctly", () => {
+    useToastMock.mockReturnValue({
+      ...basicToastProps,
+      open: true,
+      closeToast: jest.fn(),
+      status: "SUCCESS",
+      message: "Story Default",
+      badge: "Story Badge",
+    });
+
+    render(<SuccessToast />);
+
+    expect(screen.getByText("Story Badge")).toBeInTheDocument();
+    expect(screen.getByText("Story Default")).toBeInTheDocument();
   });
 });
