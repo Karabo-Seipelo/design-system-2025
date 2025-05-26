@@ -63,9 +63,6 @@ describe("Toast", () => {
       ...basicToastProps,
       open: true,
       closeToast,
-      status: "SUCCESS",
-      message: "Closed",
-      badge: "Closed",
     });
 
     render(<Toast status="SUCCESS" badge="Closed" message="Closed" />);
@@ -106,5 +103,21 @@ describe("Toast", () => {
       />,
     );
     expect(useToastMock).toHaveBeenCalledWith(3000);
+  });
+
+  it("renders without status, message, and badge props", () => {
+    useToastMock.mockReturnValue({
+      ...basicToastProps,
+      open: true,
+      closeToast: jest.fn(),
+      status: "SUCCESS",
+      message: "Test Message",
+      badge: "Test Badge",
+    });
+
+    render(<Toast />);
+
+    expect(screen.getByText("Test Badge")).toBeInTheDocument();
+    expect(screen.getByText("Test Message")).toBeInTheDocument();
   });
 });

@@ -63,6 +63,7 @@ export const ErrorToast: Story = {
     badge: "Error",
     message: "Subscription failed. Please try again.",
     autoDissmiss: 5000,
+    status: "ERROR",
   },
   render: (args) => <ToastWithButton {...args} />,
 };
