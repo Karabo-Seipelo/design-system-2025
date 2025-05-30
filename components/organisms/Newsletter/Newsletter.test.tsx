@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
-import { render, screen } from "@testing-library/react";
+import { render, screen, renderHook } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import NewsletterSection from ".";
+import { mockUseToast } from "../../../__mocks__/component/organisms/Toast";
+import { createFormDataMock } from "../../../__mocks__/formData";
+import axios from "axios";
 
 jest.mock("next/image", () => ({
   __esModule: true,
@@ -17,8 +20,9 @@ jest.mock("next/image", () => ({
 jest.mock("axios");
 
 describe("NewsletterSection", () => {
-  const mockShowToast = jest.fn();
+  // const mockShowToast = jest.fn();
   const mockPost = jest.fn();
+  const mockDisplayToast = jest.fn();
 
   const mockProps = {
     formUrl: "/api/subscribe",
@@ -53,16 +57,29 @@ describe("NewsletterSection", () => {
 
   jest.mock("axios", () => ({
     post: mockPost,
-  }));
-
-  jest.mock("../../organisms/Toast/useToast", () => ({
-    __esModule: true,
-    default: () => ({
-      showToast: mockShowToast,
-    }),
+    status: 200,
   }));
 
   beforeEach(() => {
+    // global.FormData = jest.fn(() => mockFormData) as any;
+    global.FormData = jest.fn(() =>
+      createFormDataMock({
+        get: jest.fn().mockImplementation((key: string) => {
+          if (key === "email") {
+            return "test@example.com";
+          }
+        }),
+      }),
+    ) as unknown as typeof FormData;
+
+    renderHook(() =>
+      mockUseToast({
+        displayToast: mockDisplayToast,
+      }),
+    );
+  });
+
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
@@ -77,29 +94,45 @@ describe("NewsletterSection", () => {
     expect(screen.getByAltText("testing")).toBeInTheDocument();
   });
 
-  it.skip("submits the form successfully and shows a success toast", async () => {
-    mockPost.mockResolvedValueOnce({ status: 200 });
+  describe("when the form is submitted", () => {
+    it("submits the form successfully and shows a success toast", async () => {
+      jest.spyOn(axios, "post").mockResolvedValue({
+        status: 200,
+        data: { message: "Subscribed successfully!" },
+      });
 
-    render(<NewsletterSection {...mockProps} />);
+      render(<NewsletterSection {...mockProps} />);
 
-    const emailInput = screen.getByTestId("email-input");
-    const submitButton = screen.getByTestId("email-submit");
+      const emailInput = screen.getByTestId("email-input");
+      const submitButton = screen.getByTestId("email-submit");
 
-    expect(submitButton).toBeInTheDocument();
-    expect(emailInput).toBeInTheDocument();
+      expect(submitButton).toBeInTheDocument();
+      expect(emailInput).toBeInTheDocument();
 
-    await userEvent.type(emailInput, "test@example.com");
-    await userEvent.click(submitButton);
-  });
+      await userEvent.type(emailInput, "test@example.com");
+      await userEvent.click(submitButton);
 
-  it("does not submit the form if email is not provided", async () => {
-    render(<NewsletterSection {...mockProps} />);
+      expect(mockDisplayToast).toHaveBeenCalled();
+    });
 
-    const submitButton = screen.getByTestId("email-submit");
+    it("submits the form with an error and shows a error toast", async () => {
+      jest.spyOn(axios, "post").mockResolvedValue({
+        status: 500,
+        data: { message: "Something has gone wrong" },
+      });
 
-    await userEvent.click(submitButton);
+      render(<NewsletterSection {...mockProps} />);
 
-    expect(mockPost).not.toHaveBeenCalled();
-    expect(mockShowToast).not.toHaveBeenCalled();
+      const emailInput = screen.getByTestId("email-input");
+      const submitButton = screen.getByTestId("email-submit");
+
+      expect(submitButton).toBeInTheDocument();
+      expect(emailInput).toBeInTheDocument();
+
+      await userEvent.type(emailInput, "test@example.com");
+      await userEvent.click(submitButton);
+
+      expect(mockDisplayToast).toHaveBeenCalled();
+    });
   });
 });
