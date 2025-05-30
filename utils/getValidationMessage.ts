@@ -1,16 +1,20 @@
 import { ValidationRule } from "$/atoms/TextareaField/interfaces";
-import isValidRegex from "./isValidRegex";
+import { ValidationStrategy } from "./interfaces";
+import { createRegexStrategy } from "./ValidationStrategies";
 
 const getValidationMessage = (
-  value: string,
+  value: string | number | readonly string[] | undefined,
   rules: ValidationRule[],
 ): string | null => {
-  if (!rules.length || rules.some((rule) => !rule.pattern)) return null;
-  if (!rules.every((rule) => isValidRegex(rule.pattern))) return null;
-  for (const rule of rules) {
-    const regex = new RegExp(rule.pattern);
-    if (!regex.test(value)) return rule.message;
+  const strategies = rules
+    .map(createRegexStrategy)
+    .filter((s): s is ValidationStrategy => s !== null);
+
+  for (const strategy of strategies) {
+    if (!strategy.validate(value)) return strategy.message;
   }
+
   return null;
 };
+
 export default getValidationMessage;

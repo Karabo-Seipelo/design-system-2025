@@ -15,11 +15,9 @@ const FieldComponent: React.FC<FieldProps> = (props) => {
       return <TextareaField {...rest} />;
     case "submit":
       return (
-        <>
-          <Button variant={ButtonVariant.PRIMARY} type={ButtonTypeEnum.SUBMIT}>
-            {props.label}
-          </Button>
-        </>
+        <Button variant={ButtonVariant.PRIMARY} type={ButtonTypeEnum.SUBMIT}>
+          {props.label}
+        </Button>
       );
     default:
       return null;

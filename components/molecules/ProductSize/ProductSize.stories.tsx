@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import ProductSize from ".";
 import Artboard from "$/atoms/Artboard/index";
-import { act } from "react";
 
 const meta = {
   title: "E-commerce/ProductDetails/ProductSize",

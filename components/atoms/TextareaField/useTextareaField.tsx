@@ -78,8 +78,9 @@ const useTextareaField = ({
     }
 
     if (defaultValue !== undefined) {
+      const localDefaultValue = defaultValue ?? "";
       const message = getValidationMessage(
-        (defaultValue = ""),
+        localDefaultValue,
         validationRule ?? [],
       );
       setShowErrorMessage(!!message);
