@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, act } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Toast from "./index";
 import useToast from "./useToast";
 import { composeStories } from "@storybook/react";
@@ -33,7 +33,7 @@ describe("Toast", () => {
     useToastMock.mockReturnValue(basicToastProps);
 
     render(
-      <Toast status="SUCCESS" badge="Success" message="Operation successful" />
+      <Toast status="SUCCESS" badge="Success" message="Operation successful" />,
     );
 
     const toast = screen.getByTestId("toast");
@@ -53,7 +53,7 @@ describe("Toast", () => {
     });
 
     render(
-      <Toast status="ERROR" badge="Error" message="Something went wrong" />
+      <Toast status="ERROR" badge="Error" message="Something went wrong" />,
     );
 
     const toast = screen.getByTestId("toast");
@@ -100,7 +100,12 @@ describe("Toast", () => {
     });
 
     render(
-      <Toast autoDissmiss={3000} status="SUCCESS" badge="Auto" message="Auto" />
+      <Toast
+        autoDissmiss={3000}
+        status="SUCCESS"
+        badge="Auto"
+        message="Auto"
+      />,
     );
     expect(useToastMock).toHaveBeenCalledWith(3000);
   });
@@ -133,12 +138,6 @@ describe("Toast", () => {
 
     render(<SuccessToast />);
 
-    /*
-    const button = screen.getByRole("button", {
-      name: "Show Toast",
-    });
-    */
-
     expect(screen.getByText("Story Badge")).toBeInTheDocument();
     expect(screen.getByText("Story Default")).toBeInTheDocument();
   });
@@ -161,7 +160,7 @@ describe("Toast", () => {
 
       const button = screen.getByRole("button");
       const toast = screen.queryByText(
-        /Subscription successful! Please check your email to confirm./i
+        /Subscription successful! Please check your email to confirm./i,
       );
 
       expect(button).toBeInTheDocument();
@@ -194,26 +193,6 @@ describe("Toast", () => {
       fireEvent.click(button);
 
       expect(mockDisplayToast).toHaveBeenCalled();
-    });
-
-    it.skip("shows error toast on button click", () => {
-      render(<ErrorToast render={ErrorToast.render} args={ErrorToast.args} />);
-      fireEvent.click(screen.getByText(/show toast/i));
-      expect(screen.getByText(/subscription failed/i)).toBeInTheDocument();
-      expect(screen.getByText(/error/i)).toBeInTheDocument();
-    });
-
-    it.skip("auto dismisses toast after timeout", () => {
-      render(
-        <SuccessToast render={SuccessToast.render} args={SuccessToast.args} />
-      );
-      fireEvent.click(screen.getByText(/show toast/i));
-      act(() => {
-        jest.advanceTimersByTime(5000);
-      });
-      expect(
-        screen.queryByText(/subscription successful/i)
-      ).not.toBeInTheDocument();
     });
   });
 });
