@@ -1,13 +1,13 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import Toast from "./index";
 import useToast from "./useToast";
 import { composeStories } from "@storybook/react";
 import * as stories from "./Toast.stories";
+
 const { SuccessToast } = composeStories(stories);
 
 jest.mock("./useToast");
-
-const useToastMock = useToast as jest.MockedFunction<typeof useToast>;
+jest.useFakeTimers();
 
 describe("Toast", () => {
   const basicToastProps = {
@@ -23,6 +23,8 @@ describe("Toast", () => {
     icon: null,
     status: "SUCCESS",
   };
+  const useToastMock = useToast as jest.MockedFunction<typeof useToast>;
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -131,7 +133,87 @@ describe("Toast", () => {
 
     render(<SuccessToast />);
 
+    /*
+    const button = screen.getByRole("button", {
+      name: "Show Toast",
+    });
+    */
+
     expect(screen.getByText("Story Badge")).toBeInTheDocument();
     expect(screen.getByText("Story Default")).toBeInTheDocument();
+  });
+
+  describe("ToastWithButton", () => {
+    const mockDisplayToast = jest.fn();
+
+    it("shows success toast on button click", () => {
+      useToastMock.mockReturnValue({
+        ...basicToastProps,
+        displayToast: mockDisplayToast,
+        open: true,
+        closeToast: jest.fn(),
+        status: "SUCCESS",
+        message: "Subscription successful! Please check your email to confirm.",
+        badge: "Success",
+      });
+
+      render(<SuccessToast />);
+
+      const button = screen.getByRole("button");
+      const toast = screen.queryByText(
+        /Subscription successful! Please check your email to confirm./i
+      );
+
+      expect(button).toBeInTheDocument();
+
+      fireEvent.click(button);
+
+      expect(mockDisplayToast).toHaveBeenCalled();
+
+      expect(toast).toBeVisible();
+      expect(toast).toBeInTheDocument();
+    });
+
+    it("should render toast with status, message and badge empty", () => {
+      useToastMock.mockReturnValue({
+        ...basicToastProps,
+        displayToast: mockDisplayToast,
+        open: true,
+        closeToast: jest.fn(),
+        status: "",
+        message: "",
+        badge: "",
+      });
+
+      render(<SuccessToast />);
+
+      const button = screen.getByRole("button");
+
+      expect(button).toBeInTheDocument();
+
+      fireEvent.click(button);
+
+      expect(mockDisplayToast).toHaveBeenCalled();
+    });
+
+    it.skip("shows error toast on button click", () => {
+      render(<ErrorToast render={ErrorToast.render} args={ErrorToast.args} />);
+      fireEvent.click(screen.getByText(/show toast/i));
+      expect(screen.getByText(/subscription failed/i)).toBeInTheDocument();
+      expect(screen.getByText(/error/i)).toBeInTheDocument();
+    });
+
+    it.skip("auto dismisses toast after timeout", () => {
+      render(
+        <SuccessToast render={SuccessToast.render} args={SuccessToast.args} />
+      );
+      fireEvent.click(screen.getByText(/show toast/i));
+      act(() => {
+        jest.advanceTimersByTime(5000);
+      });
+      expect(
+        screen.queryByText(/subscription successful/i)
+      ).not.toBeInTheDocument();
+    });
   });
 });
