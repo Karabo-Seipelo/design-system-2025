@@ -5,6 +5,11 @@ import * as stories from "./QuantitySelector.stories";
 const { Default, OutOfStock, MinimalConfiguration } = composeStories(stories);
 import QuantitySelector from ".";
 
+const mockAction = jest.fn();
+jest.mock("@storybook/addon-actions", () => ({
+  action: () => mockAction,
+}));
+
 jest.mock("$/atoms/Artboard", () => {
   const MockArtboard = (props: React.PropsWithChildren) => (
     <div data-testid="artboard">{props.children}</div>

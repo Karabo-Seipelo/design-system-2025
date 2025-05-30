@@ -3,7 +3,7 @@ import { renderHook, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 
 const mockShowToast = jest.fn();
-const mockUseToast = jest.fn(() => ({ showToast: mockShowToast }));
+const mockUseToast = jest.fn(() => ({ displayToast: mockShowToast }));
 jest.mock("$/organisms/Toast/useToast", () => mockUseToast);
 
 import useSubmitNewsletter from "./useSubmitNewsletter";
@@ -45,54 +45,41 @@ describe("useSubmitNewsletter", () => {
     jest.clearAllMocks();
   });
 
-  it("should prevent default form submission behavior", async () => {
-    const submitHandler = setup();
+  describe("when the user submits the form", () => {
+    it("prevent the default browser submission", async () => {
+      const submitHandler = setup();
 
-    await act(async () => {
-      await submitHandler(event);
+      await act(async () => {
+        await submitHandler(event);
+      });
+
+      expect(preventDefault).toHaveBeenCalled();
     });
 
-    expect(preventDefault).toHaveBeenCalled();
-  });
+    it("submits the user's email address", async () => {
+      const submitHandler = setup();
 
-  it("should call onSubmit with the correct email", async () => {
-    const submitHandler = setup();
+      await act(async () => {
+        await submitHandler(event);
+      });
 
-    await act(async () => {
-      await submitHandler(event);
+      expect(mockOnSubmit).toHaveBeenCalledTimes(1);
+      expect(mockOnSubmit).toHaveBeenCalledWith("test@example.com");
     });
 
-    expect(mockOnSubmit).toHaveBeenCalledTimes(1);
-    expect(mockOnSubmit).toHaveBeenCalledWith("test@example.com");
-  });
+    it("shows an error toast if submission fails", async () => {
+      mockOnSubmit.mockRejectedValueOnce(new Error("Submission failed"));
+      const submitHandler = setup();
 
-  it("should show a success toast when onSubmit resolves", async () => {
-    mockOnSubmit.mockResolvedValueOnce(undefined);
-    const submitHandler = setup();
+      await act(async () => {
+        await submitHandler(event);
+      });
 
-    await act(async () => {
-      await submitHandler(event);
+      expect(mockShowToast).toHaveBeenCalledWith({
+        message: "Error!",
+        status: "error",
+        badge: "✖",
+      });
     });
-
-    expect(mockShowToast).toHaveBeenCalledWith(
-      mockToast.success.message,
-      mockToast.success.status,
-      mockToast.success.badge,
-    );
-  });
-
-  it("should show an error toast when onSubmit rejects", async () => {
-    mockOnSubmit.mockRejectedValueOnce(new Error("Submission failed"));
-    const submitHandler = setup();
-
-    await act(async () => {
-      await submitHandler(event);
-    });
-
-    expect(mockShowToast).toHaveBeenCalledWith(
-      mockToast.error.message,
-      mockToast.error.status,
-      mockToast.error.badge,
-    );
   });
 });

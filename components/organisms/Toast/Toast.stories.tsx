@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Toast from ".";
+import Toast, { ToastProps } from ".";
 import useToast from "./useToast";
 
 const meta = {
@@ -23,48 +23,47 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const ToastWithButton = (args: ToastProps) => {
+  const { badge, message, status, autoDissmiss } = args;
+  const { displayToast } = useToast(autoDissmiss);
+
+  const handleClick = () => {
+    displayToast({
+      message: message ?? "",
+      status: status ?? "",
+      badge: badge ?? "",
+    });
+  };
+
+  return (
+    <>
+      <Toast {...args} />
+      <button
+        onClick={handleClick}
+        className="flex justify-center items-center gap-1.5 px-4 py-2.5 rounded bg-indigo-700 text-white"
+      >
+        Show Toast
+      </button>
+    </>
+  );
+};
+
 export const SuccessToast: Story = {
   args: {
     badge: "Success",
     message: "Subscription successful! Please check your email to confirm.",
     status: "SUCCESS",
+    autoDissmiss: 5000,
   },
-  render: (args) => {
-    const { showToast } = useToast();
-    const { badge, message, status } = args;
-    return (
-      <>
-        <Toast {...args} />
-        <button
-          onClick={() => showToast(message, status, badge)}
-          className="flex justify-center items-center gap-1.5 px-4 py-2.5 rounded bg-indigo-700 text-white"
-        >
-          Show Toast
-        </button>
-      </>
-    );
-  },
+  render: (args) => <ToastWithButton {...args} />,
 };
 
 export const ErrorToast: Story = {
   args: {
     badge: "Error",
     message: "Subscription failed. Please try again.",
+    autoDissmiss: 5000,
     status: "ERROR",
   },
-  render: (args) => {
-    const { showToast } = useToast();
-    const { badge, message, status } = args;
-    return (
-      <>
-        <Toast {...args} />
-        <button
-          onClick={() => showToast(message, status, badge)}
-          className="flex justify-center items-center gap-1.5 px-4 py-2.5 rounded bg-indigo-700 text-white"
-        >
-          Show Toast
-        </button>
-      </>
-    );
-  },
+  render: (args) => <ToastWithButton {...args} />,
 };

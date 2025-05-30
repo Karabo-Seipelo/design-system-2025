@@ -1,4 +1,4 @@
-import ContactFormSuccess from "./ContactFormSuccess";
+import ContactFormSuccess from "./ContactFormStatus";
 import ContactForm from "./ContactForm";
 import { ContactFormCardProps } from "./interfaces";
 

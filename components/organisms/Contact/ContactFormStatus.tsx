@@ -1,12 +1,11 @@
 import Image from "next/image";
 import { ContactFormSuccessProps } from "./interfaces";
 
-const ContactFormSuccess: React.FC<ContactFormSuccessProps> = ({
+const ContactFormStatus: React.FC<ContactFormSuccessProps> = ({
   formStatus,
   label,
   onReset,
 }) => {
-  console.log("formStatus", formStatus);
   return (
     <div data-testid="success" className="flex flex-col items-center gap-6">
       {formStatus?.icon ? (
@@ -41,4 +40,4 @@ const ContactFormSuccess: React.FC<ContactFormSuccessProps> = ({
   );
 };
 
-export default ContactFormSuccess;
+export default ContactFormStatus;

@@ -54,7 +54,7 @@ export const AllStates: Story = {
           <InputField
             name={args.name}
             type={args.type}
-            value="test@gmail.com"
+            defaultValue="test@gmail.com"
             pattern={args.pattern}
             placeholder="Enter your email"
             variant="focus"
@@ -64,7 +64,7 @@ export const AllStates: Story = {
           <h5 className="font-normal text-xl text-gray-950">Filled</h5>
           <InputField
             name={args.name}
-            value="test@gmail.com"
+            defaultValue="test@gmail.com"
             type={args.type}
             pattern={args.pattern}
             placeholder="Enter your email"

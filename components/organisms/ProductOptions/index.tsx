@@ -36,7 +36,7 @@ const ProductOptions: React.FC<ProductOptionsProps> = ({
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData.entries());
-
+    // TODO:: Add to cart logic
     console.log("Adding to cart:", { data });
     console.log("Selected inventory:", inventory);
   };

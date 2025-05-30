@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ContactSection from ".";
 import { http, HttpResponse } from "msw";
 import Artboard from "$/atoms/Artboard/index";
+import Toast from "$/organisms/Toast";
 import {
   ContactArgs,
   ContactSuccessArgs,
@@ -43,6 +44,7 @@ const meta = {
   decorators: [
     (Story) => (
       <Artboard>
+        <Toast />
         <Story />
       </Artboard>
     ),

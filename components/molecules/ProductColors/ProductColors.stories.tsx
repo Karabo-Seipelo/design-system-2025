@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import ProductColors from ".";
 import Artboard from "$/atoms/Artboard";
 
@@ -26,7 +27,7 @@ export const Default: Story = {
     name: "Test Product",
     colors: ["green", "brown"],
     selected: (state) => {
-      console.warn(state);
+      action(`Selected: ${state}`)();
     },
     selectedColor: "green",
     outOfStock: [],
@@ -38,7 +39,7 @@ export const OutOfStock: Story = {
     name: "Test Product",
     colors: ["green", "brown"],
     selected: (state) => {
-      console.warn(state);
+      action(`Selected: ${state}`)();
     },
     selectedColor: "green",
     outOfStock: ["brown"],
