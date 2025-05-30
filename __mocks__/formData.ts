@@ -1,5 +1,3 @@
-type FormDataMethod = (...args: any[]) => any;
-
 interface FormDataMockOverrides {
   append?: jest.Mock;
   delete?: jest.Mock;

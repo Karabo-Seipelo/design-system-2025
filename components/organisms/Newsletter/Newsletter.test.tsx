@@ -134,5 +134,51 @@ describe("NewsletterSection", () => {
 
       expect(mockDisplayToast).toHaveBeenCalled();
     });
+
+    it("calls axios.post with the correct URL and data", async () => {
+      jest.spyOn(axios, "post").mockResolvedValue({
+        status: 200,
+        data: { message: "Subscribed successfully!" },
+      });
+
+      render(<NewsletterSection {...mockProps} />);
+
+      const emailInput = screen.getByTestId("email-input");
+      const submitButton = screen.getByTestId("email-submit");
+
+      expect(submitButton).toBeInTheDocument();
+      expect(emailInput).toBeInTheDocument();
+
+      await userEvent.type(emailInput, "test@example.com");
+      await userEvent.click(submitButton);
+      expect(axios.post).toHaveBeenCalledWith(
+        mockProps.formUrl,
+        expect.objectContaining({
+          email: "test@example.com",
+        }),
+      );
+    });
+
+    it("shows an error toast when the form submission fails", async () => {
+      jest.spyOn(axios, "post").mockRejectedValue(new Error("Network Error"));
+
+      render(<NewsletterSection {...mockProps} />);
+
+      const emailInput = screen.getByTestId("email-input");
+      const submitButton = screen.getByTestId("email-submit");
+
+      expect(submitButton).toBeInTheDocument();
+      expect(emailInput).toBeInTheDocument();
+
+      await userEvent.type(emailInput, "test@example.com");
+      await userEvent.click(submitButton);
+      expect(mockDisplayToast).toHaveBeenCalledWith(
+        expect.objectContaining({
+          badge: "error",
+          message: "Subscription failed.",
+          status: "error",
+        }),
+      );
+    });
   });
 });
