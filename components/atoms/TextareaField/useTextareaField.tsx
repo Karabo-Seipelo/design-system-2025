@@ -3,8 +3,8 @@ import { getValidationMessage, getInitialCharacterCount } from "@utils/index";
 import { ValidationRule } from "./interfaces";
 
 export interface UseTextareaFieldArgs {
-  value?: string | number | readonly string[] | undefined;
-  defaultValue?: string | number | readonly string[] | undefined;
+  value?: string | number | readonly string[];
+  defaultValue?: string | number | readonly string[];
   maxLength?: number;
   required?: boolean;
   validationRule?: ValidationRule[];
