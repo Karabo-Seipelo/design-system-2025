@@ -3,7 +3,6 @@ import classNames from "classnames";
 
 interface ArtboardProps {
   children?: ReactNode;
-  classes?: string;
 }
 
 const Artboard: React.FC<ArtboardProps> = ({ children }) => {
