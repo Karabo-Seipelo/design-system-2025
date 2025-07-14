@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1743" lines-covered="1458" line-rate="0.8364" branches-valid="736" branches-covered="650" branch-rate="0.8831" timestamp="1749116129666" complexity="0" version="0.1">
+<coverage lines-valid="1785" lines-covered="1494" line-rate="0.8369" branches-valid="750" branches-covered="663" branch-rate="0.884" timestamp="1752496264783" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -9,9 +9,9 @@
       <classes>
         <class name="index.tsx" filename="components/atoms/Artboard/index.tsx" line-rate="1" branch-rate="1">
           <methods>
-            <method name="(anonymous_1)" hits="79" signature="()V">
+            <method name="(anonymous_1)" hits="72" signature="()V">
               <lines>
-                <line number="9" hits="79"/>
+                <line number="9" hits="72"/>
               </lines>
             </method>
           </methods>
@@ -19,9 +19,9 @@
             <line number="1" hits="22" branch="false"/>
             <line number="2" hits="22" branch="false"/>
             <line number="9" hits="22" branch="false"/>
-            <line number="10" hits="79" branch="false"/>
-            <line number="15" hits="79" branch="false"/>
-            <line number="24" hits="22" branch="false"/>
+            <line number="10" hits="72" branch="false"/>
+            <line number="14" hits="72" branch="false"/>
+            <line number="21" hits="22" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -1467,17 +1467,20 @@
           <methods>
             <method name="(anonymous_1)" hits="1" signature="()V">
               <lines>
-                <line number="11" hits="1"/>
+                <line number="10" hits="1"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="1" hits="1" branch="false"/>
-            <line number="11" hits="1" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="10" hits="1" branch="false"/>
             <line number="17" hits="1" branch="false"/>
-            <line number="24" hits="1" branch="false"/>
+            <line number="21" hits="1" branch="false"/>
             <line number="28" hits="1" branch="false"/>
-            <line number="38" hits="1" branch="false"/>
+            <line number="32" hits="1" branch="false"/>
+            <line number="52" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>
@@ -1603,6 +1606,123 @@
             <line number="12" hits="1" branch="false"/>
             <line number="13" hits="5" branch="false"/>
             <line number="49" hits="1" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="components.organisms.CollectionGrid" line-rate="0.8461" branch-rate="0.9285">
+      <classes>
+        <class name="CollectionGrid.stories.tsx" filename="components/organisms/CollectionGrid/CollectionGrid.stories.tsx" line-rate="0" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="0" signature="()V">
+              <lines>
+                <line number="13" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="2" hits="0" branch="false"/>
+            <line number="3" hits="0" branch="false"/>
+            <line number="5" hits="0" branch="false"/>
+            <line number="14" hits="0" branch="false"/>
+            <line number="21" hits="0" branch="false"/>
+            <line number="24" hits="0" branch="false"/>
+          </lines>
+        </class>
+        <class name="fetchCollectionAPI.ts" filename="components/organisms/CollectionGrid/fetchCollectionAPI.ts" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_8)" hits="6" signature="()V">
+              <lines>
+                <line number="5" hits="6"/>
+              </lines>
+            </method>
+            <method name="(anonymous_9)" hits="6" signature="()V">
+              <lines>
+                <line number="5" hits="6"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="3" hits="1" branch="false"/>
+            <line number="5" hits="6" branch="false"/>
+            <line number="7" hits="6" branch="false"/>
+            <line number="8" hits="6" branch="false"/>
+            <line number="9" hits="5" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="12" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="index.tsx" filename="components/organisms/CollectionGrid/index.tsx" line-rate="1" branch-rate="0.9">
+          <methods>
+            <method name="(anonymous_1)" hits="12" signature="()V">
+              <lines>
+                <line number="5" hits="12"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="14" signature="()V">
+              <lines>
+                <line number="31" hits="14"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="1" branch="false"/>
+            <line number="2" hits="1" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="12" branch="false"/>
+            <line number="7" hits="12" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="8" hits="12" branch="false"/>
+            <line number="12" hits="12" branch="false"/>
+            <line number="13" hits="12" branch="false"/>
+            <line number="15" hits="12" branch="false"/>
+            <line number="32" hits="14" branch="false"/>
+            <line number="43" hits="1" branch="false"/>
+          </lines>
+        </class>
+        <class name="useCollection.tsx" filename="components/organisms/CollectionGrid/useCollection.tsx" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_1)" hits="8" signature="()V">
+              <lines>
+                <line number="5" hits="8"/>
+              </lines>
+            </method>
+            <method name="(anonymous_2)" hits="6" signature="()V">
+              <lines>
+                <line number="8" hits="6"/>
+              </lines>
+            </method>
+            <method name="(anonymous_3)" hits="3" signature="()V">
+              <lines>
+                <line number="12" hits="3"/>
+              </lines>
+            </method>
+            <method name="(anonymous_4)" hits="1" signature="()V">
+              <lines>
+                <line number="17" hits="1"/>
+              </lines>
+            </method>
+            <method name="(anonymous_5)" hits="6" signature="()V">
+              <lines>
+                <line number="24" hits="6"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="1" hits="1" branch="false"/>
+            <line number="3" hits="1" branch="false"/>
+            <line number="5" hits="1" branch="false"/>
+            <line number="6" hits="8" branch="false"/>
+            <line number="8" hits="8" branch="false"/>
+            <line number="9" hits="6" branch="false"/>
+            <line number="11" hits="6" branch="false"/>
+            <line number="13" hits="3" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="14" hits="2" branch="false"/>
+            <line number="18" hits="1" branch="true" condition-coverage="100% (1/1)"/>
+            <line number="19" hits="1" branch="false"/>
+            <line number="24" hits="6" branch="false"/>
+            <line number="25" hits="6" branch="false"/>
+            <line number="29" hits="8" branch="false"/>
+            <line number="34" hits="1" branch="false"/>
           </lines>
         </class>
       </classes>

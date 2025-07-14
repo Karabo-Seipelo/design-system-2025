@@ -13,24 +13,24 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Portrait: Story = {
+export const Primary: Story = {
   args: {
     collectionId: "cozy",
     name: "Cozy Comfort",
     description: "Plush fabrics and soothing designs",
-    imageUrl:
+    image_url:
       "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/collections/cozy-comfort.jpg",
-    layout: "portrait",
+    layout: "primary",
   },
 };
 
-export const Landscape: Story = {
+export const Secondary: Story = {
   args: {
     collectionId: "cozy",
     name: "Cozy Comfort",
     description: "Plush fabrics and soothing designs",
-    imageUrl:
+    image_url:
       "https://vaqybtnqyonvlwtskzmv.supabase.co/storage/v1/object/public/e-commerce-track-images/collections/cozy-comfort.jpg",
-    layout: "landscape",
+    layout: "secondary",
   },
 };
