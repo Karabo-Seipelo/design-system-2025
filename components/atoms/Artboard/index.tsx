@@ -6,7 +6,7 @@ interface ArtboardProps {
   classes?: string;
 }
 
-const Artboard: React.FC<ArtboardProps> = ({ children, classes }) => {
+const Artboard: React.FC<ArtboardProps> = ({ children }) => {
   const layoutClasses = classNames(
     "min-h-[calc(100vh_-_32px)] rounded-md bg-white",
     "shadow-sm md:shadow-md lg:shadow-lg"

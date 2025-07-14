@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="1785" lines-covered="1494" line-rate="0.8369" branches-valid="750" branches-covered="663" branch-rate="0.884" timestamp="1752497134471" complexity="0" version="0.1">
+<coverage lines-valid="1785" lines-covered="1494" line-rate="0.8369" branches-valid="750" branches-covered="663" branch-rate="0.884" timestamp="1752497592593" complexity="0" version="0.1">
   <sources>
     <source>/Users/karabo.seipelo/Personal/2025/desgin-system</source>
   </sources>
@@ -1633,22 +1633,22 @@
           <methods>
             <method name="(anonymous_8)" hits="6" signature="()V">
               <lines>
-                <line number="5" hits="6"/>
+                <line number="8" hits="6"/>
               </lines>
             </method>
             <method name="(anonymous_9)" hits="6" signature="()V">
               <lines>
-                <line number="5" hits="6"/>
+                <line number="8" hits="6"/>
               </lines>
             </method>
           </methods>
           <lines>
             <line number="3" hits="1" branch="false"/>
-            <line number="5" hits="6" branch="false"/>
-            <line number="7" hits="6" branch="false"/>
+            <line number="6" hits="1" branch="false"/>
             <line number="8" hits="6" branch="false"/>
-            <line number="9" hits="5" branch="true" condition-coverage="100% (2/2)"/>
-            <line number="12" hits="1" branch="false"/>
+            <line number="9" hits="6" branch="false"/>
+            <line number="10" hits="5" branch="true" condition-coverage="100% (2/2)"/>
+            <line number="13" hits="1" branch="false"/>
           </lines>
         </class>
         <class name="index.tsx" filename="components/organisms/CollectionGrid/index.tsx" line-rate="1" branch-rate="0.9">
