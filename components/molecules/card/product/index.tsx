@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const variantClasses = {
   primary: classNames("max-w-[594px] h-[580px]"),
-  secondary: classNames("max-w-[594px] h-[337px] md:[276px]"),
+  secondary: classNames("max-w-[594px] h-[337px] md:h-[276px]"),
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({

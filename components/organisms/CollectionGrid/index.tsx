@@ -1,8 +1,9 @@
 import useCollection from "./useCollection";
 import ProductCard from "$/molecules/card/product";
 import classNames from "classnames";
+import { CollectionGridProps } from "./interfaces";
 
-const CollectionGrid: React.FC = () => {
+const CollectionGrid: React.FC<CollectionGridProps> = ({ title }) => {
   const { collection } = useCollection();
   const [primary, ...rest] = collection || [];
   const cardClasses = classNames(
@@ -14,13 +15,13 @@ const CollectionGrid: React.FC = () => {
 
   return (
     <div className={cardClasses}>
-      <header className={headerClasses}>Our Collections</header>
+      <header className={headerClasses}>{title}</header>
       <div className={collectionClasses}>
         {primary && (
           <div className="flex-1">
             <ProductCard
               className="md:h-full"
-              key={primary.description}
+              key={primary.collectionId}
               {...primary}
               layout={"primary"}
             />

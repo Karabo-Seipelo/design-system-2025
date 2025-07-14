@@ -61,7 +61,7 @@ describe("CollectionGrid Component", () => {
   it("renders the component with header", () => {
     mockUseCollection.mockReturnValue({ collection: mockCollection });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
 
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByText("Our Collections")).toBeInTheDocument();
@@ -70,7 +70,7 @@ describe("CollectionGrid Component", () => {
   it("renders primary collection card when collection exists", () => {
     mockUseCollection.mockReturnValue({ collection: mockCollection });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
 
     expect(screen.getByTestId("product-card-primary")).toBeInTheDocument();
     expect(screen.getByText("Primary Collection")).toBeInTheDocument();
@@ -82,7 +82,7 @@ describe("CollectionGrid Component", () => {
   it("renders secondary collection cards when collection has multiple items", () => {
     mockUseCollection.mockReturnValue({ collection: mockCollection });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
 
     const secondaryCards = screen.getAllByTestId("product-card-secondary");
     expect(secondaryCards).toHaveLength(2);
@@ -95,7 +95,7 @@ describe("CollectionGrid Component", () => {
     const singleItemCollection = [mockCollection[0]];
     mockUseCollection.mockReturnValue({ collection: singleItemCollection });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
 
     expect(screen.getByTestId("product-card-primary")).toBeInTheDocument();
     expect(
@@ -106,7 +106,7 @@ describe("CollectionGrid Component", () => {
   it("renders correctly when collection is empty", () => {
     mockUseCollection.mockReturnValue({ collection: [] });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
 
     expect(screen.getByText("Our Collections")).toBeInTheDocument();
     expect(
@@ -120,7 +120,7 @@ describe("CollectionGrid Component", () => {
   it("renders correctly when collection is null", () => {
     mockUseCollection.mockReturnValue({ collection: null });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
 
     expect(screen.getByText("Our Collections")).toBeInTheDocument();
     expect(
@@ -134,7 +134,7 @@ describe("CollectionGrid Component", () => {
   it("applies correct CSS classes to main container", () => {
     mockUseCollection.mockReturnValue({ collection: mockCollection });
 
-    const { container } = render(<CollectionGrid />);
+    const { container } = render(<CollectionGrid title="Our Collections" />);
     const mainDiv = container.firstChild as HTMLElement;
 
     expect(mainDiv).toHaveClass(
@@ -152,7 +152,7 @@ describe("CollectionGrid Component", () => {
   it("applies correct CSS classes to header", () => {
     mockUseCollection.mockReturnValue({ collection: mockCollection });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
     const header = screen.getByText("Our Collections");
 
     expect(header).toHaveClass("font-semibold", "text-3xl", "text-neutral-900");
@@ -161,7 +161,7 @@ describe("CollectionGrid Component", () => {
   it("applies correct CSS classes to collection container", () => {
     mockUseCollection.mockReturnValue({ collection: mockCollection });
 
-    const { container } = render(<CollectionGrid />);
+    const { container } = render(<CollectionGrid title="Our Collections" />);
     const collectionDiv = container.querySelector(
       ".flex.flex-col.gap-7.md\\:flex-row"
     );
@@ -177,7 +177,7 @@ describe("CollectionGrid Component", () => {
   it("renders unique keys for each product card", () => {
     mockUseCollection.mockReturnValue({ collection: mockCollection });
 
-    const { container } = render(<CollectionGrid />);
+    const { container } = render(<CollectionGrid title="Our Collections" />);
     const cards = container.querySelectorAll('[data-testid^="product-card-"]');
 
     expect(cards).toHaveLength(3);
@@ -191,7 +191,7 @@ describe("CollectionGrid Component", () => {
     const primaryOnlyCollection = [mockCollection[0]];
     mockUseCollection.mockReturnValue({ collection: primaryOnlyCollection });
 
-    render(<CollectionGrid />);
+    render(<CollectionGrid title="Our Collections" />);
 
     expect(screen.getByTestId("product-card-primary")).toBeInTheDocument();
     expect(
@@ -199,7 +199,7 @@ describe("CollectionGrid Component", () => {
     ).not.toBeInTheDocument();
 
     // Should still render the secondary container div but without content
-    const { container } = render(<CollectionGrid />);
+    const { container } = render(<CollectionGrid title="Our Collections" />);
     const secondaryContainer = container.querySelector(
       ".flex-1.flex.flex-col.gap-7"
     );
