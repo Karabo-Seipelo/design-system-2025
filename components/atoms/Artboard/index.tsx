@@ -3,20 +3,16 @@ import classNames from "classnames";
 
 interface ArtboardProps {
   children?: ReactNode;
-  classes?: string;
 }
 
-const Artboard: React.FC<ArtboardProps> = ({ children, classes }) => {
+const Artboard: React.FC<ArtboardProps> = ({ children }) => {
   const layoutClasses = classNames(
-    "mx-auto min-h-auto max-w-[1440px]",
-    "shadow-sm md:shadow-md lg:shadow-lg",
-    "rounded-md bg-white",
+    "min-h-[calc(100vh_-_32px)] rounded-md bg-white",
+    "shadow-sm md:shadow-md lg:shadow-lg"
   );
   return (
-    <main className="min-h-screen p-4">
-      <div className={layoutClasses}>
-        <section className={`${classes}`}>{children}</section>
-      </div>
+    <main className="mx-auto min-h-screen max-w-[1440px] p-4">
+      <div className={layoutClasses}>{children}</div>
     </main>
   );
 };
